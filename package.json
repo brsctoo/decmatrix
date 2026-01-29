@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.28.1",
     "katex": "^0.16.27",
     "next": "16.1.3",

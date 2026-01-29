@@ -5,6 +5,8 @@ import Basebord from "../../components/Basebord";
 import { notFound } from "next/navigation";
 import { languages } from "../../../constants/language";
 
+import { Analytics } from "@vercel/analytics/next"
+
 // IMPORTAÇÕES DO NEXT-INTL
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -51,7 +53,8 @@ export default async function RootLayout({ children, params }) {
             {/* Agora a LateralBar pode usar o hook useTranslations() */}
             <LateralBar />
             <Basebord />
-
+            
+            <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
