@@ -7,6 +7,7 @@ import React from "react";
 import Article from "@/components/Article";
 import InputField from "@/components/InputField";
 import GenericChart from "@/components/GenericChart";
+import { useTranslations } from "next-intl";
 import quadraticEquationExample from "@/assets/quadratic_equation_example.png";
 import quadraticEquationResultExample01 from "@/assets/quadratic_equation_result_example01.png";
 import quadraticEquationResultExample02 from "@/assets/quadratic_equation_result_example02.png";
@@ -79,6 +80,7 @@ function generateChartData(a, b, c, root1 = null, root2 = null, delta, rangeSize
 
 
 function quadratic_equation_calculator() {
+  const t = useTranslations("QuadraticEquationCalculator");
 
   const [chartData, setChartData] = React.useState([]);
   const [results, setResults] = React.useState(null);
@@ -88,18 +90,20 @@ function quadratic_equation_calculator() {
     b: "",
     c: "",
   });
+
+  const equationText = `${value.a}x² + ${value.b}x + ${value.c} = 0`;
   
   function handleChange(event) {
     var newValue = event.target.value;
     const inputName = event.target.name;
 
     if (newValue.length > 9) {
-      alert("O valor máximo permitido é de 9 caracteres.");
+      alert(t("alertMaxCharacters"));
       return; // Limita o tamanho do input para 9 caracteres
     }
 
     if (inputName === "a" && newValue === "0") {
-      alert("O coeficiente 'a' não pode ser zero em uma equação do segundo grau.");
+      alert(t("alertACannotBeZero"));
       return; // Impede que 'a' seja zero
     }
 
@@ -118,12 +122,12 @@ function quadratic_equation_calculator() {
     const numC = Number(c);
 
     if (numA === 0 || Number.isNaN(numA) || Number.isNaN(numB) || Number.isNaN(numC)) {
-      alert("Por favor, insira valores numéricos válidos para os coeficientes, e certifique-se de que 'a' não seja zero.");
+      alert(t("alertWrongValues"));
       return;
     }
 
     if (b === "" || c === "") { 
-      alert("Por favor, insira valores numéricos válidos para os coeficientes 'b' e 'c'.");
+      alert(t("alertBCEmpty"));
       return; 
     }
 
@@ -183,46 +187,43 @@ function quadratic_equation_calculator() {
 
   return (
     <div>
-      <h1 className={tStyle.mainTitle}>Equação do Segundo Grau</h1>
+      <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
       <div className={style.inputFieldsContainer}>
         <InputField 
-          label="Coeficiente a"
+          label={t("inputCoefficientA.label")}
           name="a"
           value={value.a}
           onChange={handleChange}
           type="number"
           placeholder={"0"}
-          info="O coeficiente 'a' é o valor que multiplica o termo quadrático (x²) na equação do 
-          segundo grau. Ele determina a concavidade da parábola representada pela equação."
+          info={t("inputCoefficientA.info")}
         >
         </InputField>
 
         <InputField
-          label="Coeficiente b"
+          label={t("inputCoefficientB.label")}
           name="b"
           value={value.b}
           onChange={handleChange}
           type="number"
           placeholder={"0"}
-          info="O coeficiente 'b' é o valor que multiplica o termo linear (x) na equação do segundo grau. 
-          Ele influencia a inclinação da parábola representada pela equação."
+          info={t("inputCoefficientB.info")}
         >
         </InputField>
 
         <InputField
-          label="Coeficiente c"
+          label={t("inputCoefficientC.label")}
           name="c"
           value={value.c}
           onChange={handleChange}
           placeholder={"0"}
           type="number"
-          info="O coeficiente 'c' é o termo constante na equação do segundo grau. Ele determina o ponto 
-          onde a parábola intercepta o eixo y."
+          info={t("inputCoefficientC.info")}
         >
         </InputField>
 
         <div className={tStyle.interativeFormulaCard}>
-          Equação montada
+          {t("equationBuilt")}
 
           <p style={{ fontSize: '1.5rem', fontFamily: 'serif' }}>
   
@@ -276,7 +277,7 @@ function quadratic_equation_calculator() {
 
         <div className={style.buttonContainer}>
           <ReactiveButton 
-            label="Calcular Raízes" 
+            label={t("result.buttonLabel")} 
             onClick={() => calculateQuadraticRoots(
               value.a,
               value.b,
@@ -288,23 +289,23 @@ function quadratic_equation_calculator() {
         <div className={style.resultContainer}>
           {results && (
           <div className={style.resultsCard}>
-            <h3 className={style.cardTitle}>Raízes da equação</h3>
+            <h3 className={style.cardTitle}>{t("result.rootsTitle")}</h3>
             <div className={style.resultRow}>
-              <span className={style.resultLabel}>Raíz 1</span>
+              <span className={style.resultLabel}>{t("result.root1")}</span>
               <span className={style.resultValue}>{results.roots.root1}</span>
               <span className={style.quadraticFraction}>
                 {results.roots.root1_fraction}
               </span>
             </div>
             <div className={style.resultRow}>
-              <span className={style.resultLabel}>Raíz 2</span>
+              <span className={style.resultLabel}>{t("result.root2")}</span>
               <span className={style.resultValue}>{results.roots.root2}</span>
               <span className={style.quadraticFraction}>
                 {results.roots.root2_fraction}
               </span>
             </div>
             <div className={style.resultRow}>
-              <span className={style.resultLabel}>Delta</span>
+              <span className={style.resultLabel}>{t("result.delta")}</span>
               <span className={style.resultValue}>{results.delta}</span>
             </div>
           </div>
@@ -315,7 +316,7 @@ function quadratic_equation_calculator() {
       {chartData.length > 0 && (
         <div className={style.chartSection}>
           <div className={style.chartWrapper}>
-            <h3 className={style.cardTitle}>Gráfico da equação</h3>
+            <h3 className={style.cardTitle}>{t("result.equationGraph")}</h3>
             <GenericChart 
               chartType="line"
               data={chartData}
@@ -351,37 +352,35 @@ function quadratic_equation_calculator() {
       )}
 
       {results && (
-        <Article title="Passo a passo da resolução">
+        <Article title={t("stepByStep.title")}>
           <div className={tStyle.textSection}>
             <div className={tStyle.infoHighlight}>
               <ol className={tStyle.stepList}>
                 <li>
-                  <strong>Identifique os coeficientes:</strong> Na equação {value.a}x² + {value.b}x + {value.c} = 0, 
-                  nós temos que o a = {value.a}, b = {value.b} e c = {value.c}.
+                  <strong>{t("stepByStep.step1")}</strong> {t("stepByStep.step1Content", { equation: equationText, a: value.a, b: value.b, c: value.c })}
                 </li>
                 <li>
-                  <strong>Calcule o discriminante (delta) (Δ):</strong> Usando a fórmula Δ = b² - 4ac
-                  para calcular o valor do delta, temos:
+                  <strong>{t("stepByStep.step2")}</strong> {t("stepByStep.step2Content")}
                   <div className={style.quadraticDeltaFormulaCard}>
                       <MathDisplay equation={`\\mathbf{\\Delta = (${value.b})^2 - 4 \\times (${value.a}) \\times (${value.c})}`} />
                       <MathDisplay equation={`\\mathbf{\\Delta = ${value.b ** 2} - ${4 * value.a * value.c}}`} />
                       <MathDisplay equation={`\\mathbf{\\Delta = ${results.delta}}`} />
                   </div>
                   </li>
-                <li><strong>Determine o número de raízes:</strong>
+                <li><strong>{t("stepByStep.step3")}</strong>
                   <ul className={tStyle.subStepList}>
                     {results.delta > 0 && (
-                      <p>Como Δ {'>'} 0, já que delta = {results.delta}, a equação tem duas raízes reais e distintas.</p>
+                      <p>{t("stepByStep.deltaPositive")}</p>
                     )}
                     {results.delta === 0 && (
-                      <li>Como Δ = 0, já que delta = {results.delta}, a equação tem uma raiz real dupla.</li>
+                      <li>{t("stepByStep.deltaZero")}</li>
                     )}
                     {results.delta < 0 && (
-                      <li>Como Δ {'<'} 0, já que delta = {results.delta}, a equação não tem raízes reais (as raízes são complexas).</li>
+                      <li>{t("stepByStep.deltaNegative")}</li>
                     )}
                   </ul>
                 </li>
-                <li><strong>Calcule as raízes:</strong> Usando a fórmula de Bhaskara para encontrar as raízes:
+                <li><strong>{t("stepByStep.step4")}</strong> {t("stepByStep.step4Content")}
                   <div className={style.quadraticFormulaCard}>
                       <MathDisplay equation={`\\mathbf{x =\\frac{-b ± \\sqrt{Δ}}{2a}}`} />
                       
@@ -392,13 +391,7 @@ function quadratic_equation_calculator() {
                       </div>
                       
                       {results.delta >= 0 ? (
-                        // Resultado em forma simplificada (número)
                         <div>
-                          <div className={style.quadraticResultsFormulaCard}>
-                            <MathDisplay equation={`\\mathbf{x₁ =\\frac{${-value.b} + {${Math.sqrt(results.delta)}}}{${2 * value.a}}}`} />
-                            <MathDisplay equation={`\\mathbf{x₂ =\\frac{${-value.b} - {${Math.sqrt(results.delta)}}}{${2 * value.a}}}`} />
-                          </div>
-
                           <div className={style.quadraticResultsFormulaCard}>
                             <MathDisplay equation={`\\mathbf{x₁ =\\frac{${(-value.b + Math.sqrt(results.delta))}}{${2 * value.a}}}`} />
                             <MathDisplay equation={`\\mathbf{x₂ =\\frac{${(-value.b - Math.sqrt(results.delta))}}{${2 * value.a}}}`} />
@@ -421,158 +414,143 @@ function quadratic_equation_calculator() {
                       
                   </div>
                 </li>
-                <li><strong>Interprete os resultados:</strong> Analise as raízes encontradas e interprete seu significado no contexto do problema.</li>
+                <li><strong>{t("stepByStep.step5")}</strong> {t("stepByStep.step5Content")}</li>
               </ol>
             </div>
             <p className={tStyle.textParagraph}>
-              Seguindo esses passos, você poderá resolver qualquer equação do segundo grau e encontrar suas raízes.
+              {t("stepByStep.conclusion")}
             </p>
           </div>
         </Article>)}      
     
-      <Article title="O que é uma Equação do Segundo Grau?">
+      <Article title={t("definitionSection.title")}>
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            Uma equação do segundo grau, também conhecida como equação quadrática, é uma equação polinomial de grau 
-            dois que pode ser expressa na forma padrão:
+            {t("definitionSection.intro")}
           </p>
 
           <div className={tStyle.formulaCard}>
             <span>
-              ax² + bx + c = 0
+              {t("definitionSection.formula")}
             </span>
           </div>
 
           <ul className={tStyle.symbolLegend}>
-            <li><strong>a</strong>, <strong>b</strong> e <strong>c</strong> são coeficientes reais, 
-              com <strong>a ≠ 0</strong>;
-              </li>
-            <li><strong>x</strong> representa a variável ou incógnita que queremos encontrar.</li>
+            <li>{t.rich("definitionSection.symbolAB", { strong: (children) => <strong>{children}</strong> })}</li>
+            <li>{t.rich("definitionSection.symbolX", { strong: (children) => <strong>{children}</strong> })}</li>
           </ul>
 
           <p className={tStyle.textParagraph}>
-            Perceba que o coeficiente <strong>a</strong> não pode ser zero, pois, caso contrário, a equação polinomial
-            deixaria de ser do segundo grau e se tornaria uma equação do primeiro grau (linear). 
+            {t.rich("definitionSection.explanation", { strong: (children) => <strong>{children}</strong> })}
           </p>
-
-          
         </div>
       </Article>
 
-      <Article title="Como funciona as raízes de uma Equação do Segundo Grau?">
+      <Article title={t("rootsSection.title")}>
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            As raízes de uma equação do segundo grau são os valores de x que satisfazem a equação ax² + bx + c = 0.
+            {t("rootsSection.intro")}
           </p>
 
           <div className={tStyle.infoHighlight}>
             <p className={tStyle.textParagraph}>
-              <strong>Exemplo rápido:</strong> Na equação x² - 5x + 6 = 0, as raízes são x₁ = 2 e x₂ = 3,
-              pois substituindo esses valores na equação, obtemos 0.
+              {t.rich("rootsSection.example", { strong: (children) => <strong>{children}</strong> })}
             </p>
           </div>
         </div>
       </Article>
 
-      <Article title="Passo a passo de como achar as raízes de uma Equação do Segundo Grau">
+      <Article title={t("resolutionGuide.title")}>
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            Resolver uma equação do segundo grau envolve encontrar os valores de x que satisfazem a equação na forma padrão 
-            ax² + bx + c = 0. Aqui está um passo a passo para resolver esse tipo de equação:
+            {t("resolutionGuide.intro")}
           </p>
           <div className={tStyle.infoHighlight}>
             <ol className={tStyle.stepList}>
-              <li><strong>Identifique os coeficientes:</strong> Na equação ax² + bx + c = 0, identifique os valores de a, b e c.</li>
-              <li><strong>Calcule o delta (Δ):</strong> Use a fórmula Δ = b² - 4ac para calcular o valor do delta.</li>
-              <li><strong>Determine o número de raízes:</strong>
+              <li><strong>{t("stepByStep.step1")}</strong> {t("resolutionGuide.step1")}</li>
+              <li><strong>{t("stepByStep.step2")}</strong> {t("resolutionGuide.step2")}</li>
+              <li><strong>{t("stepByStep.step3")}</strong>
                 <ul className={tStyle.subStepList}>
-                  <li>Se Δ {'>'} 0, a equação tem duas raízes reais e distintas.</li>
-                  <li>Se Δ = 0, a equação tem uma raiz real dupla.</li>
-                  <li>Se Δ {'<'} 0, a equação não tem raízes reais (as raízes são complexas).</li>
+                  <li>{t("resolutionGuide.step3a")}</li>
+                  <li>{t("resolutionGuide.step3b")}</li>
+                  <li>{t("resolutionGuide.step3c")}</li>
                 </ul>
               </li>
-              <li><strong>Calcule as raízes:</strong> Use a fórmula de Bhaskara para encontrar as raízes:
+              <li><strong>{t("stepByStep.step4")}</strong> {t("resolutionGuide.step4")}
                 <div className={style.quadraticFormulaCard}>
                   <span>
                     <MathDisplay equation={`\\mathbf{x =\\frac{-b ± \\sqrt{Δ}}{2a}}`} />
                   </span>
                 </div>
               </li>
-              <li><strong>Interprete os resultados:</strong> Analise as raízes encontradas e interprete seu significado no contexto do problema.</li>
+              <li><strong>{t("stepByStep.step5")}</strong> {t("resolutionGuide.step5")}</li>
             </ol>
           </div>
           <p className={tStyle.textParagraph}>
-            Seguindo esses passos, você poderá resolver qualquer equação do segundo grau e encontrar suas raízes.
+            {t("resolutionGuide.conclusion")}
           </p>
         </div>
       </Article>
 
-      <Article title="Como utilizar o resolvedor de Equações do Segundo Grau?">
+      <Article title={t("usageTutorial.title")}>
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            Para utilizar o resolvedor de Equações do Segundo Grau, siga os passos abaixo:
+            {t("usageTutorial.intro")}
           </p>
 
           <div className={tStyle.infoHighlight}>
             <ol className={tStyle.stepList}>
-              <li>Informe qual o coeficiente <strong>a</strong> da equação.</li>
-              <li>Informe qual o coeficiente <strong>b</strong> da equação. O coeficiente b é o responsável pelo termo linear.</li>
-              <li>Informe qual o coeficiente <strong>c</strong> da equação. O coeficiente c é o termo constante.</li>
-              <li>Clique no botão "Calcular" para ver os resultados.</li>
+              <li>{t.rich("usageTutorial.step1", { strong: (children) => <strong>{children}</strong> })}</li>
+              <li>{t.rich("usageTutorial.step2", { strong: (children) => <strong>{children}</strong> })}</li>
+              <li>{t.rich("usageTutorial.step3", { strong: (children) => <strong>{children}</strong> })}</li>
+              <li>{t.rich("usageTutorial.step4", { strong: (children) => <strong>{children}</strong> })}</li>
             </ol>
           </div>
 
           <p className={tStyle.textParagraph}>
-            Após clicar no botão, a calculadora exibirá resultados da equação inserida, incluindo as raízes da equação, o gráfico e outras 
-            informações relevantes. Além disso, serão apresentados gráficos que ilustram a forma da parábola representada pela equação do 
-            segundo grau.
+            {t("usageTutorial.conclusion")}
           </p>
 
-          <h2 className={tStyle.sectionHeading}>Exemplo</h2>
+          <h2 className={tStyle.sectionHeading}>{t("exampleCalculation.title")}</h2>
 
           <div className={tStyle.exampleCard}>
             <p className={tStyle.textParagraph}>
-              Suponha que você tenha a equação do segundo grau x² - 5x + 6 = 0.
+              {t("exampleCalculation.scenario")}
             </p>
             <img
               src={quadraticEquationExample.src}
-              alt="Exemplo de equação do segundo grau"
+              alt={t("exampleCalculation.imageAlt1")}
               className={style.imageAttribution}
             />
             <p className={tStyle.textParagraph}>
-              Ao inserir esses valores no resolvedor e clicar em "Calcular Raízes", você obterá as raízes x₁ = 2 e x₂ = 3, e o delta (Δ) = 1. 
-              Além disso, também será exibido o gráfico da parábola correspondente à equação.
+              {t("exampleCalculation.description")}
             </p>
             <img
               src={quadraticEquationResultExample01.src}
-              alt="Exemplo de resultado do cálculo da equação do segundo grau"
+              alt={t("exampleCalculation.imageAlt2")}
               className={style.imageAttribution}
             />
             <img
               src={quadraticEquationResultExample02.src}
-              alt="Exemplo de resultado do cálculo da equação do segundo grau"
+              alt={t("exampleCalculation.imageAlt2")}
               className={style.imageAttribution}
             />
           </div>
         </div>
       </Article>
 
-      <Article title="Gráfico de uma Equação do Segundo Grau">
+      <Article title={t("graphSection.title")}>
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            O gráfico de uma equação do segundo grau é uma parábola, que pode abrir para cima ou para baixo dependendo do 
-            valor do coeficiente 'a'. Se 'a' for positivo, a parábola abre para cima; se 'a' for negativo, a parábola abre 
-            para baixo.
+            {t("graphSection.intro")}
           </p>
 
           <p className={tStyle.textParagraph}>
-            A parábola é simétrica em relação a uma linha vertical chamada de eixo de simetria, que passa pelo vértice da parábola.
-            Isso significa que os pontos equidistantes do eixo de simetria têm o mesmo valor de y. 
+            {t("graphSection.symmetry")}
           </p>
 
           <p className={tStyle.textParagraph}>
-            Além disso, também é possível identificar pontos importantes no gráfico, como o vértice, que é o ponto mais alto 
-            ou mais baixo da parábola. O vértice pode ser calculado usando as fórmulas:
+            {t("graphSection.vertex")}
           </p>
           
           <div className={tStyle.formulaCard}>
@@ -582,67 +560,55 @@ function quadratic_equation_calculator() {
           </div>
 
           <ul className={tStyle.symbolLegend}>
-            <li><strong>a, b</strong> — coeficientes da equação do segundo grau.</li>
-            <li><strong>Δ</strong> — delta da equação do segundo grau.</li>
+            <li>{t.rich("graphSection.symbolAB", { strong: (children) => <strong>{children}</strong> })}</li>
+            <li>{t.rich("graphSection.symbolDelta", { strong: (children) => <strong>{children}</strong> })}</li>
           </ul>
         </div>
       </Article>
 
-      <Article title="Fatoração de Equações do Segundo Grau">
+      <Article title={t("factorization.title")}>
         <p className={tStyle.textParagraph}>
-          A fatoração de uma equação do segundo grau é um método utilizado para expressar a equação na forma de um produto de dois 
-          binômios. A fatoração é da forma:
+          {t("factorization.intro")}
         </p>
 
         <div className={tStyle.formulaCard}>
           <span>
-            ax² + bx + c = a(x - x₁)(x - x₂)
+            {t("factorization.formula")}
           </span>
         </div>
 
         <ul className={tStyle.symbolLegend}>
-          <li><strong>a, b, c</strong> — coeficientes da equação do segundo grau.</li>
-          <li><strong>x₁, x₂</strong> — raízes da equação do segundo grau.</li>
+          <li>{t.rich("factorization.symbolABC", { strong: (children) => <strong>{children}</strong> })}</li>
+          <li>{t.rich("factorization.symbolRoots", { strong: (children) => <strong>{children}</strong> })}</li>
         </ul>
 
         <div className={tStyle.infoHighlight}>
           <p className={tStyle.textParagraph}>
-            <strong>Exemplo rápido:</strong> A equação x² - 5x + 6 = 0, fatora-se como (x - 2)(x - 3) = 0.
-            Veja que o produto (x - 2)(x - 3) resulta em 0 tanto se (x - 2) = 0 quanto se (x - 3) = 0,
-            o que torna fácil de perceber que as raízes são x₁ = 2 e x₂ = 3.
+            {t.rich("factorization.example01", { strong: (children) => <strong>{children}</strong> })}
           </p>
         </div>
 
         <div className={tStyle.infoHighlight}>
           <p className={tStyle.textParagraph}>
-            <strong>Mais um exemplo rápido:</strong> Além de ser fácil achar as raízes na forma fatorada, também
-            é possível acharmos a forma fatorada a partir das raízes. Por exemplo, se temos as raízes x₁ = 4 e x₂ = -1,
-            podemos montar a forma fatorada como (x - 4)(x + 1) = 0. Por curiosidade, expandindo esse produto, obtemos a equação
-            x² - 3x - 4 = 0.
+            {t.rich("factorization.example02", { strong: (children) => <strong>{children}</strong> })}
           </p>
         </div>
         
         <p className={tStyle.textParagraph}>
-          A fatoração é uma ferramenta útil para resolver equações do segundo grau, especialmente quando as raízes são 
-          números racionais. Também é interessante notar que se as raízes forem complexas, a fatoração pode ser expressa
-          em termos de números complexos. Além disso, se o delta (Δ) for 0, a fatoração resultará em um binômio ao quadrado.
+          {t("factorization.conclusion")}
         </p>
       </Article>
 
-      <Article title="Equações do segundo grau na vida real">
+      <Article title={t("realWorld.title")}>
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            As equações do segundo grau são amplamente utilizadas em diversas áreas da vida real, incluindo física, engenharia, 
-            economia e biologia. Elas são particularmente úteis para modelar situações que envolvem movimento, crescimento e 
-            otimização.
+            {t("realWorld.intro")}
           </p>
         </div>
 
         <div className={tStyle.textSection}>
           <p className={tStyle.textParagraph}>
-            Alguns exemplos práticos incluem: trajetórias de objetos em queda livre, cálculo de áreas máximas, análise de lucros e perdas,
-            e modelagem de populações biológicas. As equações do segundo grau ajudam a descrever e prever comportamentos complexos 
-            em sistemas naturais e artificiais.
+            {t("realWorld.examples")}
           </p>
         </div>
       </Article>

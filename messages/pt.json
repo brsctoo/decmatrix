@@ -304,6 +304,272 @@
 
             "interestFormulaIntro": "O juros é sempre calculado como sendo o montante final menos o total investido (capital inicial + somatório das contribuições). Logo:"
         }
+    },
+
+    "SimpleInterestCalculator": {
+        "alertWrongValues": "Por favor, preencha os campos corretamente.",
+
+        "mainTitle": "Calculadora de Juros Simples",
+
+        "inputCapital": {
+            "label": "Capital Inicial (R$)",
+            "info": "O capital inicial é o valor que você vai investir ou emprestar no início do período."
+        },
+
+        "inputInterest": {
+            "label": "Taxa de juros (%)",
+            "info": "A taxa de juros é o percentual que será aplicado sobre o capital inicial durante o período. Pode ser mensal ou anual.",
+            "selectMonthly": "Mensal",
+            "selectYearly": "Anual"
+        },
+
+        "inputPeriod": {
+            "label": "Período (t)",
+            "info": "O tempo é o período durante o qual os juros serão aplicados. Pode ser em meses ou anos.",
+            "selectMonths": "Meses",
+            "selectYears": "Anos"
+        },
+
+        "result": {
+            "buttonLabel": "Calcular Juros Simples",
+            "summaryTitle": "Resumo do investimento",
+            "investedLabel": "Total investido",
+            "interestLabel": "Total de juros",
+            "finalLabel": "Montante final",
+            "evolutionGraph": "Gráfico de evolução"
+        },
+
+        "usageTutorial": {
+            "title": "Como utilizar a calculadora de juros simples",
+            "intro": "Para utilizar a calculadora de juros simples, siga os passos abaixo:",
+            "step1": "Insira o capital inicial que você deseja investir ou emprestar no campo \"Capital Inicial (R$)\".",
+            "step2": "Informe a taxa de juros no campo \"Taxa de juros (%)\". Selecione se a taxa é mensal ou anual no menu suspenso ao lado.",
+            "step3": "Defina o período durante o qual os juros serão aplicados no campo \"Período (t)\". Escolha se o período está em meses ou anos no menu suspenso correspondente.",
+            "step4": "Clique no botão \"Calcular Juros Simples\" para ver os resultados.",
+            "conclusion": "Após clicar no botão, a calculadora exibirá um resumo do investimento, incluindo o total investido, o total de juros e o montante final. Além disso, serão apresentados gráficos que ilustram a distribuição do montante e a evolução do investimento ao longo do tempo."
+        },
+
+        "exampleCalculation": {
+            "title": "Exemplo",
+            "intro": "Suponha que você invista R$ 1.000,00 com uma taxa de juros anual de 12% por um período de 2 anos.",
+            "imageAlt1": "Exemplo de cálculo de juros simples",
+            "description": "Ao inserir esses valores na calculadora e clicar em \"Calcular Juros Simples\", você verá o resumo do investimento e os gráficos correspondentes, permitindo visualizar claramente como seu investimento cresce ao longo do tempo graças aos juros simples.",
+            "imageAlt2": "Exemplo de resultado do cálculo de juros simples"
+        },
+
+        "definitionSection": {
+            "title": "O que são Juros Simples?",
+            "intro": "Juros simples calculam ganhos apenas sobre o capital inicial, sem acumular os juros ao longo do tempo.",
+            "example": "<strong>Exemplo rápido:</strong> investindo R$ 100,00 a 10% ao ano, você encerra o primeiro ano com R$ 110,00. No segundo, os juros incidem sobre R$ 100,00 e geram R$ 10,00, fechando o período com R$ 120,00.",
+            "limitations": "Esse mecanismo não é o mais usado em investimentos, empréstimos e financiamentos, pois não aproveita o potencial de crescimento dos juros compostos. Além disso, não reflete a realidade de muitos mercados financeiros, onde os juros são capitalizados periodicamente.",
+            "compareLink": "Precisa comparar com juros compostos? Visite a <a href=\"/{locale}/compound-interest-calculator\">nossa calculadora de juros compostos</a> para ver os resultados lado a lado."
+        },
+
+        "comparativeSection": {
+            "title": "Diferença entre juros simples e compostos",
+            "intro": "Juros simples sempre miram apenas o capital inicial. Juros compostos acumulam cada ganho e o reinvestem, crescendo em ritmo acelerado a cada período.",
+            "example": "<strong>Comparando:</strong> com 10% ao ano, os juros compostos vão render mais conforme o tempo passa. Enquanto isso, os juros simples vão render sempre o mesmo tanto anualmente. Ou seja, se investirmos R$ 100,00 a 10% ao ano, em 10 anos teremos: R$ 200,00 totais em juros simples versus R$ 259,37 totais em juros compostos."
+        },
+
+        "formularySection": {
+            "title": "Fórmulas dos Juros Simples",
+            "intro": "Diferente dos juros compostos, temos fórmulas mais diretas para calcular o montante final em juros simples.",
+            "basicFormulaTitle": "Fórmula básica dos Juros Simples",
+            "basicFormula": "M = C × (1 + i × t)",
+            "symbolM": "<strong>M</strong> — montante final (capital + juros).",
+            "symbolC": "<strong>C</strong> — capital inicial aplicado.",
+            "symbolI": "<strong>i</strong> — taxa de juros por período (decimal: 5% = 0.05).",
+            "symbolT": "<strong>t</strong> — quantidade de períodos de capitalização.",
+            "formulaExplanation": "Com essa fórmula, você pode calcular o montante final (M) ao investir um capital inicial (C) a uma taxa de juros (i) por um determinado número de períodos (t).",
+            "interestCalculation": "Assim como nos juros compostos, o juros é calculado por M - C, ou seja, o montante menos o capital inicial.",
+            "interestFormula": "J = C × i × t = M - C"
+        }
+    },
+
+    "QuadraticEquationCalculator": {
+        "alertWrongValues": "Por favor, insira valores numéricos válidos para os coeficientes, e certifique-se de que 'a' não seja zero.",
+        "alertMaxCharacters": "O valor máximo permitido é de 9 caracteres.",
+        "alertACannotBeZero": "O coeficiente 'a' não pode ser zero em uma equação do segundo grau.",
+        "alertBCEmpty": "Por favor, insira valores numéricos válidos para os coeficientes 'b' e 'c'.",
+
+        "mainTitle": "Equação do Segundo Grau",
+
+        "inputCoefficientA": {
+            "label": "Coeficiente a",
+            "info": "O coeficiente 'a' é o valor que multiplica o termo quadrático (x²) na equação do segundo grau. Ele determina a concavidade da parábola representada pela equação."
+        },
+
+        "inputCoefficientB": {
+            "label": "Coeficiente b",
+            "info": "O coeficiente 'b' é o valor que multiplica o termo linear (x) na equação do segundo grau. Ele influencia a inclinação da parábola representada pela equação."
+        },
+
+        "inputCoefficientC": {
+            "label": "Coeficiente c",
+            "info": "O coeficiente 'c' é o termo constante na equação do segundo grau. Ele determina o ponto onde a parábola intercepta o eixo y."
+        },
+
+        "equationBuilt": "Equação montada",
+
+        "result": {
+            "buttonLabel": "Calcular Raízes",
+            "rootsTitle": "Raízes da equação",
+            "root1": "Raíz 1",
+            "root2": "Raíz 2",
+            "delta": "Delta",
+            "equationGraph": "Gráfico da equação"
+        },
+
+        "stepByStep": {
+            "title": "Passo a passo da resolução",
+            "step1": "Identifique os coeficientes:",
+            "step2": "Calcule o discriminante (delta) (Δ):",
+            "step3": "Determine o número de raízes:",
+            "step4": "Calcule as raízes:",
+            "step5": "Interprete os resultados:",
+            "step1Content": "Na equação {equation}, temos a = {a}, b = {b} e c = {c}.",
+            "step2Content": "Usando a fórmula Δ = b² - 4ac para calcular o valor do delta, temos:",
+            "step4Content": "Usando a fórmula de Bhaskara para encontrar as raízes:",
+            "step5Content": "Analise as raízes encontradas e interprete seu significado no contexto do problema.",
+            "conclusion": "Seguindo esses passos, você poderá resolver qualquer equação do segundo grau e encontrar suas raízes.",
+            "deltaPositive": "Como Δ > 0, a equação tem duas raízes reais e distintas.",
+            "deltaZero": "Como Δ = 0, a equação tem uma raiz real dupla.",
+            "deltaNegative": "Como Δ < 0, a equação não tem raízes reais (as raízes são complexas)."
+        },
+
+        "definitionSection": {
+            "title": "O que é uma Equação do Segundo Grau?",
+            "intro": "Uma equação do segundo grau, também conhecida como equação quadrática, é uma equação polinomial de grau dois que pode ser expressa na forma padrão:",
+            "formula": "ax² + bx + c = 0",
+            "symbolAB": "<strong>a</strong>, <strong>b</strong> e <strong>c</strong> são coeficientes reais, com <strong>a ≠ 0</strong>.",
+            "symbolX": "<strong>x</strong> representa a variável ou incógnita que queremos encontrar.",
+            "explanation": "Perceba que o coeficiente <strong>a</strong> não pode ser zero, pois, caso contrário, a equação polinomial deixaria de ser do segundo grau e se tornaria uma equação do primeiro grau (linear)."
+        },
+
+        "rootsSection": {
+            "title": "Como funciona as raízes de uma Equação do Segundo Grau?",
+            "intro": "As raízes de uma equação do segundo grau são os valores de x que satisfazem a equação ax² + bx + c = 0.",
+            "example": "<strong>Exemplo rápido:</strong> Na equação x² - 5x + 6 = 0, as raízes são x₁ = 2 e x₂ = 3, pois substituindo esses valores na equação, obtemos 0."
+        },
+
+        "resolutionGuide": {
+            "title": "Passo a passo de como achar as raízes de uma Equação do Segundo Grau",
+            "intro": "Resolver uma equação do segundo grau envolve encontrar os valores de x que satisfazem a equação na forma padrão ax² + bx + c = 0. Aqui está um passo a passo para resolver esse tipo de equação:",
+            "step1": "Na equação ax² + bx + c = 0, identifique os valores de a, b e c.",
+            "step2": "Use a fórmula Δ = b² - 4ac para calcular o valor do delta.",
+            "step3a": "Se Δ > 0, a equação tem duas raízes reais e distintas.",
+            "step3b": "Se Δ = 0, a equação tem uma raiz real dupla.",
+            "step3c": "Se Δ < 0, a equação não tem raízes reais (as raízes são complexas).",
+            "step4": "Use a fórmula de Bhaskara para encontrar as raízes:",
+            "step5": "Analise as raízes encontradas e interprete seu significado no contexto do problema.",
+            "conclusion": "Seguindo esses passos, você poderá resolver qualquer equação do segundo grau e encontrar suas raízes."
+        },
+
+        "usageTutorial": {
+            "title": "Como utilizar o resolvedor de Equações do Segundo Grau?",
+            "intro": "Para utilizar o resolvedor de Equações do Segundo Grau, siga os passos abaixo:",
+            "step1": "Informe qual o coeficiente <strong>a</strong> da equação.",
+            "step2": "Informe qual o coeficiente <strong>b</strong> da equação. O coeficiente b é o responsável pelo termo linear.",
+            "step3": "Informe qual o coeficiente <strong>c</strong> da equação. O coeficiente c é o termo constante.",
+            "step4": "Clique no botão \"Calcular\" para ver os resultados.",
+            "conclusion": "Após clicar no botão, a calculadora exibirá resultados da equação inserida, incluindo as raízes da equação, o gráfico e outras informações relevantes. Além disso, serão apresentados gráficos que ilustram a forma da parábola representada pela equação do segundo grau."
+        },
+
+        "exampleCalculation": {
+            "title": "Exemplo",
+            "scenario": "Suponha que você tenha a equação do segundo grau x² - 5x + 6 = 0.",
+            "description": "Ao inserir esses valores no resolvedor e clicar em \"Calcular Raízes\", você obterá as raízes x₁ = 2 e x₂ = 3, e o delta (Δ) = 1. Além disso, também será exibido o gráfico da parábola correspondente à equação.",
+            "imageAlt1": "Exemplo de equação do segundo grau",
+            "imageAlt2": "Exemplo de resultado do cálculo da equação do segundo grau"
+        },
+
+        "graphSection": {
+            "title": "Gráfico de uma Equação do Segundo Grau",
+            "intro": "O gráfico de uma equação do segundo grau é uma parábola, que pode abrir para cima ou para baixo dependendo do valor do coeficiente 'a'. Se 'a' for positivo, a parábola abre para cima; se 'a' for negativo, a parábola abre para baixo.",
+            "symmetry": "A parábola é simétrica em relação a uma linha vertical chamada de eixo de simetria, que passa pelo vértice da parábola. Isso significa que os pontos equidistantes do eixo de simetria têm o mesmo valor de y.",
+            "vertex": "Além disso, também é possível identificar pontos importantes no gráfico, como o vértice, que é o ponto mais alto ou mais baixo da parábola. O vértice pode ser calculado usando as fórmulas:",
+            "vertexFormulas": "Vx = -b / 2a, Vy = -Δ / 4a",
+            "symbolAB": "<strong>a, b</strong> — coeficientes da equação do segundo grau.",
+            "symbolDelta": "<strong>Δ</strong> — delta da equação do segundo grau."
+        },
+
+        "factorization": {
+            "title": "Fatoração de Equações do Segundo Grau",
+            "intro": "A fatoração de uma equação do segundo grau é um método utilizado para expressar a equação na forma de um produto de dois binômios. A fatoração é da forma:",
+            "formula": "ax² + bx + c = a(x - x₁)(x - x₂)",
+            "symbolABC": "<strong>a, b, c</strong> — coeficientes da equação do segundo grau.",
+            "symbolRoots": "<strong>x₁, x₂</strong> — raízes da equação do segundo grau.",
+            "example01": "<strong>Exemplo rápido:</strong> A equação x² - 5x + 6 = 0, fatora-se como (x - 2)(x - 3) = 0. Veja que o produto (x - 2)(x - 3) resulta em 0 tanto se (x - 2) = 0 quanto se (x - 3) = 0, o que torna fácil de perceber que as raízes são x₁ = 2 e x₂ = 3.",
+            "example02": "<strong>Mais um exemplo rápido:</strong> Além de ser fácil achar as raízes na forma fatorada, também é possível acharmos a forma fatorada a partir das raízes. Por exemplo, se temos as raízes x₁ = 4 e x₂ = -1, podemos montar a forma fatorada como (x - 4)(x + 1) = 0. Por curiosidade, expandindo esse produto, obtemos a equação x² - 3x - 4 = 0.",
+            "conclusion": "A fatoração é uma ferramenta útil para resolver equações do segundo grau, especialmente quando as raízes são números racionais. Também é interessante notar que se as raízes forem complexas, a fatoração pode ser expressa em termos de números complexos. Além disso, se o delta (Δ) for 0, a fatoração resultará em um binômio ao quadrado."
+        },
+
+        "realWorld": {
+            "title": "Equações do segundo grau na vida real",
+            "intro": "As equações do segundo grau são amplamente utilizadas em diversas áreas da vida real, incluindo física, engenharia, economia e biologia. Elas são particularmente úteis para modelar situações que envolvem movimento, crescimento e otimização.",
+            "examples": "Alguns exemplos práticos incluem: trajetórias de objetos em queda livre, cálculo de áreas máximas, análise de lucros e perdas, e modelagem de populações biológicas. As equações do segundo grau ajudam a descrever e prever comportamentos complexos em sistemas naturais e artificiais."
+        }
+    },
+
+    "TermsOfUse": {
+        "title": "Termos de Uso",
+        "sections": [
+            {
+                "heading": "1. Aceitação dos Termos",
+                "content": "Ao acessar e utilizar o site Decimatrix, você concorda em cumprir e estar vinculado a estes termos e condições. Se você não concorda com qualquer parte destes termos, não deve utilizar nossas ferramentas."
+            },
+            {
+                "heading": "2. Isenção de Responsabilidade (Disclaimer)",
+                "content": "As calculadoras e ferramentas fornecidas pelo Decimatrix (incluindo, mas não se limitando a Matriz de Decisão, Juros Compostos e Calculadora Freelancer) são destinadas exclusivamente para fins informativos e educacionais.",
+                "listItems": [
+                    "Os resultados gerados são estimativas baseadas em fórmulas matemáticas e entradas do usuário.",
+                    "O Decimatrix não garante a precisão, integridade ou adequação dos resultados para qualquer situação específica.",
+                    "Esses cálculos não constituem aconselhamento financeiro, jurídico ou profissional. Sempre consulte um profissional qualificado antes de tomar decisões financeiras importantes."
+                ]
+            },
+            {
+                "heading": "3. Limitação de Responsabilidade",
+                "content": "Em nenhuma circunstância o Decimatrix ou seus proprietários serão responsáveis por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro, ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar as ferramentas do site."
+            },
+            {
+                "heading": "4. Uso das Ferramentas",
+                "content": "O usuário compromete-se a utilizar o site de forma ética, não tentando subverter os sistemas lógicos, introduzir softwares maliciosos ou utilizar scripts automatizados para extrair dados das ferramentas."
+            },
+            {
+                "heading": "5. Modificações",
+                "content": "O Decimatrix pode revisar estes termos de uso a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão vigente desses termos."
+            }
+        ],
+        "effective": "Estes termos são regidos e interpretados de acordo com as leis vigentes e entram em vigor em ",
+        "effectiveDate": "30 de dezembro de 2025"
+    },
+
+    "PrivacyPolicy": {
+        "title": "Política de Privacidade",
+        "intro": "A sua privacidade é importante para nós. É política do Decimatrix respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site e em outros sites que possuímos e operamos.",
+        "paragraphs": [
+            "Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemos isso por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.",
+            "Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas, roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.",
+            "Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.",
+            "Nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.",
+            "Você é livre para recusar nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados."
+        ],
+        "cookiesHeading": "Cookies e Google AdSense",
+        "cookiesItems": [
+            "O serviço Google AdSense que usamos para veicular publicidade utiliza um cookie DoubleClick para exibir anúncios mais relevantes em toda a web e limitar o número de vezes que um anúncio específico é mostrado para você.",
+            "Para mais informações sobre o Google AdSense, consulte as FAQs oficiais sobre privacidade do Google AdSense.",
+            "Utilizamos anúncios para compensar os custos de funcionamento deste site e financiar desenvolvimentos futuros. Os cookies de publicidade comportamental usados por este site foram projetados para garantir que apresentemos os anúncios mais relevantes sempre que possível.",
+            "Vários parceiros anunciam em nosso nome e os cookies de rastreamento de afiliados simplesmente nos permitem ver se nossos usuários acessaram o site por meio de um dos sites de nossos parceiros."
+        ],
+        "commitmentHeading": "Compromisso do Usuário",
+        "commitmentIntro": "O usuário se compromete a fazer uso adequado dos conteúdos e das informações que o Decimatrix oferece no site, em caráter enunciativo, mas não limitativo:",
+        "commitmentItems": [
+            "a) Não se envolver em atividades que sejam ilegais ou contrárias à boa-fé e à ordem pública;",
+            "b) Não difundir propaganda ou conteúdo de natureza racista, xenófoba ou contra os direitos humanos;",
+            "c) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do Decimatrix ou introduzir e disseminar vírus informáticos."
+        ],
+        "moreInfoHeading": "Mais informações",
+        "moreInfoParagraph": "Esperamos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados caso interaja com alguma funcionalidade do nosso site."
     }
 
 }

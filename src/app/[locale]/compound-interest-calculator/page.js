@@ -15,11 +15,16 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation'; 
 
 
-function toNumber(value) {
-  // Remove tudo que não for dígito ou vírgula
-  const cleaned = (value || "").replace(/[^\d,]/g, "");
+function toNumber(value, locale) {
+  const decimalSeparator = locale === "pt" ? "," : ".";
+  const thousandsSeparator = locale === "pt" ? "." : ",";
+
+  const cleaned = (value || "")
+    .replace(new RegExp(`\\${thousandsSeparator}`, "g"), "")
+    .replace(new RegExp(`[^\\d${decimalSeparator}]`, "g"), "");
+
   if (!cleaned) return 0;
-  else return cleaned.replace(",", "");
+  return cleaned.replace(decimalSeparator, ".");
 }
 
 function generateChartData(C, i, n, PMT) {
@@ -50,28 +55,28 @@ function generateChartData(C, i, n, PMT) {
   return history;
 }
 
-function formatCurrency(value) {
-  // Converte para número e divide por 100 para considerar os centavos
+function formatCurrency(value, locale) {
   const number = Number(value) / 100;
 
-  // Formata o número como moeda brasileira
-  return number.toLocaleString("pt-BR", {
+  return number.toLocaleString(locale === "pt" ? "pt-BR" : "en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 }
 
-const formatCurrencyDisplay = (value) =>
-  Number(value || 0).toLocaleString("pt-BR", {
+const formatCurrencyDisplay = (value, locale) =>
+  Number(value || 0).toLocaleString(locale === "pt" ? "pt-BR" : "en-US", {
     style: "currency",
     currency: "BRL",
     minimumFractionDigits: 2,
-});
+  });
 
 
 function interest_calculator() {
   const t = useTranslations("CompoundInterestCalculator");
   const { locale } = useParams(); // Pega o locale da URL
+
+  const decimalSeparator = locale === "pt" ? "," : ".";
 
   // Exemplo: Estado para controlar se é Mensal ou Anual
   const [unit, setUnit] = React.useState({
@@ -101,21 +106,21 @@ function interest_calculator() {
     const inputName = event.target.name;
 
     if (event.target.dataset.kind === "money") {
-      newValue = toNumber(newValue);
+      newValue = toNumber(newValue, locale);
 
       // Se o newValue não for vazio ou igual a "00", formata como moeda. 
       // Caso contrário, define como string vazia.
       if (newValue !== "" && newValue !== "00") {
-        newValue = formatCurrency(newValue)
+        newValue = formatCurrency(newValue, locale)
       }
       else newValue = "" ;
     }
 
     if (event.target.dataset.kind === "percentage") {
-      newValue = toNumber(newValue);
+      newValue = toNumber(newValue, locale);
 
       if (newValue !== "" && newValue !== "00") {
-        newValue =  formatCurrency(newValue);
+        newValue =  formatCurrency(newValue, locale);
       }
       else newValue = "" ;
     }
@@ -132,10 +137,13 @@ function interest_calculator() {
     // --- FUNÇÃO AUXILIAR DE LIMPEZA ---
     const parseLocalNum = (val) => {
         if (!val) return 0;
-        // 1. Remove tudo que NÃO for número ou vírgula (tira R$, pontos, espaços)
-        let clean = val.toString().replace(/[^\d,]/g, ''); 
-        // 2. Troca a vírgula por ponto (Padrão JS)
-        clean = clean.replace(',', '.');
+      const decimalSep = locale === "pt" ? "," : ".";
+      const thousandsSep = locale === "pt" ? "." : ",";
+      let clean = val
+        .toString()
+        .replace(new RegExp(`\\${thousandsSep}`, "g"), "")
+        .replace(new RegExp(`[^\\d${decimalSep}]`, "g"), "");
+      clean = clean.replace(decimalSep, ".");
         return parseFloat(clean);
     };
 
@@ -219,7 +227,7 @@ function interest_calculator() {
           onChange={handleChange}
           type="text"
           kind="money"
-          placeholder={"0,00"}
+          placeholder={`0${decimalSeparator}00`}
           info={t("inputCapital.info")}
         >
           <div className={style.moneyIcon}> R$ </div>
@@ -232,7 +240,7 @@ function interest_calculator() {
           onChange={handleChange}
           type="text"
           kind="percentage"
-          placeholder={"0,00"}
+          placeholder={`0${decimalSeparator}00`}
           info={t("inputInterest.info")}
 
           // Select dinâmico
@@ -270,7 +278,7 @@ function interest_calculator() {
           onChange={handleChange}
           type="text"
           kind="money"
-          placeholder={"0,00"}
+          placeholder={`0${decimalSeparator}00`}
           info={t("inputContribution.info")}
         >
           <div className={style.moneyIcon}> R$ </div>
@@ -296,15 +304,15 @@ function interest_calculator() {
             <h3 className={style.cardTitle}>{t("result.resume")}</h3>
             <div className={style.resultRow}>
               <span className={style.resultLabel}>{t("result.totalInvested")}</span>
-              <span className={style.resultValue}>{formatCurrencyDisplay(results.invested)}</span>
+              <span className={style.resultValue}>{formatCurrencyDisplay(results.invested, locale)}</span>
             </div>
             <div className={style.resultRow}>
               <span className={style.resultLabel}>{t("result.totalInterest")}</span>
-              <span className={style.resultValue}>{formatCurrencyDisplay(results.interest)}</span>
+              <span className={style.resultValue}>{formatCurrencyDisplay(results.interest, locale)}</span>
             </div>
             <div className={style.resultRowHighlight}>
               <span className={style.resultLabel}>{t("result.finalAmount")}</span>
-              <span className={style.resultValue}>{formatCurrencyDisplay(results.final)}</span>
+              <span className={style.resultValue}>{formatCurrencyDisplay(results.final, locale)}</span>
             </div>
           </div>
           )}

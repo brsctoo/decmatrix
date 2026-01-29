@@ -1,33 +1,572 @@
-{
+{   
     "BaseBoard": {
-        "decimatrix": "Decmatrix - Your open-source math toolkit for calculations, conversions, and more.",
+        "decimatrix": "Decmatrix - Your open-source mathematical toolkit for calculations, conversions, and more.",
         "termsOfUse": "Terms of Use",
         "privacyPolicy": "Privacy Policy",
         "contact": "Contact: "
     },
 
     "BinaryTree": {
-        "insertingClonedValueOperationInfo": "Value {value} already exists in the tree. Ignoring insertion.",
-        "insertingValueOperationInfo": "Inserting value {value} into the tree.",
+        "operationInfos": {
+            "insertingClonedValue": "Value {value} already exists in the tree. Ignoring insertion.",
+            "insertingValue": "Inserting value {value} into the tree.",
+            "valueNotFound": "Value {value} not found in the tree.",     
+            "searching": "Searching for value {value} in the tree.",      
+            "removing": "Removing value {value} from the tree."
+        },
+
         "invalidNumberRemovalAlert": "Please enter a valid number to remove.",
-        "valueNotFoundOperationInfo": "Value {value} not found in the tree.",
-        "searchingOperationInfo": "Searching for value {value} in the tree.",
-        "removingOperationInfo": "Removing value {value} from the tree.",
-        "inputFieldLabel": "Enter the values to be inserted into the queue (separated by commas):",
-        "inputFieldInfo": "Enter the values separated by commas to insert into the AVL tree.",
+        
+        "inputField": {
+            "label": "Enter the values to be inserted into the queue (comma-separated):",
+            "info": "Enter the values separated by commas to insert into the AVL tree."
+        },
+
         "insertValuesQueueLabel": "Insert Values into the Insertion Queue",
-        "nextStepButtonLabel": "Next Step >> ",
-        "previousStepButtonLabel": "Previous Step >> ",
-        "animationSpeedLabel": "Animation Speed",
-        "sliderLabelSlow": "Slow",
-        "sliderLabelFast": "Fast",
+        
+        "stepButtons": {
+            "nextLabel": "Next Step >> ",
+            "previousLabel": "Previous Step >> "
+        },
+        
+        "speedControler": {
+            "label": "Animation Speed",
+            "sliderSlow": "Slow",
+            "sliderFast": "Fast"
+        },
+
         "resetTreeButtonLabel": "Reset Tree and Queue",
-        "removalInputFieldLabel": "Enter the value to be removed from the tree:",
-        "removalInputFieldInfo": "Enter a single value to remove from the AVL tree.",
-        "removalButtonLabel": "Remove value",
-        "resetViewButtonLabel": "Recenter",
-        "skipStepsButtonLabel": "Skip step-by-step",
-        "insertQueueInfo": "Values to be inserted into the tree",
-        "nodeQueueInfo": "Values in the tree"
+
+        "removalCard": {
+            "inputFieldLabel": "Enter the value to be removed from the tree:",
+            "inputFieldInfo": "Enter a single value to remove from the AVL tree.",
+            "buttonLabel": "Remove value"
+        },
+        
+        "resetViewButtonLabel": "Reset View",
+        "skipStepsButtonLabel": "Skip Step-by-Step",
+        "queueInfo": {
+            "insertQueue": "Values to be inserted into the tree",
+            "nodeQueue": "Values in the tree"
+        }
+    },
+
+    "GenericChart": {
+        "periodLabel": "Period"
+    },
+
+    "LateralBar": {
+        "home": "Home",
+
+        "algebra": {
+            "title": "Algebra",
+            "quadraticEquation": "Quadratic Equations"
+        },
+
+        "financialCalculators": {
+            "title": "Financial Calculators",
+            "simpleInterestCalculator": "Simple Interest Calculator",
+            "compoundInterestCalculator": "Compound Interest Calculator"
+        },
+
+        "dataStructures": {
+            "title": "Data Structures",
+            "binarySearchTreeSimulator": "Binary Search Tree Simulator",
+            "AVLTreeSimulator": "AVL Tree Simulator"
+        }
+        
+    },
+
+    "Home": {
+        "introduction": {
+            "intro": "Decmatrix is a platform of mathematical and computational tools designed to simplify complex calculations and assist in data-driven decision making in a clear, practical, and accessible way.",
+
+            "idea": "From financial planning to binary tree simulators, through equations, functions, and fundamental data structure concepts, Decmatrix aims to bring together intuitive explanations and interactive calculators that help transform theory into real-world application. As time goes on, more tools are added to Decmatrix, always focusing on usability and clarity."
+        },
+
+        "mainAreas": {
+            "title": "Main areas covered by Decmatrix",
+            "dataStructuresSection": {
+                "title": "Data Structures",
+                "description": "Data structures are fundamental in computer science, allowing efficient organization and manipulation of data. At Decmatrix, you will find interactive simulators of binary search trees (BST) and AVL trees, which help visualize and understand how these structures work, facilitating the learning of essential concepts in algorithms and data optimization."
+            },
+
+            "algebraSection": {
+                "title": "Algebra",
+                "description": "Algebra is a fundamental branch of mathematics that deals with symbols and the rules for manipulating these symbols. At Decmatrix, you will find tools that facilitate solving quadratic equations, offering step-by-step explanations and interactive resources to enhance your understanding and algebraic skills."
+            },
+
+            "financialCalculatorsSection": {
+                "title": "Financial Calculators",
+                "description": "Financial calculators at Decmatrix are designed to help you make decisions about your personal finances and investments. With tools like simple and compound interest calculators, Decmatrix offers a practical way to understand how your money can grow over time, facilitating effective financial planning."
+            }
+        },
+
+        "avaliableTools": {
+            "title": "Available Tools",
+
+            "acessCalculatorButtonLabel": "Access Calculator",
+            "acessSimulatorButtonLabel": "Access Simulator",
+
+            "secondGradeEquationCard": {
+                "title": "Quadratic Equation Calculator",
+                "description": "Solve quadratic equations quickly and easily, with step-by-step explanations."
+            },
+
+            "compoundInterestCalculatorCard": {
+                "title": "Compound Interest Calculator",
+                "description": "Calculate the growth of your investment over time with compound interest, considering periodic contributions."
+            },
+
+            "simpleInterestCalculatorCard": {
+                "title": "Simple Interest Calculator",
+                "description": "Calculate simple interest quickly and easily, ideal for basic financial planning."
+            },
+
+            "binarySearchTreeSimulatorCard": {
+                "title": "Binary Search Tree Simulator",
+                "description": "Binary search tree (BST) simulator that allows you to insert, remove, and visualize the tree structure in real-time, facilitating the understanding of its operation and properties."
+            },
+
+            "avlTreeSimulatorCard": {
+                "title": "AVL Tree Simulator",
+                "description": "AVL tree simulator that allows you to insert, remove, and visualize the balanced tree structure in real-time, helping to understand how AVL trees maintain balance during insertion and removal operations."
+            }
+        },
+        
+        "objectiveAndValues": {
+            "title": "Objectives and Values of Decmatrix",
+
+            "objectivesSection": {
+                "title": "Our Objectives",
+                "description": "The objective of Decmatrix is to democratize access to mathematical and computational tools, making complex concepts more accessible and understandable for everyone. We value clarity, practicality, and applicability, always seeking to offer solutions that truly make a difference for our users."
+            },
+
+            "valuesSection": {
+                "title": "Our Values",
+                "value01": "<strong>Clarity:</strong> Present information in a simple and straightforward manner, facilitating understanding.",
+                "value02": "<strong>Practicality:</strong> Develop useful tools that can be applied in users' daily lives.",
+                "value03": "<strong>Accessibility:</strong> Ensure that our tools are accessible to everyone, regardless of prior knowledge level.",
+                "value04": "<strong>Innovation:</strong> Constantly seek new ways to improve and expand our offerings, incorporating user feedback and technological advances."
+            }
+        }
+    },
+
+    "AVLTreeBuilder": {
+        "mainTitle": "AVL Binary Tree Builder",
+
+        "definition": {
+            "title": "AVL Tree - Definition",
+            "intro": "An AVL tree (Adelson-Velsky and Landis) is a self-balancing binary search tree where the height difference between the left and right subtrees of any node is at most 1. This ensures that the tree remains approximately balanced, providing efficient insertion, removal, and search operations.",
+            "curiosity": "AVL trees were the first self-balancing binary search trees invented, in 1962, by Georgy Adelson-Velsky and Evgenii Landis. They are widely used in applications requiring fast search and update operations, such as databases and file systems.",
+            "rememberHighlight": "<strong>Remember:</strong> A binary tree is, by definition, a set of nodes that is either empty or consists of a root and two disjoint binary subtrees, called the left and right subtrees of the root."
+        },
+
+        "proprieties": {
+            "title": "AVL Tree - Properties",
+            "intro": "The main properties of an AVL tree include: automatic balancing, which keeps the tree height at O(log n), ensuring efficient operations; the ordering of elements, facilitating quick searches; and the hierarchical structure that organizes data efficiently. Rotations (single and double) are used to restore balance after insertions and removals."
+        },
+
+        "operations": {
+            "title": "AVL Tree - Search, Insertion and Removal",
+
+            "searchText": "Search in an AVL tree is similar to search in a standard binary search tree, leveraging the ordering of elements to quickly locate the desired value.",
+
+            "insertionText": "Insertion in an AVL tree starts like in a binary search tree, locating the correct position for the new node. After insertion, it is necessary to check the balance of the tree and, if needed, perform rotations to restore balance. To understand insertion operations in binary search trees, you can visit our <linkBTS>binary search tree simulator</linkBTS>.",
+
+            "removalText": "Removal in an AVL tree also follows the process of a binary search tree, but after removal, it is necessary to check and restore the balance of the tree, if needed, using appropriate rotations."
+        },
+
+        "balanceAndRotations": {
+            "title": "AVL Tree - Balance and Rotations",
+            
+            "intro": "Balance in an AVL tree is maintained by calculating the balance factor for each node, which is the difference between the heights of the left and right subtrees. If the balance factor of a node becomes greater than 1 or less than -1 after an insertion or removal, the tree is unbalanced and needs to be corrected.",
+
+            "cases": {
+                "intro": "There are four main cases of imbalance that can occur in an AVL tree, each requiring a specific rotation to restore balance:",
+
+                "case01": "<strong>Right single rotation:</strong> Occurs when a node has a balance factor greater than 1 and its left child has a balance factor of 1 or 0.",
+                "case02": "<strong>Left single rotation:</strong> Occurs when a node has a balance factor less than -1 and its right child has a balance factor of -1 or 0.",
+                "case03": "<strong>Left double rotation:</strong> Occurs when a node has a balance factor greater than 1 and its left child has a balance factor less than 0.",
+                "case04": "<strong>Right double rotation:</strong> Occurs when a node has a balance factor less than -1 and its right child has a balance factor greater than 0."
+            }
+        }
+    },
+
+    "BSTTreeBuilder": {
+        "bstMainTitle": "Binary Search Tree Builder",
+
+        "bstDefinitionTitle": "BST Tree - Definition",
+        "bstDefinitionText01": "A BST (Binary Search Tree) is a binary search tree where each node has at most two children, and for each node, all values in the left subtree are less than the node's value, and all values in the right subtree are greater. This allows efficient search, insertion, and removal operations.",
+        "bstDefinitionText02": "<strong>Remember:</strong> A binary tree is, by definition, a set of nodes that is either empty or consists of a root and two disjoint binary subtrees, called the left and right subtrees of the root.",
+        "bstProprietiesTitle": "BST Tree - Properties",
+        "bstProprietiesText01": "The main properties of a BST tree include: the ordering of elements, efficiency in search, insertion, and removal operations (on average O(log n)), and the hierarchical structure that facilitates data organization. However, performance can degrade to O(n) in cases of degenerate trees, trees where nodes all fall to one side.",
+
+        "bstSearchInsertionAndRemovalTitle": "BST Tree - Search, Insertion, and Removal",
+        "bstSearchText": "Searching in a BST tree starts at the root and traverses the tree by comparing the searched value with the current node's value, moving left or right as needed. The algorithm is very simple and efficient, being O(log n) on average.",
+        "bstInsertionText": "Inserting a new value in the BST tree follows a process similar to searching, locating the correct position for the new node and always inserting it as a leaf.",
+        "binarySearchTreeSimulatorLink": "binary search tree simulator",
+        "bstRemovalText": "Removing a node in a BST tree can be more complex, depending on the number of children the node to be removed has. Nodes without children can be removed directly, nodes with one child can be replaced by their child, and nodes with two children require replacement by the in-order successor or predecessor."
+    },
+
+    "CompoundInterestCalculator": {
+        "alertWrongValues": "Please enter valid values for all fields.",
+        
+        "mainTitle": "Compound Interest Calculator",
+
+        "inputCapital": {
+            "label": "Initial Capital",
+            "info": "The initial capital is the amount you will invest or lend at the beginning of the period."
+        },
+        
+        "inputInterest": {
+            "label": "Interest Rate (%)",
+            "info": "The interest rate is the percentage that will be applied to the initial capital during the period. It can be monthly or yearly.",
+            "selectMonthly": "Monthly",
+            "selectYearly": "Yearly"
+        },
+        
+        "inputPeriod": {
+            "label": "Period (t)",
+            "info": "The period is the duration of the investment or loan, in months or years, depending on the selected interest rate.",
+            "selectMonths": "Months",
+            "selectYears": "Years"
+        },
+    
+        "inputContribution": {
+            "label": "Monthly Contribution",
+            "info": "The monthly contribution is the amount you add to the initial capital each month during the investment or loan period."
+        },
+
+        "result": { 
+            "buttonLabel": "Calculate Compound Interest",
+            "resume": "Investment Summary",
+            "totalInvested": "Total Invested",
+            "totalInterest": "Total Interest",
+            "finalAmount": "Final Amount",
+            "pieGraph": "Final Amount Distribution",
+            "barGraph": "Investment Over Time Graph"
+        },
+
+        "usageTutorial": {
+            "title": "How to Use the Compound Interest Calculator",
+            "intro": "To use the Compound Interest Calculator, follow the steps below:",
+            "step01": "Enter the initial capital you want to invest or lend in the <strong>Initial Capital (R$)</strong> field.",
+            "step02": "Enter the interest rate in the <strong>Interest Rate (%)</strong> field and select whether it is monthly or yearly.",
+            "step03": "Set the investment or loan period in the <strong>Period (t)</strong> field and choose whether it is in months or years.",
+            "step04": "If desired, enter a monthly contribution in the <strong>Monthly Contribution (R$)</strong> field.",
+            "step05": "Click the <strong>Calculate Compound Interest</strong> button to see the detailed results of your investment.",
+            "conclusion": "The calculator will provide an investment summary, including the total invested, total interest earned, and the final amount, along with illustrative graphs."
+        },
+
+        "exampleCalculation": {
+            "title": "Example of Compound Interest Calculation",
+            "scenario": "Suppose you invest R$ 1,000.00 with an annual interest rate of 12% for a period of 2 years, making a monthly contribution of R$ 100.00.",
+            "imageAlt": "Example of compound interest calculation",
+            "calculationStep": "By entering these values into the calculator and clicking <strong>Calculate Compound Interest</strong>, you will see the investment summary and corresponding graphs, allowing you to clearly visualize how your investment grows over time thanks to compound interest and monthly contributions. As shown in the image below:",
+            "resultImageAlt": "Example of compound interest calculation result",
+            "conclusion": "This example demonstrates how compound interest can significantly increase the value of your investment over time, especially with regular contributions."
+        },
+
+        "definitionSection": {
+            "title": "What is Compound Interest?",
+            "intro": "Compound interest calculates earnings on the principal plus accumulated interest, creating the \"interest on interest\" effect that drives growth over time.",
+            "example": "<strong>Quick example:</strong> investing R$ 100.00 at 10% per year, you end the first year with R$ 110.00. In the second year, interest is applied to R$ 110.00 and generates R$ 11.00, closing the period with R$ 121.00.",
+            "importance": "This mechanism is ubiquitous in investments, loans, and financing, as it better reflects the real growth of capital than simple interest. For long cycles, the compound effect stands out and brings considerably higher returns.",
+            "compareLink": "Need to compare with simple interest? Visit <linkSimpleCalc>our simple interest calculator</linkSimpleCalc> to see the results."
+        },
+        
+        "comparativeSection": {
+            "title": "Difference Between Simple and Compound Interest",
+            "intro": "Simple interest always targets only the initial capital. Compound interest accumulates each gain and reinvests it, growing at an accelerated pace each period.",
+            "example": "<strong>Comparing:</strong> with 10% per year, simple interest yields R$ 10.00 every year. With compound interest, the first month will yield the same amount as simple interest (R$ 10.00), however, in the second month, the interest will already be applied to a higher amount (R$ 110.00), so it will yield more (R$ 11.00).",
+            "conclusion": "Although the difference seems small at the beginning, over time compound interest significantly outperforms simple interest. With our example, in the third year you would already have R$ 133.10 with compound interest, while simple interest would yield only R$ 30.00 in total. If we continue this example for 10 years, simple interest would give R$ 100.00, while compound interest would result in R$ 259.37."
+        },
+
+        "formularySection": {
+            "title": "Compound Interest Formulas",
+            "intro": "There are two main expressions: one for growth with only the initial capital and another that includes recurring deposits.",
+
+            "formula01Title": "Compound Interest Amount Formula without Contributions",
+            "formula01Intro": "When you invest only the initial capital, the formula is:",
+            "formula01List01": "<strong>M</strong> — final amount (capital + interest).",
+            "formula01List02": "<strong>C</strong> — initial capital.",
+            "formula01List03": "<strong>i</strong> — interest rate per period.",
+            "formula01List04": "<strong>t</strong> — number of periods.",
+
+            "formula02Title": "Compound Interest Amount Formula with Contributions",
+            "formula02Intro": "Adding constant contributions (PMT), the amount follows:",
+            "formula02List01": "<strong>PMT</strong> — value of the periodic contribution.",
+            "formula02List02": "The other symbols maintain the same meaning as in the previous formula.",
+
+            "interestFormulaIntro": "Interest is always calculated as the final amount minus the total invested (initial capital + sum of contributions). Therefore:"
+        }
+    },
+
+    "SimpleInterestCalculator": {
+        "alertWrongValues": "Please fill in the fields correctly.",
+
+        "mainTitle": "Simple Interest Calculator",
+
+        "inputCapital": {
+            "label": "Initial Capital (R$)",
+            "info": "The initial capital is the amount you will invest or lend at the beginning of the period."
+        },
+
+        "inputInterest": {
+            "label": "Interest Rate (%)",
+            "info": "The interest rate is the percentage that will be applied to the initial capital during the period. It can be monthly or yearly.",
+            "selectMonthly": "Monthly",
+            "selectYearly": "Yearly"
+        },
+
+        "inputPeriod": {
+            "label": "Period (t)",
+            "info": "The time is the period during which interest will be applied. It can be in months or years.",
+            "selectMonths": "Months",
+            "selectYears": "Years"
+        },
+
+        "result": {
+            "buttonLabel": "Calculate Simple Interest",
+            "summaryTitle": "Investment Summary",
+            "investedLabel": "Total Invested",
+            "interestLabel": "Total Interest",
+            "finalLabel": "Final Amount",
+            "evolutionGraph": "Evolution Graph"
+        },
+
+        "usageTutorial": {
+            "title": "How to Use the Simple Interest Calculator",
+            "intro": "To use the simple interest calculator, follow the steps below:",
+            "step1": "Enter the initial capital you want to invest or lend in the \"Initial Capital (R$)\" field.",
+            "step2": "Enter the interest rate in the \"Interest Rate (%)\" field. Select whether the rate is monthly or yearly from the dropdown menu next to it.",
+            "step3": "Set the period during which interest will be applied in the \"Period (t)\" field. Choose whether the period is in months or years from the corresponding dropdown menu.",
+            "step4": "Click the \"Calculate Simple Interest\" button to see the results.",
+            "conclusion": "After clicking the button, the calculator will display a summary of your investment, including the total invested, total interest, and final amount. In addition, graphs will be presented that illustrate the distribution of the amount and the evolution of the investment over time."
+        },
+
+        "exampleCalculation": {
+            "title": "Example",
+            "intro": "Suppose you invest R$ 1,000.00 with an annual interest rate of 12% for a period of 2 years.",
+            "imageAlt1": "Example of simple interest calculation",
+            "description": "By entering these values into the calculator and clicking \"Calculate Simple Interest\", you will see the investment summary and corresponding graphs, allowing you to clearly visualize how your investment grows over time thanks to simple interest.",
+            "imageAlt2": "Example of simple interest calculation result"
+        },
+
+        "definitionSection": {
+            "title": "What is Simple Interest?",
+            "intro": "Simple interest calculates earnings only on the initial capital, without accumulating interest over time.",
+            "example": "<strong>Quick example:</strong> investing R$ 100.00 at 10% per year, you end the first year with R$ 110.00. In the second year, interest is applied to R$ 100.00 and generates R$ 10.00, closing the period with R$ 120.00.",
+            "limitations": "This mechanism is not the most used in investments, loans, and financing, as it does not take advantage of the growth potential of compound interest. Additionally, it does not reflect the reality of many financial markets, where interest is capitalized periodically.",
+            "compareLink": "Need to compare with compound interest? Visit our <a href=\"/{locale}/compound-interest-calculator\">compound interest calculator</a> to see the results side by side."
+        },
+
+        "comparativeSection": {
+            "title": "Difference Between Simple and Compound Interest",
+            "intro": "Simple interest always targets only the initial capital. Compound interest accumulates each gain and reinvests it, growing at an accelerated pace each period.",
+            "example": "<strong>Comparing:</strong> with 10% per year, compound interest will yield more as time goes on. Meanwhile, simple interest will always yield the same amount annually. That is, if we invest R$ 100.00 at 10% per year, in 10 years we will have: R$ 200.00 total in simple interest versus R$ 259.37 total in compound interest."
+        },
+
+        "formularySection": {
+            "title": "Simple Interest Formulas",
+            "intro": "Unlike compound interest, we have more direct formulas to calculate the final amount in simple interest.",
+            "basicFormulaTitle": "Basic Simple Interest Formula",
+            "basicFormula": "M = C × (1 + i × t)",
+            "symbolM": "<strong>M</strong> — final amount (capital + interest).",
+            "symbolC": "<strong>C</strong> — initial capital applied.",
+            "symbolI": "<strong>i</strong> — interest rate per period (decimal: 5% = 0.05).",
+            "symbolT": "<strong>t</strong> — number of capitalization periods.",
+            "formulaExplanation": "With this formula, you can calculate the final amount (M) when investing an initial capital (C) at an interest rate (i) for a given number of periods (t).",
+            "interestCalculation": "Just as in compound interest, the interest is calculated by M - C, that is, the final amount minus the initial capital.",
+            "interestFormula": "J = C × i × t = M - C"
+        }
+    },
+
+    "QuadraticEquationCalculator": {
+        "alertWrongValues": "Please enter valid numeric values for the coefficients, and make sure 'a' is not zero.",
+        "alertMaxCharacters": "The maximum allowed value is 9 characters.",
+        "alertACannotBeZero": "The coefficient 'a' cannot be zero in a quadratic equation.",
+        "alertBCEmpty": "Please enter valid numeric values for coefficients 'b' and 'c'.",
+
+        "mainTitle": "Quadratic Equation",
+
+        "inputCoefficientA": {
+            "label": "Coefficient a",
+            "info": "The coefficient 'a' is the value that multiplies the quadratic term (x²) in the quadratic equation. It determines the concavity of the parabola represented by the equation."
+        },
+
+        "inputCoefficientB": {
+            "label": "Coefficient b",
+            "info": "The coefficient 'b' is the value that multiplies the linear term (x) in the quadratic equation. It influences the inclination of the parabola represented by the equation."
+        },
+
+        "inputCoefficientC": {
+            "label": "Coefficient c",
+            "info": "The coefficient 'c' is the constant term in the quadratic equation. It determines the point where the parabola intersects the y-axis."
+        },
+
+        "equationBuilt": "Equation Built",
+
+        "result": {
+            "buttonLabel": "Calculate Roots",
+            "rootsTitle": "Equation Roots",
+            "root1": "Root 1",
+            "root2": "Root 2",
+            "delta": "Delta",
+            "equationGraph": "Equation Graph"
+        },
+
+        "stepByStep": {
+            "title": "Step-by-step Solution",
+            "step1": "Identify the coefficients:",
+            "step2": "Calculate the discriminant (delta) (Δ):",
+            "step3": "Determine the number of roots:",
+            "step4": "Calculate the roots:",
+            "step5": "Interpret the results:",
+            "step1Content": "In the equation {equation}, we have a = {a}, b = {b}, and c = {c}.",
+            "step2Content": "Using the formula Δ = b² - 4ac to calculate the delta value, we have:",
+            "step4Content": "Using the quadratic formula to find the roots:",
+            "step5Content": "Analyze the roots found and interpret their meaning in the context of the problem.",
+            "conclusion": "By following these steps, you will be able to solve any quadratic equation and find its roots.",
+            "deltaPositive": "Since Δ > 0, the equation has two distinct real roots.",
+            "deltaZero": "Since Δ = 0, the equation has one double real root.",
+            "deltaNegative": "Since Δ < 0, the equation has no real roots (the roots are complex)."
+        },
+
+        "definitionSection": {
+            "title": "What is a Quadratic Equation?",
+            "intro": "A quadratic equation, also known as a quadratic equation, is a polynomial equation of degree two that can be expressed in standard form:",
+            "formula": "ax² + bx + c = 0",
+            "symbolAB": "<strong>a</strong>, <strong>b</strong> and <strong>c</strong> are real coefficients, with <strong>a ≠ 0</strong>.",
+            "symbolX": "<strong>x</strong> represents the variable (unknown) we want to find.",
+            "explanation": "Note that the coefficient <strong>a</strong> cannot be zero, because if it were, the polynomial equation would no longer be of the second degree and would become a first-degree (linear) equation."
+        },
+
+        "rootsSection": {
+            "title": "How do Quadratic Equation Roots Work?",
+            "intro": "The roots of a quadratic equation are the values of x that satisfy the equation ax² + bx + c = 0.",
+            "example": "<strong>Quick example:</strong> In the equation x² - 5x + 6 = 0, the roots are x₁ = 2 and x₂ = 3, as substituting these values into the equation gives us 0."
+        },
+
+        "resolutionGuide": {
+            "title": "Step-by-Step on How to Find the Roots of a Quadratic Equation",
+            "intro": "Solving a quadratic equation involves finding the values of x that satisfy the equation in the standard form ax² + bx + c = 0. Here is a step-by-step guide to solve this type of equation:",
+            "step1": "In the equation ax² + bx + c = 0, identify the values of a, b, and c.",
+            "step2": "Use the formula Δ = b² - 4ac to calculate the delta value.",
+            "step3a": "If Δ > 0, the equation has two distinct real roots.",
+            "step3b": "If Δ = 0, the equation has one double real root.",
+            "step3c": "If Δ < 0, the equation has no real roots (the roots are complex).",
+            "step4": "Use the quadratic formula to find the roots:",
+            "step5": "Analyze the roots found and interpret their meaning in the context of the problem.",
+            "conclusion": "By following these steps, you will be able to solve any quadratic equation and find its roots."
+        },
+
+        "usageTutorial": {
+            "title": "How to Use the Quadratic Equation Solver?",
+            "intro": "To use the Quadratic Equation Solver, follow the steps below:",
+            "step1": "Enter which coefficient <strong>a</strong> of the equation.",
+            "step2": "Enter which coefficient <strong>b</strong> of the equation. Coefficient b is responsible for the linear term.",
+            "step3": "Enter which coefficient <strong>c</strong> of the equation. Coefficient c is the constant term.",
+            "step4": "Click the \"Calculate\" button to see the results.",
+            "conclusion": "After clicking the button, the calculator will display results for the entered equation, including the equation roots, the graph, and other relevant information. Additionally, graphs will be presented that illustrate the shape of the parabola represented by the quadratic equation."
+        },
+
+        "exampleCalculation": {
+            "title": "Example",
+            "scenario": "Suppose you have the quadratic equation x² - 5x + 6 = 0.",
+            "description": "By entering these values in the solver and clicking \"Calculate Roots\", you will obtain the roots x₁ = 2 and x₂ = 3, and the delta (Δ) = 1. Additionally, the graph of the parabola corresponding to the equation will also be displayed.",
+            "imageAlt1": "Example of a quadratic equation",
+            "imageAlt2": "Example of the quadratic equation result"
+        },
+
+        "graphSection": {
+            "title": "Graph of a Quadratic Equation",
+            "intro": "The graph of a quadratic equation is a parabola, which can open upward or downward depending on the value of coefficient 'a'. If 'a' is positive, the parabola opens upward; if 'a' is negative, the parabola opens downward.",
+            "symmetry": "The parabola is symmetric with respect to a vertical line called the axis of symmetry, which passes through the vertex of the parabola. This means that points equidistant from the axis of symmetry have the same y-value.",
+            "vertex": "Additionally, it is possible to identify important points on the graph, such as the vertex, which is the highest or lowest point of the parabola. The vertex can be calculated using the formulas:",
+            "vertexFormulas": "Vx = -b / 2a, Vy = -Δ / 4a",
+            "symbolAB": "<strong>a, b</strong> — coefficients of the quadratic equation.",
+            "symbolDelta": "<strong>Δ</strong> — delta of the quadratic equation."
+        },
+
+        "factorization": {
+            "title": "Factoring Quadratic Equations",
+            "intro": "Factoring a quadratic equation is a method used to express the equation in the form of a product of two binomials. The factoring is of the form:",
+            "formula": "ax² + bx + c = a(x - x₁)(x - x₂)",
+            "symbolABC": "<strong>a, b, c</strong> — coefficients of the quadratic equation.",
+            "symbolRoots": "<strong>x₁, x₂</strong> — roots of the quadratic equation.",
+            "example01": "<strong>Quick example:</strong> The equation x² - 5x + 6 = 0 factors as (x - 2)(x - 3) = 0. Note that the product (x - 2)(x - 3) equals 0 both if (x - 2) = 0 and if (x - 3) = 0, which makes it easy to see that the roots are x₁ = 2 and x₂ = 3.",
+            "example02": "<strong>Another quick example:</strong> In addition to being easy to find roots in factored form, it is also possible to find the factored form from the roots. For example, if we have the roots x₁ = 4 and x₂ = -1, we can set up the factored form as (x - 4)(x + 1) = 0. For curiosity, expanding this product, we get the equation x² - 3x - 4 = 0.",
+            "conclusion": "Factoring is a useful tool for solving quadratic equations, especially when the roots are rational numbers. It is also interesting to note that if the roots are complex, the factoring can be expressed in terms of complex numbers. Additionally, if the delta (Δ) is 0, the factoring will result in a squared binomial."
+        },
+
+        "realWorld": {
+            "title": "Quadratic Equations in Real Life",
+            "intro": "Quadratic equations are widely used in various areas of real life, including physics, engineering, economics, and biology. They are particularly useful for modeling situations involving motion, growth, and optimization.",
+            "examples": "Some practical examples include: trajectories of objects in free fall, calculation of maximum areas, analysis of profits and losses, and modeling of biological populations. Quadratic equations help describe and predict complex behaviors in natural and artificial systems."
+        }
+    },
+
+    "TermsOfUse": {
+        "title": "Terms of Use",
+        "sections": [
+            {
+                "heading": "1. Acceptance of Terms",
+                "content": "By accessing and using the Decimatrix website, you agree to comply with and be bound by these terms and conditions. If you do not agree with any part of these terms, you should not use our tools."
+            },
+            {
+                "heading": "2. Disclaimer",
+                "content": "The calculators and tools provided by Decimatrix (including, but not limited to Decision Matrix, Compound Interest and Freelancer Calculator) are intended exclusively for informational and educational purposes.",
+                "listItems": [
+                    "Results generated are estimates based on mathematical formulas and user input.",
+                    "Decimatrix does not guarantee the accuracy, completeness, or suitability of results for any specific situation.",
+                    "These calculations do not constitute financial, legal, or professional advice. Always consult a qualified professional before making important financial decisions."
+                ]
+            },
+            {
+                "heading": "3. Limitation of Liability",
+                "content": "In no event shall Decimatrix or its owners be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising from the use or inability to use the website's tools."
+            },
+            {
+                "heading": "4. Use of Tools",
+                "content": "The user commits to using the website in an ethical manner, not attempting to subvert logical systems, introduce malicious software, or use automated scripts to extract data from the tools."
+            },
+            {
+                "heading": "5. Modifications",
+                "content": "Decimatrix may revise these terms of use at any time without prior notice. By using this website, you agree to be bound by the current version of these terms."
+            }
+        ],
+        "effective": "These terms are governed and interpreted in accordance with applicable laws and become effective on ",
+        "effectiveDate": "December 30, 2025"
+    },
+
+    "PrivacyPolicy": {
+        "title": "Privacy Policy",
+        "intro": "Your privacy is important to us. It is the policy of Decimatrix to respect your privacy regarding any information we may collect on the website and on other websites that we own and operate.",
+        "paragraphs": [
+            "We request personal information only when we really need it to provide you with a service. We do this through fair and legal means, with your knowledge and consent. We also inform you why we are collecting and how it will be used.",
+            "We only retain information collected for as long as needed to provide the requested service. When we store data, we protect it within commercially acceptable means to prevent loss, theft, as well as unauthorized access, disclosure, copying, use or modification.",
+            "We do not share personally identifiable information publicly or with third parties, except where required by law.",
+            "Our website may have links to external websites that are not operated by us. Be aware that we have no control over the content and practices of these websites and cannot accept responsibility for their respective privacy policies.",
+            "You are free to refuse our request for personal information, understanding that we may not be able to provide some of the services you desire."
+        ],
+        "cookiesHeading": "Cookies and Google AdSense",
+        "cookiesItems": [
+            "The Google AdSense service we use to serve ads uses a DoubleClick cookie to display more relevant ads across the web and limit the number of times a specific ad is shown to you.",
+            "For more information about Google AdSense, please see the official Google AdSense privacy FAQs.",
+            "We use ads to offset the costs of running this website and fund future developments. The behavioral advertising cookies used by this website are designed to ensure we present the most relevant ads possible at all times.",
+            "Various partners advertise on our behalf and affiliate tracking cookies simply allow us to see if our users have accessed the website through one of our partner sites."
+        ],
+        "commitmentHeading": "User Commitment",
+        "commitmentIntro": "The user commits to making appropriate use of the contents and information that Decimatrix offers on the website, in an enunciative but not limited manner:",
+        "commitmentItems": [
+            "a) Not engage in activities that are illegal or contrary to good faith and public order;",
+            "b) Not spread propaganda or content of a racist, xenophobic or anti-human rights nature;",
+            "c) Not cause damage to Decimatrix's physical (hardware) and logical (software) systems or introduce and spread computer viruses."
+        ],
+        "moreInfoHeading": "More Information",
+        "moreInfoParagraph": "We hope this is clear and, as mentioned earlier, if there is anything you are unsure about whether you need or not, it is generally safer to leave cookies enabled in case you interact with any functionality on our website."
     }
+
 }
