@@ -1,0 +1,142 @@
+/* BARRA LATERAL */
+.lateralBar {
+    width: 310px; 
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+  
+    background: linear-gradient(180deg, #ffffff 0%, #f7f2eb 100%); /* 180 graus -> de cima para baixo */
+    border-right: 1px solid #e2e8f0;
+    box-shadow: 4px 0 20px rgba(82, 60, 45, 0.1); /* Sombra marrom suave */
+  
+    transform: translateX(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estado Fechado */
+.lateralBarInvisible {
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f2eb 100%); /* 180 graus -> de cima para baixo */
+    border-right: 1px solid #e2e8f0;
+  
+    /* Esconde */
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* TÍTULO DA BARRA LATERAL */
+.lateralBarTitle {
+    width: 100%;
+    height: 100px;
+    padding: 30px 20px 20px;
+  
+    background: linear-gradient(135deg, rgb(82, 60, 45) 0%, rgb(101, 74, 56) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* SEÇÕES */
+.lateralBarSections {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento entre botões */
+    flex: 1;
+}
+
+/* BOTÕES */
+.lateralBarButton {
+   
+    background: transparent !important;
+    border: none !important;
+  
+    color: #5d4037 !important; 
+    font-size: 0.95rem;
+    font-weight: 500;
+  
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+  
+    /* Transições modernas */
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+
+
+.lateralBarButton:hover {
+    background-color: #f5f0eb !important; 
+    color: rgb(82, 60, 45) !important;
+  
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(82, 60, 45, 0.15);
+}
+
+/* TÍTULOS DAS SEÇÕES */
+.lateralSectionTitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #9ca3af; /* Cinza suave para títulos de categoria */
+    padding: 12px 16px 8px 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* OPENER */
+.opener {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1090; /* Logo abaixo do sidebar quando aberto */
+  
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  
+    transition: all 0.3s ease;
+}
+
+.opener span {
+    width: 24px;
+    height: 3px;
+    /* Cor Marrom Principal */
+    background-color: rgb(82, 60, 45); 
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.opener:hover {
+    background-color: rgb(82, 60, 45);
+    border-color: rgb(82, 60, 45);
+    box-shadow: 0 6px 16px rgba(82, 60, 45, 0.3);
+    transform: scale(1.05);
+}

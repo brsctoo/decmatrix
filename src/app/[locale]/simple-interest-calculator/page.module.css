@@ -1,0 +1,212 @@
+.percentageIcon {
+    position: absolute;
+    right: 105px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: rgb(170, 143, 109);
+    pointer-events: none; /* não atrapalha clique */
+}
+
+.moneyIcon {
+    position: absolute;
+    right: 413px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: rgb(170, 143, 109);
+}
+
+.inputFieldsContainer {
+    align-items: flex-start;
+    background-color: rgb(239, 233, 227);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 50px;
+    margin: 0 auto 20px;
+    padding: 30px;
+    border: solid 3px rgb(201, 181, 156);
+    max-width: 1000px;
+    border-radius: 10px;
+    min-height: 300px;
+}
+
+.inputFieldsContainer > * {
+    position: relative;
+    flex: 2 2 calc(40% - 10px);
+    min-width: 320px;
+    margin-bottom: 0px;
+}
+
+.title {
+    text-align: center;
+    color: rgb(51, 68, 67);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin: 10px;
+}
+
+.buttonContainer {
+    margin: 10px auto 10px;
+    min-width: 800px;
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 32px;
+    margin: 0 auto 20px;
+    max-width: 2000px;
+}
+
+/* Container principal (Texto e Gráfico) */
+.chartsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 32px;
+    margin: 0 auto 20px;
+    max-width: 1000px;
+    border: solid 2px rgba(51, 68, 67, 0.208);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.resultsCard,
+.chartWrapper {
+    position: relative;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: none;
+    padding: 28px 32px;
+    border-radius: 20px;
+    background: rgba(255, 252, 247, 0.9);
+    border: 3px solid rgba(201, 181, 156, 0.4);
+    overflow: hidden;
+}
+
+.resultsCard::before,
+.chartWrapper::before {
+    content: "";
+    position: absolute;
+    inset: -140px;
+    z-index: 0;
+}
+
+.resultsCard > *,
+.chartWrapper > * {
+    position: relative;
+    z-index: 1;
+}
+
+.chartWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 24px;
+    min-height: 360px;
+}
+
+.chartSection {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    border: 2px solid rgba(51, 68, 67, 0.2);
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255, 252, 247, 0.9);
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(156, 109, 60);
+    letter-spacing: 0.4px;
+    margin-bottom: 16px;
+}
+
+/* --- Bloco de Texto (Esquerda) --- */
+
+
+.resultRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(201, 181, 156, 0.85);
+}
+
+.resultRow:last-of-type {
+    border-bottom: none;
+}
+
+.resultLabel {
+    color: rgb(107, 82, 58);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.resultValue {
+    color: rgb(176, 102, 48);
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+}
+
+/* --- Destaque do Montante Final --- */
+.resultRowHighlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    padding: 22px 24px;
+    background: linear-gradient(135deg, rgba(227, 186, 120, 0.28), rgba(242, 210, 162, 0.24));
+    border-radius: 16px;
+    border: 1px solid rgba(188, 143, 94, 0.45);
+}
+
+.resultRowHighlight .resultLabel {
+    color: rgb(120, 73, 35);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.resultRowHighlight .resultValue {
+    color: rgb(150, 77, 27);
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- Bloco do Gráfico (Direita) --- */
+.chartWrapper {
+  overflow: hidden;
+}
+
+.imageAttribution { 
+    max-width: 100%; 
+    display: block; 
+    margin: 30px auto 30px; 
+    border-radius: 14px; 
+    box-shadow: 0 12px 28px -20px rgba(15, 23, 42, 0.55); 
+}
+
+
+@media (max-width: 768px) {
+  .resultsCard,
+  .chartWrapper {
+    padding: 24px;
+  }
+
+  .cardTitle {
+    text-align: center;
+  }
+}

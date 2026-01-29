@@ -1,0 +1,309 @@
+{   
+    "BaseBoard": {
+        "decimatrix": "Decmatrix - Seu toolkit matemático open-source para cálculos, conversões e mais.",
+        "termsOfUse": "Termos de Uso",
+        "privacyPolicy": "Política de Privacidade",
+        "contact": "Contato: "
+    },
+
+    "BinaryTree": {
+        "operationInfos": {
+            "insertingClonedValue": "Valor {value} já existe na árvore. Ignorando inserção.",
+            "insertingValue": "Inserindo o valor {value} na árvore.",
+            "valueNotFound": "Valor {value} não encontrado na árvore.",     
+            "searching": "Procurando valor {value} na árvore.",      
+            "removing": "Removendo valor {value} da árvore."
+        },
+
+        "invalidNumberRemovalAlert": "Digite um número válido para remover.",
+        
+        "inputField": {
+            "label": "Digite os valores a serem inseridos na fila (separados por vírgula):",
+            "info": "Digite os valores separados por vírgula para inserir na árvore AVL."
+        },
+
+        "insertValuesQueueLabel": "Inserir Valores na Fila para Inserção",
+        
+        "stepButtons": {
+            "nextLabel": "Próximo Passo >> ",
+            "previousLabel": "Passo anterior >> "
+        },
+        
+        "speedControler": {
+            "label": "Velocidade da animação",
+            "sliderSlow": "Lento",
+            "sliderFast": "Rápido"
+        },
+
+        "resetTreeButtonLabel": "Resetar Árvore e fila",
+
+        "removalCard": {
+            "inputFieldLabel": "Digite o valor a ser removido da árvore:",
+            "inputFieldInfo": "Digite um único valor para remover da árvore AVL.",
+            "buttonLabel": "Remover valor"
+        },
+        
+        "resetViewButtonLabel": "Recentralizar",
+        "skipStepsButtonLabel": "Pular passo a passo",
+
+        "queueInfo": {
+            "insertQueue": "Valores a serem inseridos na árvore",
+            "nodeQueue": "Valores na árvore"
+        }
+    },
+
+    "GenericChart": {
+        "periodLabel": "Período"
+    },
+
+    "LateralBar": {
+        "home": "Início",
+
+        "algebra": {
+            "title": "Álgebra",
+            "quadraticEquation": "Equações do segundo grau"
+        },
+
+        "financialCalculators": {
+            "title": "Calculadoras Financeiras",
+            "simpleInterestCalculator": "Calculadora de Juros Simples",
+            "compoundInterestCalculator": "Calculadora de Juros Compostos"
+        },
+
+        "dataStructures": {
+            "title": "Estruturas de Dados",
+            "binarySearchTreeSimulator": "Simulador de Árvore Binária",
+            "AVLTreeSimulator": "Simulador de Árvore AVL"
+        }
+        
+    },
+
+    "Home": {
+        "introduction": {
+            "intro": "O Decmatrix é uma plataforma de ferramentas matemáticas e computacionais desenvolvida para simplificar cálculos complexos  e auxiliar a tomada de decisões baseada em dados, de forma clara, prática e acessível.",
+
+            "idea": "Do planejamento financeiro à simulador de árvore binárias, passando por equações, funções e conceitos fundamentais de estrutura de dados, o Decmatrix visa reunir explicações intuitivas e calculadoras interativas que ajudam a transformar teoria em aplicação real. Quanto mais o tempo passa, mais ferramentas são adicionadas ao Decmatrix, sempre com foco em usabilidade e clareza."
+        },
+
+        "mainAreas": {
+            "title": "Principais áreas abordadas pelo Decmatrix",
+
+            "dataStructuresSection": {
+                "title": "Estruturas de Dados",
+                "description": "As estruturas de dados são fundamentais na ciência da computação, permitindo a organização e manipulação eficiente de dados. No Decmatrix, você encontra simuladores interativos de árvores binárias de busca (BST) e árvores AVL, que ajudam a visualizar e entender como essas estruturas funcionam, facilitando o aprendizado dos conceitos essenciais de algoritmos e otimização de dados."
+            },
+
+            "algebraSection": {
+                "title": "Álgebra",
+                "description": "A álgebra é um ramo fundamental da matemática que lida com símbolos e as regras para manipular esses símbolos. No Decmatrix, você encontra ferramentas que facilitam a resolução de equações do segundo grau, oferecendo explicações passo a passo e recursos interativos para aprimorar seu entendimento e habilidades algébricas."
+            },
+
+            "financialCalculatorsSection": {
+                "title": "Calculadoras Financeiras",
+                "description": "As calculadoras financeiras do Decmatrix são projetadas para ajudar você a tomar decisões sobre suas finanças pessoais e investimentos. Com ferramentas como a calculadora de juros simples e compostos, o Decmatrix oferece uma maneira prática de entender como seu dinheiro pode crescer ao longo do tempo, facilitando o planejamento financeiro eficaz."
+            }
+        },
+
+        "avaliableTools": {
+            "title": "Ferramentas Disponíveis",
+
+            "acessCalculatorButtonLabel": "Acessar calculadora",
+            "acessSimulatorButtonLabel": "Acessar simulador",
+
+            "secondGradeEquationCard": {
+                "title": "Calculadora de equações do 2º grau",
+                "description": "Resolva equações do segundo grau de forma rápida e fácil, com explicações passo a passo."
+            },
+
+            "compoundInterestCalculatorCard": {
+                "title": "Calculadora de Juros Compostos",
+                "description": "Calcule o crescimento do seu investimento ao longo do tempo com juros compostos, considerando aportes periódicos."
+            },
+
+            "simpleInterestCalculatorCard": {
+                "title": "Calculadora de Juros Simples",
+                "description": "Calcule juros simples de forma rápida e prática, ideal para planejamento financeiro básico."
+            },
+
+            "binarySearchTreeSimulatorCard": {
+                "title": "Simulador de Árvore Binária de Busca",
+                "description": "Simulador de árvore binária de busca (BST) que permite inserir, remover e visualizar a estrutura da árvore em tempo real, facilitando o entendimento de seu funcionamento e propriedades."
+            },
+
+            "avlTreeSimulatorCard": {
+                "title": "Simulador de Árvore AVL",
+                "description": "Simulador de árvore AVL que permite inserir, remover e visualizar a estrutura da árvore balanceada em tempo real, ajudando a compreender como as árvores AVL mantêm o equilíbrio durante operações de inserção e remoção."
+            }
+        },
+        
+        "objectiveAndValues": {
+            "title": "Objetivos e Valores do Decmatrix",
+
+            "objectivesSection": {
+                "title": "Nossos objetivos",
+                "description": "O objetivo do decmatrix é democratizar o acesso a ferramentas matemáticas e computacionais, tornando conceitos complexos mais acessíveis e compreensíveis para todos. Valorizamos a clareza, a praticidade e a aplicabilidade, buscando sempre oferecer soluções que realmente façam a diferença para nossos usuários."
+            },
+
+            "valuesSection": {
+                "title": "Nossos valores",
+                "value01": "<strong>Clareza:</strong> Apresentar informações de forma simples e direta, facilitando o entendimento.",
+                "value02": "<strong>Praticidade:</strong> Desenvolver ferramentas úteis que possam ser aplicadas no dia a dia dos usuários.",
+                "value03": "<strong>Acessibilidade:</strong> Garantir que nossas ferramentas sejam acessíveis a todos, independentemente do nível de conhecimento prévio.",
+                "value04": "<strong>Inovação:</strong> Buscar constantemente novas formas de melhorar e expandir nossas ofertas, incorporando feedback dos usuários e avanços tecnológicos."
+            }
+        }
+    },
+
+    "AVLTreeBuilder": {
+        "mainTitle": "Construtor de árvore binária AVL",
+
+        "definition": {
+            "title": "Árvore AVL - Definição",
+            "intro": "Uma árvore AVL (Adelson-Velsky e Landis) é uma árvore binária de busca auto-balanceada onde a diferença de altura entre as subárvores esquerda e direita de qualquer nó é no máximo 1. Isso garante que a árvore permaneça aproximadamente balanceada, proporcionando operações eficientes de inserção, remoção e busca.",
+            "curiosity": "As árvores AVL foram as primeiras árvores binárias de busca auto-balanceadas a serem inventadas, em 1962, por Georgy Adelson-Velsky e Evgenii Landis. Elas são amplamente utilizadas em aplicações que exigem operações rápidas de busca e atualização, como bancos de dados e sistemas de arquivos.",
+            "rememberHighlight": "<strong>Lembrando:</strong> Uma árvore binária é, por definição, um conjunto de nós que ou é vazio, ou consiste de uma raiz e de duas subárvores binárias disjuntas, chamadas subárvore esquerda e subárvore direita da raiz."
+        },
+
+        "proprieties": {
+            "title": "Árvore AVL - Propriedades",
+            "intro": "As principais propriedades de uma árvore AVL incluem: o balanceamento automático, que mantém a altura da árvore em O(log n), garantindo eficiência nas operações; a ordenação dos elementos, facilitando buscas rápidas; e a estrutura  hierárquica que organiza os dados de forma eficiente. As rotações (simples e duplas) são usadas para restaurar o balanceamento após inserções e remoções."
+        },
+
+        "operations": {
+            "title": "Árvore AVL - Busca, Inserção e Remoção",
+
+            "searchText": "A busca em uma árvore AVL é semelhante à busca em uma árvore binária de busca padrão, aproveitando a ordenação dos elementos para localizar rapidamente o valor desejado.",
+
+            "insertionText": "A inserção em uma árvore AVL começa como em uma árvore binária de busca, localizando a posição correta para o novo nó. Após a inserção, é necessário verificar o balanceamento da árvore e, se necessário, realizar rotações para restaurar o equilíbrio. Para entender as operações de inserção em árvores binárias de busca, você pode visitar o nosso <linkBTS>simulador de árvore binária de busca</linkBTS>.",
+
+            "removalText": "A remoção em uma árvore AVL também segue o processo de uma árvore binária de busca, mas após a remoção, é necessário verificar e restaurar o balanceamento da árvore, se necessário, utilizando rotações apropriadas."
+        },
+
+        "balanceAndRotations": {
+            "title": "Árvore AVL - Balanceamento e Rotações",
+            
+            "intro": "O balanceamento em uma árvore AVL é mantido através do cálculo do fator de balanceamento para cada nó, que é a diferença entre as alturas das subárvores esquerda e direita. Se o fator de balanceamento de um nó se tornar maior que 1 ou menor que -1 após uma inserção ou remoção, a árvore está desbalanceada e precisa ser corrigida.",
+
+            "cases": {
+                "intro": "Existem quatro casos principais de desbalanceamento que podem ocorrer em uma árvore AVL, cada um exigindo uma rotação específica para restaurar o equilíbrio:",
+
+                "case01": "<strong>Rotação simples á direita:</strong> Ocorre quando um nó tem um fator de balanceamento maior que 1 e seu filho esquerdo tem um fator de balanceamento de 1 ou 0.",
+                "case02": "<strong>Rotação simples á esquerda:</strong> Ocorre quando um nó tem um fator de balanceamento menor que -1 e seu filho direito tem um fator de balanceamento de -1 ou 0.",
+                "case03": "<strong>Rotação dupla á esquerda:</strong> Ocorre quando um nó tem um fator de balanceamento maior que 1 e seu filho esquerdo tem um fator de balanceamento menor que 0.",
+                "case04": "<strong>Rotação dupla á direita:</strong> Ocorre quando um nó tem um fator de balanceamento menor que -1 e seu filho direito tem um fator de balanceamento maior que 0."
+            }
+        }
+    },
+
+    "BSTTreeBuilder": {
+        "bstMainTitle": "Construtor de árvore binária de busca",
+
+        "bstDefinitionTitle": "Árvore BST - Definição",
+        "bstDefinitionText01": "Uma árvore BST (Binary Search Tree) é uma árvore binária de busca onde cada nó possui no máximo dois filhos, e para cada nó, todos os valores na subárvore esquerda são menores que o valor do nó, e todos os valores na subárvore direita são maiores. Isso permite operações eficientes de busca, inserção e remoção.",
+        "bstDefinitionText02": "<strong>Lembrando:</strong> Uma árvore binária é, por definição, um conjunto de nós que ou é vazio, ou consiste de uma raiz e de duas subárvores binárias disjuntas, chamadas subárvore esquerda e subárvore direita da raiz.",
+
+        "bstProprietiesTitle": "Árvore BST - Propriedades",
+        "bstProprietiesText01": "As principais propriedades de uma árvore BST incluem: a ordenação dos elementos, a eficiência nas operações de busca, inserção e remoção (em média O(log n)), e a estrutura hierárquica que facilita a organização dos dados. No entanto, o desempenho pode degradar para O(n) em casos de árvores degeneradas, árvores que os nós caem todos para um lado.",
+
+        "bstSearchInsertionAndRemovalTitle": "Árvore BST - Busca, Inserção e Remoção",
+        "bstSearchText": "A busca em uma árvore BST começa na raiz e percorre a árvore comparando o valor buscado com o valor do nó atual, movendo-se para a esquerda ou direita conforme necessário. O algoritmo é muito simples e eficiente, sendo O(log n) em média.",
+        "bstInsertionText": "A inserção de um novo valor na árvore BST segue um processo semelhante à busca, localizando a posição correta para o novo nó e inserindo-o sempre como uma folha.",
+        "binarySearchTreeSimulatorLink": "simulador de árvore binária de busca",
+        "bstRemovalText": "A remoção de um nó em uma árvore BST pode ser mais complexa, dependendo do número de filhos do nó a ser removido. Nós sem filhos podem ser removidos diretamente, nós com um filho podem ser substituídos por seu filho, e nós com dois filhos requerem a substituição pelo sucessor ou predecessor in-order."
+    },
+
+    "CompoundInterestCalculator": {
+        "alertWrongValues": "Por favor, insira valores válidos para todos os campos.",
+        
+        "mainTitle": "Calculadora de Juros Compostos",
+
+        "inputCapital": {
+            "label": "Capital inicial (R$)",
+            "info": "O capital inicial é o valor que você vai investir ou emprestar no início do período."
+        },
+        
+        "inputInterest": {
+            "label": "Taxa de juros (%)",
+            "info": "A taxa de juros é o percentual que será aplicado sobre o capital inicial durante o período. Pode ser mensal ou anual.",
+            "selectMonthly": "Mensal",
+            "selectYearly": "Anual"
+        },
+        
+        "inputPeriod": {
+            "label": "Período (t)",
+            "info": "O período é a duração do investimento ou empréstimo, em meses ou anos, dependendo da taxa de juros selecionada.",
+            "selectMonths": "Meses",
+            "selectYears": "Anos"
+        },
+    
+        "inputContribution": {
+            "label": "Contribuição Mensal (R$)",
+            "info": "A contribuição mensal é o valor que você adiciona ao capital inicial a cada mês durante o período do investimento ou empréstimo."
+        },
+
+        "result": { 
+            "buttonLabel": "Calcular Juros Compostos",
+            "resume": "Resumo do investimento",
+            "totalInvested": "Total investido",
+            "totalInterest": "Total de juros",
+            "finalAmount": "Montante final",
+            "pieGraph": "Distribuição do montante final",
+            "barGraph": "Gráfico do investimento ao longo do tempo"
+        },
+
+        "usageTutorial": {
+            "title": "Como utilizar a Calculadora de Juros Compostos",
+            "intro": "Para utilizar a Calculadora de Juros Compostos, siga os passos abaixo:",
+            "step01": "Insira o capital inicial que você deseja investir ou emprestar no campo <strong>Capital inicial (R$)</strong>.",
+            "step02": "Informe a taxa de juros no campo <strong>Taxa de juros (%)</strong> e selecione se é mensal ou anual.",
+            "step03": "Defina o período do investimento ou empréstimo no campo <strong>Período (t)</strong> e escolha se é em meses ou anos.",
+            "step04": "Se desejar, insira uma contribuição mensal no campo <strong>Contribuição Mensal (R$)</strong>.",
+            "step05": "Clique no botão <strong>Calcular Juros Compostos</strong> para ver os resultados detalhados do seu investimento.",
+            "conclusion": "A calculadora fornecerá um resumo do investimento, incluindo o total investido, o total de juros ganhos e o montante final, além de gráficos ilustrativos."
+        },
+
+        "exampleCalculation": {
+            "title": "Exemplo de Cálculo de Juros Compostos",
+            "scenario": "Suponha que você invista R$ 1.000,00 com uma taxa de juros anual de 12% por um período de 2 anos, fazendo uma contribuição mensal de R$ 100,00.",
+            "imageAlt": "Exemplo de cálculo de juros compostos",
+            "calculationStep": "Ao inserir esses valores na calculadora e clicar em <strong>Calcular Juros Compostos</strong>, você verá o resumo do investimento e os gráficos correspondentes, permitindo visualizar claramente como seu investimento cresce ao longo do tempo graças aos juros compostos e às contribuições mensais. Como a imagem abaixo:",
+            "resultImageAlt": "Exemplo de resultado do cálculo de juros compostos",
+            "conclusion": "Este exemplo demonstra como os juros compostos podem aumentar significativamente o valor do seu investimento ao longo do tempo, especialmente com contribuições regulares."
+        },
+
+        "definitionSection": {
+            "title": "O que são Juros Compostos?",
+            "intro": "Juros compostos calculam ganhos sobre o capital somado aos juros acumulados, criando o efeito \"juros sobre juros\" que impulsiona o crescimento ao longo do tempo.",
+            "example": "<strong>Exemplo rápido:</strong> investindo R$ 100,00 a 10% ao ano, você encerra o primeiro ano com R$ 110,00. No segundo, os juros incidem sobre R$ 110,00 e geram R$ 11,00, fechando o período com R$ 121,00.",
+            "importance": "Esse mecanismo é onipresente em investimentos, empréstimos e financiamentos, pois retrata melhor o crescimento real do capital do que os juros simples. Para ciclos longos, o efeito composto se destaca e traz retornos consideravelmente maiores.",
+            "compareLink": "Precisa comparar com juros simples? Visite a <linkSimpleCalc>nossa calculadora de juros simples</linkSimpleCalc> para ver os resultados."
+        },
+        
+        "comparativeSection": {
+            "title": "Diferença entre juros simples e compostos",
+            "intro": "Juros simples sempre miram apenas o capital inicial. Juros compostos acumulam cada ganho e o reinvestem, crescendo em ritmo acelerado a cada período.",
+            "example": "<strong>Comparando:</strong> com 10% ao ano, os juros simples rendem R$ 10,00 todos os anos. Nos juros compostos, o primeiro mês renderá a mesma quantidade do juros simples (R$ 10,00), entretanto, no segundo mês, o juros já será aplicado em um valor mais alto (R$ 110,00), logo, já renderá mais (R$ 11,00).",
+            "conclusion": "Por mais que a diferença pareça pequena no início, ao longo do tempo os juros compostos superam os simples de forma significativa. Com o nosso exemplo, no terceiro ano você já teria R$ 133,10 com juros compostos, enquanto os juros simples renderiam apenas R$ 30,00 no total. Se continuarmos esse exemplo por 10 anos, os juros simples dariam R$ 100,00, enquanto os compostos resultariam em R$ 259,37."
+        },
+
+        "formularySection": {
+            "title": "Fórmulas dos Juros Compostos",
+            "intro": "Existem duas expressões principais: uma para crescimento apenas com o capital inicial e outra que inclui depósitos recorrentes.",
+
+            "formula01Title": "Fórmula do Montante com Juros Compostos sem Contribuições",
+            "formula01Intro": "Quando você investe apenas o capital inicial, a fórmula é:",
+            "formula01List01": "<strong>M</strong> — montante final (capital + juros).",
+            "formula01List02": "<strong>C</strong> — capital inicial.",
+            "formula01List03": "<strong>i</strong> — taxa de juros por período.",
+            "formula01List04": "<strong>t</strong> — número de períodos.",
+
+            "formula02Title": "Fórmula do Montante com Juros Compostos com Contribuições",
+            "formula02Intro": "Acrescentando aportes constantes (PMT), o montante segue:",
+            "formula02List01": "<strong>PMT</strong> — valor da contribuição periódica.",
+            "formula02List02": "Os demais símbolos mantêm o mesmo significado da fórmula anterior.",
+
+            "interestFormulaIntro": "O juros é sempre calculado como sendo o montante final menos o total investido (capital inicial + somatório das contribuições). Logo:"
+        }
+    }
+
+}

@@ -1,0 +1,52 @@
+.basebordContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(237, 224, 207, 0.4), rgba(237, 224, 207, 0.4));
+    font-size: 13px;
+    border-top: #c9b59c 2px solid;
+    color: #573720
+}
+
+.termsAndPolicies {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    color: #573720
+}
+
+.termsAndPolicies a {
+    color: #1e88e5;
+    font-weight: 500;
+}
+
+.termsAndPolicies a:hover {
+    text-decoration: underline;
+}
+
+
+.contactInfo {
+    margin-top: 6px;
+    color: #573720;
+}
+
+.contactInfo a {
+    color: #1e88e5;
+}
+
+.contactInfo a:hover {
+    text-decoration: underline;
+}
+
+.separatorBall {
+    background-color: #573720c4;
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    flex-shrink: 0;
+}

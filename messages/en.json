@@ -1,0 +1,33 @@
+{
+    "BaseBoard": {
+        "decimatrix": "Decmatrix - Your open-source math toolkit for calculations, conversions, and more.",
+        "termsOfUse": "Terms of Use",
+        "privacyPolicy": "Privacy Policy",
+        "contact": "Contact: "
+    },
+
+    "BinaryTree": {
+        "insertingClonedValueOperationInfo": "Value {value} already exists in the tree. Ignoring insertion.",
+        "insertingValueOperationInfo": "Inserting value {value} into the tree.",
+        "invalidNumberRemovalAlert": "Please enter a valid number to remove.",
+        "valueNotFoundOperationInfo": "Value {value} not found in the tree.",
+        "searchingOperationInfo": "Searching for value {value} in the tree.",
+        "removingOperationInfo": "Removing value {value} from the tree.",
+        "inputFieldLabel": "Enter the values to be inserted into the queue (separated by commas):",
+        "inputFieldInfo": "Enter the values separated by commas to insert into the AVL tree.",
+        "insertValuesQueueLabel": "Insert Values into the Insertion Queue",
+        "nextStepButtonLabel": "Next Step >> ",
+        "previousStepButtonLabel": "Previous Step >> ",
+        "animationSpeedLabel": "Animation Speed",
+        "sliderLabelSlow": "Slow",
+        "sliderLabelFast": "Fast",
+        "resetTreeButtonLabel": "Reset Tree and Queue",
+        "removalInputFieldLabel": "Enter the value to be removed from the tree:",
+        "removalInputFieldInfo": "Enter a single value to remove from the AVL tree.",
+        "removalButtonLabel": "Remove value",
+        "resetViewButtonLabel": "Recenter",
+        "skipStepsButtonLabel": "Skip step-by-step",
+        "insertQueueInfo": "Values to be inserted into the tree",
+        "nodeQueueInfo": "Values in the tree"
+    }
+}

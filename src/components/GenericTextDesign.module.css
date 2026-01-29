@@ -1,0 +1,154 @@
+.mainTitle {
+    /* Estilo do título principal */
+    font-size: 2.5rem;
+    color: #654a38;
+    margin: 30px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-align: center;
+}
+
+.textSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgb(82, 60, 45);
+}
+
+.textParagraph {
+    margin: 0;
+}
+
+.infoHighlight {
+    padding: 20px 24px;
+    border-radius: 18px;
+    border-left: 5px solid rgba(201, 181, 156, 0.85);
+    background: rgba(225, 210, 190, 0.63);
+    margin: 10px;
+}
+
+.stepList {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stepList li {
+    border-radius: 14px;
+    padding: 3px 16px;
+    font-weight: 500;
+    background: rgba(232, 217, 200, 0.45);
+}
+
+.sectionHeading {
+    font-size: 1.4rem;
+    color: rgb(170, 143, 109);
+    margin: 6px 0;
+    letter-spacing: 0.3px;
+}
+
+.exampleCard {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 26px;
+    border-radius: 18px;
+    border: 1px solid rgba(201, 181, 156, 0.55);
+    background: rgba(245, 236, 223, 0.92);
+    box-shadow: 0 18px 36px -28px rgba(120, 83, 55, 0.45);
+}
+
+.inlineLink {
+    color: rgb(176, 102, 48);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(176, 102, 48, 0.45);
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.inlineLink:hover {
+    color: rgb(150, 77, 27);
+    border-bottom-color: rgba(150, 77, 27, 0.8);
+}
+
+.comparisonCard {
+    padding: 20px 24px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(227, 186, 120, 0.38), rgba(242, 210, 162, 0.32));
+    border: 1px solid rgba(188, 143, 94, 0.5);
+    box-shadow: 0 18px 28px -26px rgba(120, 73, 35, 0.5);
+}
+
+.interativeFormulaCard {
+    margin: 24px auto;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(176, 102, 48, 0.35);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(87, 55, 32);
+    text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.formulaCard {
+    margin: 12px auto;
+    padding: 10px 28px;
+    border-radius: 20px;
+    border: 1px solid rgba(176, 102, 48, 0.35);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(87, 55, 32);
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
+.formulaCard sup {
+    font-size: 0.6em;
+    vertical-align: super;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 6px;
+}
+
+.numerator {
+    padding: 0 10px 4px;
+    border-bottom: 2px solid rgba(87, 55, 32, 0.45);
+}
+
+.denominator {
+    padding: 4px 10px 0;
+}
+
+.symbolLegend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.symbolLegend li {
+    padding: 5px 16px;
+    border-radius: 14px;
+    background: rgba(237, 224, 207, 0.4);
+}

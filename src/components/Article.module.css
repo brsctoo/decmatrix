@@ -1,0 +1,39 @@
+.article {
+  /* Diminui a caixa */
+  max-width: 1000px;
+  padding: 2.5rem;
+
+  /* Estilo do texto */
+  color: #523c2d;
+  font-size: 1.2rem;
+  line-height: 1.6;
+
+  /* Estilo da caixa */
+  background-color: rgb(239, 233, 227);
+  border: 3px solid rgb(201, 181, 156);
+  border-radius: 10px;
+}
+
+.article h3 {
+  color: #654a38;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.article p {
+  text-indent: 1.5rem;
+}
+
+/* ocupa a linha toda */
+.full {
+  margin: 0.5rem auto;
+}
+
+.full h3 {
+  text-align: center;
+}
+
+/* pensado pra layout grid */
+.gridBox {
+  margin: 0px;
+}
