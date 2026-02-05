@@ -790,10 +790,10 @@ export default function BinaryTree({
                     }}
                 >
                     <div className={style.queueInfo}>
-                        {t('queueInfo.insertQueue')}: {sequences.insertQueue.length > 0 ? sequences.insertQueue.join(", ") : "Vazia"}
+                        {t('queueInfo.insertQueue')}: {sequences.insertQueue.length > 0 ? sequences.insertQueue.join(", ") : t("queueInfo.empty")}
                     </div>
                     <div className={style.queueInfo}>
-                    {t('queueInfo.nodeQueue')}: {sequences.nodeQueue.length > 0 ? sequences.nodeQueue.join(", ") : "Vazia"}
+                    {t('queueInfo.nodeQueue')}: {sequences.nodeQueue.length > 0 ? sequences.nodeQueue.join(", ") : t("queueInfo.empty")}
                     </div>
                 </div>
 

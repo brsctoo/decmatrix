@@ -45,7 +45,9 @@
         
         "resetViewButtonLabel": "Reset View",
         "skipStepsButtonLabel": "Skip Step-by-Step",
+
         "queueInfo": {
+            "empty": "Empty",
             "insertQueue": "Values to be inserted into the tree",
             "nodeQueue": "Values in the tree"
         }
@@ -215,7 +217,7 @@
         "mainTitle": "Compound Interest Calculator",
 
         "inputCapital": {
-            "label": "Initial Capital",
+            "label": "Initial Capital ($)",
             "info": "The initial capital is the amount you will invest or lend at the beginning of the period."
         },
         
@@ -237,6 +239,9 @@
             "label": "Monthly Contribution",
             "info": "The monthly contribution is the amount you add to the initial capital each month during the investment or loan period."
         },
+        
+        "alertValueTooHigh": "The final amount of the investment is too high. Please enter smaller values.",
+        "alertPeriodTooLong": "The maximum allowed period is 50 years (600 months).",
 
         "result": { 
             "buttonLabel": "Calculate Compound Interest",
@@ -251,17 +256,17 @@
         "usageTutorial": {
             "title": "How to Use the Compound Interest Calculator",
             "intro": "To use the Compound Interest Calculator, follow the steps below:",
-            "step01": "Enter the initial capital you want to invest or lend in the <strong>Initial Capital (R$)</strong> field.",
+            "step01": "Enter the initial capital you want to invest or lend in the <strong>Initial Capital ($)</strong> field.",
             "step02": "Enter the interest rate in the <strong>Interest Rate (%)</strong> field and select whether it is monthly or yearly.",
             "step03": "Set the investment or loan period in the <strong>Period (t)</strong> field and choose whether it is in months or years.",
-            "step04": "If desired, enter a monthly contribution in the <strong>Monthly Contribution (R$)</strong> field.",
+            "step04": "If desired, enter a monthly contribution in the <strong>Monthly Contribution ($)</strong> field.",
             "step05": "Click the <strong>Calculate Compound Interest</strong> button to see the detailed results of your investment.",
             "conclusion": "The calculator will provide an investment summary, including the total invested, total interest earned, and the final amount, along with illustrative graphs."
         },
 
         "exampleCalculation": {
             "title": "Example of Compound Interest Calculation",
-            "scenario": "Suppose you invest R$ 1,000.00 with an annual interest rate of 12% for a period of 2 years, making a monthly contribution of R$ 100.00.",
+            "scenario": "Suppose you invest $ 1,000.00 with an annual interest rate of 12% for a period of 2 years, making a monthly contribution of $ 100.00.",
             "imageAlt": "Example of compound interest calculation",
             "calculationStep": "By entering these values into the calculator and clicking <strong>Calculate Compound Interest</strong>, you will see the investment summary and corresponding graphs, allowing you to clearly visualize how your investment grows over time thanks to compound interest and monthly contributions. As shown in the image below:",
             "resultImageAlt": "Example of compound interest calculation result",
@@ -271,16 +276,16 @@
         "definitionSection": {
             "title": "What is Compound Interest?",
             "intro": "Compound interest calculates earnings on the principal plus accumulated interest, creating the \"interest on interest\" effect that drives growth over time.",
-            "example": "<strong>Quick example:</strong> investing R$ 100.00 at 10% per year, you end the first year with R$ 110.00. In the second year, interest is applied to R$ 110.00 and generates R$ 11.00, closing the period with R$ 121.00.",
+            "example": "<strong>Quick example:</strong> investing $ 100.00 at 10% per year, you end the first year with $ 110.00. In the second year, interest is applied to $ 110.00 and generates $ 11.00, closing the period with $ 121.00.",
             "importance": "This mechanism is ubiquitous in investments, loans, and financing, as it better reflects the real growth of capital than simple interest. For long cycles, the compound effect stands out and brings considerably higher returns.",
-            "compareLink": "Need to compare with simple interest? Visit <linkSimpleCalc>our simple interest calculator</linkSimpleCalc> to see the results."
+            "compareLink": "Need to compare with simple interest? Visit <link>simple interest calculator</link> to see the results."
         },
         
         "comparativeSection": {
             "title": "Difference Between Simple and Compound Interest",
             "intro": "Simple interest always targets only the initial capital. Compound interest accumulates each gain and reinvests it, growing at an accelerated pace each period.",
-            "example": "<strong>Comparing:</strong> with 10% per year, simple interest yields R$ 10.00 every year. With compound interest, the first month will yield the same amount as simple interest (R$ 10.00), however, in the second month, the interest will already be applied to a higher amount (R$ 110.00), so it will yield more (R$ 11.00).",
-            "conclusion": "Although the difference seems small at the beginning, over time compound interest significantly outperforms simple interest. With our example, in the third year you would already have R$ 133.10 with compound interest, while simple interest would yield only R$ 30.00 in total. If we continue this example for 10 years, simple interest would give R$ 100.00, while compound interest would result in R$ 259.37."
+            "example": "<strong>Comparing:</strong> with 10% per year, simple interest yields $ 10.00 every year. With compound interest, the first month will yield the same amount as simple interest ($ 10.00), however, in the second month, the interest will already be applied to a higher amount ($ 110.00), so it will yield more ($ 11.00).",
+            "conclusion": "Although the difference seems small at the beginning, over time compound interest significantly outperforms simple interest. With our example, in the third year you would already have $ 133.10 with compound interest, while simple interest would yield only $ 30.00 in total. If we continue this example for 10 years, simple interest would give $ 100.00, while compound interest would result in $ 259.37."
         },
 
         "formularySection": {
@@ -309,7 +314,7 @@
         "mainTitle": "Simple Interest Calculator",
 
         "inputCapital": {
-            "label": "Initial Capital (R$)",
+            "label": "Initial Capital ($)",
             "info": "The initial capital is the amount you will invest or lend at the beginning of the period."
         },
 
@@ -327,6 +332,9 @@
             "selectYears": "Years"
         },
 
+        "alertValueTooHigh": "The final amount of the investment is too high. Please enter smaller values.",
+        "alertPeriodTooLong": "The maximum allowed period is 50 years (600 months).",
+
         "result": {
             "buttonLabel": "Calculate Simple Interest",
             "summaryTitle": "Investment Summary",
@@ -339,7 +347,7 @@
         "usageTutorial": {
             "title": "How to Use the Simple Interest Calculator",
             "intro": "To use the simple interest calculator, follow the steps below:",
-            "step1": "Enter the initial capital you want to invest or lend in the \"Initial Capital (R$)\" field.",
+            "step1": "Enter the initial capital you want to invest or lend in the \"Initial Capital ($)\" field.",
             "step2": "Enter the interest rate in the \"Interest Rate (%)\" field. Select whether the rate is monthly or yearly from the dropdown menu next to it.",
             "step3": "Set the period during which interest will be applied in the \"Period (t)\" field. Choose whether the period is in months or years from the corresponding dropdown menu.",
             "step4": "Click the \"Calculate Simple Interest\" button to see the results.",
@@ -348,7 +356,7 @@
 
         "exampleCalculation": {
             "title": "Example",
-            "intro": "Suppose you invest R$ 1,000.00 with an annual interest rate of 12% for a period of 2 years.",
+            "intro": "Suppose you invest $1,000.00 with an annual interest rate of 12% for a period of 2 years.",
             "imageAlt1": "Example of simple interest calculation",
             "description": "By entering these values into the calculator and clicking \"Calculate Simple Interest\", you will see the investment summary and corresponding graphs, allowing you to clearly visualize how your investment grows over time thanks to simple interest.",
             "imageAlt2": "Example of simple interest calculation result"
@@ -357,15 +365,15 @@
         "definitionSection": {
             "title": "What is Simple Interest?",
             "intro": "Simple interest calculates earnings only on the initial capital, without accumulating interest over time.",
-            "example": "<strong>Quick example:</strong> investing R$ 100.00 at 10% per year, you end the first year with R$ 110.00. In the second year, interest is applied to R$ 100.00 and generates R$ 10.00, closing the period with R$ 120.00.",
+            "example": "<strong>Quick example:</strong> investing $100.00 at 10% per year, you end the first year with $110.00. In the second year, interest is applied to $100.00 and generates $10.00, closing the period with $120.00.",
             "limitations": "This mechanism is not the most used in investments, loans, and financing, as it does not take advantage of the growth potential of compound interest. Additionally, it does not reflect the reality of many financial markets, where interest is capitalized periodically.",
-            "compareLink": "Need to compare with compound interest? Visit our <a href=\"/{locale}/compound-interest-calculator\">compound interest calculator</a> to see the results side by side."
+            "compareLink": "Need to compare with compound interest? Visit our <link>compound interest calculator</link> to see the results side by side."
         },
 
         "comparativeSection": {
             "title": "Difference Between Simple and Compound Interest",
             "intro": "Simple interest always targets only the initial capital. Compound interest accumulates each gain and reinvests it, growing at an accelerated pace each period.",
-            "example": "<strong>Comparing:</strong> with 10% per year, compound interest will yield more as time goes on. Meanwhile, simple interest will always yield the same amount annually. That is, if we invest R$ 100.00 at 10% per year, in 10 years we will have: R$ 200.00 total in simple interest versus R$ 259.37 total in compound interest."
+            "example": "<strong>Comparing:</strong> with 10% per year, compound interest will yield more as time goes on. Meanwhile, simple interest will always yield the same amount annually. That is, if we invest $100.00 at 10% per year, in 10 years we will have: $200.00 total in simple interest versus $259.37 total in compound interest."
         },
 
         "formularySection": {

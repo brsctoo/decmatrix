@@ -1,6 +1,7 @@
 "use client";
 
 import style from "./InputField.module.css";
+import { useParams } from 'next/navigation'; 
 
 function InputField({
   label =  "",
@@ -20,12 +21,14 @@ function InputField({
   },
 ) {
 
+  const { locale } = useParams();
+
   // Verifica se existem opções para decidir se mostra o select ou não
   const hasSelect = selectOptions.length > 0;
 
   const baseInputClass =
     kind === "money"
-      ? `${style.inputField} ${style.inputFieldMoney}`
+      ? `${style.inputField} ${locale === 'pt' ? style.inputFieldMoneyReal : style.inputFieldMoneyDolar}`
       : style.inputField;
 
   const inputClassName = hasSelect

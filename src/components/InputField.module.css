@@ -11,8 +11,14 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.inputFieldMoney {
-    padding-left: 38px;
+.inputFieldMoneyReal {
+    position: relative;
+    padding-left: 37px;
+}
+
+.inputFieldMoneyDolar {
+    position: relative;
+    padding-left: 30px;
 }
 
 .inputField::placeholder {

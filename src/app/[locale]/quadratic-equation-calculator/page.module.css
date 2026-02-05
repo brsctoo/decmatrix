@@ -18,24 +18,29 @@
 }
 
 .inputFieldsContainer {
-    align-items: flex-start;
-    background-color: rgb(239, 233, 227);
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 50px;
-    margin: 0 auto 20px;
-    padding: 30px;
+    align-items: flex-start;
+    background-color: rgb(239, 233, 227);
+    gap: 10px 20px; 
+    margin: 20px auto;
+    padding: 20px; 
     border: solid 3px rgb(201, 181, 156);
     max-width: 1000px;
     border-radius: 10px;
     min-height: 300px;
+
+    /* Importante para que o padding não aumente o tamanho total do box */
+    box-sizing: border-box; 
 }
 
 .inputFieldsContainer > * {
     position: relative;
-    flex: 2 2 calc(40% - 10px);
-    min-width: 320px;
+    flex: 1 1 calc(45% - 20px); 
+    min-width: 280px; 
+    max-width: 100%; 
     margin-bottom: 0px;
+    box-sizing: border-box;
 }
 
 .title {
@@ -47,8 +52,7 @@
 }
 
 .buttonContainer {
-    margin: 10px auto 10px;
-    min-width: 800px;
+    flex: 1 1 100%;
 }
 
 .resultContainer {
@@ -67,19 +71,6 @@
   color: rgb(176, 101, 48) !important; /* Force a cor */
   font-size: 1.2rem; /* Aumente um pouco, o KaTeX costuma ser pequeno */
 
-}
-
-.chartsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
-    gap: 32px;
-    margin: 0 auto 20px;
-    max-width: 1000px;
-    border: solid 2px rgba(51, 68, 67, 0.208);
-    padding: 30px;
-    border-radius: 10px;
 }
 
 .resultsCard,
@@ -119,13 +110,20 @@
 }
 
 .chartSection {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: rgb(239, 233, 227);
+    gap: 10px 20px; 
+    margin: 20px auto;
+    padding: 20px; 
+    border: solid 3px rgb(201, 181, 156);
     max-width: 1000px;
-    margin: 0 auto 40px;
-    border: 2px solid rgba(51, 68, 67, 0.2);
-    padding: 30px;
-    border-radius: 16px;
-    background: rgba(255, 252, 247, 0.9);
+    border-radius: 10px;
+    min-height: 20px;
+
+    /* Importante para que o padding não aumente o tamanho total do box */
+    box-sizing: border-box; 
 }
 
 .cardTitle {
@@ -214,7 +212,7 @@
     gap: 120px;
 }
 
-.quadraticDeltaFormulaCard {
+.quadraticRowFormulaCard {
     display: wrap;
     flex-direction: start;
     margin: auto;
@@ -232,14 +230,94 @@
     align-items: center;
 }
 
+.quadraticVerticesFormulaCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem !important;
+}
+
+.quadraticFactorizationFormulaCard{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 22px auto !important;
+    width: fit-content !important;
+}
+
+
+@media (max-width: 1050px) {
+    .inputFieldsContainer {
+        margin: 20px;
+    }
+
+    .chartSection {
+        margin: 20px;
+    }
+}
+
 
 @media (max-width: 768px) {
-  .resultsCard,
-  .chartWrapper {
-    padding: 24px;
-  }
+    .quadraticResultsFormulaCard {
+        display: flex;
+        flex-direction: column;
+        margin:  20px auto 20px;
+        padding: 10px;
+        gap: 10px;
+        font-size: 0.8rem;
+        justify-content: center;
+        align-items: center;
+    }
 
-  .cardTitle {
-    text-align: center;
-  }
+    .quadraticVerticesFormulaCard{
+        font-size: 1.2rem !important;
+        gap: 40px !important;
+    }
+
+    .quadraticRowFormulaCard {
+        display: wrap;
+        flex-direction: column;
+        margin: auto;
+        padding: 10px;
+        gap: 5px;
+        font-size: 1rem;
+    }
+
+
+    .quadraticFormulaCard {
+        display: wrap;
+        flex-direction: column;
+        margin: auto;
+        padding: 10px;
+        gap: 120px;
+    }
+
+    .resultsCard,
+    .chartWrapper {
+        padding: 24px;
+    }
+
+    .inputFieldsContainer {
+        /* Gap reduzido para mobile: 10px vertical, 20px horizontal */
+        gap: 10px 20px; 
+    }
+
+    .buttonContainer {
+        margin: 10px auto 10px;
+        max-width: calc(100%);
+    }
+
+    .cardTitle {
+        text-align: center;
+    }
+
+    .resultRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .resultLabel {
+        margin-bottom: 4px;
+    }
 }

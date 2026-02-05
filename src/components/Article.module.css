@@ -37,3 +37,17 @@
 .gridBox {
   margin: 0px;
 }
+
+/* --- Mobile --- */
+/* Diminuimos o Padding e a fonte para caber tudo*/ 
+@media (max-width: 768px) {
+  .article {
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin: 20px;
+  }
+
+  .article h3 {
+    font-size: 1.3rem;
+  }
+}

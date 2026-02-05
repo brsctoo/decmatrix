@@ -47,6 +47,7 @@
         "skipStepsButtonLabel": "Pular passo a passo",
 
         "queueInfo": {
+            "empty": "Vazia",
             "insertQueue": "Valores a serem inseridos na árvore",
             "nodeQueue": "Valores na árvore"
         }
@@ -214,7 +215,6 @@
 
     "CompoundInterestCalculator": {
         "alertWrongValues": "Por favor, insira valores válidos para todos os campos.",
-        
         "mainTitle": "Calculadora de Juros Compostos",
 
         "inputCapital": {
@@ -240,6 +240,9 @@
             "label": "Contribuição Mensal (R$)",
             "info": "A contribuição mensal é o valor que você adiciona ao capital inicial a cada mês durante o período do investimento ou empréstimo."
         },
+
+        "alertValueTooHigh": "O montante final do investimento é muito alto. Por favor, insira valores menores.",
+        "alertPeriodTooLong": "O período máximo permitido é de 50 anos (600 meses).",
 
         "result": { 
             "buttonLabel": "Calcular Juros Compostos",
@@ -276,7 +279,7 @@
             "intro": "Juros compostos calculam ganhos sobre o capital somado aos juros acumulados, criando o efeito \"juros sobre juros\" que impulsiona o crescimento ao longo do tempo.",
             "example": "<strong>Exemplo rápido:</strong> investindo R$ 100,00 a 10% ao ano, você encerra o primeiro ano com R$ 110,00. No segundo, os juros incidem sobre R$ 110,00 e geram R$ 11,00, fechando o período com R$ 121,00.",
             "importance": "Esse mecanismo é onipresente em investimentos, empréstimos e financiamentos, pois retrata melhor o crescimento real do capital do que os juros simples. Para ciclos longos, o efeito composto se destaca e traz retornos consideravelmente maiores.",
-            "compareLink": "Precisa comparar com juros simples? Visite a <linkSimpleCalc>nossa calculadora de juros simples</linkSimpleCalc> para ver os resultados."
+            "compareLink": "Precisa comparar com juros simples? Visite a <link>nossa calculadora de juros simples</link> para ver os resultados."
         },
         
         "comparativeSection": {
@@ -330,6 +333,9 @@
             "selectYears": "Anos"
         },
 
+        "alertValueTooHigh": "O montante final do investimento é muito alto. Por favor, insira valores menores.",
+        "alertPeriodTooLong": "O período máximo permitido é de 50 anos (600 meses).",
+
         "result": {
             "buttonLabel": "Calcular Juros Simples",
             "summaryTitle": "Resumo do investimento",
@@ -362,7 +368,7 @@
             "intro": "Juros simples calculam ganhos apenas sobre o capital inicial, sem acumular os juros ao longo do tempo.",
             "example": "<strong>Exemplo rápido:</strong> investindo R$ 100,00 a 10% ao ano, você encerra o primeiro ano com R$ 110,00. No segundo, os juros incidem sobre R$ 100,00 e geram R$ 10,00, fechando o período com R$ 120,00.",
             "limitations": "Esse mecanismo não é o mais usado em investimentos, empréstimos e financiamentos, pois não aproveita o potencial de crescimento dos juros compostos. Além disso, não reflete a realidade de muitos mercados financeiros, onde os juros são capitalizados periodicamente.",
-            "compareLink": "Precisa comparar com juros compostos? Visite a <a href=\"/{locale}/compound-interest-calculator\">nossa calculadora de juros compostos</a> para ver os resultados lado a lado."
+            "compareLink": "Precisa comparar com juros compostos? Visite a <link> nossa calculadora de juros compostos</link> para ver os resultados lado a lado."
         },
 
         "comparativeSection": {

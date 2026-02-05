@@ -8,14 +8,26 @@
     pointer-events: none; /* não atrapalha clique */
 }
 
-.moneyIcon {
+.moneyIconReal {
     position: absolute;
-    right: 413px;
+    right: 412px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
     color: rgb(170, 143, 109);
+    pointer-events: none; /* não atrapalha clique */
 }
+
+.moneyIconDolar {
+    position: absolute;
+    right: 420px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: rgb(170, 143, 109);
+    pointer-events: none; /* não atrapalha clique */
+}
+
 
 .inputFieldsContainer {
     align-items: flex-start;
@@ -33,9 +45,11 @@
 
 .inputFieldsContainer > * {
     position: relative;
-    flex: 2 2 calc(40% - 10px);
-    min-width: 320px;
+    flex: 1 1 calc(45% - 20px); 
+    min-width: 280px; 
+    max-width: 100%; 
     margin-bottom: 0px;
+    box-sizing: border-box;
 }
 
 .title {
@@ -49,6 +63,7 @@
 .buttonContainer {
     margin: 10px auto 10px;
     min-width: 800px;
+    flex: 1 1 100%;
 }
 
 .resultContainer {
@@ -199,14 +214,20 @@
     box-shadow: 0 12px 28px -20px rgba(15, 23, 42, 0.55); 
 }
 
+@media (max-width: 1200px) {
+    .inputFieldsContainer {
+        margin: 20px;
+    }
+}
 
 @media (max-width: 768px) {
-  .resultsCard,
-  .chartWrapper {
-    padding: 24px;
-  }
+    .inputFieldsContainer {
+        /* Gap reduzido para mobile: 10px vertical, 20px horizontal */
+        gap: 10px 20px; 
+    }
 
-  .cardTitle {
-    text-align: center;
-  }
+    .buttonContainer {
+        margin: 10px auto 10px;
+        max-width: calc(100%);
+    }
 }

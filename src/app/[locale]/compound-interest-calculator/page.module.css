@@ -8,13 +8,24 @@
     pointer-events: none; /* não atrapalha clique */
 }
 
-.moneyIcon {
+.moneyIconReal {
     position: absolute;
-    right: 413px;
+    right: 412px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
     color: rgb(170, 143, 109);
+    pointer-events: none; /* não atrapalha clique */
+}
+
+.moneyIconDolar {
+    position: absolute;
+    right: 420px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: rgb(170, 143, 109);
+    pointer-events: none; /* não atrapalha clique */
 }
 
 .inputFieldsContainer {

@@ -2,6 +2,7 @@
 import React from "react";
 import style from "./GenericChart.module.css";
 import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 import {
   XAxis,
@@ -27,20 +28,20 @@ import {
   BarChart
 } from 'recharts';
 
-const LABEL_MAP = {
-    monthIndex: "Período",
-    capitalAmount: "Montante",
-    totalAmount: "Montante total",
-    investedAmount: "Total investido",
-    interestAmount: "Juros acumulados",
-    contributionAmount: "Aportes"
-};
+const LABEL_MAP = (locale) => ({
+    monthIndex: locale === 'pt' ? "Mês" : "Month",
+    capitalAmount: locale === 'pt' ? "Montante" : "Capital Amount",
+    totalAmount: locale === 'pt' ? "Montante total" : "Total Amount",
+    investedAmount: locale === 'pt' ? "Total investido" : "Total Invested",
+    interestAmount: locale === 'pt' ? "Juros acumulados" : "Accumulated Interest",
+    contributionAmount: locale === 'pt' ? "Aportes" : "Contributions"
+});
 
-const formatCurrency = (value) => {
+const formatValue = (value, locale) => {
     if (typeof value !== "number" || Number.isNaN(value)) return "-";
-    return value.toLocaleString("pt-BR", {
+    return value.toLocaleString(locale === 'pt' ? "pt-BR" : "en-US", {
         style: "currency",
-        currency: "BRL",
+        currency: locale === 'pt' ? "BRL" : "USD",
         minimumFractionDigits: 2
     });
 };
@@ -50,6 +51,8 @@ function GenericChart({
     chartType = "area",
     data=[], 
   }) {
+
+    const { locale } = useParams();
 
     const t = useTranslations('GenericChart');
     
@@ -96,15 +99,15 @@ function GenericChart({
         for (const key in lastItem) {
             if (!keysToIgnore.includes(key) && lastItem[key] > 0) {
                 pieData.push({
-                    name: LABEL_MAP[key] || key,
+                    name: LABEL_MAP(locale)[key] || key,
                     value: lastItem[key]
                 });
             }
         }
     }
 
-    const legendFormatter = (value) => LABEL_MAP[value] || value;
-    const tooltipFormatter = (value, name) => [formatCurrency(value), legendFormatter(name)];
+    const legendFormatter = (value) => LABEL_MAP(locale)[value] || value;
+    const tooltipFormatter = (value, name) => [formatValue(value, locale), legendFormatter(name)];
 
     return (
         <div className={style.chartContainer}>
@@ -114,7 +117,7 @@ function GenericChart({
                         {/* Eixo X: Usamos o seu "xKey" (tempo/categoria) */}
                         <XAxis dataKey={xKey} />
                         <CartesianGrid strokeDasharray="5 5" />
-                        <Tooltip formatter={tooltipFormatter} labelFormatter={(label) => `${LABEL_MAP[xKey] || t('periodLabel')}: ${label}`} />
+                        <Tooltip formatter={tooltipFormatter} labelFormatter={(label) => `${LABEL_MAP(locale)[xKey] || t('periodLabel')}: ${label}`} />
                         <Legend formatter={legendFormatter} />
 
                         {/* Por mais que a data seja algo do tipo:
@@ -163,7 +166,7 @@ function GenericChart({
             )}
 
             {isLineChart && (
-                <div style={{ width: '100%', height: 800  }}> {/* Container com altura fixa razoável */}
+                <div className={style.chartSize}> {/* Container com altura fixa razoável */}
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart
                             data={data}

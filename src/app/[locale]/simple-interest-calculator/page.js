@@ -10,24 +10,15 @@ import GenericChart from "@/components/GenericChart";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useParams } from 'next/navigation'; 
+
+{/* Utils */}
+import { formatMoneyValue, formatMoneyInput } from "@/utils/formatters";
+
+{/* Images */}
 import simpleInterestExample from "@/assets/simple_interest_example.png";
 import simpleInterestResultExample from "@/assets/simple_interest_result_example.png";
-
-
-function toNumber(value, locale) {
-  // Para PT-BR: separa com vírgula. Para EN: separa com ponto
-  const decimalSeparator = locale === 'pt' ? ',' : '.';
-  const thousandsSeparator = locale === 'pt' ? '.' : ',';
-  
-  // Remove tudo que não for dígito ou separador decimal
-  const cleaned = (value || "")
-    .replace(new RegExp(`\\${thousandsSeparator}`, 'g'), '') // Remove separador de milhares
-    .replace(new RegExp(`[^\\d${decimalSeparator}]`), 'g', ''); // Remove outros caracteres
-  
-  if (!cleaned) return 0;
-  // Converte para padrão JS (ponto como decimal)
-  else return cleaned.replace(decimalSeparator, ".");
-}
+import simpleInterestExampleEn from "@/assets/simple_interest_example_en.png";
+import simpleInterestResultExampleEn from "@/assets/simple_interest_result_example_en.png";
 
 function generateChartData(C, i, n) {
   const history = [];
@@ -48,25 +39,14 @@ function generateChartData(C, i, n) {
   return history;
 }
 
-function formatCurrency(value, locale) {
-  // Converte para número e divide por 100 para considerar os centavos
-  const number = Number(value) / 100;
-  const decimalSeparator = locale === 'pt' ? ',' : '.';
-  const thousandsSeparator = locale === 'pt' ? '.' : ',';
+function toNumber(value) {
+  {/* Remove todos os caracteres que não sejam dígitos
+    -> Usado na hora de organizar o input do usuário
+  */}
 
-  // Formata o número com separadores apropriados
-  return number.toLocaleString(locale === 'pt' ? "pt-BR" : "en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  if (!value) return "";
+  return value.toString().replace(/\D/g, "");
 }
-
-const formatCurrencyDisplay = (value, locale) =>
-  Number(value || 0).toLocaleString(locale === 'pt' ? "pt-BR" : "en-US", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 2,
-  });
 
 function interest_calculator() {
   const t = useTranslations("SimpleInterestCalculator");
@@ -95,49 +75,49 @@ function interest_calculator() {
   }
 
   function handleChange(event) {
-    var newValue = event.target.value;
-    const inputName = event.target.name;
+    const {name, value: rawValue, dataset} = event.target;
+    let processedValue = rawValue;
 
-    if (event.target.dataset.kind === "money") {
-      newValue = toNumber(newValue, locale);
+    if (dataset.kind === "money" || dataset.kind === "percentage") {
+      // Pega apenas os números digitados
+      const digitsOnly = toNumber(rawValue);
 
-      // Se o newValue não for vazio ou igual a "00", formata como moeda. 
-      // Caso contrário, define como string vazia.
-      if (newValue !== "" && newValue !== "00") {
-        newValue = formatCurrency(newValue, locale)
+      if (digitsOnly !== "") {
+        processedValue = formatMoneyInput(digitsOnly, locale);
+      } else {
+        processedValue = "";
       }
-      else newValue = "" ;
-    }
-
-    if (event.target.dataset.kind === "percentage") {
-      newValue = toNumber(newValue, locale);
-
-      if (newValue !== "" && newValue !== "00") {
-        newValue =  formatCurrency(newValue, locale);
-      }
-      else newValue = "" ;
     }
 
     setValue(prevValue => {
       return {
         ...prevValue,
-        [inputName]: newValue
+        [name]: processedValue
       }
     });
   }
 
   function calculateSimpleInterest(capital, interestRate, period, interestRateUnit, periodUnit) {
-    // --- FUNÇÃO AUXILIAR DE LIMPEZA ---
     const parseLocalNum = (val) => {
-        if (!val) return 0;
-        // 1. Remove tudo que NÃO for número ou separador decimal
-        const decimalSep = locale === 'pt' ? ',' : '.';
-        const thousandsSep = locale === 'pt' ? '.' : ',';
-        let clean = val.toString().replace(new RegExp(`\\${thousandsSep}`, 'g'), '').replace(/[^\d,.]/, 'g', '');
-        // 2. Converte para padrão JS
-        clean = clean.replace(decimalSep, '.');
-        return parseFloat(clean);
+      {/* Função auxiliar de limpeza, converte tudo para número padrão JS 
+        -> Usado na hora dos cálculos, para garantir que os valores estejam no formato correto, 
+        independente do formato de input do usuário
+      */}
+
+      if (!val) return 0;
+
+      // 1. Remove tudo que NÃO for número ou separador decimal
+      const decimalSep = locale === 'pt' ? ',' : '.';
+      const thousandsSep = locale === 'pt' ? '.' : ',';
+      let clean = val.toString().replace(new RegExp(`\\${thousandsSep}`, 'g'), '').replace(new RegExp(`[^\\d${decimalSep}]`, 'g'), '');
+
+      // 2. Converte para padrão JS
+      clean = clean.replace(decimalSep, '.');
+      return parseFloat(clean);
     };
+
+    const MAX_SAFE = Number.MAX_SAFE_INTEGER; // Constante onde o js trava -> 2^53 - 1
+    const MAX_MONTHS = 600;
 
     const C = parseLocalNum(capital);
     const interestRateParsed = parseLocalNum(interestRate);
@@ -145,8 +125,8 @@ function interest_calculator() {
 
     // Verifica se os valores são válidos
     if (isNaN(C) || isNaN(interestRateParsed) || isNaN(periodValue)) {
-        alert(t("alertWrongValues"));
-        return 0;
+      alert(t("alertWrongValues"));
+      return 0;
     }
 
     // 1. Converter a TAXA para MENSAL (juros simples → divisão direta)
@@ -161,6 +141,11 @@ function interest_calculator() {
       totalMonths = periodValue * 12;
     }
 
+    if (totalMonths > MAX_MONTHS) {
+      alert(t("alertPeriodTooLong"));
+      return 0;
+    }
+
     // 3. Calcular
     const i = monthlyRatePercent / 100;
     const n = totalMonths;
@@ -170,6 +155,14 @@ function interest_calculator() {
 
     const capitalAmount = C * (1 + i * n);
     const finalAmount = capitalAmount;
+
+    // A trava de segurança
+    if (finalAmount > MAX_SAFE) {
+      alert(t("alertValueTooHigh"));
+      setResults(null);
+      return 0;
+    }
+
     const totalInvested = C;
     const totalInterest = C * i * n;
 
@@ -189,6 +182,7 @@ function interest_calculator() {
   } 
 
   const decimalSeparator = locale === 'pt' ? ',' : '.';
+  const currencySymbol = locale === 'pt' ? 'R$' : '$'; 
   const unitLabels = {
     monthlyLabel: locale === 'pt' ? 'Mensal' : 'Monthly',
     yearlyLabel: locale === 'pt' ? 'Anual' : 'Yearly',
@@ -210,7 +204,7 @@ function interest_calculator() {
           placeholder={`0${decimalSeparator}00`}
           info={t("inputCapital.info")}
         >
-          <div className={style.moneyIcon}> R$ </div>
+          <div className={locale === 'pt' ? style.moneyIconReal : style.moneyIconDolar}>{currencySymbol}</div>
         </InputField>
 
         <InputField
@@ -268,22 +262,22 @@ function interest_calculator() {
             <h3 className={style.cardTitle}>{t("result.summaryTitle")}</h3>
             <div className={style.resultRow}>
               <span className={style.resultLabel}>{t("result.investedLabel")}</span>
-              <span className={style.resultValue}>{formatCurrencyDisplay(results.invested, locale)}</span>
+              <span className={style.resultValue}>{`${formatMoneyValue(results.invested, locale)}`}</span>
             </div>
             <div className={style.resultRow}>
               <span className={style.resultLabel}>{t("result.interestLabel")}</span>
-              <span className={style.resultValue}>{formatCurrencyDisplay(results.interest, locale)}</span>
+              <span className={style.resultValue}>{`${formatMoneyValue(results.interest, locale)}`}</span>
             </div>
             <div className={style.resultRowHighlight}>
               <span className={style.resultLabel}>{t("result.finalLabel")}</span>
-              <span className={style.resultValue}>{formatCurrencyDisplay(results.final, locale)}</span>
+              <span className={style.resultValue}>{`${formatMoneyValue(results.final, locale)}`}</span>
             </div>
           </div>
           )}
         </div> 
       </div>
 
-      {chartData.length > 0 && (
+      {chartData.length > 0 && results && (
         <div className={style.chartSection}>
           <div className={style.chartWrapper}>
             <h3 className={style.cardTitle}>{t("result.evolutionGraph")}</h3>
@@ -321,7 +315,7 @@ function interest_calculator() {
             {t("exampleCalculation.intro")}
           </p>
           <img
-            src={simpleInterestExample.src}
+            src={locale === 'pt' ? simpleInterestExample.src : simpleInterestExampleEn.src}
             alt={t("exampleCalculation.imageAlt1")}
             className={style.imageAttribution}
           />
@@ -329,13 +323,14 @@ function interest_calculator() {
             {t("exampleCalculation.description")}
           </p>
           <img
-            src={simpleInterestResultExample.src}
+            src={locale === 'pt' ? simpleInterestResultExample.src : simpleInterestResultExampleEn.src}
             alt={t("exampleCalculation.imageAlt2")}
             className={style.imageAttribution}
           />
         </div>
       </div>
     </Article>
+
     <Article title={t("definitionSection.title")}>
       <div className={tStyle.textSection}>
         <p className={tStyle.textParagraph}>
@@ -344,7 +339,9 @@ function interest_calculator() {
 
         <div className={tStyle.infoHighlight}>
           <p className={tStyle.textParagraph}>
-            {t("definitionSection.example")}
+            {t.rich("definitionSection.example", {
+              strong: (children) => <strong>{children}</strong> 
+            })}
           </p>
         </div>
 
@@ -354,7 +351,7 @@ function interest_calculator() {
 
         <p className={tStyle.textParagraph}>
           {t.rich("definitionSection.compareLink", {
-            a: (children) => <Link href={`/${locale}/compound-interest-calculator`} className={tStyle.inlineLink}>{children}</Link>
+            link: (children) => <Link href={`/${locale}/compound-interest-calculator`} className={tStyle.inlineLink}>{children}</Link>
           })}
         </p>
 
@@ -366,7 +363,9 @@ function interest_calculator() {
 
         <div className={tStyle.comparisonCard}>
           <p className={tStyle.textParagraph}>
-            {t("comparativeSection.example")}
+            {t.rich("comparativeSection.example" , {
+              strong: (children) => <strong>{children}</strong> 
+            })}
           </p>
         </div>
       </div>

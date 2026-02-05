@@ -77,7 +77,6 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: stretch;
   min-width: 280px;
   max-width: 340px;
@@ -97,11 +96,12 @@
 }
 
 .cardText {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #523c2d;
   line-height: 1.6;
   flex-grow: 1;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .homeButton {
@@ -117,4 +117,10 @@
   justify-content: center !important;
   align-items: center !important;
   display: flex !important;
+}
+
+@media (max-width: 768px) {
+  .cardText {
+    font-size: 1.1rem;
+  }
 }

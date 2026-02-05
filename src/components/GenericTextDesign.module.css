@@ -2,10 +2,11 @@
     /* Estilo do título principal */
     font-size: 2.5rem;
     color: #654a38;
-    margin: 30px;
+    margin: 20px;
     font-weight: 900;
     letter-spacing: -2px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .textSection {
@@ -144,11 +145,28 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 10px;
 }
 
 .symbolLegend li {
     padding: 5px 16px;
     border-radius: 14px;
     background: rgba(237, 224, 207, 0.4);
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .infoHighlight {
+        text-align: left;
+        
+        padding: 20px 8px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .formulaCard {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+    }
 }

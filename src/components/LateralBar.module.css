@@ -140,3 +140,26 @@
     box-shadow: 0 6px 16px rgba(82, 60, 45, 0.3);
     transform: scale(1.05);
 }
+
+/* --- Mobile --- */
+@media screen and (max-width: 768px) {
+    .lateralBar {
+        width: 240px;
+    }
+  
+    .lateralBarInvisible {
+        width: 240px;
+    }
+  
+    .lateralBarTitle {
+        height: 80px;
+        padding: 20px;
+        font-size: 1.5rem;
+    }
+  
+    .lateralBarButton {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+    }
+    
+}

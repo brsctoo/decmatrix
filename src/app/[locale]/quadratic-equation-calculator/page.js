@@ -12,6 +12,8 @@ import quadraticEquationExample from "@/assets/quadratic_equation_example.png";
 import quadraticEquationResultExample01 from "@/assets/quadratic_equation_result_example01.png";
 import quadraticEquationResultExample02 from "@/assets/quadratic_equation_result_example02.png";
 
+import useIsMobile from "@/components/mobileDesktopChanger";
+
 import { ReferenceDot } from "recharts";
 
 import MathDisplay from '@/components/MathDisplay';
@@ -85,6 +87,8 @@ function quadratic_equation_calculator() {
   const [chartData, setChartData] = React.useState([]);
   const [results, setResults] = React.useState(null);
 
+  const isMobile = useIsMobile();
+
   const [value, setValue] = React.useState({
     a: "",
     b: "",
@@ -113,6 +117,14 @@ function quadratic_equation_calculator() {
           [inputName]: newValue
         }
     });
+  }
+  
+  function fixNum(num) {
+    const decimals = num.toString().split(".")[1]; 
+    if (decimals && decimals.length > 4) {
+      return num.toFixed(4) + "...";
+    }
+    return num;
   }
 
   function calculateQuadraticRoots(a, b, c) {  
@@ -144,15 +156,15 @@ function quadratic_equation_calculator() {
       const sqrtDelta = Math.sqrt(Math.abs(delta));
       // Frações na forma: (-b ± √(-Δ) i) / 2a
       if (numB < 0) {
-        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${numB}) + \\sqrt{${-delta}}\\,i}{${2 * numA}}}`} />;
-        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${numB}) - \\sqrt{${-delta}}\\,i}{${2 * numA}}}`} />;
+        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${fixNum(numB)}) + \\sqrt{${fixNum(-delta)}}\\,i}{${fixNum(2 * numA)}}}`} />;
+        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${fixNum(numB)}) - \\sqrt{${fixNum(-delta)}}\\,i}{${fixNum(2 * numA)}}}`} />;
       } else {
-        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${numB} + \\sqrt{${-delta}}\\,i}{${2 * numA}}}`} />;
-        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${numB} - \\sqrt{${-delta}}\\,i}{${2 * numA}}}`} />;
+        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${fixNum(numB)} + \\sqrt{${fixNum(-delta)}}\\,i}{${fixNum(2 * numA)}}}`} />;
+        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${fixNum(numB)} - \\sqrt{${fixNum(-delta)}}\\,i}{${fixNum(2 * numA)}}}`} />;
       }
 
-      const realPart = -numB / (2 * numA);
-      const imaginaryPart = sqrtDelta / (2 * numA);
+      const realPart = fixNum(-numB / (2 * numA));
+      const imaginaryPart = fixNum(sqrtDelta / (2 * numA));
 
       // Forma simplificada: x = real ± imag i
       roots.root1 = <MathDisplay equation={`\\mathbf{${realPart} + ${imaginaryPart}i}`} />;
@@ -165,14 +177,14 @@ function quadratic_equation_calculator() {
       const sqrtDelta = Math.sqrt(delta);
       // Coloca parenteses apenas se b for menor que 0
       if (numB < 0) {
-        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${numB}) + \\sqrt{${delta}}}{${2 * numA}}}`} />;
-        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${numB}) - \\sqrt{${delta}}}{${2 * numA}}}`} />;
+        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${fixNum(numB)}) + \\sqrt{${fixNum(delta)}}}{${fixNum(2 * numA)}}}`} />;
+        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-(${fixNum(numB)}) - \\sqrt{${fixNum(delta)}}}{${fixNum(2 * numA)}}}`} />;
       } else {
-        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${numB} + \\sqrt{${delta}}}{${2 * numA}}}`} />;
-        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${numB} - \\sqrt{${delta}}}{${2 * numA}}}`} />;
+        roots.root1_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${fixNum(numB)} + \\sqrt{${fixNum(delta)}}}{${fixNum(2 * numA)}}}`} />;
+        roots.root2_fraction = <MathDisplay equation={`\\mathbf{\\frac{-${fixNum(numB)} - \\sqrt{${fixNum(delta)}}}{${fixNum(2 * numA)}}}`} />;
       }
-      roots.root1 = (-numB + sqrtDelta) / (2 * numA);
-      roots.root2 = (-numB - sqrtDelta) / (2 * numA);  
+      roots.root1 = fixNum((-numB + sqrtDelta) / (2 * numA));
+      roots.root2 = fixNum((-numB - sqrtDelta) / (2 * numA));  
 
       setChartData(generateChartData(numA, numB, numC, roots.root1, roots.root2, delta));
     }
@@ -333,7 +345,6 @@ function quadratic_equation_calculator() {
                   label={{ position: 'top', value: 'x1', fill: 'red', fontSize: 12 }} 
                 />
               )}
-
               {/* Raiz 2 */}
               {results?.roots?.root2 !== null && results?.delta >= 0 && (
                 <ReferenceDot 
@@ -361,8 +372,10 @@ function quadratic_equation_calculator() {
                 </li>
                 <li>
                   <strong>{t("stepByStep.step2")}</strong> {t("stepByStep.step2Content")}
-                  <div className={style.quadraticDeltaFormulaCard}>
-                      <MathDisplay equation={`\\mathbf{\\Delta = (${value.b})^2 - 4 \\times (${value.a}) \\times (${value.c})}`} />
+                  <div className={style.quadraticRowFormulaCard}>
+                      {!isMobile && (
+                      <MathDisplay equation={`\\mathbf{\\Delta = (${value.b})^2 - 4 \\times (${value.a}) \\times (${value.c})}`} className={tStyle.showOnlyDesktop} />
+                      )}
                       <MathDisplay equation={`\\mathbf{\\Delta = ${value.b ** 2} - ${4 * value.a * value.c}}`} />
                       <MathDisplay equation={`\\mathbf{\\Delta = ${results.delta}}`} />
                   </div>
@@ -382,36 +395,35 @@ function quadratic_equation_calculator() {
                 </li>
                 <li><strong>{t("stepByStep.step4")}</strong> {t("stepByStep.step4Content")}
                   <div className={style.quadraticFormulaCard}>
-                      <MathDisplay equation={`\\mathbf{x =\\frac{-b ± \\sqrt{Δ}}{2a}}`} />
-                      
+                      <div className={style.quadraticRowFormulaCard}>
+                        <MathDisplay equation={`\\mathbf{x =\\frac{-b ± \\sqrt{Δ}}{2a}}`} />
+                      </div>
+
                       {/* Resultado em forma de fração */}
                       <div className={style.quadraticResultsFormulaCard}>
-                        <MathDisplay equation={`\\mathbf{x₁ =\\frac{-(${value.b}) + \\sqrt{${results.delta}}}{${2 * value.a}}}`} />
+                        <MathDisplay equation={`\\mathbf{\\therefore \\quad  x₁ =\\frac{-(${value.b}) + \\sqrt{${results.delta}}}{${2 * value.a}}}`} />
                         <MathDisplay equation={`\\mathbf{x₂ =\\frac{-(${value.b}) - \\sqrt{${results.delta}}}{${2 * value.a}}}`} />
                       </div>
                       
                       {results.delta >= 0 ? (
                         <div>
                           <div className={style.quadraticResultsFormulaCard}>
-                            <MathDisplay equation={`\\mathbf{x₁ =\\frac{${(-value.b + Math.sqrt(results.delta))}}{${2 * value.a}}}`} />
+                            <MathDisplay equation={`\\mathbf{\\therefore \\quad x₁ =\\frac{${(-value.b + Math.sqrt(results.delta))}}{${2 * value.a}}}`} />
                             <MathDisplay equation={`\\mathbf{x₂ =\\frac{${(-value.b - Math.sqrt(results.delta))}}{${2 * value.a}}}`} />
                           </div>
 
                           <div className={style.quadraticResultsFormulaCard}>
-                            <MathDisplay equation={`\\mathbf{x₁ = ${results.roots.root1}}`} />
+                            <MathDisplay equation={`\\mathbf{\\therefore \\quad x₁ = ${results.roots.root1}}`} />
                             <MathDisplay equation={`\\mathbf{x₂ = ${results.roots.root2}}`} />
                           </div>
                         </div>
                       ) :
                         // Resultado em forma simplificada (número complexo)
                         <div className={style.quadraticResultsFormulaCard}>
-                          <MathDisplay equation={`\\mathbf{x₁ = ${-value.b/(2 * value.a)} + ${Math.sqrt(Math.abs(results.delta)) / (2 * value.a)}i}`} />
-                          <MathDisplay equation={`\\mathbf{x₂ = ${-value.b/(2 * value.a)} - ${Math.sqrt(Math.abs(results.delta)) / (2 * value.a)}i}`} />
+                          <MathDisplay equation={`\\mathbf{\\therefore \\quad x₁ = ${-fixNum(value.b/(2 * value.a))} + ${fixNum(Math.sqrt(Math.abs(results.delta)) / (2 * value.a))}i }`} />
+                          <MathDisplay equation={`\\mathbf{x₂ = ${-fixNum(value.b/(2 * value.a))} - ${fixNum(Math.sqrt(Math.abs(results.delta)) / (2 * value.a))}i}`} />
                         </div>
                       }
-
-                        
-                      
                   </div>
                 </li>
                 <li><strong>{t("stepByStep.step5")}</strong> {t("stepByStep.step5Content")}</li>
@@ -553,10 +565,9 @@ function quadratic_equation_calculator() {
             {t("graphSection.vertex")}
           </p>
           
-          <div className={tStyle.formulaCard}>
-            <span>
-              <MathDisplay equation={`\\mathbf{Vx =\\frac{-b}{2a}} \\qquad \\mathbf{Vy =\\frac{-\\Delta}{4a}}`} />
-            </span>
+          <div className={`${tStyle.formulaCard} ${style.quadraticVerticesFormulaCard}`}>
+            <MathDisplay equation={`\\mathbf{Vx =\\frac{-b}{2a}}`} />
+            <MathDisplay equation={`\\mathbf{Vy =\\frac{-\\Delta}{4a}}`} />
           </div>
 
           <ul className={tStyle.symbolLegend}>
@@ -571,12 +582,11 @@ function quadratic_equation_calculator() {
           {t("factorization.intro")}
         </p>
 
-        <div className={tStyle.formulaCard}>
+        <div className={`${tStyle.formulaCard} ${style.quadraticFactorizationFormulaCard}`}>
           <span>
             {t("factorization.formula")}
           </span>
         </div>
-
         <ul className={tStyle.symbolLegend}>
           <li>{t.rich("factorization.symbolABC", { strong: (children) => <strong>{children}</strong> })}</li>
           <li>{t.rich("factorization.symbolRoots", { strong: (children) => <strong>{children}</strong> })}</li>

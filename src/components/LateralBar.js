@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './LateralBar.module.css';
 import ReactiveButton from './ReactiveButton';
 import { usePathname, useRouter, useParams } from "next/navigation";
@@ -54,7 +54,7 @@ function LateralBar() {
                         <ReactiveButton 
                             label={t('home')} 
                             onClick={() => router.push(`/${params.locale}/`)} 
-                            active={pathname === `/${params.locale}/`} 
+                            active={pathname === `/${params.locale}`} 
                             extraStyles={`${styles.lateralBarButton}`}
                         />
                     </LateralSection>
