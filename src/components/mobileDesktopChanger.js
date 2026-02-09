@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(false); // Começa como false para não bugar o google
 
     function handleSize() {
         setIsMobile(window.innerWidth <= 768);
