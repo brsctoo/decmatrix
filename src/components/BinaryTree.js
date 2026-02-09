@@ -1,17 +1,30 @@
-import style from './BinaryTree.module.css';
-import { useDraggableScroll } from "../utils/MouseGrab.js";
-import AvlTree, { setNodesCoordinates as avl_SetNodesCoordinates } from "../utils/AvlTree.js";
-import BinarySearchTree, { setNodesCoordinates as bst_setNodesCoordinates } from "../utils/BinarySearchTree.js";
+// React e Hooks
 import React, { useRef, useState, useEffect, useMemo } from "react";
+
+// Componentes
 import InputField from './InputField';
 import ReactiveButton from './ReactiveButton';
-import { useAnimate } from 'framer-motion';
-import { motion } from 'framer-motion';
+
+// Animações
+import { useAnimate, motion } from 'framer-motion';
+
+// Utilidades e contextos
+import { useDraggableScroll } from "../utils/MouseGrab.js";
+import { useIsMobile } from '@/context/ViewportContext';
 import { useTranslations } from 'use-intl';
 
+// Árvores
+import AvlTree, { setNodesCoordinates as avl_SetNodesCoordinates } from "../utils/AvlTree.js";
+import BinarySearchTree, { setNodesCoordinates as bst_setNodesCoordinates } from "../utils/BinarySearchTree.js";
+
+// Estilos
+import style from './BinaryTree.module.css';
+
+// ==================== FUNÇÕES DE RENDERIZAÇÃO ====================
+
 function drawTree(tree, treeType = "BST", hoveredNodeId, setHoveredNodeId) {
-    {/* Desenha a árvore Nó a Nó*/}
-  const nodes = tree.nodes;
+    // Desenha a árvore Nó a Nó
+    const nodes = tree.nodes;
 
   return nodes.map((node) => (
     <div
@@ -74,8 +87,8 @@ function drawTree(tree, treeType = "BST", hoveredNodeId, setHoveredNodeId) {
 }
 
 function drawEdges(tree) {
-  {/* Desenha as arestas entre os nós */}
-  if (!tree.root) return null;
+    // Desenha as arestas entre os nós
+    if (!tree.root) return null;
 
   const edges = [];
 
@@ -288,6 +301,11 @@ export default function BinaryTree({
     }
 
     async function handleNextStep() {
+        // Recentraliza se for o primeiro nó
+        if (treeRef.current.nodes.length === 0 && containerRef.current) {
+            resetView();
+        }
+            
         // 1. Verifica se há valores na fila
         if (sequences.insertQueue.length === 0) return;
 
@@ -653,6 +671,8 @@ export default function BinaryTree({
         setVersion((v) => v + 1);
     }
 
+    const isMobile = useIsMobile();
+
     return (
         <div>
             <div className={style.topInputSection}>
@@ -677,222 +697,427 @@ export default function BinaryTree({
                 </div>
             </div>
             
-            {/* 1. MOLDURA FIXA DA ÁRVORE */}
-            <div style={{ 
-                position: 'relative', 
-                width: '60%', 
-                height: '580px', 
-                border: '1px solid #ccc',
-                overflow: 'hidden', 
-                margin: '0 auto' 
-            }}>
+            {/* 1. MOLDURA FIXA DA ÁRVORE PARA DESKTOP */}
+            {!isMobile && 
+                <div style={{ 
+                    position: 'relative', 
+                    width: '60%', 
+                    height: '580px', 
+                    border: '1px solid #ccc',
+                    overflow: 'hidden', 
+                    margin: '0 auto' 
+                }}>
 
-                {/* 2.1 TOOLBOX FLUTUANTE -> ESQUERDA */}
-                <div 
-                    className={style.treeToolsStyle} 
-                    style={{
-                        position: 'absolute', 
-                        top: '10px',
-                        left: '10px',
-                        zIndex: 51, 
-                        width: '215px', 
-                        userSelect: 'none',
-                        pointerEvents: 'auto' 
-                    }}
-                >   
-                    <ReactiveButton 
-                        onClick={isOnAnimation ? undefined : handleNextStep} 
-                        label={t('stepButtons.nextLabel')} 
-                        extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                        haveIsOverStyle={isOnAnimation ? false : true}
-                    />
-
-                    <ReactiveButton 
-                        onClick={isOnAnimation ? undefined : returnToPreviousState} 
-                        label={t('stepButtons.previousLabel')} 
-                        extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                        haveIsOverStyle={isOnAnimation ? false : true}
-                    />
-
+                    {/* 2.1 TOOLBOX FLUTUANTE -> ESQUERDA */}
                     <div 
-                        className={style.slider}
-                    >
-                        <label className={style.sliderLabel}>
-                            {t('speedControler.label')}
-                        </label>
-                            
-                        <input 
-                            type="range" 
-                            min="0.0"   
-                            max="10.0"   
-                            step="0.1"
-                            value={animSpeed}
-                            onChange={(e) => setAnimSpeed(parseFloat(e.target.value))}
-                            className={style.sliderTrack}
-                        />
-                        <div className={style.sliderScale}>
-                            <span>{t('speedControler.sliderSlow')}</span>
-                            <span>{t('speedControler.sliderFast')}</span>
-                        </div>
-                    </div>
-                
-                    <ReactiveButton 
-                        onClick={isOnAnimation ? undefined : () => { resetAll(); resetHistory(); }} 
-                        label={t('resetTreeButtonLabel')} 
-                        extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                        haveIsOverStyle={isOnAnimation ? false : true}
-                    />
-
-                    <div className={style.toolInputRemoval}>
-                        <InputField 
-                            label={t('removalCard.inputFieldLabel')}
-                            name="removeValue"
-                            value={valueToRemove}
-                            onChange={(e) => setValueToRemove(e.target.value)}
-                            type="number"
-                            placeholder={"e.g. 50"}
-                            info={t('removalCard.inputFieldInfo')}
-                        >
-                        </InputField>
-
+                        className={style.treeToolsStyle} 
+                        style={{
+                            position: 'absolute', 
+                            top: '10px',
+                            left: '10px',
+                            zIndex: 51, 
+                            width: '215px', 
+                            userSelect: 'none',
+                            pointerEvents: 'auto' 
+                        }}
+                    >   
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : handleRemoveValue} 
-                            label={t('removalCard.buttonLabel')}
-                            extraStyles={`${style.toolButton} ${style.toolRemoveButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                            onClick={isOnAnimation ? undefined : handleNextStep} 
+                            label={t('stepButtons.nextLabel')} 
+                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
                             haveIsOverStyle={isOnAnimation ? false : true}
                         />
-                    </div>
-                
-                    <ReactiveButton 
-                        onClick={resetView} 
-                        label={t('resetViewButtonLabel')} 
-                        extraStyles={`${style.toolButton}`} 
-                    />
 
-                    <ReactiveButton 
-                        onClick={skipSteps} 
-                        label={t('skipStepsButtonLabel')} 
-                        extraStyles={`${style.toolButton}`} 
-                    />
-                </div>
+                        <ReactiveButton 
+                            onClick={isOnAnimation ? undefined : returnToPreviousState} 
+                            label={t('stepButtons.previousLabel')} 
+                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                            haveIsOverStyle={isOnAnimation ? false : true}
+                        />
+
+                        <div 
+                            className={style.slider}
+                        >
+                            <label className={style.sliderLabel}>
+                                {t('speedControler.label')}
+                            </label>
+                                
+                            <input 
+                                type="range" 
+                                min="0.0"   
+                                max="10.0"   
+                                step="0.1"
+                                value={animSpeed}
+                                onChange={(e) => setAnimSpeed(parseFloat(e.target.value))}
+                                className={style.sliderTrack}
+                            />
+                            <div className={style.sliderScale}>
+                                <span>{t('speedControler.sliderSlow')}</span>
+                                <span>{t('speedControler.sliderFast')}</span>
+                            </div>
+                        </div>
                     
-                {/* 2.2 TOOLBOX FLUTUANTE -> DIREITA */}
-                <div 
-                    className={style.treeToolsStyle} 
-                    style={{
-                        position: 'absolute', 
-                        top: '10px',
-                        right: '10px',
-                        zIndex: 51, 
-                        width: '215px', 
-                        userSelect: 'none',
-                        pointerEvents: 'auto' 
-                    }}
-                >
-                    <div className={style.queueInfo}>
-                        {t('queueInfo.insertQueue')}: {sequences.insertQueue.length > 0 ? sequences.insertQueue.join(", ") : t("queueInfo.empty")}
-                    </div>
-                    <div className={style.queueInfo}>
-                    {t('queueInfo.nodeQueue')}: {sequences.nodeQueue.length > 0 ? sequences.nodeQueue.join(", ") : t("queueInfo.empty")}
-                    </div>
-                </div>
+                        <ReactiveButton 
+                            onClick={isOnAnimation ? undefined : () => { resetAll(); resetHistory(); }} 
+                            label={t('resetTreeButtonLabel')} 
+                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                            haveIsOverStyle={isOnAnimation ? false : true}
+                        />
 
-                {/* 2.3 INFO */}
-                <motion.div
-                    key={operationInfo}
-                    className={style.treeInfoStyle} 
-                    style={{
-                        position: 'absolute', 
-                        top: '10px',    
-                        left: '230px',
-                        zIndex: 11, 
-                        width: '215px', 
-                        userSelect: 'none',
-                        pointerEvents: 'auto' 
-                    }}
-                    initial={{ opacity: 0 }} // Começa em 0
-                    animate={{ opacity: [0, 1, 0] }} // 3 etapas: 0 -> 1 -> 0
-                    transition={{ duration: 2, times: [0, 0.3, 1] }} // Passa para 1 em 30% do tempo, depois some até 2s
-                >
-                    {operationInfo}
-                </motion.div>
+                        <div className={style.toolInputRemoval}>
+                            <InputField 
+                                label={t('removalCard.inputFieldLabel')}
+                                name="removeValue"
+                                value={valueToRemove}
+                                onChange={(e) => setValueToRemove(e.target.value)}
+                                type="number"
+                                placeholder={"e.g. 50"}
+                                info={t('removalCard.inputFieldInfo')}
+                            >
+                            </InputField>
 
-                {/* 3. CONTAINER SCROLL */}
-                <div 
-                    ref={containerRef} 
-                    className={style.treeContainer} 
-                    {...events}  
-                    style={{ 
-                        position: 'relative',
-                        width: '100%',   // Enche a moldura
-                        height: '100%',  // Enche a moldura
-                        overflow: 'hidden', 
-                        cursor: 'grab', 
-                    }} 
-                >
-                    {/* Conteúdo de dentro (4000px) */}
+                            <ReactiveButton 
+                                onClick={isOnAnimation ? undefined : handleRemoveValue} 
+                                label={t('removalCard.buttonLabel')}
+                                extraStyles={`${style.toolButton} ${style.toolRemoveButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                                haveIsOverStyle={isOnAnimation ? false : true}
+                            />
+                        </div>
+                    
+                        <ReactiveButton 
+                            onClick={resetView} 
+                            label={t('resetViewButtonLabel')} 
+                            extraStyles={`${style.toolButton}`} 
+                        />
+
+                        <ReactiveButton 
+                            onClick={skipSteps} 
+                            label={t('skipStepsButtonLabel')} 
+                            extraStyles={`${style.toolButton}`} 
+                        />
+                    </div>
+                    
+                    {/* 2.2 TOOLBOX FLUTUANTE -> DIREITA */}
                     <div 
-                        ref={scope}
+                        className={style.treeToolsStyle} 
+                        style={{
+                            position: 'absolute', 
+                            top: '10px',
+                            right: '10px',
+                            zIndex: 51, 
+                            width: '215px', 
+                            userSelect: 'none',
+                            pointerEvents: 'auto' 
+                        }}
+                    >
+                        <div className={style.queueInfo}>
+                            {t('queueInfo.insertQueue')}: {sequences.insertQueue.length > 0 ? sequences.insertQueue.join(", ") : t("queueInfo.empty")}
+                        </div>
+                        <div className={style.queueInfo}>
+                        {t('queueInfo.nodeQueue')}: {sequences.nodeQueue.length > 0 ? sequences.nodeQueue.join(", ") : t("queueInfo.empty")}
+                        </div>
+                    </div>
+
+                    {/* 2.3 INFO */}
+                    <motion.div
+                        key={operationInfo}
+                        className={style.treeInfoStyle} 
+                        style={{
+                            position: 'absolute', 
+                            top: '10px',    
+                            left: '230px',
+                            zIndex: 11, 
+                            width: '215px', 
+                            userSelect: 'none',
+                            pointerEvents: 'auto' 
+                        }}
+                        initial={{ opacity: 0 }} // Começa em 0
+                        animate={{ opacity: [0, 1, 0] }} // 3 etapas: 0 -> 1 -> 0
+                        transition={{ duration: 2, times: [0, 0.3, 1] }} // Passa para 1 em 30% do tempo, depois some até 2s
+                    >
+                        {operationInfo}
+                    </motion.div>
+
+                    {/* 3. CONTAINER SCROLL */}
+                    <div 
+                        ref={containerRef} 
+                        className={style.treeContainer} 
+                        {...events}  
                         style={{ 
                             position: 'relative',
-                            width: `${WORLD_WIDTH}px`,   
-                                minWidth: `${WORLD_WIDTH}px`,
-                            height: `${WORLD_HEIGHT}px` 
+                            width: '100%',   // Enche a moldura
+                            height: '100%',  // Enche a moldura
+                            overflow: 'hidden', 
+                            cursor: 'grab', 
                         }} 
-                        className={style.treeWorld}
-                    >            
-                        {/* SVG das Linhas */}
-                        <svg
-                            style={{
-                                position: "absolute", top: 0, left: 0, width: "100%", height: "100%", 
-                                pointerEvents: "none", zIndex: 0
-                            }}
-                        >
-                            {renderedEdges}
-                        </svg>
+                    >
+                        {/* Conteúdo de dentro (4000px) */}
+                        <div 
+                            ref={scope}
+                            style={{ 
+                                position: 'relative',
+                                width: `${WORLD_WIDTH}px`,   
+                                    minWidth: `${WORLD_WIDTH}px`,
+                                height: `${WORLD_HEIGHT}px` 
+                            }} 
+                            className={style.treeWorld}
+                        >            
+                            {/* SVG das Linhas */}
+                            <svg
+                                style={{
+                                    position: "absolute", top: 0, left: 0, width: "100%", height: "100%", 
+                                    pointerEvents: "none", zIndex: 0
+                                }}
+                            >
+                                {renderedEdges}
+                            </svg>
 
-                        {/* Nós da Árvore */}
-                        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}> 
-                            {renderedNodes}
+                            {/* Nós da Árvore */}
+                            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}> 
+                                {renderedNodes}
+                            </div>
+
+                            {/* O Viajante (Animação) */}
+                            <motion.div 
+                                id="popBorder"
+                                style={{
+                                    position: "absolute",
+                                    top: 0, left: 0,
+                                    marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
+                                    width: "40px", height: "40px",
+                                    borderRadius: "50%",
+                                    border: "3px solid #3b82f6",
+                                    backgroundColor: "transparent", // Fundo transparente
+                                    zIndex: 10,
+                                    opacity: 0, 
+                                    pointerEvents: "none"
+                                }}
+                            />
+
+                            <motion.div 
+                                id="traveler"
+                                style={{
+                                    position: "absolute",
+                                    top: 0, left: 0,
+                                    marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
+                                    width: "40px", height: "40px",
+                                    borderRadius: "50%",
+                                    border: "3px solid #3b82f6",
+                                    backgroundColor: "transparent", // Fundo transparente
+                                    zIndex: 10,
+                                    opacity: 0, 
+                                    pointerEvents: "none"
+                                }}
+                            />
                         </div>
-
-                        {/* O Viajante (Animação) */}
-                        <motion.div 
-                            id="popBorder"
-                            style={{
-                                position: "absolute",
-                                top: 0, left: 0,
-                                marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
-                                width: "40px", height: "40px",
-                                borderRadius: "50%",
-                                border: "3px solid #3b82f6",
-                                backgroundColor: "transparent", // Fundo transparente
-                                zIndex: 10,
-                                opacity: 0, 
-                                pointerEvents: "none"
-                            }}
-                        />
-
-                        <motion.div 
-                            id="traveler"
-                            style={{
-                                position: "absolute",
-                                top: 0, left: 0,
-                                marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
-                                width: "40px", height: "40px",
-                                borderRadius: "50%",
-                                border: "3px solid #3b82f6",
-                                backgroundColor: "transparent", // Fundo transparente
-                                zIndex: 10,
-                                opacity: 0, 
-                                pointerEvents: "none"
-                            }}
-                        />
                     </div>
                 </div>
-            </div>
+            }
+
+            {/* 2. LAYOUT MOBILE -> Controles em coluna acima da árvore */}
+            {isMobile && 
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px", padding: "10px" }}>
+                    
+
+                    {/* Informações das filas */}
+                    <div className={style.treeToolsStyle}>
+                        <div className={style.queueInfo}>
+                            {t('queueInfo.insertQueue')}: {sequences.insertQueue.length > 0 ? sequences.insertQueue.join(", ") : t("queueInfo.empty")}
+                        </div>
+                        <div className={style.queueInfo}>
+                            {t('queueInfo.nodeQueue')}: {sequences.nodeQueue.length > 0 ? sequences.nodeQueue.join(", ") : t("queueInfo.empty")}
+                        </div>
+                    </div>
+
+                    
+
+                    {/* Moldura da árvore */}
+                    <div style={{ 
+                        position: 'relative', 
+                        width: '100%', 
+                        height: '400px', 
+                        border: '1px solid #ccc',
+                        overflow: 'hidden'
+                    }}>
+                        
+
+                        <div 
+                            ref={containerRef} 
+                            className={style.treeContainer} 
+                            {...events}  
+                            style={{ 
+                                position: 'relative',
+                                width: '100%',
+                                height: '100%',
+                                overflow: 'hidden', 
+                                cursor: 'grab', 
+                            }} 
+                        >
+
+                            {/* Info da operação */}
+                            <motion.div
+                                key={operationInfo}
+                                className={style.treeInfoStyle}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: [0, 1, 0] }}
+                                transition={{ duration: 2, times: [0, 0.3, 1] }}
+                            >
+                                {operationInfo}
+                            </motion.div>
+
+                            <div 
+                                ref={scope}
+                                style={{ 
+                                    position: 'relative',
+                                    width: `${WORLD_WIDTH}px`,   
+                                    minWidth: `${WORLD_WIDTH}px`,
+                                    height: `${WORLD_HEIGHT}px` 
+                                }} 
+                                className={style.treeWorld}
+                            >            
+                                <svg
+                                    style={{
+                                        position: "absolute", 
+                                        top: 0, 
+                                        left: 0, 
+                                        width: "100%", 
+                                        height: "100%", 
+                                        pointerEvents: "none", 
+                                        zIndex: 0
+                                    }}
+                                >
+                                    {renderedEdges}
+                                </svg>
+
+                                <div style={{ 
+                                    position: 'absolute', 
+                                    top: 0, 
+                                    left: 0, 
+                                    width: '100%', 
+                                    height: '100%', 
+                                    zIndex: 10 
+                                }}> 
+                                    {renderedNodes}
+                                </div>
+
+                                <motion.div 
+                                    id="popBorder"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0, 
+                                        left: 0,
+                                        marginLeft: "-20px", 
+                                        marginTop: "-20px",
+                                        width: "40px", 
+                                        height: "40px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #3b82f6",
+                                        backgroundColor: "transparent",
+                                        zIndex: 10,
+                                        opacity: 0, 
+                                        pointerEvents: "none"
+                                    }}
+                                />
+
+                                <motion.div 
+                                    id="traveler"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0, 
+                                        left: 0,
+                                        marginLeft: "-20px", 
+                                        marginTop: "-20px",
+                                        width: "40px", 
+                                        height: "40px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #3b82f6",
+                                        backgroundColor: "transparent",
+                                        zIndex: 10,
+                                        opacity: 0, 
+                                        pointerEvents: "none"
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Controles inferiores */}
+                    <div className={style.treeToolsStyle}>   
+                        <ReactiveButton 
+                            onClick={isOnAnimation ? undefined : handleNextStep} 
+                            label={t('stepButtons.nextLabel')} 
+                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                            haveIsOverStyle={isOnAnimation ? false : true}
+                        />
+
+                        <ReactiveButton 
+                            onClick={isOnAnimation ? undefined : returnToPreviousState} 
+                            label={t('stepButtons.previousLabel')} 
+                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                            haveIsOverStyle={isOnAnimation ? false : true}
+                        />
+
+                        <div className={style.slider}>
+                            <label className={style.sliderLabel}>
+                                {t('speedControler.label')}
+                            </label>
+                            <input 
+                                type="range" 
+                                min="0.0"   
+                                max="10.0"   
+                                step="0.1"
+                                value={animSpeed}
+                                onChange={(e) => setAnimSpeed(parseFloat(e.target.value))}
+                                className={style.sliderTrack}
+                            />
+                            <div className={style.sliderScale}>
+                                <span>{t('speedControler.sliderSlow')}</span>
+                                <span>{t('speedControler.sliderFast')}</span>
+                            </div>
+                        </div>
+                    
+                        <ReactiveButton 
+                            onClick={isOnAnimation ? undefined : () => { resetAll(); resetHistory(); }} 
+                            label={t('resetTreeButtonLabel')} 
+                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                            haveIsOverStyle={isOnAnimation ? false : true}
+                        />
+
+                        <div className={style.toolInputRemoval}>
+                            <InputField 
+                                label={t('removalCard.inputFieldLabel')}
+                                name="removeValue"
+                                value={valueToRemove}
+                                onChange={(e) => setValueToRemove(e.target.value)}
+                                type="number"
+                                placeholder={"e.g. 50"}
+                                info={t('removalCard.inputFieldInfo')}
+                            />
+
+                            <ReactiveButton 
+                                onClick={isOnAnimation ? undefined : handleRemoveValue} 
+                                label={t('removalCard.buttonLabel')}
+                                extraStyles={`${style.toolButton} ${style.toolRemoveButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
+                                haveIsOverStyle={isOnAnimation ? false : true}
+                            />
+                        </div>
+                    
+                        <ReactiveButton 
+                            onClick={resetView} 
+                            label={t('resetViewButtonLabel')} 
+                            extraStyles={`${style.toolButton}`} 
+                        />
+
+                        <ReactiveButton 
+                            onClick={skipSteps} 
+                            label={t('skipStepsButtonLabel')} 
+                            extraStyles={`${style.toolButton}`} 
+                        />
+                    </div>
+                    
+                </div>
+            }
         </div>
-        
     )
 }
 

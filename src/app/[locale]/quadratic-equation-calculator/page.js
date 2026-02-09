@@ -12,7 +12,7 @@ import quadraticEquationExample from "@/assets/quadratic_equation_example.png";
 import quadraticEquationResultExample01 from "@/assets/quadratic_equation_result_example01.png";
 import quadraticEquationResultExample02 from "@/assets/quadratic_equation_result_example02.png";
 
-import useIsMobile from "@/components/mobileDesktopChanger";
+import { useIsMobile } from "@/context/ViewportContext";
 
 import { ReferenceDot } from "recharts";
 

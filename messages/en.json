@@ -58,7 +58,7 @@
     },
 
     "LateralBar": {
-        "title": "Our Tools",
+        "title": "OUR TOOLS",
 
         "home": "Home",
         
@@ -66,6 +66,23 @@
             "financial_calculators": "Financial",
             "algebra": "Algebra",
             "data_structures": "Data Structures"
+        },
+
+        "tools": {
+            "financialCalculators": {
+                "simpleInterestCalculator": "Simple Interest",
+                "compoundInterestCalculator": "Compound Interest"
+            },
+
+            "algebra": {
+                "quadraticEquation": "Quadratic Equation"
+            },
+
+            "dataStructures": {
+                "title": "Data Structures",
+                "binarySearchTreeSimulator": "Binary Search Tree",
+                "AVLTreeSimulator": "AVL Tree"
+            }
         },
 
         "algebra": {
@@ -84,7 +101,6 @@
             "binarySearchTreeSimulator": "Binary Search Tree",
             "AVLTreeSimulator": "AVL Tree"
         }
-        
     },
 
     "Home": {

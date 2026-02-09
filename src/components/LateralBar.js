@@ -46,9 +46,6 @@ function LateralBar() {
     }
 
     const t = useTranslations('LateralBar');
-
-    {/* pathname é o caminho atual da URL */}
-    const pathname = usePathname();
     const router = useRouter();
     const params = useParams();
 
@@ -120,39 +117,32 @@ function LateralBar() {
             return (
                 // Barra lateral total da categoria, incluindo o cabeçalho e os itens de navegação (se ativos)
                 <div key={category.id} className={styles.categoryWrapper}>
-                    <AnimatePresence>
-                        <motion.div
-                            initial={{ left: 0, opacity: 0 }} // Começa colapsado (sem altura e invisível)
-                            animate={{ left: "auto", opacity: 1 }} // Anima para expandido (altura automática e visível)
-                            exit={{ left: 0, opacity: 0 }} // Sai colapsando
-                            transition={{ duration: 0.3, ease: "easeInOut" }} // Duração e tipo de transição
-                            style={{ overflow: "hidden" }} // Esconde o conteúdo que ultrapassa a altura
-                            className={styles.toolsList}
-                            >
-                            {/* Cabeçalho da seção */}
-                            <div 
-                                className={`${styles.categoryHeader} ${isActive ? styles.active : ""}`} 
-                                onClick={() => handleCategory(category.id)}
-                            >
-                                {/* Renderiza o elemento de ícone (Sigma, Network, etc.) */}
-                                {IconElement} 
-                                <span>{t(`categories.${category.id}`)}</span> 
-                                <div className={styles.chevronIcon}>
-                                    <ChevronLeft size={16} />
-                                </div>
-                            </div>
+                    {/* Cabeçalho da seção */}
+                    <div 
+                        className={`${styles.categoryHeader} ${isActive ? styles.categoryHeaderActive : ""}`} 
+                        onClick={() => handleCategory(category.id)}
+                    >
+                        {/* Renderiza o elemento de ícone (Sigma, Network, etc.) */}
+                        {IconElement} 
+                        <span>{t(`categories.${category.id}`)}</span> 
 
-                        {/* Itens de navegação da categoria, mostrados apenas se a categoria estiver ativa */}
-                        
-                            {isActive && (
-                                <nav
-                                    initial={{ left: 0, opacity: 0 }} // Começa colapsado (sem altura e invisível)
-                                    animate={{ left: "auto", opacity: 1 }} // Anima para expandido (altura automática e visível)
-                                    exit={{ left: 0, opacity: 0 }} // Sai colapsando
-                                    transition={{ duration: 0.3, ease: "easeInOut" }} // Duração e tipo de transição
-                                    style={{ overflow: "hidden" }} // Esconde o conteúdo que ultrapassa a altura
-                                    className={styles.toolsList}
-                                    >
+                        {/* Ícone de chevron para indicar que a seção pode ser expandida ou colapsada, rotaciona quando ativa */}
+                        <div className={`${styles.chevronIcon} ${isActive ? styles.chevronActive : ""}`}>
+                            <ChevronLeft size={16} />
+                        </div>
+                    </div>
+
+                    {/* Itens de navegação da categoria, mostrados apenas se a categoria estiver ativa */}
+                    <AnimatePresence>    
+                        {isActive && (
+                            <motion.nav
+                                initial={{ height: 0, opacity: 1 }} // Começa colapsado (sem altura e invisível)
+                                animate={{ height: "auto", opacity: 1 }} // Anima para expandido (altura automática e visível)
+                                exit={{ height: 0, opacity: 1 }} // Sai colapsando
+                                transition={{ duration: 0.4, ease: "easeInOut" }} // Duração e tipo de transição
+                                style={{ overflow: "hidden" }} // Esconde o conteúdo que ultrapassa a altura
+                                className={styles.toolsList}
+                                >
                                     {Object.values(NAV_ITENS)
                                         .filter(item => item.category === category.id) // Pega apenas os itens que pertencem à categoria atual
                                         .map(item => ( // Mapeia cada item para um link de navegação
@@ -162,9 +152,8 @@ function LateralBar() {
                                             </Link>
                                         ))
                                     }
-                                </nav>
-                            )}
-                        </motion.div>
+                            </motion.nav>
+                        )}
                     </AnimatePresence>
                 </div>
             )
@@ -187,7 +176,7 @@ function LateralBar() {
                     </div>
                     {buildCategorySections()}
                 </motion.nav>
-                )};
+                )}
             </AnimatePresence>
         </div>
     );

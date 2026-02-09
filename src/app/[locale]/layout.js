@@ -10,6 +10,7 @@ import { Analytics } from "@vercel/analytics/next"
 
 // IMPORTAÇÕES DO CONTEXTO
 import { UIProvider } from "../../context/UIContext";
+import { ViewportProvider } from "@/context/ViewportContext";
 
 // IMPORTAÇÕES DO NEXT-INTL
 import { NextIntlClientProvider } from 'next-intl';
@@ -52,15 +53,20 @@ export default async function RootLayout({ children, params }) {
         */}
         <NextIntlClientProvider messages={messages}>
             <UIProvider>
-              <Topbord />
-              {children}
+              <ViewportProvider>
+                <Topbord />
+                <div style={{ marginTop: "130px" }}> {/* Dá um espaçamento para o conteúdo não ficar embaixo do topbord, que é fixo */}
+                  {children}
+                </div>
 
-            
-              <LateralBar />
-              <Basebord />
+              
+                <LateralBar />
+                <Basebord />
+              </ViewportProvider>
             </UIProvider>  
             
             <Analytics />
+            
         </NextIntlClientProvider>
       </body>
     </html>
