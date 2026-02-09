@@ -5,7 +5,7 @@ import BinarySearchTree, { setNodesCoordinates as bst_setNodesCoordinates } from
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import InputField from './InputField';
 import ReactiveButton from './ReactiveButton';
-import { keyframes, useAnimate } from 'framer-motion';
+import { useAnimate } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'use-intl';
 
@@ -680,7 +680,7 @@ export default function BinaryTree({
             {/* 1. MOLDURA FIXA DA ÁRVORE */}
             <div style={{ 
                 position: 'relative', 
-                width: '90%', 
+                width: '60%', 
                 height: '580px', 
                 border: '1px solid #ccc',
                 overflow: 'hidden', 

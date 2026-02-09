@@ -2,10 +2,14 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LateralBar from "../../components/LateralBar";
 import Basebord from "../../components/Basebord";
+import Topbord from "../../components/Topbord";
 import { notFound } from "next/navigation";
 import { languages } from "../../../constants/language";
 
 import { Analytics } from "@vercel/analytics/next"
+
+// IMPORTAÇÕES DO CONTEXTO
+import { UIProvider } from "../../context/UIContext";
 
 // IMPORTAÇÕES DO NEXT-INTL
 import { NextIntlClientProvider } from 'next-intl';
@@ -43,16 +47,18 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {/* 4. O PROVIDER É OBRIGATÓRIO!
-           Ele pega as mensagens que o servidor carregou e entrega
-           para os componentes de cliente (como sua Sidebar).
+            Ele pega as mensagens que o servidor carregou e entrega
+            para os componentes de cliente.
         */}
         <NextIntlClientProvider messages={messages}>
-            
-            {children}
+            <UIProvider>
+              <Topbord />
+              {children}
 
-            {/* Agora a LateralBar pode usar o hook useTranslations() */}
-            <LateralBar />
-            <Basebord />
+            
+              <LateralBar />
+              <Basebord />
+            </UIProvider>  
             
             <Analytics />
         </NextIntlClientProvider>

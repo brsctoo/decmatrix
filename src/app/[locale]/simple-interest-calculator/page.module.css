@@ -10,7 +10,7 @@
 
 .moneyIconReal {
     position: absolute;
-    right: 412px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
@@ -20,7 +20,7 @@
 
 .moneyIconDolar {
     position: absolute;
-    right: 420px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
@@ -61,8 +61,6 @@
 }
 
 .buttonContainer {
-    margin: 10px auto 10px;
-    min-width: 800px;
     flex: 1 1 100%;
 }
 
@@ -214,7 +212,7 @@
     box-shadow: 0 12px 28px -20px rgba(15, 23, 42, 0.55); 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1050px) {
     .inputFieldsContainer {
         margin: 20px;
     }

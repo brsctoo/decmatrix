@@ -58,7 +58,15 @@
     },
 
     "LateralBar": {
+        "title": "Our Tools",
+
         "home": "Home",
+        
+        "categories": {
+            "financial_calculators": "Financial",
+            "algebra": "Algebra",
+            "data_structures": "Data Structures"
+        },
 
         "algebra": {
             "title": "Algebra",
@@ -67,14 +75,14 @@
 
         "financialCalculators": {
             "title": "Financial Calculators",
-            "simpleInterestCalculator": "Simple Interest Calculator",
-            "compoundInterestCalculator": "Compound Interest Calculator"
+            "simpleInterestCalculator": "Simple Interest",
+            "compoundInterestCalculator": "Compound Interest"
         },
 
         "dataStructures": {
             "title": "Data Structures",
-            "binarySearchTreeSimulator": "Binary Search Tree Simulator",
-            "AVLTreeSimulator": "AVL Tree Simulator"
+            "binarySearchTreeSimulator": "Binary Search Tree",
+            "AVLTreeSimulator": "AVL Tree"
         }
         
     },

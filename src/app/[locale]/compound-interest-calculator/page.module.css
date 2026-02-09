@@ -10,7 +10,7 @@
 
 .moneyIconReal {
     position: absolute;
-    right: 412px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
@@ -20,7 +20,7 @@
 
 .moneyIconDolar {
     position: absolute;
-    right: 420px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
@@ -44,9 +44,11 @@
 
 .inputFieldsContainer > * {
     position: relative;
-    flex: 2 2 calc(40% - 10px);
-    min-width: 320px;
+    flex: 1 1 calc(45% - 20px); 
+    min-width: 280px; 
+    max-width: 100%; 
     margin-bottom: 0px;
+    box-sizing: border-box;
 }
 
 .title {
@@ -58,8 +60,7 @@
 }
 
 .buttonContainer {
-    margin: 10px auto 10px;
-    min-width: 800px;
+    flex: 1 1 100%;
 }
 
 .resultContainer {
@@ -200,13 +201,20 @@
 }
 
 
-@media (max-width: 768px) {
-  .resultsCard,
-  .chartWrapper {
-    padding: 24px;
-  }
+@media (max-width: 1050px) {
+    .inputFieldsContainer {
+        margin: 20px;
+    }
+}
 
-  .cardTitle {
-    text-align: center;
-  }
+@media (max-width: 768px) {
+    .inputFieldsContainer {
+        /* Gap reduzido para mobile: 10px vertical, 20px horizontal */
+        gap: 10px 20px; 
+    }
+
+    .buttonContainer {
+        margin: 10px auto 10px;
+        max-width: calc(100%);
+    }
 }

@@ -58,7 +58,32 @@
     },
 
     "LateralBar": {
+        "title": "Nossas Ferramentas",
+
         "home": "Início",
+
+        "categories": {
+            "financial_calculators": "Financeiro",
+            "algebra": "Álgebra",
+            "data_structures": "Estruturas de Dados"
+        },
+        
+        "tools": {
+            "financialCalculators": {
+                "simpleInterestCalculator": "Juros Simples",
+                "compoundInterestCalculator": "Juros Compostos"
+            },
+
+            "algebra": {
+                "quadraticEquation": "Equação do segundo grau"
+            },
+
+            "dataStructures": {
+                "title": "Estruturas de Dados",
+                "binarySearchTreeSimulator": "Árvore Binária de Busca",
+                "AVLTreeSimulator": "Árvore AVL"
+            }
+        },
 
         "algebra": {
             "title": "Álgebra",
