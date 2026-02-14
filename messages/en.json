@@ -65,6 +65,7 @@
         "categories": {
             "financial_calculators": "Financial",
             "algebra": "Algebra",
+            "matrix_calculators": "Matrix Calculators",
             "data_structures": "Data Structures"
         },
 
@@ -72,6 +73,11 @@
             "financialCalculators": {
                 "simpleInterestCalculator": "Simple Interest",
                 "compoundInterestCalculator": "Compound Interest"
+            },
+
+            "matrixCalculators": {
+                "matrixMultiplication": "Matrix Multiplication",
+                "matrixBasicOperations": "Basic Operations"
             },
 
             "algebra": {
@@ -125,6 +131,11 @@
             "financialCalculatorsSection": {
                 "title": "Financial Calculators",
                 "description": "Financial calculators at Decmatrix are designed to help you make decisions about your personal finances and investments. With tools like simple and compound interest calculators, Decmatrix offers a practical way to understand how your money can grow over time, facilitating effective financial planning."
+            },
+
+            "matrixSection": {
+                "title": "Matrix Calculators",
+                "description": "The matrix calculators at Decmatrix are designed to help you perform complex matrix operations in a practical and efficient way. With tools that allow addition, subtraction, multiplication, and inversion of matrices, Decmatrix offers a clear and interactive way to understand the fundamental concepts of linear algebra."
             }
         },
 
@@ -157,6 +168,16 @@
             "avlTreeSimulatorCard": {
                 "title": "AVL Tree Simulator",
                 "description": "AVL tree simulator that allows you to insert, remove, and visualize the balanced tree structure in real-time, helping to understand how AVL trees maintain balance during insertion and removal operations."
+            },
+
+            "matrixMultiplication": {
+                "title": "Matrix Multiplier",
+                "description": "Matrix multiplier that allows you to perform multiplication operations between matrices, with support for matrices of different dimensions."
+            },
+
+            "matrixBasicOperations": {
+                "title": "Basic Matrix Operations",
+                "description": "Calculator for basic matrix operations, addition and subtraction. Additionally, it allows transposing and inverting matrices, with support for matrices of different dimensions."
             }
         },
         
@@ -599,6 +620,216 @@
         ],
         "moreInfoHeading": "More Information",
         "moreInfoParagraph": "We hope this is clear and, as mentioned earlier, if there is anything you are unsure about whether you need or not, it is generally safer to leave cookies enabled in case you interact with any functionality on our website."
+    },
+
+    "matrixInput": {
+        "title": "Matrix",
+        "rowsLabel": "Rows",
+        "columnsLabel": "Columns",
+        "determinant": "Determinant",
+        "notSquareMatrix": "Matrix is not square. Determinant and inverse are not available.",
+
+        "invertButton": "Invert",
+        "transposeButton": "Transpose",
+
+        "alerts": {
+            "notInvertibleAlert": "Matrix is not invertible. Inverse is not available.",
+            "invalidTransposeAlert": "Error transposing matrix!"
+        }
+        
+    },
+
+    "matrixMultiplicationComponent": {
+        "resultTitle": "Result of Matrix Multiplication",
+        "error": "Error: The number of columns in Matrix A must be equal to the number of rows in Matrix B for multiplication."
+    },
+
+    "matrixBasicOperationsComponent": {
+        "addResultTitle": "Result of Addition",
+        "subtractResultTitle": "Result of Subtraction",
+        "error": "Error: The matrices have different dimensions."
+    },
+    
+    "matrixMultiplication": {
+        "mainTitle": "Matrix Multiplier",
+
+        "usageTutorial": {
+            "title": "How to use the Matrix Multiplier",
+            "intro": "To use the Matrix Multiplier, follow the steps below:",
+            "step01": "Enter the size of the first matrix (Matrix A) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+            "step02": "Enter the desired values in Matrix A in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>",
+            "step03": "Enter the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+            "step04": "Enter the desired values in Matrix B in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>",
+            "observation": "Remember that the number of columns of Matrix A must be equal to the number of rows of Matrix B for multiplication to be possible.",
+            "conclusion": "The multiplier will provide the result of multiplying the matrices, allowing you to clearly visualize the product of the two matrices."
+        },
+
+        "exampleCalculation": {
+            "title": "Example of Matrix Multiplication",
+            "scenario": "Suppose you have two matrices, A and B, and you want to calculate their product.",
+            "imageAlt": "Example of matrix multiplication",
+            "calculationStep": "When you enter the values of matrices A and B in the corresponding fields, you will see the result of multiplying the matrices, allowing you to clearly visualize the product of the two matrices. As shown in the image below:",
+            "resultImageAlt": "Example of matrix multiplication",
+            "conclusion": "This example demonstrates how the matrix multiplier can be a useful tool for performing matrix multiplication calculations quickly and accurately, especially in contexts such as linear algebra, computer graphics, and data analysis."
+        },
+
+        "definitionSection": {
+            "title": "Defining Matrix Multiplication",
+            "intro": "Matrix multiplication is a fundamental operation in linear algebra that combines two matrices to produce a third matrix. Unlike basic operations, matrix multiplication involves summing the products of corresponding elements from rows of the first matrix and columns of the second matrix.",
+            "existence": "Since matrix multiplication combines elements from two matrices, it has an <strong>existence condition:</strong> it is only possible when the number of columns of the first matrix is equal to the number of rows of the second matrix. If this condition is not met, matrix multiplication cannot be performed.",
+            
+            "proprieties": {
+                "title": "Properties of Matrix Multiplication",
+                "list": [
+                    "<strong>Associative:</strong> (AB)C = A(BC) for any matrices A, B and C, provided the dimensions are compatible for multiplication.",
+                    "<strong>Distributive:</strong> A(B + C) = AB + AC and (A + B)C = AC + BC for any matrices A, B and C, provided the dimensions are compatible for multiplication.",
+                    "<strong>NNon-commutative:</strong> AB ≠ BA for any matrices A and B. This means that the order of matrices in multiplication is important and can affect the result.",
+                    "<strong>Multiplicative Identity Property:</strong> There exists an identity element in matrix multiplication, which is the identity matrix. Multiplying any matrix by the identity matrix does not change the original matrix. That is, for any matrix A, we have AI = IA = A, where I is the identity matrix of compatible dimensions with A.",
+                    "<strong>Multiplicative Null Element Property:</strong> There exists a null element in matrix multiplication, which is the null matrix. Multiplying any matrix by the null matrix results in the null matrix. That is, for any matrix A, we have A0 = 0A = 0, where 0 is the null matrix of compatible dimensions with A.",
+                    "<strong>Dimension Property:</strong> Matrix multiplication respects the dimensions of the involved matrices. That is, if A is an m × n matrix and B is an n × p matrix, then their product AB will be an m × p matrix."
+                ]
+            },
+
+            "importance": "This operation is essential in various fields, including physics, engineering, computer science, and data analysis. It is used to solve systems of linear equations, perform transformations in computer graphics, and analyze data in machine learning, among many other applications."
+        },
+        
+        "formularySection": {
+            "title": "Formulas for Matrix Multiplication",
+            "intro": "The formula for multiplying two matrices A and B, where A is an m × n matrix and B is an n × p matrix, is given by:",
+
+            "formulaList": {
+                "formulaList01": "<strong>C<sub>i,j</sub></strong> — element of the resulting matrix C at position (i, j).",
+                "formulaList02": "<strong>A<sub>i,k</sub></strong> — element of matrix A at position (i, k).",
+                "formulaList03": "<strong>B<sub>k,j</sub></strong> — element of matrix B at position (k, j).",
+                "formulaList04": "<strong>n</strong> — number of columns of A (equal to the number of rows of B)."
+            },
+
+            "observation": "Although it may seem complex, matrix multiplication is an operation that can be performed systematicall by following the formula above. With practice, you will be able to perform matrix multiplications quickly and accurately, which is especially useful in contexts such as linear algebra, computer graphics, and data science."
+        }
+    },
+
+    "matrixBasicOperations": {
+        "mainTitle": "Matrix Addition and Subtraction",
+
+        "usageTutorial": {
+            "title": "How to Use Matrix Addition and Subtraction",
+            "intro": "To use the Matrix Addition and Subtraction tool, follow the steps below:",
+            "step01": "Enter the size of the first matrix (Matrix A) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+            "step02": "Enter the desired values in Matrix A in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed, such as 3/4)</strong>.",
+            "step03": "Enter the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+            "step04": "Enter the desired values in Matrix B in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed, such as 3/4)</strong>.",
+            "conclusion": "The calculator will display the result of the addition and subtraction of the matrices, allowing you to clearly visualize the result of both matrices."
+        },
+
+        "exampleCalculation": {
+            "title": "Example of Matrix Addition and Subtraction",
+            "scenario": "Suppose you have two matrices, A and B, and you want to calculate their sum and difference.",
+            "imageAlt": "Example of matrix addition and subtraction",
+            "calculationStep": "By entering the values of matrices A and B in the corresponding fields, you will see the result of the addition and subtraction of the matrices, allowing you to clearly visualize the result of both matrices. As shown in the image below:",
+            "resultImageAlt": "Example of matrix addition and subtraction",
+            "conclusion": "This example demonstrates how the matrix calculator can be a useful tool for quickly and accurately performing matrix addition and subtraction, especially in contexts such as linear algebra, computer graphics, and data analysis."
+        },
+
+        "stepByStep": {
+            "title": "Step-by-Step Calculation",
+            "intro": "Addition and subtraction are performed element by element, keeping the same position in each matrix.",
+            "exampleIntro": "Example with 2×2 matrices:",
+            "steps": [
+                {
+                    "number": 1,
+                    "title": "Identify the positions",
+                    "description": "Each element of the matrix is identified by its position (row, column). For an n x n matrix, we have n² positions: a₁₁, a₁₂ ..., a₂₁, a₂₂,... for Matrix A and b₁₁, b₁₂, b₂₁, b₂₂,... for Matrix B."
+                },
+                {
+                    "number": 2,
+                    "title": "Add each corresponding position",
+                    "description": "Perform the operation element by element. In this example, we will call the result matrix c:",
+                    "operations": [
+                        "a₁₁ + b₁₁ = c₁₁",
+                        "a₁₂ + b₁₂ = c₁₂",
+                        "a₂₁ + b₂₁ = c₂₁",
+                        "a₂₂ + b₂₂ = c₂₂"
+                    ]
+                },
+                {
+                    "number": 3,
+                    "title": "For subtraction",
+                    "description": "The same principle applies to subtraction:",
+                    "operations": [
+                        "a₁₁ - b₁₁ = c₁₁",
+                        "a₁₂ - b₁₂ = c₁₂",
+                        "a₂₁ - b₂₁ = c₂₁",
+                        "a₂₂ - b₂₂ = c₂₂"
+                    ]
+                },
+                {
+                    "number": 4,
+                    "title": "Build the result matrix",
+                    "description": "Arrange the calculated values in the same positions as the original matrix."
+                }
+            ],
+            "practicalExample": {
+                "title": "Practical Example",
+                "intro": "Consider the matrices:",
+                "matrixA": "Matrix A",
+                "matrixB": "Matrix B",
+                "soma": {
+                    "title": "Addition: A + B",
+                    "steps": [
+                        "a₁₁ + b₁₁ = 2 + 6 = 8",
+                        "a₁₂ + b₁₂ = 5 + 3 = 8",
+                        "a₁₃ + b₁₃ = 3 + 4 = 7",
+                        "a₂₁ + b₂₁ = 1 + 5 = 6",
+                        "a₂₂ + b₂₂ = 4 + 2 = 6",
+                        "a₂₃ + b₂₃ = 6 + 1 = 7",
+                        "a₃₁ + b₃₁ = 7 + 2 = 9",
+                        "a₃₂ + b₃₂ = 2 + 9 = 11",
+                        "a₃₃ + b₃₃ = 8 + 3 = 11"
+                    ],
+                    "result": "Result"
+                },
+                "subtracao": {
+                    "title": "Subtraction: A - B",
+                    "steps": [
+                        "a₁₁ - b₁₁ = 2 - 6 = -4",
+                        "a₁₂ - b₁₂ = 5 - 3 = 2",
+                        "a₁₃ - b₁₃ = 3 - 4 = -1",
+                        "a₂₁ - b₂₁ = 1 - 5 = -4",
+                        "a₂₂ - b₂₂ = 4 - 2 = 2",
+                        "a₂₃ - b₂₃ = 6 - 1 = 5",
+                        "a₃₁ - b₃₁ = 7 - 2 = 5",
+                        "a₃₂ - b₃₂ = 2 - 9 = -7",
+                        "a₃₃ - b₃₃ = 8 - 3 = 5"
+                    ],
+                    "result": "Result"
+                }
+            },
+            "observation": "If any position does not exist in one of the matrices, the operation is not valid."
+        },
+
+        "errorArticle": {
+            "title": "Common Errors in Operations",
+            "intro": "The most common error is trying to add or subtract matrices of different sizes. This is not allowed because there is no element-by-element correspondence.",
+            "example": "<strong>Example:</strong> a 2×3 matrix cannot be added to a 3×2 matrix, as the positions (i, j) do not align.",
+            "conclusion": "To avoid this error, the calculator forces the matrices to have the same dimensions before performing the operation."
+        },
+
+        "definitionSection": {
+            "title": "Defining Matrix Addition and Subtraction",
+            "intro": "Matrix addition and subtraction is a fundamental operation in linear algebra that combines two matrices of the same dimension to produce a third matrix. Unlike multiplication, matrix addition and subtraction involve adding or subtracting the corresponding elements of the rows and columns of the matrices.",
+            "existence": "For it to be possible to add or subtract two matrices, they must have the same dimensions (the same number of rows and columns). If the dimensions are different, addition or subtraction cannot be performed.",
+            "proprieties": {
+                "title": "Properties of Matrix Addition and Subtraction",
+                "list": [
+                    "<strong>Associative:</strong> (A + B) + C = A + (B + C) for any matrices A, B, and C, as long as the dimensions are compatible for addition.",
+                    "<strong>Commutative:</strong> A + B = B + A for any matrices A and B, as long as the dimensions are compatible for addition.",
+                    "<strong>Identity element of addition:</strong> For any matrix A, there is a unique matrix 0 (zero matrix) such that A + 0 = 0 + A = A.",
+                    "<strong>Additive inverse property:</strong> For each A, there is a unique matrix B such that A + B = B + A = 0. Matrix B is called the additive inverse of A and is denoted by -A.",
+                    "<strong>Closure property of addition:</strong> The matrix A + B has the same dimensions as A and B."
+                ]
+            },
+            "importance": "Matrix addition is essential in several areas, including computer graphics, data analysis, and solving linear systems. Matrix subtraction is equally important, as it allows comparing and analyzing differences between data sets represented by matrices."
+        }
     }
 
 }

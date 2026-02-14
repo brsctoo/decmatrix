@@ -65,6 +65,7 @@
         "categories": {
             "financial_calculators": "Financeiro",
             "algebra": "Álgebra",
+            "matrix_calculators": "Calculadoras de Matrizes",
             "data_structures": "Estruturas de Dados"
         },
         
@@ -72,6 +73,11 @@
             "financialCalculators": {
                 "simpleInterestCalculator": "Juros Simples",
                 "compoundInterestCalculator": "Juros Compostos"
+            },
+
+            "matrixCalculators": {
+                "matrixMultiplication": "Multiplicação de Matrizes",
+                "matrixBasicOperations": "Operações básicas"
             },
 
             "algebra": {
@@ -108,7 +114,7 @@
         "introduction": {
             "intro": "O Decmatrix é uma plataforma de ferramentas matemáticas e computacionais desenvolvida para simplificar cálculos complexos  e auxiliar a tomada de decisões baseada em dados, de forma clara, prática e acessível.",
 
-            "idea": "Do planejamento financeiro à simulador de árvore binárias, passando por equações, funções e conceitos fundamentais de estrutura de dados, o Decmatrix visa reunir explicações intuitivas e calculadoras interativas que ajudam a transformar teoria em aplicação real. Quanto mais o tempo passa, mais ferramentas são adicionadas ao Decmatrix, sempre com foco em usabilidade e clareza."
+            "idea": "Do planejamento financeiro à simulador de árvores binárias, passando por equações, funções e conceitos fundamentais de estrutura de dados, o Decmatrix visa reunir explicações intuitivas e calculadoras interativas que ajudam a transformar teoria em aplicação real. Quanto mais o tempo passa, mais ferramentas são adicionadas ao Decmatrix, sempre com foco em usabilidade e clareza."
         },
 
         "mainAreas": {
@@ -127,6 +133,11 @@
             "financialCalculatorsSection": {
                 "title": "Calculadoras Financeiras",
                 "description": "As calculadoras financeiras do Decmatrix são projetadas para ajudar você a tomar decisões sobre suas finanças pessoais e investimentos. Com ferramentas como a calculadora de juros simples e compostos, o Decmatrix oferece uma maneira prática de entender como seu dinheiro pode crescer ao longo do tempo, facilitando o planejamento financeiro eficaz."
+            },
+
+            "matrixSection": {
+                "title": "Calculadoras de Matrizes",
+                "description": "As calculadoras de matrizes do Decmatrix são projetadas para ajudar você a realizar operações matriciais complexas de forma prática e eficiente. Com ferramentas que permitem adição, subtração, multiplicação e inversão de matrizes, o Decmatrix oferece uma maneira clara e interativa de entender os conceitos fundamentais da álgebra linear."
             }
         },
 
@@ -159,6 +170,16 @@
             "avlTreeSimulatorCard": {
                 "title": "Simulador de Árvore AVL",
                 "description": "Simulador de árvore AVL que permite inserir, remover e visualizar a estrutura da árvore balanceada em tempo real, ajudando a compreender como as árvores AVL mantêm o equilíbrio durante operações de inserção e remoção."
+            },
+
+            "matrixMultiplication": {
+                "title": "Multiplicador de Matrizes",
+                "description": "Multiplicador de matrizes que permite realizar operações de multiplicação entre matrizes, com suporte para matrizes de diferentes dimensões."
+            },
+
+            "matrixBasicOperations": {
+                "title": "Operações básicas de matrizes",
+                "description": "Calculadora de operações básicas de matrizes, adição e subtração. Além disso, permite transpor e inverter matrizes, com suporte para matrizes de diferentes dimensões."
             }
         },
         
@@ -601,6 +622,219 @@
         ],
         "moreInfoHeading": "Mais informações",
         "moreInfoParagraph": "Esperamos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados caso interaja com alguma funcionalidade do nosso site."
+    },
+
+    "matrixInput": {
+        "title": "Matriz",
+        "rowsLabel": "Linhas",
+        "columnsLabel": "Colunas",
+        "determinant": "Determinante",
+        "notSquareMatrix": "Matriz não é quadrada. Determinante e inversa não disponíveis.",
+
+        "invertButton": "Inverter",
+        "transposeButton": "Transpor",
+
+        "alerts": {
+            "notInvertibleAlert": "Matriz não é invertível. Inversa não disponível.",
+            "invalidTransposeAlert": "Erro ao transpor a matriz!"
+        }
+        
+    },
+
+    "matrixMultiplicationComponent": {
+        "resultTitle": "Resultado da Multiplicação",
+        "error": "Erro: O número de colunas da Matriz A deve ser igual ao número de linhas da Matriz B para multiplicação."
+    },
+
+    "matrixBasicOperationsComponent": {
+        "addResultTitle": "Resultado da Adição",
+        "subtractResultTitle": "Resultado da Subtração",
+        "error": "Erro: As matrizes têm dimensões diferentes."
+    },
+    
+    "matrixMultiplication": {
+        "mainTitle": "Multiplicador de Matrizes",
+
+        "usageTutorial": {
+            "title": "Como utilizar o Multiplicador de Matrizes",
+            "intro": "Para utilizar o Multiplicador de Matrizes, siga os passos abaixo:",
+            "step01": "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+            "step02": "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+            "step03": "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+            "step04": "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+            "observation": "Lembre-se de que o número de colunas da Matriz A deve ser igual ao número de linhas da Matriz B para que a multiplicação seja possível.",
+            "conclusion": "O multiplicador fornecerá o resultado da multiplicação das matrizes, permitindo visualizar claramente o produto das duas matrizes."
+        },
+
+        "exampleCalculation": {
+            "title": "Exemplo de Multiplicação de Matrizes",
+            "scenario": "Suponha que você tenha duas matrizes, A e B, e deseja calcular o produto delas.",
+            "imageAlt": "Exemplo de multiplicação de matrizes",
+            "calculationStep": "Ao inserir os valores das matrizes A e B nos campos correspondentes, você verá o resultado da multiplicação das matrizes, permitindo visualizar claramente o produto das duas matrizes. Como a imagem abaixo:",
+            "resultImageAlt": "Exemplo de multiplicação de matrizes",
+            "conclusion": "Este exemplo demonstra como o multiplicador de matrizes pode ser uma ferramenta útil para realizar cálculos de multiplicação de matrizes de forma rápida e precisa, especialmente em contextos como álgebra linear, computação gráfica e análise de dados."
+        },
+
+        "definitionSection": {
+            "title": "Definindo a multiplicação de matrizes",
+            "intro": "A multiplicação de matrizes é uma operação fundamental na álgebra linear que combina duas matrizes para produzir uma terceira matriz. Diferente das outras operações básicas, a multiplicação de matrizes envolve a soma dos produtos dos elementos correspondentes das linhas da primeira matriz e das colunas da segunda matriz.",
+            "existence": "Como a multiplicação de matrizes é uma operação que combina elementos de duas matrizes, ela tem uma <strong>condição de existência:</strong> só é possível quando o número de colunas da primeira matriz é igual ao número de linhas da segunda matriz. Se essa condição não for atendida, a multiplicação de matrizes não pode ser realizada.",
+            
+            "proprieties": {
+                "title": "Propriedades da multiplicação de matrizes",
+                "list": [
+                    "<strong>Associativa:</strong> (AB)C = A(BC) para quaisquer matrizes A, B e C, desde que as dimensões sejam compatíveis para a multiplicação.",
+                    "<strong>Distributiva:</strong> A(B + C) = AB + AC e (A + B)C = AC + BC para quaisquer matrizes A, B e C, desde que as dimensões sejam compatíveis para a multiplicação.",
+                    "<strong>Não comutativa:</strong> AB ≠ BA para quaisquer matrizes A e B. Isso significa que a ordem das matrizes na multiplicação é importante e pode afetar o resultado.",
+                    "<strong>Propriedade do elemento neutro da multiplicação:</strong> Existe um elemento neutro na multiplicação de matrizes, que é a matriz identidade. Multiplicar qualquer matriz pela matriz identidade não altera a matriz original. Ou seja, para qualquer matriz A, temos AI = IA = A, onde I é a matriz identidade de dimensão compatível com A.",
+                    "<strong>Propriedade do elemento nulo da multiplicação:</strong> Existe um elemento nulo na multiplicação de matrizes, que é a matriz nula. Multiplicar qualquer matriz pela matriz nula resulta na matriz nula. Ou seja, para qualquer matriz A, temos A0 = 0A = 0, onde 0 é a matriz nula de dimensão compatível com A.",
+                    "<strong>Propriedade das dimensões:</strong> A multiplicação de matrizes respeita as dimensões das matrizes envolvidas. Ou seja, se A é uma matriz m × n e B é uma matriz n × p, então o produto AB será uma matriz m × p."
+                ]
+            },
+
+            "importance": "A multiplicação de matrizes é essencial em diversas áreas, incluindo computação gráfica, análise de dados e resolução de sistemas lineares."
+        },
+        
+        "formularySection": {
+            "title": "Fórmulas da multiplicação de matrizes",
+            "intro": "A fórmula para multiplicar duas matrizes A e B, onde A é uma matriz m × n e B é uma matriz n × p, é dada por:",
+
+            "formulaList": {
+                "formulaList01": "<strong>C<sub>i,j</sub></strong> — elemento da matriz resultante C na posição (i, j).",
+                "formulaList02": "<strong>A<sub>i,k</sub></strong> — elemento da matriz A na posição (i, k).",
+                "formulaList03": "<strong>B<sub>k,j</sub></strong> — elemento da matriz B na posição (k, j).",
+                "formulaList04": "<strong>n</strong> — número de colunas de A (igual ao número de linhas de B)."
+            },
+
+            "observation": "Por mais que pareça complexo, a multiplicação de matrizes é uma operação que pode ser realizada de forma sistemática seguindo a fórmula acima. Com prática, você poderá realizar multiplicações de matrizes de forma rápida e precisa, o que é especialmente útil em contextos como álgebra linear, computação gráfica e análise de dados."
+        }
+    },
+
+    "matrixBasicOperations": {
+        "mainTitle": "Soma e subtração de matrizes",
+
+        "usageTutorial": {
+            "title": "Como utilizar o Soma e Subtração de Matrizes",
+            "intro": "Para utilizar o Soma e Subtração de Matrizes, siga os passos abaixo:",
+            "step01": "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+            "step02": "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+            "step03": "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+            "step04": "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+            "conclusion": "A calculadora irá exibir o resultado da soma e subtração das matrizes, permitindo visualizar claramente o resultado das duas matrizes."
+        },
+
+        "exampleCalculation": {
+            "title": "Exemplo de Soma e Subtração de Matrizes",
+            "scenario": "Suponha que você tenha duas matrizes, A e B, e deseja calcular a soma e subtração delas.",
+            "imageAlt": "Exemplo de soma e subtração de matrizes",
+            "calculationStep": "Ao inserir os valores das matrizes A e B nos campos correspondentes, você verá o resultado da soma e subtração das matrizes, permitindo visualizar claramente o resultado das duas matrizes. Como a imagem abaixo:",
+            "resultImageAlt": "Exemplo de soma e subtração de matrizes",
+            "conclusion": "Este exemplo demonstra como o multiplicador de matrizes pode ser uma ferramenta útil para realizar cálculos de soma e subtração de matrizes de forma rápida e precisa, especialmente em contextos como álgebra linear, computação gráfica e análise de dados."
+        },
+
+        "stepByStep": {
+            "title": "Passo a passo do cálculo",
+            "intro": "A soma e a subtração são feitas elemento a elemento, mantendo a mesma posição em cada matriz.",
+            "exampleIntro": "Exemplo com matrizes 2×2:",
+            "steps": [
+                {
+                    "number": 1,
+                    "title": "Identifique as posições",
+                    "description": "Cada elemento da matriz é identificado por sua posição (linha, coluna). Para uma matriz n x n, temos n² posições: a₁₁, a₁₂ ..., a₂₁, a₂₂,... para a Matriz A e b₁₁, b₁₂, b₂₁, b₂₂,... para a Matriz B."
+                },
+                {
+                    "number": 2,
+                    "title": "Some cada posição correspondente",
+                    "description": "Realize a operação elemento a elemento, para o exemplo, diremos que a matriz resultado é a matriz c:",
+                    "operations": [
+                        "a₁₁ + b₁₁ = c₁₁",
+                        "a₁₂ + b₁₂ = c₁₂",
+                        "a₂₁ + b₂₁ = c₂₁",
+                        "a₂₂ + b₂₂ = c₂₂"
+                    ]
+                },
+                {
+                    "number": 3,
+                    "title": "Para subtração",
+                    "description": "O mesmo princípio se aplica à subtração:",
+                    "operations": [
+                        "a₁₁ - b₁₁ = c₁₁",
+                        "a₁₂ - b₁₂ = c₁₂",
+                        "a₂₁ - b₂₁ = c₂₁",
+                        "a₂₂ - b₂₂ = c₂₂"
+                    ]
+                },
+                {
+                    "number": 4,
+                    "title": "Monte a matriz resultado",
+                    "description": "Organize os valores calculados nas mesmas posições da matriz original."
+                }
+            ],
+            "practicalExample": {
+                "title": "Exemplo prático",
+                "intro": "Considere as matrizes:",
+                "matrixA": "Matriz A",
+                "matrixB": "Matriz B",
+                "soma": {
+                    "title": "Soma: A + B",
+                    "steps": [
+                        "a₁₁ + b₁₁ = 2 + 6 = 8",
+                        "a₁₂ + b₁₂ = 5 + 3 = 8",
+                        "a₁₃ + b₁₃ = 3 + 4 = 7",
+                        "a₂₁ + b₂₁ = 1 + 5 = 6",
+                        "a₂₂ + b₂₂ = 4 + 2 = 6",
+                        "a₂₃ + b₂₃ = 6 + 1 = 7",
+                        "a₃₁ + b₃₁ = 7 + 2 = 9",
+                        "a₃₂ + b₃₂ = 2 + 9 = 11",
+                        "a₃₃ + b₃₃ = 8 + 3 = 11"
+                    ],
+                    "result": "Resultado"
+                },
+                "subtracao": {
+                    "title": "Subtração: A - B",
+                    "steps": [
+                        "a₁₁ - b₁₁ = 2 - 6 = -4",
+                        "a₁₂ - b₁₂ = 5 - 3 = 2",
+                        "a₁₃ - b₁₃ = 3 - 4 = -1",
+                        "a₂₁ - b₂₁ = 1 - 5 = -4",
+                        "a₂₂ - b₂₂ = 4 - 2 = 2",
+                        "a₂₃ - b₂₃ = 6 - 1 = 5",
+                        "a₃₁ - b₃₁ = 7 - 2 = 5",
+                        "a₃₂ - b₃₂ = 2 - 9 = -7",
+                        "a₃₃ - b₃₃ = 8 - 3 = 5"
+                    ],
+                    "result": "Resultado"
+                }
+            },
+            "observation": "Se alguma posição não existir em uma das matrizes, a operação não é válida."
+        },
+
+        "errorArticle": {
+            "title": "Erros comuns nas operações",
+            "intro": "O erro mais comum é tentar somar ou subtrair matrizes de tamanhos diferentes. Isso não é permitido porque não existe correspondência elemento a elemento.",
+            "example": "<strong>Exemplo:</strong> uma matriz 2×3 não pode ser somada com uma 3×2, pois as posições (i, j) não se alinham.",
+            "conclusion": "Para evitar esse erro, a calculadora força as matrizes a terem as mesmas dimensões antes de realizar a operação."
+        },
+
+        "definitionSection": {
+            "title": "Definindo a soma e a subtração de matrizes",
+            "intro": "A soma e subtração de matrizes é uma operação fundamental na álgebra linear que combina duas matrizes de mesma dimensão para produzir uma terceira matriz. Diferente da multiplicação, a soma e subtração de matrizes envolvem a adição ou subtração dos elementos correspondentes das linhas e colunas das matrizes.",
+            "existence": "Para que seja possível somar ou subtrair duas matrizes, elas devem ter as mesmas dimensões (mesmo número de linhas e colunas). Se as dimensões forem diferentes, a soma ou subtração não pode ser realizada.",
+            
+            "proprieties": {
+                "title": "Propriedades da soma e subtração de matrizes",
+                "list": [
+                    "<strong>Associativa:</strong> (A + B) + C = A + (B + C) para quaisquer matrizes A, B e C, desde que as dimensões sejam compatíveis para a soma.",
+                    "<strong>Comutativa:</strong> A + B = B + A para quaisquer matrizes A e B, desde que as dimensões sejam compatíveis para a soma.",
+                    "<strong>Propriedade do elemento neutro da adição:</strong> Para qualquer matriz A, existe uma única matriz 0 (matriz nula) tal que A + 0 = 0 + A = A.",
+                    "<strong>Propriedade da inversa aditiva:</strong> Para cada A, existe uma única matriz B tal que A + B = B + A = 0. A matriz B é chamada de inversa aditiva de A e é denotada por -A.",
+                    "<strong>Propriedade do fechamento da adição:</strong> A matriz A + B tem as mesmas dimensões que A e B."
+                ]
+            },
+
+            "importance": "A soma de matrizes é essencial em diversas áreas, incluindo computação gráfica, análise de dados e resolução de sistemas lineares. A subtração de matrizes é igualmente importante, pois permite comparar e analisar diferenças entre conjuntos de dados representados por matrizes."
+        }    
     }
+
 
 }

@@ -9,7 +9,7 @@ import { usePathname, useRouter, useParams } from "next/navigation";
 import { useUI } from '@/context/UIContext'; 
 
 {/* Ícones */}
-import { Sigma, Network, CircleDollarSign, ChevronLeft } from 'lucide-react';
+import { Sigma, Network, CircleDollarSign, ChevronLeft, Grid3x3 } from 'lucide-react';
 
 {/* Animação */}
 import { motion, AnimatePresence } from "framer-motion";
@@ -54,24 +54,19 @@ function LateralBar() {
         'algebra': <Sigma size={18} />,
         'data_structures': <Network size={18} />,
         'financial_calculators': <CircleDollarSign size={18} />,
+        'matrix_calculators': <Grid3x3 size={18} />
     }
 
     // Categorias disponíveis
     const CATEGORIES = [
-        { id: 'financial_calculators', iconName: 'money', label: 'Finanças' },
-        { id: 'algebra', iconName: 'variable', label: 'Matemática' },
-        { id: 'data_structures', iconName: 'network', label: 'Computação' },
+        { id: 'financial_calculators', label: 'Finanças' },
+        { id: 'algebra', label: 'Matemática' },
+        { id: 'matrix_calculators', label: 'Matrizes' },
+        { id: 'data_structures', label: 'Computação' },
     ];
 
     // Itens de navegação disponíveis
     const NAV_ITENS = {
-        'quadraticEquation': {
-            id: 'quadraticEquation', // id para identificar a seção
-            labelKey: 'algebra.quadraticEquation', // chave para tradução do título da seção
-            path: `/${params.locale}/quadratic-equation-calculator`, // caminho para navegação
-            category: 'algebra' // categoria para agrupar seções relacionadas
-        },
-
         'simpleInterestCalculator': {
             id: 'simpleInterestCalculator',
             labelKey: 'financialCalculators.simpleInterestCalculator',
@@ -84,6 +79,27 @@ function LateralBar() {
             labelKey: 'financialCalculators.compoundInterestCalculator',
             path: `/${params.locale}/compound-interest-calculator`,
             category: 'financial_calculators'
+        },
+
+        'quadraticEquation': {
+            id: 'quadraticEquation', // id para identificar a seção
+            labelKey: 'algebra.quadraticEquation', // chave para tradução do título da seção
+            path: `/${params.locale}/quadratic-equation-calculator`, // caminho para navegação
+            category: 'algebra' // categoria para agrupar seções relacionadas
+        }, 
+
+        'matrixMultiplication': {
+            id: 'matrixMultiplication', // id para identificar a seção
+            labelKey: 'matrixCalculators.matrixMultiplication', // chave para tradução do título da seção
+            path: `/${params.locale}/matrix-multiplication`,
+            category: 'matrix_calculators' // categoria para agrupar seções relacionadas
+        },
+
+        'matrixBasicOperations': {
+            id: 'matrixBasicOperations', // id para identificar a seção
+            labelKey: 'matrixCalculators.matrixBasicOperations', // chave para tradução do título da seção
+            path: `/${params.locale}/matrix-basic-operations`,
+            category: 'matrix_calculators' // categoria para agrupar seções relacionadas
         },
 
         'binarySearchTreeSimulator': {

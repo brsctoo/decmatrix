@@ -1,0 +1,13 @@
+.resultContainer {
+  width: 1000px; 
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+  color: #6e6152;
+  margin: 20px auto;
+  padding: 30px;
+  background: #efe9e3;
+  border: 3px solid rgb(190, 168, 140);
+  border-radius: 10px;
+}

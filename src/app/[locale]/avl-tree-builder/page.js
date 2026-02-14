@@ -1,4 +1,5 @@
 "use client";
+import JsonLd from "@/components/JsonLd";
 
 import React, { useRef, useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
@@ -33,11 +34,11 @@ import { useTranslations } from "use-intl";
 function avl_tree_builder() {
   const t = useTranslations("AVLTreeBuilder");
 
-  const params = useParams();     
-  const locale = params.locale; 
+  const { locale } = useParams();     
 
   return (
     <div>
+      <JsonLd dataName="avlTreeBuilder" locale={locale} />
       <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
         <BinaryTree 
           inputFieldsContainerStyle={styles.inputFieldsContainer}

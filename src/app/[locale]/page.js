@@ -42,6 +42,10 @@ function Home() {
           <Article title={t("mainAreas.financialCalculatorsSection.title")} variant="gridBox">
             {t("mainAreas.financialCalculatorsSection.description")}
           </Article>
+
+          <Article title={t("mainAreas.matrixSection.title")} variant="gridBox">
+            {t("mainAreas.matrixSection.description")}
+          </Article>
         </section>
       </div>
       
@@ -114,6 +118,34 @@ function Home() {
             link={`//${locale}/avl-tree-builder`}
             onClick={() => router.push(`/${locale}/avl-tree-builder`)} 
             active={pathname === `/${locale}/avl-tree-builder`} 
+            extraStyles={style.homeButton}
+          />
+        </div>
+
+        <div className={style.card}>
+          <h3 className={style.cardTitle}>{t("avaliableTools.matrixMultiplication.title")}</h3>
+          <div className={style.cardText}>
+            {t("avaliableTools.matrixMultiplication.description")}
+          </div>
+          <ReactiveButton 
+            label={t("avaliableTools.acessCalculatorButtonLabel")}
+            link={`//${locale}/matrix-multiplication`}
+            onClick={() => router.push(`/${locale}/matrix-multiplication`)} 
+            active={pathname === `/${locale}/matrix-multiplication`} 
+            extraStyles={style.homeButton}
+          />
+        </div>
+
+        <div className={style.card}>
+          <h3 className={style.cardTitle}>{t("avaliableTools.matrixBasicOperations.title")}</h3>
+          <div className={style.cardText}>
+            {t("avaliableTools.matrixBasicOperations.description")}
+          </div>
+          <ReactiveButton 
+            label={t("avaliableTools.acessCalculatorButtonLabel")}
+            link={`//${locale}/matrix-basic-operations`}
+            onClick={() => router.push(`/${locale}/matrix-basic-operations`)} 
+            active={pathname === `/${locale}/matrix-basic-operations`} 
             extraStyles={style.homeButton}
           />
         </div>

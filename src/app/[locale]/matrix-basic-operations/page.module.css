@@ -1,0 +1,14 @@
+.matrixDisplayResult {
+    max-width: fit-content !important; 
+}
+
+.matrixDisplayExample {
+    max-width: fit-content !important; 
+}
+
+.matrixDisplayExampleContainer {
+    display: flex;
+    gap: 20px;
+    margin-left: 25px;
+    margin-top: 15px;
+}

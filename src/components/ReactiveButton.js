@@ -12,6 +12,7 @@ function ReactiveButton({
   active = false,
   extraStyles = '',
   haveIsOverStyle = true,
+  blocked = false,
 }) {
   return (
     <button
@@ -20,9 +21,10 @@ function ReactiveButton({
         ${active ? styles.active : ''}
         ${!haveIsOverStyle ? styles.noHover : ''}
         ${extraStyles}
+        ${blocked ? styles.blocked : ''}
       `}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || blocked}
     >
       {label}
     </button>

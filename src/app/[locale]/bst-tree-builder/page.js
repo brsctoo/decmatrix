@@ -1,6 +1,8 @@
 "use client";
+import JsonLd from "@/components/JsonLd";
 
 import React, { useRef, useState, useEffect } from "react";
+import { useParams } from 'next/navigation';
 
 import tStyle from "@/components/GenericTextDesign.module.css";
 import Article from "@/components/Article";
@@ -30,8 +32,11 @@ import { useTranslations } from "use-intl";
 
 function bst_tree_builder() {
   const t = useTranslations("BSTTreeBuilder");
+
+  const locale = useParams().locale;
   return (
     <div>
+      <JsonLd dataName="bstTreeBuilder" locale={locale} />
       <h1 className={tStyle.mainTitle}>{t("bstMainTitle")}</h1>
         <BinaryTree 
           inputFieldsContainerStyle={styles.inputFieldsContainer}

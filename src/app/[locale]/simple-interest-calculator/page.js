@@ -1,4 +1,5 @@
 "use client";
+import JsonLd from "@/components/JsonLd";
 
 import ReactiveButton from "@/components/ReactiveButton";
 import style from "./page.module.css";
@@ -192,6 +193,7 @@ function interest_calculator() {
 
   return (
     <div>
+      <JsonLd dataName="simpleInterestCalculator" locale={locale} />
       <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
       <div className={style.inputFieldsContainer}>
         <InputField 

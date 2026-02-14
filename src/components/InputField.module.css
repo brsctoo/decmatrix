@@ -36,10 +36,17 @@
     box-shadow: 0 2px 5px rgba(74, 112, 169, 0.541);
 }
 
-/* Remove os botões de incremento/decremento do input type number */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+/* Remove spin buttons por padrão */
+.inputField::-webkit-inner-spin-button,
+.inputField::-webkit-outer-spin-button {
   -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Mostra spin buttons apenas quando data-spin="true" E estiver focado */
+.inputField[data-spin="true"]:focus::-webkit-inner-spin-button,
+.inputField[data-spin="true"]:focus::-webkit-outer-spin-button {
+  -webkit-appearance: auto;
   margin: 0;
 }
 

@@ -1,4 +1,5 @@
-"use client";
+"use client"
+import JsonLd from "@/components/JsonLd";
 
 import ReactiveButton from "@/components/ReactiveButton";
 import style from "./page.module.css";
@@ -223,6 +224,7 @@ function interest_calculator() {
         Juros Compostos -> Fórmula: M = C * (1 + i)^t, ou seja, depende do capital inicial, da taxa de juros e do tempo.
         No Juros compostos, também será possível colocar uma contribuisão periódica (mensal, anual, etc) para o cálculo do montante final.
       */}
+      <JsonLd dataName="compoundInterestCalculator" locale={locale} />
       <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
       <div className={style.inputFieldsContainer}>
         <InputField 
