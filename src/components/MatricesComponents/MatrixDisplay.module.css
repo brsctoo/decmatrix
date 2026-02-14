@@ -70,3 +70,20 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   border-color: rgb(190, 168, 140);
 }
+
+@media (max-width: 1000px) {
+  .matrixContainerDisplay {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .grid {
+    gap: 2px;
+  }
+
+  .cellDisplay {
+    width: 30px;
+    height: 25px;
+    font-size: 13px;
+  }
+}
