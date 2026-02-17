@@ -1,3 +1,5 @@
+{/* Lógica e algoritmo de Reingold-Tilford implementados com base na matéria de estrutura de dados -> Comentários feitos a partir de anotações */}
+
 class Node {
     constructor(value, id) {
         this.value = value;
@@ -299,8 +301,10 @@ class AvlTree {
     }
 }
 
-const NODE_WIDTH = 40;  // Largura do nó em pixels
-const MIN_PADDING = 15; // Espaço mínimo entre nós (pixels)
+// Parte de posicionamento -> Algoritmo de Reingold-Tilford
+
+const NODE_WIDTH = 40;  
+const MIN_PADDING = 15; 
 
 export function setNodesCoordinates (root, center_x = 0) {
     if (!root) return;
@@ -315,8 +319,6 @@ export function setNodesCoordinates (root, center_x = 0) {
     secondWalk(root, 0, 0, realStartX, 50); 
 }
 
-// Helper: Pega a borda ESQUERDA (Left Edge)
-// Armazena: Onde o nó começa no eixo X
 function getLeftEdgeArray (node, modSum = 0, level = 0, contour = []) {
     if (!node) return contour;
 

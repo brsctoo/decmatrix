@@ -1,3 +1,5 @@
+{/* Lógica e algoritmo de Reingold-Tilford implementados com base na matéria de estrutura de dados -> Comentários feitos a partir de anotações */}
+
 class Node {
     constructor(value, id) {
         this.value = value;
@@ -159,6 +161,8 @@ class BinarySearchTree {
         }
     }
 } 
+
+// Parte de posicionamento -> Algoritmo de Reingold-Tilford
 
 const NODE_WIDTH = 40;  // Largura do nó em pixels
 const MIN_PADDING = 15; // Espaço mínimo entre nós (pixels)

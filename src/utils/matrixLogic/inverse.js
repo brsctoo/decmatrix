@@ -24,13 +24,13 @@ export default function invertMatrix(matrix) {
         const numericRow = row.map(cell => toNum(cell)); 
         const identityRow = new Array(n).fill(0); // linha da matriz identidade
         identityRow[i] = 1; // coloca 1 na posição correspondente para formar a identidade
-        return [...numericRow, ...identityRow]; // concatena a linha da matriz original com a linha da identidade 
+        return [...numericRow, ...identityRow]; // concatena 
     }) 
 
     // 2. Loop principal para cada coluna e linha (pivô)
     for (let i = 0; i < n; i++) {
 
-        // Encontrar o pivô (o elemento na diagonal)
+        // Encontrar o pivô
         let pivot = augmented[i][i];
         
         // Se o pivô for zero, a matriz não é invertível
@@ -38,12 +38,10 @@ export default function invertMatrix(matrix) {
             throw new Error("A matriz não é invertível.");
         } 
 
-        // A. Normalizar a linha do pivô para que o elemento pivô seja 1
         for (let j = 0; j < 2 * n; j++) {
             augmented[i][j] /= pivot;
         }
 
-        // B. Zerar os outros elementos desta coluna (acima e abaixo do pivô)
         for (let k = 0; k < n; k++) {
             if (k !== i) { // para todas as linhas exceto a do pivô
                 let factor = augmented[k][i]; // fator para zerar o elemento

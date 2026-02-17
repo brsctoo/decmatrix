@@ -9,7 +9,7 @@ export default function JsonLd({ dataName }) {
     return (
         <script
             type="application/ld+json"
-            // O JSON.stringify é necessário para transformar o objeto JavaScript em uma string JSON.
+            // O JSON.stringif transforma o objeto JavaScript em uma string JSON.
             dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} 
         />
     );

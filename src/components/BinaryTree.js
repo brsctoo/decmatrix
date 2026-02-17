@@ -20,7 +20,7 @@ import BinarySearchTree, { setNodesCoordinates as bst_setNodesCoordinates } from
 // Estilos
 import style from './BinaryTree.module.css';
 
-// ==================== FUNÇÕES DE RENDERIZAÇÃO ====================
+// ---- FUNÇÕES DE RENDERIZAÇÃO
 
 function drawTree(tree, treeType = "BST", hoveredNodeId, setHoveredNodeId) {
     // Desenha a árvore Nó a Nó
@@ -105,7 +105,7 @@ function drawEdges(tree) {
           y1={node.y}
           x2={node.left.x}
           y2={node.left.y}
-          stroke="#8b4513" // Cor marrom (combinando com seus nós)
+          stroke="#8b4513" 
           strokeWidth="2"
         />
       );
@@ -175,14 +175,14 @@ export default function BinaryTree({
         }
     }
 
-    // ------------------- HISTORICO ANTERIOR ------------------ //
+    // ----- HISTORICO ANTERIOR
     const [history, setHistory] = useState([]);
     
 
-    // ------------------- OPERAÇÕES ------------------ //
+    // ----- OPERAÇÕES
     const [operationInfo, setOperationInfo] = useState(""); // Informação da operação atual
 
-    // ------------------- ANIMAÇÃO ------------------ //
+    // ---- ANIMAÇÃO 
 
     const [isOnAnimation, setIsOnAnimation] = useState(false); // Se está em animação
 
@@ -218,7 +218,7 @@ export default function BinaryTree({
     }); 
     
 
-    // ------------------ CONFIGURAÇÕES DO MUNDO DA ÁRVORE ------------------ //
+    // ------- CONFIGURAÇÕES DA ÁRVORE
 
     const WORLD_WIDTH = 4000;  // Largura gigante
     const WORLD_HEIGHT = 2000; // Altura gigante
@@ -257,8 +257,7 @@ export default function BinaryTree({
     function handleInputChange(event) {
         {/*
         É chamado sempre que o input do usuário muda
-
-        Muda o rawText e o vizQueue (fila que o usuário vê)
+        -> Muda o rawText e o vizQueue (fila que o usuário vê)
         */}
 
         // 1. Pega o valor do input
@@ -382,8 +381,6 @@ export default function BinaryTree({
         const tree = treeRef.current;
         const nodeToRemove = tree._searchNodeByValue(value, tree.root);
 
-        // Remove o valor da árvore (se existir)
-
         // Anima o caminho até o nó a ser removido
         setOperationInfo(t('operationInfos.searching', { value }));
         if (tree.root) await animatePath(tree.root, nodeToRemove, AnimationMode.REMOVAL);   
@@ -495,7 +492,7 @@ export default function BinaryTree({
 
         // 04. Etapas específicas de inserção ou remoção
         if (animateMode === AnimationMode.REMOVAL) {
-            // A. Indica que achou o nó a ser removido
+            // Indica que achou o nó a ser removido
             setOperationInfo(t('operationInfos.removing', { value: finalNode.value }));
             await configAnimate("#traveler", { 
                 left: finalTarget.x, 
@@ -520,7 +517,7 @@ export default function BinaryTree({
                 }
             }
 
-            // 2. Se houver um SUCESSOR (Caso de 2 filhos), faz a "transferência de alma"
+            // 2. Se houver um sucessor (Caso de 2 filhos) -> Animação"
             if (successorNode) {
                 // Viaja até o sucessor
                 for (let i = 0; i < successorPath.length; i++) {
@@ -877,7 +874,7 @@ export default function BinaryTree({
                                 {renderedNodes}
                             </div>
 
-                            {/* O Viajante (Animação) */}
+                            {/* Animação */}
                             <motion.div 
                                 id="popBorder"
                                 style={{

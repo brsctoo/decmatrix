@@ -10,7 +10,7 @@ import { BR, US } from 'country-flag-icons/react/3x2';
 import styles from './LanguageSwitch.module.css';
 
 function LanguageSwitch() {
-    const [switcherVisible, setSwitcherVisible] = useState(false); // Lógica para mostrar ou esconder o switcher, se necessário
+    const [switcherVisible, setSwitcherVisible] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
 

@@ -1,7 +1,7 @@
 export const toNum = (val) => {
     if (typeof val === 'number') return val;
     if (typeof val === 'string') {
-        // Remove espaços e troca vírgula por ponto IMEDIATAMENTE
+        // Remove espaços e troca vírgula por ponto
         const cleaned = val.trim().replace(',', '.');
         if (cleaned === '' || cleaned === '-' || cleaned === '.') return 0;
 
@@ -21,7 +21,7 @@ export const toFraction = (decimal) => {
     if (absDec < 1e-10) return "0";
     if (Number.isInteger(decimal)) return decimal.toString();
 
-    // 3. Isolar o sinal para o Algoritmo de Frações Contínuas
+    // 2. Isolar o sinal para o Algoritmo de Frações Contínuas
     const sign = decimal < 0 ? "-" : "";
     let n = absDec;
     let upper_n = 1, upper_d = 0; 
@@ -43,14 +43,13 @@ export const toFraction = (decimal) => {
         // Se a fração atual for precisa o suficiente, paramos
         if (Math.abs(absDec - upper_n / upper_d) < max_error) break;
         
-        // Prepara para a próxima iteração
         n = 1 / (n - a);
         
         // Se o denominador ficar complexo demais, paramos para evitar frações feias
         if (upper_d > 10000) break;
     }
 
-    // 4. Retorno final (evita retornar algo como "5/1")
+    // 3. Retorno final
     if (upper_d === 1) return `${sign}${upper_n}`;
 
     return `${sign}${upper_n}/${upper_d}`;

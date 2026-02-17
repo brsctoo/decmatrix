@@ -25,11 +25,9 @@ export const useDraggableScroll = (containerRef) => {
         scrollLeft.current = containerRef.current.scrollLeft;
         scrollTop.current = containerRef.current.scrollTop;
 
-        // Muda o visual
         containerRef.current.style.cursor = 'grabbing';
         containerRef.current.style.userSelect = 'none';
         
-        // Prende o ponteiro (essencial para touch não "escapar")
         containerRef.current.setPointerCapture(e.pointerId);
     };
 
@@ -65,16 +63,15 @@ export const useDraggableScroll = (containerRef) => {
             onPointerDown: handlePointerDown,
             onPointerMove: handlePointerMove,
             onPointerUp: handlePointerUp,
-            onPointerCancel: handlePointerUp, // Caso o sistema interrompa o toque
+            onPointerCancel: handlePointerUp, 
         },
         style: {
             cursor: 'grab',
             overflow: 'auto',
-            // 'none' impede que o browser tente rolar a página enquanto você arrasta a div
             touchAction: 'none', 
             WebkitOverflowScrolling: 'touch',
-            scrollbarWidth: 'none', // Opcional: esconde scroll no Firefox
-            msOverflowStyle: 'none',  // Opcional: esconde scroll no IE/Edge
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none', 
         }
     };
 };

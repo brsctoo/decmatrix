@@ -118,7 +118,7 @@ function interest_calculator() {
 
       if (!val) return 0;
 
-      // 1. Remove tudo que NÃO for número ou separador decimal
+      // 1. Remove tudo que não for número ou separador decimal
       const decimalSep = locale === 'pt' ? ',' : '.';
       const thousandsSep = locale === 'pt' ? '.' : ',';
       let clean = val.toString().replace(new RegExp(`\\${thousandsSep}`, 'g'), '').replace(new RegExp(`[^\\d${decimalSep}]`, 'g'), '');
@@ -142,14 +142,14 @@ function interest_calculator() {
         return 0;
     }
 
-    // 1. Converter a TAXA para MENSAL (Usando Taxa Equivalente)
+    // 1. Converter a taxa para mensal (Usando Taxa Equivalente)
     let monthlyRate = interestRateParsed;
     if (interestRateUnit === 'yearly') {
         // (1 + 0.10)^(1/12) - 1
         monthlyRate = (Math.pow(1 + (interestRateParsed / 100), 1 / 12) - 1) * 100;
     }
 
-    // 2. Converter o PERÍODO para MESES (se estiver em anos)
+    // 2. Converter o período para meses 
     let totalMonths = period_value;
     if (periodUnit === 'years') {
       totalMonths = period_value * 12;
@@ -218,9 +218,6 @@ function interest_calculator() {
   return (
     <div>
       {/* 
-        A calculadora deve ser dividida em 2 partes -> calculadora de juros simples e calculadora de juros compostos 
-        Juros Simples -> Fórmula: J = C * i * t, ou seja, depende do capital inicial, da taxa de juros e do tempo.
-
         Juros Compostos -> Fórmula: M = C * (1 + i)^t, ou seja, depende do capital inicial, da taxa de juros e do tempo.
         No Juros compostos, também será possível colocar uma contribuisão periódica (mensal, anual, etc) para o cálculo do montante final.
       */}
@@ -415,7 +412,6 @@ function interest_calculator() {
 
         <div className={tStyle.infoHighlight}>
           <p className={tStyle.textParagraph}>
-            {/* AQUI TEM HTML DENTRO DO JSON */}
             {t.rich("definitionSection.example", {
               strong: (children) => <strong>{children}</strong>
             })}

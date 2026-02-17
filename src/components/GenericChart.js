@@ -172,10 +172,10 @@ function GenericChart({
                             data={data}
                             margin={{ top: 20, right: 30, left: 0, bottom: 20 }} // Margem para não cortar texto
                         >
-                            {/* 1. Grid Suave (Só horizontal fica mais limpo) */}
+                            {/* 1. Grid Suave */}
                             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
 
-                            {/* 2. Eixo X (Minimalista) */}
+                            {/* 2. Eixo X */}
                             <XAxis 
                                dataKey={xKey} 
     
@@ -185,19 +185,16 @@ function GenericChart({
                                 // 2. Ajusta o zoom automático (do menor ao maior X)
                                 domain={['auto', 'auto']} 
                                 
-                            
-                                
-                                // 4. Formata para não aparecer números quebrados feios (ex: 3.000001)
+                                // 3. Formata para não aparecer números quebrados (ex: 3.000001)
                                 tickFormatter={(value) => value.toFixed(1)}
 
-                                // Estilos visuais que você já tinha
                                 axisLine={false} 
                                 tickLine={false} 
                                 tick={{ fill: '#6b7280', fontSize: 12 }} 
                                 dy={10}
                             />
 
-                            {/* 3. Eixo Y (Adicionado!) */}
+                            {/* 3. Eixo Y */}
                             <YAxis 
                                 axisLine={false}
                                 tickLine={false}
@@ -205,7 +202,7 @@ function GenericChart({
                                 width={40} // Espaço para os números não cortarem
                             />
 
-                            {/* 4. Tooltip Estilizado (Fundo branco, sombra) */}
+                            {/* 4. Tooltip */}
                             <Tooltip 
                                 contentStyle={{ 
                                     backgroundColor: '#fff', 
@@ -223,8 +220,8 @@ function GenericChart({
 
                             <Legend wrapperStyle={{ paddingTop: '20px' }} formatter={legendFormatter} />
 
-                            {/* 5. Linhas de Referência (O Cruzamento Zero do Plano Cartesiano) */}
-                            {/* Isso desenha a cruz preta no meio se tiver números negativos */}
+                            {/* 5. Linhas de Referência */}
+                            {/* Cruz preta no meio se tiver números negativos */}
                             <ReferenceLine y={0} stroke="#9ca3af" strokeWidth={1} />
                             <ReferenceLine x={0} stroke="#9ca3af" strokeWidth={1} />
 
@@ -232,14 +229,14 @@ function GenericChart({
                             {dataKeys.map((key, index) => (
                                 <Line
                                     key={key}
-                                    type="monotone"      // Deixa a curva SUAVE (Bézier)
+                                    type="monotone"  
                                     dataKey={key}
                                     name={legendFormatter(key)}
                                     stroke={COLORS[index % COLORS.length]}
-                                    strokeWidth={2}      // Linha mais grossa (mais visível)
-                                    dot={false}          // REMOVE as bolinhas (poluição visual)
+                                    strokeWidth={2}      
+                                    dot={false}         
                                     activeDot={{ r: 8, strokeWidth: 0 }} // Bolinha só aparece quando passa o mouse
-                                    animationDuration={1500} // Animação mais lenta e elegante
+                                    animationDuration={1500} // Animação mais lenta 
                                 />
                             ))}
                         </LineChart>
@@ -251,12 +248,12 @@ function GenericChart({
                 <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                         <Pie
-                            data={pieData}      // Usa os dados transformados do último mês
-                            dataKey="value"     // Onde está o número? na chave 'value'
-                            nameKey="name"      // Onde está o nome? na chave 'name'
-                            cx="50%"            // Centro X
-                            cy="50%"            // Centro Y
-                            innerRadius={60}    // Buraco no meio (Donut)
+                            data={pieData}      
+                            dataKey="value"     
+                            nameKey="name"      
+                            cx="50%"            
+                            cy="50%"            
+                            innerRadius={60}    
                             outerRadius={80}
                             paddingAngle={5}
                         >

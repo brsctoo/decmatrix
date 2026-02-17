@@ -25,7 +25,7 @@ export default function MatrixBasicOperations() {
     matrixB.current.name = "B";
     const [version, setVersion] = useState(0); // Só para forçar o React a redesenhar quando as matrizes mudarem
 
-    // 2. Função mestre que lida com a lógica de negócio e sincronização
+    // 2. Função que lida com a lógica de negócio e sincronização
     function handleDimensionChange(matrixId, dimension, value, isFinal = false) {
         {/*
             matrixId: 'A' ou 'B', a matriz que está sendo editada
@@ -52,7 +52,7 @@ export default function MatrixBasicOperations() {
             if (matrixId === 'A' && dimension === 'cols') next.colsB = valToApply; 
             if (matrixId === 'A' && dimension === 'rows') next.rowsB = valToApply; 
             if (matrixId === 'B' && dimension === 'cols') next.colsA = valToApply;
-            if (matrixId === 'B' && dimension === 'rows') next.rowsA = valToApply; // Aplica nas linhas de A o valor das colunas de B
+            if (matrixId === 'B' && dimension === 'rows') next.rowsA = valToApply;
             
             return next;
         });
@@ -77,7 +77,7 @@ export default function MatrixBasicOperations() {
 
             matrixA.current.resize();
             matrixB.current.resize();
-            setVersion(v => v + 1); // Dá o "alarme" para re-renderizar a grade
+            setVersion(v => v + 1);
         }
     }
 

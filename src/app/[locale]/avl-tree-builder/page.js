@@ -13,21 +13,12 @@ import { useTranslations } from "use-intl";
 
 
 {/*
-  Desenha a árvore AVL no canvas, retornando uma lista de divs posicionadas
-
   1. Usuário insere valores na fila (separados por vírgula)
   2. Usuário clica em "Inserir Valores" para inserir todos os valores da fila na árvore
   3. Usuário pode clicar em "Próximo Passo" para inserir o próximo valor da fila na árvore
   4. A árvore é redesenhada a cada inserção
   5. Se o usuário quiser, pode clicar "Resetar" para resetar a árvore e a fila ou "Remover Último" 
-  para remover o último valor inserido
-
-  Resumindo, teremos variáveis para:
-  - Armazenar o valor do input do usuário -> rawText
-  - Fila que vai servir de vizualização para o usuário -> vizQueue
-  - Fila interna que vai controlar os valores a serem inseridos -> queue
-  - Sequência de nós inseridos na árvore -> nodeSequence
-  
+  para remover o último valor inserido  
 */}
 
 

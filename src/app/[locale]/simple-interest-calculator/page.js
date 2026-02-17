@@ -107,7 +107,7 @@ function interest_calculator() {
 
       if (!val) return 0;
 
-      // 1. Remove tudo que NÃO for número ou separador decimal
+      // 1. Remove tudo que não for número ou separador decimal
       const decimalSep = locale === 'pt' ? ',' : '.';
       const thousandsSep = locale === 'pt' ? '.' : ',';
       let clean = val.toString().replace(new RegExp(`\\${thousandsSep}`, 'g'), '').replace(new RegExp(`[^\\d${decimalSep}]`, 'g'), '');
@@ -130,13 +130,13 @@ function interest_calculator() {
       return 0;
     }
 
-    // 1. Converter a TAXA para MENSAL (juros simples → divisão direta)
+    // 1. Converter a taxa para mensal
     let monthlyRatePercent = interestRateParsed;
     if (interestRateUnit === "yearly") {
       monthlyRatePercent = interestRateParsed / 12;
     }
 
-    // 2. Converter o PERÍODO para MESES (garante consistência com a taxa mensal)
+    // 2. Converter o período para meses (garante consistência com a taxa mensal)
     let totalMonths = periodValue;
     if (periodUnit === "years") {
       totalMonths = periodValue * 12;

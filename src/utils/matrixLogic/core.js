@@ -42,7 +42,7 @@ export class Matrix {
         // Copia os dados existentes para a nova matriz, respeitando os limites do novo tamanho
         for (let i = 0; i < this.rows; i++) { 
             for (let j = 0; j < this.cols; j++) {
-                newData[i][j] = this.data[i]?.[j] ?? 0; // Usa o valor existente ou 0 se a posição for nova
+                newData[i][j] = this.data[i]?.[j] ?? 0; 
             }
         }
 

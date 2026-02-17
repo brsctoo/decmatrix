@@ -93,7 +93,7 @@ export default function MatrixInput({ matrixInstance, rowsValue, colsValue, onSi
                     </div>
                 </div>
             <div className={style.matrixContainer} style={{ "--grid-cols": matrixInstance.cols }}>
-                <div className={style.matrixInner}> {/* O "abraço" real */}
+                <div className={style.matrixInner}>
                     <div className={style.bracketLeft}></div>
                     <div className={style.grid}>
                         {matrixInstance.data.map((row, r) => // passa cada linha da matriz
@@ -105,7 +105,7 @@ export default function MatrixInput({ matrixInstance, rowsValue, colsValue, onSi
                                     onChange={(e) => {
                                         const rawValue = e.target.value;
 
-                                        // 1. SEGURANÇA: Bloqueia letras, mas permite caracteres de fração e sinais
+                                        // 1. Bloqueia letras, mas permite caracteres de fração e sinais
                                         if (!/^-?[0-9.,/]*$/.test(rawValue)) return;
                                         
                                         if (rawValue.includes(',')) {
@@ -122,7 +122,8 @@ export default function MatrixInput({ matrixInstance, rowsValue, colsValue, onSi
                                         const rawValue = e.target.value;
 
                                         if (rawValue.includes(',')) {
-                                            matrixInstance.changeCellValue(r, c, rawValue.replace(',', '.')); // Substitui vírgula por ponto para decimais
+                                            matrixInstance.changeCellValue(r, c, rawValue.replace(',', '.')); 
+                                            // Substitui vírgula por ponto para decimais
                                         }
         
                                         if (rawValue === '' || rawValue === '/' || rawValue === '-') {

@@ -21,22 +21,13 @@ function IconSection({ icon: Icon }) {
 
     return (
         <div className={styles.icon}>
-            {/* Renderizamos como componente */}
             <Icon size={24} /> 
         </div>
     );
 }
 
-{/* 
-    Quando o mouse passa no "opener", a lateral bar aparece. -> hover true
-    Quando o mouse sai da lateral bar, ela desaparece. -> hover false
-*/}
-
 function LateralBar() {
     const { isSidebarOpen } = useUI();
-
-    {/* isCollapsed é quando a barra está pequena */}
-    const [isCollapsed, setIsCollapsed] = React.useState(true);
 
     {/* categoria ativada no momento -> muda com o handleCategory */}
     const [activeCategory, setActiveCategory] = React.useState(null);
@@ -127,22 +118,22 @@ function LateralBar() {
         return CATEGORIES.map(category => {
             const isActive = activeCategory === category.id;
 
-            // Buscamos o ícone no seu ICONS_MAP usando o ID da categoria
+            // Busca o ícone no seu ICONS_MAP usando o ID da categoria
             const IconElement = ICONS_MAP[category.id];
 
             return (
-                // Barra lateral total da categoria, incluindo o cabeçalho e os itens de navegação (se ativos)
+                // Barra lateral total da categoria, incluindo o cabeçalho e os itens de navegação 
                 <div key={category.id} className={styles.categoryWrapper}>
                     {/* Cabeçalho da seção */}
                     <div 
                         className={`${styles.categoryHeader} ${isActive ? styles.categoryHeaderActive : ""}`} 
                         onClick={() => handleCategory(category.id)}
                     >
-                        {/* Renderiza o elemento de ícone (Sigma, Network, etc.) */}
+                        {/* Renderiza o elemento de ícone */}
                         {IconElement} 
                         <span>{t(`categories.${category.id}`)}</span> 
 
-                        {/* Ícone de chevron para indicar que a seção pode ser expandida ou colapsada, rotaciona quando ativa */}
+                        {/* Ícone de chevron */}
                         <div className={`${styles.chevronIcon} ${isActive ? styles.chevronActive : ""}`}>
                             <ChevronLeft size={16} />
                         </div>

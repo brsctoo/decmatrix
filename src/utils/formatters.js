@@ -8,9 +8,9 @@ export const formatMoneyValue = (value, locale = 'en') => {
     if (typeof value !== "number" || Number.isNaN(value)) return "-";
     
     return value.toLocaleString(locale === 'pt' ? "pt-BR" : "en-US", {
-        style: "currency", // Define o estilo como moeda para adicionar o símbolo de moeda apropriado
-        currency: locale === 'pt' ? "BRL" : "USD", // Define a moeda com base no locale (coloca o sifrão no formato correto)
-        minimumFractionDigits: 2 // Garante que sempre tenha 2 casas decimais, mesmo que o valor seja um número inteiro
+        style: "currency", 
+        currency: locale === 'pt' ? "BRL" : "USD", 
+        minimumFractionDigits: 2 
     });
 };
 
@@ -19,11 +19,10 @@ export const formatMoneyInput = (value, locale = 'en') => {
 
     if (!value) return "";
     
-    // Transforma em número e move a vírgula 2 casas (centavos)
     const number = Number(value) / 100;
 
     return number.toLocaleString(locale === 'pt' ? "pt-BR" : "en-US", {
-        minimumFractionDigits: 2, // Garante que sempre tenha 2 casas decimais, mesmo que o usuário não tenha digitado
-        maximumFractionDigits: 2, // Limita a 2 casas decimais para evitar que o usuário digite mais do que o necessário
+        minimumFractionDigits: 2, 
+        maximumFractionDigits: 2, 
     });
 };

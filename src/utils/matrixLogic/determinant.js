@@ -27,7 +27,7 @@ export default function determinant(matrix) {
         // Encontrar o pivô (o elemento na diagonal)
         let pivot = data[i][i];
         
-        // obs: Se o pivô for zero, procura uma linha abaixo para trocar (isso não altera o determinante, apenas muda o sinal)
+        // Se o pivô for zero, procura uma linha abaixo para trocar (isso não altera o determinante, apenas muda o sinal)
         if (Math.abs(pivot) < 0.0000000001) {
             let found = false;  
             for (let k = i + 1; k < n; k++) {
