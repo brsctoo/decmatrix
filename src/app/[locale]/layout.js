@@ -6,7 +6,9 @@ import Topbord from "../../components/Topbord";
 import { notFound } from "next/navigation";
 import { languages } from "../../../constants/language";
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 // IMPORTAÇÕES DO CONTEXTO
 import { UIProvider } from "../../context/UIContext";
@@ -51,6 +53,9 @@ export default async function RootLayout({ children, params }) {
             Ele pega as mensagens que o servidor carregou e entrega
             para os componentes de cliente.
         */}
+
+        <GoogleAnalytics />
+
         <NextIntlClientProvider messages={messages}>
             <UIProvider>
               <ViewportProvider>
