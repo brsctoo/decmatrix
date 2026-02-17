@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Decmatrix
 
-## Getting Started
+> **Ferramentas matemáticas e computacionais.**
 
-First, run the development server:
+O **Decmatrix** é uma plataforma desenvolvida para tornar cálculos complexos e conceitos de ciência da computação acessíveis, práticos e visuais. Do planejamento financeiro à simulação de estruturas de dados avançadas, o objetivo é reunir explicações intuitivas e calculadoras interativas que transformam teoria em aplicação real.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**[Acesse o Decmatrix Online](decmatrix.com)** 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Sobre o Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este projeto nasceu como forma de aprendizado em React. A ideia é criar ferramentas que não apenas dêem o resultado, mas ajudem o usuário a entender o processo, seja visualizando uma árvore binária se rebalanceando ou calculando projeções financeiras.
 
-## Learn More
+Conforme o tempo passa, novas ferramentas serão adicionadas ao site.
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Ferramentas Disponíveis
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Atualmente, a plataforma conta com módulos focados em:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Visualizador de Estruturas de Dados (BST & AVL)
+O destaque atual da plataforma. Um simulador interativo para Árvores Binárias de Busca e Árvores AVL.
 
-## Deploy on Vercel
+### Ferramentas Financeiras
+Calculadoras de juros compostos e simples, com explicações e gráficos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Matemática Fundamental
+Resolução de equações do segundo grau com gráfico e passo a passo, calculadoras de operações envolvendo matrizes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Bastidores Técnicos (Tech Stack)
+
+O projeto foi construído utilizando tecnologias modernas de front-end, com uma arquitetura que separa a lógica matemática da interface visual.
+
+* **[React](https://react.dev/) / [Next.js](https://nextjs.org/):** Framework principal para a interface do usuário.
+* **JavaScript (ES6+) & OOP**
+* **[Framer Motion](https://www.framer.com/motion/):** Responsável pelas animações suaves de transição de coordenadas (X, Y) dos nós.
+  
+---
+
+## Contribuição e Feedback
+
+Feedbacks são muito bem-vindos! Se você tiver sugestões de novas ferramentas ou melhorias de design, sinta-se à vontade para entrar em contato.
