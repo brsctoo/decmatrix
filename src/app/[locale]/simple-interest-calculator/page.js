@@ -3,23 +3,34 @@ import JsonLd from "@/components/JsonLd";
 
 import ReactiveButton from "@/components/ReactiveButton";
 import style from "./page.module.css";
-import tStyle from "@/components/GenericTextDesign.module.css";
 import React from "react";
-import Article from "@/components/Article";
+
 import InputField from "@/components/InputField";
 import GenericChart from "@/components/GenericChart";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useParams } from 'next/navigation'; 
 
+{/* Styles */}
+import HighlightSection from '@/components/TextComponents/HighlightSection';
+import ParagraphSection from '@/components/TextComponents/ParagraphSection';
+import StepsList from '@/components/TextComponents/StepsList';
+import ExampleSection from '@/components/TextComponents/ExampleSection';
+import SymbolLegend from '@/components/TextComponents/SymbolLegend';
+import FormulaCard from '@/components/TextComponents/FormulaCard';
+import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+
+{/* Layouts */}
+import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
+
 {/* Utils */}
 import { formatMoneyValue, formatMoneyInput } from "@/utils/formatters";
 
 {/* Images */}
-import simpleInterestExample from "@/assets/simple_interest_example.png";
-import simpleInterestResultExample from "@/assets/simple_interest_result_example.png";
-import simpleInterestExampleEn from "@/assets/simple_interest_example_en.png";
-import simpleInterestResultExampleEn from "@/assets/simple_interest_result_example_en.png";
+import simpleInterestExample from "@/assets/financial/simple_interest/example_pt.png";
+import simpleInterestResultExample from "@/assets/financial/simple_interest/result_example_pt.png";
+import simpleInterestExampleEn from "@/assets/financial/simple_interest/example_en.png";
+import simpleInterestResultExampleEn from "@/assets/financial/simple_interest/result_example_en.png";
 
 function generateChartData(C, i, n) {
   const history = [];
@@ -194,7 +205,7 @@ function interest_calculator() {
   return (
     <div>
       <JsonLd dataName="simpleInterestCalculator" locale={locale} />
-      <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
+      <h1 className={TextGenericDesigns.pagesMainTitle}>{t("mainTitle")}</h1>
       <div className={style.inputFieldsContainer}>
         <InputField 
           label={t("inputCapital.label")}
@@ -257,9 +268,10 @@ function interest_calculator() {
             )}
           />
         </div>
+      </div>
 
+      {results && (
         <div className={style.resultContainer}>
-          {results && (
           <div className={style.resultsCard}>
             <h3 className={style.cardTitle}>{t("result.summaryTitle")}</h3>
             <div className={style.resultRow}>
@@ -275,9 +287,8 @@ function interest_calculator() {
               <span className={style.resultValue}>{`${formatMoneyValue(results.final, locale)}`}</span>
             </div>
           </div>
-          )}
-        </div> 
-      </div>
+        </div>
+      )}
 
       {chartData.length > 0 && results && (
         <div className={style.chartSection}>
@@ -290,124 +301,151 @@ function interest_calculator() {
           </div>
         </div>
       )}
-
-    <Article title={t("usageTutorial.title")}>
-      <div className={tStyle.textSection}>
-        <p className={tStyle.textParagraph}>
-          {t("usageTutorial.intro")}
-        </p>
-
-        <div className={tStyle.infoHighlight}>
-          <ol className={tStyle.stepList}>
-            <li>{t("usageTutorial.step1")}</li>
-            <li>{t("usageTutorial.step2")}</li>
-            <li>{t("usageTutorial.step3")}</li>
-            <li>{t("usageTutorial.step4")}</li>
-          </ol>
-        </div>
-
-        <p className={tStyle.textParagraph}>
-          {t("usageTutorial.conclusion")}
-        </p>
-
-        <h2 className={tStyle.sectionHeading}>{t("exampleCalculation.title")}</h2>
-
-        <div className={tStyle.exampleCard}>
-          <p className={tStyle.textParagraph}>
-            {t("exampleCalculation.intro")}
-          </p>
-          <img
-            src={locale === 'pt' ? simpleInterestExample.src : simpleInterestExampleEn.src}
-            alt={t("exampleCalculation.imageAlt1")}
-            className={style.imageAttribution}
-          />
-          <p className={tStyle.textParagraph}>
-            {t("exampleCalculation.description")}
-          </p>
-          <img
-            src={locale === 'pt' ? simpleInterestResultExample.src : simpleInterestResultExampleEn.src}
-            alt={t("exampleCalculation.imageAlt2")}
-            className={style.imageAttribution}
-          />
-        </div>
-      </div>
-    </Article>
-
-    <Article title={t("definitionSection.title")}>
-      <div className={tStyle.textSection}>
-        <p className={tStyle.textParagraph}>
-          {t("definitionSection.intro")}
-        </p>
-
-        <div className={tStyle.infoHighlight}>
-          <p className={tStyle.textParagraph}>
-            {t.rich("definitionSection.example", {
+    <ArticleLayoutDefault title={t("usageTutorial.title")}>
+      <ParagraphSection
+        paragraphs={[
+          t("usageTutorial.intro"),
+        ]}
+      />
+      <HighlightSection>
+        <StepsList 
+          steps={t.raw("usageTutorial.steps").map((_, index) => ({
+            content: t.rich(`usageTutorial.steps.${index}`, { 
               strong: (children) => <strong>{children}</strong> 
-            })}
-          </p>
-        </div>
+            })
+          }))}
+        />
+      </HighlightSection>
 
-        <p className={tStyle.textParagraph}>
-          {t("definitionSection.limitations")}
-        </p>
+      <ParagraphSection
+        paragraphs={[
+          t("usageTutorial.conclusion"),
+        ]}
+      />
 
-        <p className={tStyle.textParagraph}>
-          {t.rich("definitionSection.compareLink", {
-            link: (children) => <Link href={`/${locale}/compound-interest-calculator`} className={tStyle.inlineLink}>{children}</Link>
-          })}
-        </p>
+      <ExampleSection title={t("exampleCalculation.title")}>
+        <ParagraphSection
+          paragraphs={[
+            t("exampleCalculation.intro"),
+          ]}
+        />
 
-        <h2 className={tStyle.sectionHeading}>{t("comparativeSection.title")}</h2>
+        <img
+          src={locale === 'pt' ? simpleInterestExample.src : simpleInterestExampleEn.src}
+          alt={t("exampleCalculation.imageAlt1")}
+          className={style.imageAttribution}
+        />
 
-        <p className={tStyle.textParagraph}>
-          {t("comparativeSection.intro")}
-        </p>
+        <ParagraphSection
+          paragraphs={[
+            t("exampleCalculation.description"),
+          ]}
+        />
 
-        <div className={tStyle.comparisonCard}>
-          <p className={tStyle.textParagraph}>
-            {t.rich("comparativeSection.example" , {
-              strong: (children) => <strong>{children}</strong> 
-            })}
-          </p>
-        </div>
-      </div>
-    </Article>
+        <img
+          src={locale === 'pt' ? simpleInterestResultExample.src : simpleInterestResultExampleEn.src}
+          alt={t("exampleCalculation.imageAlt2")}
+          className={style.imageAttribution}
+        />
+      </ExampleSection>
+    </ArticleLayoutDefault>
 
-    <Article title={t("formularySection.title")}>
-      <div className={tStyle.textSection}>
-        <p className={tStyle.textParagraph}>
-          {t("formularySection.intro")}
-        </p>
+    <ArticleLayoutDefault title={t("definitionSection.title")}>
+      <ParagraphSection
+        paragraphs={[
+          t("definitionSection.intro"),
+        ]}
+      />
 
-        <h2 className={tStyle.sectionHeading}>{t("formularySection.basicFormulaTitle")}</h2>
-        <div className={tStyle.formulaCard}>
-          <span>
-            {t("formularySection.basicFormula")}
-          </span>
-        </div>
+      <HighlightSection>
+        <ParagraphSection
+          paragraphs={[
+            t.rich("definitionSection.example", {
+              strong: (children) => <strong>{children}</strong>,
+            }),
+          ]}
+        />
+      </HighlightSection>
 
-        <ul className={tStyle.symbolLegend}>
-          <li>{t.rich("formularySection.symbolM", { strong: (children) => <strong>{children}</strong> })}</li>
-          <li>{t.rich("formularySection.symbolC", { strong: (children) => <strong>{children}</strong> })}</li>
-          <li>{t.rich("formularySection.symbolI", { strong: (children) => <strong>{children}</strong> })}</li>
-          <li>{t.rich("formularySection.symbolT", { strong: (children) => <strong>{children}</strong> })}</li>
-        </ul>
+      <ParagraphSection
+        paragraphs={[
+          t("definitionSection.limitations"),
+          t.rich("definitionSection.compareLink", {
+            link: (children) => (
+              <Link
+                href={`/${locale}/compound-interest-calculator`}
+                className={TextGenericDesigns.inlineLink}
+              >
+                {children}
+              </Link>
+            ),
+          }),
+        ]}
+      />
 
-        <p className={tStyle.textParagraph}>
-          {t("formularySection.formulaExplanation")}
-        </p>
+      <h2 className={TextGenericDesigns.pagesSubTitle}>{t("comparativeSection.title")}</h2>
 
-        <p className={tStyle.textParagraph}>
-          {t("formularySection.interestCalculation")}
-        </p>
+      <ParagraphSection
+        paragraphs={[
+          t("comparativeSection.intro"),
+        ]}
+      />
 
-         <div className={tStyle.formulaCard}>
-          <span>
-            {t("formularySection.interestFormula")}
-          </span>
-        </div>
-      </div>
-    </Article>
+      <HighlightSection>
+        <ParagraphSection
+          paragraphs={[
+            t.rich("comparativeSection.example", {
+              strong: (children) => <strong>{children}</strong>,
+            }),
+            t("comparativeSection.conclusion"),
+          ]}
+        />
+      </HighlightSection>
+    </ArticleLayoutDefault>
+
+    <ArticleLayoutDefault title={t("formularySection.title")}>
+      <ParagraphSection
+        paragraphs={[
+          t("formularySection.intro"),
+        ]}
+      />
+
+      <h2 className={TextGenericDesigns.pagesSubTitle}>{t("formularySection.basicFormulaTitle")}</h2>
+
+      <ParagraphSection
+        paragraphs={[
+          t("formularySection.basicFormula"),
+          t("formularySection.formulaExplanation"),
+        ]}
+      />
+
+      <FormulaCard equations={["\\mathbf{M = C \\times (1 + i \\times t)}"]} />
+
+      <SymbolLegend
+        symbols={{
+          M: t.rich("formularySection.symbolM", {
+            strong: (children) => <strong>{children}</strong>,
+          }),
+          C: t.rich("formularySection.symbolC", {
+            strong: (children) => <strong>{children}</strong>,
+          }),
+          i: t.rich("formularySection.symbolI", {
+            strong: (children) => <strong>{children}</strong>,
+          }),
+          t: t.rich("formularySection.symbolT", {
+            strong: (children) => <strong>{children}</strong>,
+          }),
+        }}
+      />
+
+      <ParagraphSection
+        paragraphs={[
+          t("formularySection.interestCalculation"),
+        ]}
+      />
+
+      <FormulaCard equations={[t("formularySection.interestFormula")]} />
+    </ArticleLayoutDefault>
     </div>
   );
 }

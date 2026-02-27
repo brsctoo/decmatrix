@@ -1,5 +1,10 @@
 .matrixDisplayResult {
     max-width: fit-content !important; 
+    border-radius: 18px;
+    border: 1px solid rgba(0, 185, 71, 0.7);
+    box-shadow:
+        0 0 0 1px rgba(0, 185, 71, 0.38),
+        0 18px 45px rgba(0, 0, 0, 0.9);
 }
 
 .matrixDisplayExample {

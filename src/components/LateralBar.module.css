@@ -2,8 +2,8 @@
 .sidebar {
     z-index: 100;  
     height: 100vh;
-    width: 250px;
-    background-color: #8b7a67;
+    width: 270px;
+    background-color: #050505;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Alinha os itens ao topo */
@@ -17,12 +17,11 @@
     z-index: 100;  
     height: 60px;
     width: 100%;
-    background-color: #9d8b78;
+    background-color: #050505;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #7a6b5a;
-    color: #f5ebe0;
+    color: #e5e7eb;
     font-weight: 700;
 }
 
@@ -48,7 +47,7 @@
 .categoryHeader { 
     height: auto;
     width: 100%;
-    background-color: #8b7a67;
+    background-color: #050505;
     display: flex; 
     flex-direction: row; /* Deixa o ícone do lado do texto */
     cursor: pointer; /* Mouse vira pointer quando está em cima */
@@ -58,21 +57,19 @@
     white-space: nowrap;
     overflow: hidden;
     font-size: 14px;
-    color: #e8ddd0;
+    color: #d1d5db;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
 }
 
 .categoryHeader:hover { 
-    background-color: #9d8b78; /* Cor de fundo mais escura quando o mouse está em cima */
     color: #ffffff;
-    border-left: 5px solid #b89968;
+    border-left: 4px solid #00b947;
 }
 
 .categoryHeaderActive {
-    background-color: #9d8b78; /* Cor de fundo mais escura quando o mouse está em cima */
     color: #ffffff;
-    border-left: 5px solid #b89968;
+    border-left: 4px solid #00b947;
 }
 
 .chevronIcon {
@@ -98,13 +95,13 @@
     flex-direction: row; /* Deixa o ícone do lado do texto */
     gap: 13px; /* Distância entre o ícone e o texto */
     padding: 10px 15px; /* Espaçamento interno da ferramenta */
-    background-color: #7a6b5a;
-    color: #d9ccba;
+    color: #9ca3af;
     transition: color 0.2s ease; /* Animação suave para a mudança de cor */
+    align-items: center;
 }
 
 .toolLink:hover {
-    color: #f5ebe0;
+    color: #f9fafb;
 }
 
 /* Circulo para tool */
@@ -112,7 +109,7 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    border: 2.5px solid #b89968;
+    border: 2.5px solid #00b947;
     background-color: rgba(255, 255, 255, 0);
     display: flex;
     align-items: center;

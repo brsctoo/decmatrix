@@ -99,7 +99,7 @@ export default function MatrixMultiply() {
 
             <div className={style.resultContainer}> 
                 <h2>{t("resultTitle")}</h2>
-                {handleMultiply() ? <MatrixDisplay matrix={handleMultiply()} /> : 
+                {handleMultiply() ? <MatrixDisplay matrix={handleMultiply()} otherClasses={style.resultMatrix} /> : 
                     <p style={{ color: "red" }}>{t("error")}</p>
                 }
              </div>

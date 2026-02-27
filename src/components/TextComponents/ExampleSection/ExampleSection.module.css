@@ -1,0 +1,25 @@
+.exampleSection {
+    margin: 2rem 0;
+    padding: 1.5rem 1.75rem;
+    border-radius: 16px;
+    border: 1px solid #27272a;
+    background: 
+        radial-gradient(circle at top left, rgba(163, 163, 163, 0.021), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(0, 185, 71, 0.12), transparent 60%),
+}
+
+.sectionTitle {
+    color: #e5e7eb;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    text-align: left;
+    margin: 0 0 0.75rem 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

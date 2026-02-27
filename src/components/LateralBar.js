@@ -42,17 +42,17 @@ function LateralBar() {
 
     // Ícones das categorias
     const ICONS_MAP = {
-        'algebra': <Sigma size={18} />,
+        'precalculus': <Sigma size={18} />,
         'data_structures': <Network size={18} />,
         'financial_calculators': <CircleDollarSign size={18} />,
-        'matrix_calculators': <Grid3x3 size={18} />
+        'linear_algebra': <Grid3x3 size={18} />
     }
 
     // Categorias disponíveis
     const CATEGORIES = [
         { id: 'financial_calculators', label: 'Finanças' },
-        { id: 'algebra', label: 'Matemática' },
-        { id: 'matrix_calculators', label: 'Matrizes' },
+        { id: 'precalculus', label: 'Matemática' },
+        { id: 'linear_algebra', label: 'Matrizes' },
         { id: 'data_structures', label: 'Computação' },
     ];
 
@@ -74,23 +74,23 @@ function LateralBar() {
 
         'quadraticEquation': {
             id: 'quadraticEquation', // id para identificar a seção
-            labelKey: 'algebra.quadraticEquation', // chave para tradução do título da seção
+            labelKey: 'precalculus.quadraticEquation', // chave para tradução do título da seção
             path: `/${params.locale}/quadratic-equation-calculator`, // caminho para navegação
-            category: 'algebra' // categoria para agrupar seções relacionadas
+            category: 'precalculus' // categoria para agrupar seções relacionadas
         }, 
 
         'matrixMultiplication': {
             id: 'matrixMultiplication', // id para identificar a seção
-            labelKey: 'matrixCalculators.matrixMultiplication', // chave para tradução do título da seção
+            labelKey: 'linear_algebra.matrixMultiplication', // chave para tradução do título da seção
             path: `/${params.locale}/matrix-multiplication`,
-            category: 'matrix_calculators' // categoria para agrupar seções relacionadas
+            category: 'linear_algebra' // categoria para agrupar seções relacionadas
         },
 
         'matrixBasicOperations': {
             id: 'matrixBasicOperations', // id para identificar a seção
-            labelKey: 'matrixCalculators.matrixBasicOperations', // chave para tradução do título da seção
+            labelKey: 'linear_algebra.matrixBasicOperations', // chave para tradução do título da seção
             path: `/${params.locale}/matrix-basic-operations`,
-            category: 'matrix_calculators' // categoria para agrupar seções relacionadas
+            category: 'linear_algebra' // categoria para agrupar seções relacionadas
         },
 
         'binarySearchTreeSimulator': {

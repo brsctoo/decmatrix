@@ -1,0 +1,29 @@
+.legendContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.symbol {
+    min-width: 70px;
+    text-align: center;
+    
+    height: fit-content;
+    border-radius: 4px;
+    background-color: #00b9470c;
+    padding: 4px 8px;
+    font-size: 18px;
+    color: #00b947;
+}
+
+.description {
+    color: #e5e7eb;
+    font-size: 18px;
+}

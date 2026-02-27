@@ -1,0 +1,62 @@
+.defaultList {
+    margin: 1.5rem 0;
+    color: #b0b0b0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+.defaultList ol {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin: 0;
+}
+
+.orderedList {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin: 1.5rem 0;
+    color: #b0b0b0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+.listItem {
+    margin-bottom: 0.5rem;
+}
+
+.defaultList li::marker,
+.orderedList li::marker {
+    color: #e5e7ebc0;
+    font-weight: 500;
+}
+
+.subDefaultListStyle {
+    margin-top: 0.6rem;
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.subDefaultListStyle ol {
+    list-style-type: lower-alpha;
+    padding-left: 1.75rem;
+    margin: 0.4rem 0 0 0;
+}
+
+.subDefaultListStyle li::marker {
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.defaultList li,
+.orderedList li,
+.subDefaultListStyle li {
+    margin-bottom: 0.4rem;
+}
+
+.defaultList strong,
+.orderedList strong,
+.subDefaultListStyle strong {
+    color: #e5e7eb;
+    font-weight: 600;
+}

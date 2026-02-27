@@ -1,17 +1,16 @@
 
-
+/*Input section principal*/
 .inputFieldsContainer {
     align-items: center;
-    background-color: rgb(239, 233, 227);
     display: flex;
     margin: 10px auto 16px;
     flex-wrap: wrap;
     width: 90%;
     gap: 8px 24px;
     padding: 16px 20px;
-    border: solid 2px rgb(201, 181, 156);
     border-radius: 10px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+    color: #F7F8F8
 }
 
 

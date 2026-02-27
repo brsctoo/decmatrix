@@ -5,11 +5,23 @@ import React, { useRef, useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 import Link from "next/link";
 
-import tStyle from "@/components/GenericTextDesign.module.css";
-import Article from "@/components/Article";
 import styles from "./page.module.css";
 import BinaryTree from "@/components/BinaryTree";
 import { useTranslations } from "use-intl";
+
+
+// Styles
+import HighlightSection from '@/components/TextComponents/HighlightSection';
+import ParagraphSection from '@/components/TextComponents/ParagraphSection';
+import DefaultList from '@/components/TextComponents/DefaultList';
+import ExampleSection from "@/components/TextComponents/ExampleSection";
+import SymbolLegend from '@/components/TextComponents/SymbolLegend';
+import FormulaCard from '@/components/TextComponents/FormulaCard';
+import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+
+// Layouts
+import ArticleLayoutSplit from "@/components/TextComponents/ArticleLayouts/ArticleLayoutSplit";
+import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
 
 
 {/*
@@ -30,92 +42,83 @@ function avl_tree_builder() {
   return (
     <div>
       <JsonLd dataName="avlTreeBuilder" locale={locale} />
-      <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
+      <h1 className={TextGenericDesigns.pagesMainTitle}>{t("mainTitle")}</h1>
         <BinaryTree 
           inputFieldsContainerStyle={styles.inputFieldsContainer}
           treeType="AVL"
         />
-          
-        <Article title={t("definition.title")}>
-          <div className={tStyle.textSection}>
-            <p className={tStyle.textParagraph}>
-              {t("definition.intro")}
-            </p>
+        
+        <ArticleLayoutDefault title={t("definition.title")}>
+          <ParagraphSection paragraphs={[
+            t("definition.intro"),
+            t("definition.curiosity")
+          ]}/>
 
-            <p className={tStyle.textParagraph}>
-              {t("definition.curiosity")}
-            </p>
-
-            <p className={tStyle.infoHighlight}>
-              {t.rich("definition.rememberHighlight", {
+          <HighlightSection>
+            <ParagraphSection paragraphs={[
+              t.rich("definition.rememberHighlight", {
                 strong: (chunks) => <strong>{chunks}</strong>
-              })}
-            </p>
-          </div>
-        </Article>
+              })
+            ]}/> 
+          </HighlightSection>
+        </ArticleLayoutDefault>
+        
+        <ArticleLayoutDefault title={t("proprieties.title")}>
+          <ParagraphSection paragraphs={[
+            t("proprieties.intro"),
+          ]}/>
+        </ArticleLayoutDefault>
 
-        <Article title={t("proprieties.title")}>
-          <p className={tStyle.textParagraph}>
-            {t("proprieties.intro")}
-          </p>
-        </Article>
+        <ArticleLayoutDefault title={t("operations.title")}>
+          <ParagraphSection paragraphs={[
+            t("operations.searchText"),
 
-        <Article title={t("operations.title")}>
-          <div className={tStyle.textSection}>
-            <p className={tStyle.textParagraph}>
-              {t("operations.searchText")}
-            </p>
-            <p className={tStyle.textParagraph}> {/* Tem link */}
-              {t.rich("operations.insertionText", {
+            t.rich("operations.insertionText", {
                 linkBTS: (chunks) => (
                   <Link 
                     href={`/${locale}/bst-tree-builder`}
-                    className={tStyle.inlineLink}
+                    className={TextGenericDesigns.inlineLink}
                   >
                     {chunks}
                   </Link>
                 ),
-              })}
-            </p>
-            <p className={tStyle.textParagraph}>
-              {t("operations.removalText")}
-            </p> 
-          </div>
-        </Article>
-
-        <Article title={t("balanceAndRotations.title")}>
-          <div className={tStyle.textSection}>
-            <p className={tStyle.textParagraph}>
-              {t("balanceAndRotations.intro")}
-              {t("balanceAndRotations.cases.intro")}
-            </p>
+            }),
             
-            <div className={tStyle.infoHighlight}>
-              <ol className={tStyle.stepList}>
-                <li>
-                  {t.rich("balanceAndRotations.cases.case01", {
-                    strong: (chunks) => <strong>{chunks}</strong>
-                  })}
-                </li>
-                <li>
-                  {t.rich("balanceAndRotations.cases.case02", {
-                    strong: (chunks) => <strong>{chunks}</strong>
-                  })}
-                </li>
-                <li>
-                  {t.rich("balanceAndRotations.cases.case03", {
-                    strong: (chunks) => <strong>{chunks}</strong>
-                  })}
-                </li>
-                <li>
-                  {t.rich("balanceAndRotations.cases.case04", {
-                    strong: (chunks) => <strong>{chunks}</strong>
-                  })}
-                </li>
-              </ol>
-            </div>
-          </div>
-        </Article>
+            t("operations.removalText")
+          ]}/>
+        </ArticleLayoutDefault>
+
+        <ArticleLayoutDefault title={t("balanceAndRotations.title")}>
+          <ParagraphSection paragraphs={[
+            t("balanceAndRotations.intro"),
+            t("balanceAndRotations.cases.intro")
+          ]}/>
+            
+          <HighlightSection>
+            <DefaultList itens={[
+              {
+                content: t.rich("balanceAndRotations.cases.case01", {
+                  strong: (chunks) => <strong>{chunks}</strong>
+                }),
+              },
+              {
+                content: t.rich("balanceAndRotations.cases.case02", {
+                  strong: (chunks) => <strong>{chunks}</strong>
+                }),
+              },
+              {
+                content: t.rich("balanceAndRotations.cases.case03", {
+                  strong: (chunks) => <strong>{chunks}</strong>
+                })
+              },
+              {
+                content: t.rich("balanceAndRotations.cases.case04", {
+                  strong: (chunks) => <strong>{chunks}</strong>
+                }),
+              }
+            ]} />
+          </HighlightSection>
+        </ArticleLayoutDefault>
         
     </div>
   );

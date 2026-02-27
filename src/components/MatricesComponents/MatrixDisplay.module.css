@@ -1,16 +1,17 @@
 /* O container de exibição com cores combinando com o cabeçalho */
 .matrixContainerDisplay {
-  width: 900px; 
+  width: 100%;
+  max-width: 900px; 
   display: flex;
   align-items: center; 
   justify-content: center;
   
-  margin: 20px auto;
-  padding: 30px;
-  background: rgb(230, 221, 210);
-  border: 3px solid rgb(190, 168, 140);
-  border-radius: 10px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  margin: 24px auto;
+  padding: 24px 28px;
+  background: #050505;
+  border: 1px solid rgba(247, 248, 248, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
 }
 
 .matrixInner {
@@ -25,7 +26,7 @@
 .bracketLeft, .bracketRight {
   width: 12px; 
   align-self: stretch; 
-  border: 3px solid rgb(74, 54, 40);
+  border: 3px solid rgba(163, 163, 163, 0.9);
 }
 
 .bracketLeft {
@@ -46,20 +47,20 @@
 
 /* Célula de exibição com fundo branco e texto escuro */
 .cellDisplay {
-  width: 55px;
-  height: 42px;
+  width: 64px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  background-color: rgb(255, 255, 255);
-  border: 1.5px solid rgba(190, 168, 140, 0.7);
+  background-color: #050505;
+  border: 1.5px solid rgba(247, 248, 248, 0.18);
   border-radius: 6px;
   
   font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  color: rgb(74, 54, 40);
+  color: #F7F8F8;
   
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -67,8 +68,8 @@
 .cellDisplay:hover {
   transform: scale(1.08);
   z-index: 10;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  border-color: rgb(190, 168, 140);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.65);
+  border-color: #00b947;
 }
 
 @media (max-width: 1000px) {

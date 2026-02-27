@@ -11,16 +11,23 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation'; 
 
 // Images
-import multiplicationExample01_pt from "@/assets/matrix_multiplication/multiplication_example01_pt.png";
-import multiplicationExample02_pt from "@/assets/matrix_multiplication/multiplication_example02_pt.png";
-import multiplicationResult_pt from "@/assets/matrix_multiplication/multiplication_result_example_pt.png";
+import multiplicationExample01_pt from "@/assets/algebra/matrix_multiplication/multiplication_example01_pt.png";
+import multiplicationExample02_pt from "@/assets/algebra/matrix_multiplication/multiplication_example02_pt.png";
+import multiplicationResult_pt from "@/assets/algebra/matrix_multiplication/multiplication_result_example_pt.png";
 
-import multiplicationExample01_en from "@/assets/matrix_multiplication/multiplication_example01_en.png";
-import multiplicationExample02_en from "@/assets/matrix_multiplication/multiplication_example02_en.png";
-import multiplicationResult_en from "@/assets/matrix_multiplication/multiplication_result_example_en.png";
+import multiplicationExample01_en from "@/assets/algebra/matrix_multiplication/multiplication_example01_en.png";
+import multiplicationExample02_en from "@/assets/algebra/matrix_multiplication/multiplication_example02_en.png";
+import multiplicationResult_en from "@/assets/algebra/matrix_multiplication/multiplication_result_example_en.png";
 
-import Article from "@/components/Article";
-import tStyle from "@/components/GenericTextDesign.module.css";
+// Text components & layouts
+import HighlightSection from '@/components/TextComponents/HighlightSection';
+import ProprietiesList from '@/components/TextComponents/ProprietiesList';
+import SymbolLegend from '@/components/TextComponents/SymbolLegend';
+import FormulaCard from '@/components/TextComponents/FormulaCard';
+import ParagraphSection from '@/components/TextComponents/ParagraphSection';
+import StepsList from '@/components/TextComponents/StepsList';
+import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
+import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
 import style from "./page.module.css";
 
 export default function MatrixMultiplicationPage() {
@@ -29,143 +36,143 @@ export default function MatrixMultiplicationPage() {
     return (
         <div>
             <JsonLd dataName="matrixMultiplication" locale={locale} />
-            <h1 className={tStyle.mainTitle}>{t("mainTitle")}</h1>
+            <div className={TextGenericDesigns.pagesMainTitle}>{t("mainTitle")}</div>
             <MatrixMultiplication />
 
-            <Article title={t("usageTutorial.title")}>
-                <div className={tStyle.textSection}>
-                    <p className={tStyle.textParagraph}>
-                        {t("usageTutorial.intro")}
-                    </p>
+            <ArticleLayoutDefault title={t("usageTutorial.title")}>
+                <ParagraphSection
+                    paragraphs={[
+                        t("usageTutorial.intro"),
+                    ]}
+                />
 
-                    <div className={tStyle.infoHighlight}>
-                        <ol className={tStyle.stepList}>
-                            <li>{t.rich("usageTutorial.step01", {
-                                strong: (children) => <strong>{children}</strong>
-                            })}</li>
-                            <li>{t.rich("usageTutorial.step02", {
-                                strong: (children) => <strong>{children}</strong>
-                            })}</li>
-                            <li>{t.rich("usageTutorial.step03", {
-                                strong: (children) => <strong>{children}</strong>
-                            })}</li>
-                            <li>{t.rich("usageTutorial.step04", {
-                                strong: (children) => <strong>{children}</strong>
-                            })}</li>
-                        </ol>
-                    </div>
-
-                    <p className={tStyle.textParagraph}>
-                        {t("usageTutorial.observation")}
-                    </p>
-
-                    <p className={tStyle.textParagraph}>
-                        {t("usageTutorial.conclusion")}
-                    </p>
-                </div>
-            </Article>
-
-            <Article title={t("exampleCalculation.title")}>
-                <div className={tStyle.textSection}>
-                    <p className={tStyle.textParagraph}>
-                        {t("exampleCalculation.scenario")}
-                    </p>
-                    
-                    <Image 
-                        src={locale === "pt" ? multiplicationExample01_pt : multiplicationExample01_en} 
-                        alt={t("exampleCalculation.imageAlt")}
-                        style={{ maxWidth: "100%", height: "auto", margin: "20px 0" }}
+                <HighlightSection>
+                    <StepsList
+                        steps={t.raw("usageTutorial.steps").map((_, index) => ({
+                            content: t.rich(`usageTutorial.steps.${index}`, {
+                                strong: (children) => <strong>{children}</strong>,
+                            }),
+                        }))}
                     />
-                    <Image 
-                        src={locale === "pt" ? multiplicationExample02_pt : multiplicationExample02_en} 
-                        alt={t("exampleCalculation.imageAlt")}
-                        style={{ maxWidth: "100%", height: "auto", margin: "20px 0" }}
+                </HighlightSection>
+
+                <ParagraphSection
+                    paragraphs={[
+                        t("usageTutorial.observation"),
+                        t("usageTutorial.conclusion"),
+                    ]}
+                />
+            </ArticleLayoutDefault>
+
+            <ArticleLayoutDefault title={t("exampleCalculation.title")}>
+                <ParagraphSection
+                    paragraphs={[
+                        t("exampleCalculation.scenario"),
+                    ]}
+                />
+
+                <Image
+                    src={locale === "pt" ? multiplicationExample01_pt : multiplicationExample01_en}
+                    alt={t("exampleCalculation.imageAlt")}
+                    style={{ maxWidth: "100%", height: "auto", margin: "20px 0" }}
+                />
+                <Image
+                    src={locale === "pt" ? multiplicationExample02_pt : multiplicationExample02_en}
+                    alt={t("exampleCalculation.imageAlt")}
+                    style={{ maxWidth: "100%", height: "auto", margin: "20px 0" }}
+                />
+
+                <ParagraphSection
+                    paragraphs={[
+                        t.rich("exampleCalculation.calculationStep", {
+                            strong: (children) => <strong>{children}</strong>,
+                        }),
+                    ]}
+                />
+
+                <Image
+                    src={locale === "pt" ? multiplicationResult_pt : multiplicationResult_en}
+                    alt={t("exampleCalculation.resultImageAlt")}
+                    style={{ maxWidth: "100%", height: "auto", margin: "20px 0" }}
+                />
+
+                <ParagraphSection
+                    paragraphs={[
+                        t("exampleCalculation.conclusion"),
+                    ]}
+                />
+            </ArticleLayoutDefault>
+
+            <ArticleLayoutDefault title={t("definitionSection.title")}>
+                <ParagraphSection
+                    paragraphs={[
+                        t("definitionSection.intro"),
+                    ]}
+                />
+
+                <HighlightSection>
+                    <ParagraphSection
+                        paragraphs={[
+                            t.rich("definitionSection.existence", {
+                                strong: (children) => <strong>{children}</strong>,
+                            }),
+                        ]}
                     />
-                    
-                    <p className={tStyle.textParagraph}>
-                        {t.rich("exampleCalculation.calculationStep", {
-                            strong: (children) => <strong>{children}</strong>
-                        })}
-                    </p>
+                </HighlightSection>
 
-                    <Image 
-                        src={locale === "pt" ? multiplicationResult_pt : multiplicationResult_en} 
-                        alt={t("exampleCalculation.resultImageAlt")}
-                        style={{ maxWidth: "100%", height: "auto", margin: "20px 0" }}
-                    />
-                    
-                    <p className={tStyle.textParagraph}>
-                        {t("exampleCalculation.conclusion")}
-                    </p>
-                </div>
-            </Article>
+                <h2 className={TextGenericDesigns.pagesSubTitle}>{t("definitionSection.proprieties.title")}</h2>
 
-            <Article title={t("definitionSection.title")}>
-                <div className={tStyle.textSection}>
-                    <p className={tStyle.textParagraph}>
-                        {t("definitionSection.intro")}
-                    </p>
-
-                    <div className={tStyle.infoHighlight}>
-                        <p className={tStyle.textParagraph}>
-                            {t.rich("definitionSection.existence", {
-                                strong: (children) => <strong>{children}</strong>
-                            })}
-                        </p>
-                    </div>
-
-                    <h2 className={tStyle.sectionHeading}>{t("definitionSection.proprieties.title")}</h2>
-                    
-                    <ul className={tStyle.stepList}>
-                        {t.raw("definitionSection.proprieties.list").map((item, index) => (
-                            <li key={index} dangerouslySetInnerHTML={{ __html: item }} /> // Usamos dangerouslySetInnerHTML para renderizar as tags HTML dentro das strings de tradução
-                        ))}
-                    </ul>
-
-                    <p className={tStyle.textParagraph}>
-                        {t("definitionSection.importance")}
-                    </p>
-                </div>
-            </Article>
-
-            <Article title={t("formularySection.title")}>
-                <div className={tStyle.textSection}>
-                    <p className={tStyle.textParagraph}>
-                        {t("formularySection.intro")}
-                    </p>
-                    
-                    <div className={tStyle.formulaContainer}>
-                        <div className={style.formulaEquation}>
-                            <MathDisplayEquation 
-                                equation={String.raw`C_{i,j} = \sum_{k=1}^{n} A_{i,k} \times B_{k,j}`} 
-                            />
-                        </div>
-                    </div>
-
-                    <ul className={tStyle.symbolLegend}>
-                        <li>{t.rich("formularySection.formulaList.formulaList01", {
+                <ProprietiesList
+                    proprieties={t.raw("definitionSection.proprieties.list").map((_, index) => ({
+                        content: t.rich(`definitionSection.proprieties.list.${index}`, {
                             strong: (children) => <strong>{children}</strong>,
-                            sub: (children) => <span style={{ fontSize: "0.9em" }}>{children}</span>
-                        })}</li>
-                        <li>{t.rich("formularySection.formulaList.formulaList02", {
-                            strong: (children) => <strong>{children}</strong>,
-                            sub: (children) => <span style={{ fontSize: "0.9em" }}>{children}</span>
-                        })}</li>
-                        <li>{t.rich("formularySection.formulaList.formulaList03", {
-                            strong: (children) => <strong>{children}</strong>,
-                            sub: (children) => <span style={{ fontSize: "0.9em" }}>{children}</span>
-                        })}</li>
-                        <li>{t.rich("formularySection.formulaList.formulaList04", {
-                            strong: (children) => <strong>{children}</strong>,
-                            sub: (children) => <span style={{ fontSize: "0.9em" }}>{children}</span>
-                        })}</li>
-                    </ul>
+                        }),
+                    }))}
+                />
 
-                    <p className={tStyle.textParagraph}>
-                        {t("formularySection.observation")}
-                    </p>
-                </div>
-            </Article>
+                <ParagraphSection
+                    paragraphs={[
+                        t("definitionSection.importance"),
+                    ]}
+                />
+            </ArticleLayoutDefault>
+
+            <ArticleLayoutDefault title={t("formularySection.title")}>
+                <ParagraphSection
+                    paragraphs={[
+                        t("formularySection.intro"),
+                    ]}
+                />
+                
+                <FormulaCard
+                    equations={[
+                        'C_{i,j} = \\sum_{k=1}^{n} A_{i,k} \\times B_{k,j}',
+                    ]}
+                />
+
+                <SymbolLegend
+                    symbols={{
+                        "C_{i,j}": t.rich("formularySection.formulaList.formulaList01", {
+                            strong: (children) => <strong>{children}</strong>,
+                        }),
+                        "A_{i,k}": t("formularySection.formulaList.formulaList02"),
+                        "B_{k,j}": t("formularySection.formulaList.formulaList03"),
+                        "n": t("formularySection.formulaList.formulaList04"),
+                    }}
+                    renderSymbol={(symbol) => {
+                        if (symbol === "C_{i,j}") return <>C<sub>i,j</sub></>;
+                        if (symbol === "A_{i,k}") return <>A<sub>i,k</sub></>;
+                        if (symbol === "B_{k,j}") return <>B<sub>k,j</sub></>;
+                        return symbol;
+                    }}
+                />
+
+                <ParagraphSection
+                    paragraphs={[
+                        t("formularySection.observation"),
+                    ]}
+                />
+            </ArticleLayoutDefault>
         </div>
     );
 }

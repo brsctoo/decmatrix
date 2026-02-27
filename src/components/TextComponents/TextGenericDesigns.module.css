@@ -1,0 +1,99 @@
+.retroText {
+  color: #00b947; /* levemente mais luminoso */
+  font-family: var(--font-mono);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+
+  text-shadow:
+    0 0 2px rgba(24, 201, 100, 0.9),
+    0 0 12px rgba(24, 201, 100, 0.35);
+}
+
+.pagesMainTitle {
+  color: #F7F8F8;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 50px;
+  letter-spacing: 0.0em;
+  text-align: center;
+}
+
+.pagesSubTitle {
+  color: #F7F8F8;
+  letter-spacing: .3px;
+  margin: 30px 0 15px;
+  font-size: 1.4rem;
+}
+
+.pagesSubsubTitle {
+  display: block;
+  color: #9ca3af; /* cinza suave */
+  letter-spacing: .3px;
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.inlineLink {
+  color: #00b947;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: 
+    border-color 0.3s ease;
+}
+
+.inlineLink:hover {
+  border-color: #00b947;
+}
+
+/* --- ARTIGOS -> TODOS OS LAYOUTS --- */
+
+.article {
+  /* Diminui a caixa */
+  max-width: 1000px;
+  padding: 2.5rem 0;
+
+  /* Estilo do texto */
+  color: #fafafa;
+  font-size: 1.2rem;
+  line-height: 1.6;
+
+  /* Sem caixa: apenas separadores sutis entre seções */
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #27272a;
+}
+
+.article h3 {
+  color: #F7F8F8;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.article p {
+  text-indent: 1.5rem;
+}
+
+/* --- Mobile --- */
+/* Diminuimos o Padding e a fonte para caber tudo*/ 
+
+@media (max-width: 1050px) {
+  .article {
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .article {
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin: 20px;
+  }
+
+  .article h3 {
+    font-size: 1.3rem;
+  }
+}

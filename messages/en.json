@@ -64,8 +64,8 @@
         
         "categories": {
             "financial_calculators": "Financial",
-            "algebra": "Algebra",
-            "matrix_calculators": "Matrix Calculators",
+            "precalculus": "Precalculus",
+            "linear_algebra": "Linear Algebra",
             "data_structures": "Data Structures"
         },
 
@@ -75,12 +75,12 @@
                 "compoundInterestCalculator": "Compound Interest"
             },
 
-            "matrixCalculators": {
+            "linear_algebra": {
                 "matrixMultiplication": "Matrix Multiplication",
                 "matrixBasicOperations": "Basic Operations"
             },
 
-            "algebra": {
+            "precalculus": {
                 "quadraticEquation": "Quadratic Equation"
             },
 
@@ -91,8 +91,8 @@
             }
         },
 
-        "algebra": {
-            "title": "Algebra",
+        "precalculus": {
+            "title": "Precalculus",
             "quadraticEquation": "Quadratic Equations"
         },
 
@@ -110,6 +110,12 @@
     },
 
     "Home": {
+        "title": {
+            "mainTitle": "<retroText>Interactive Tools</retroText> for Algorithms and Computational Math.",
+            "subTitle01": "Solve mathematical problems and visualize algorithms in real time.",
+            "subTitle02": "Calculate, visualize, and understand."
+        },
+
         "introduction": {
             "intro": "Decmatrix is a platform of mathematical and computational tools designed to simplify complex calculations and assist in data-driven decision making in a clear, practical, and accessible way.",
 
@@ -117,30 +123,30 @@
         },
 
         "mainAreas": {
-            "title": "Main areas covered by Decmatrix",
             "dataStructuresSection": {
                 "title": "Data Structures",
-                "description": "Data structures are fundamental in computer science, allowing efficient organization and manipulation of data. At Decmatrix, you will find interactive simulators of binary search trees (BST) and AVL trees, which help visualize and understand how these structures work, facilitating the learning of essential concepts in algorithms and data optimization."
+                "description": "Interactive BST and AVL simulators to visualize how data structures work in practice."
             },
 
-            "algebraSection": {
-                "title": "Algebra",
-                "description": "Algebra is a fundamental branch of mathematics that deals with symbols and the rules for manipulating these symbols. At Decmatrix, you will find tools that facilitate solving quadratic equations, offering step-by-step explanations and interactive resources to enhance your understanding and algebraic skills."
+            "precalculusSection": {
+                "title": "Precalculus   ",
+                "description": "Solve equations and explore algebraic concepts with step-by-step interactive tools."
             },
 
             "financialCalculatorsSection": {
                 "title": "Financial Calculators",
-                "description": "Financial calculators at Decmatrix are designed to help you make decisions about your personal finances and investments. With tools like simple and compound interest calculators, Decmatrix offers a practical way to understand how your money can grow over time, facilitating effective financial planning."
+                "description": "Plan and simulate financial scenarios with intuitive interest and investment tools."
             },
 
-            "matrixSection": {
-                "title": "Matrix Calculators",
-                "description": "The matrix calculators at Decmatrix are designed to help you perform complex matrix operations in a practical and efficient way. With tools that allow addition, subtraction, multiplication, and inversion of matrices, Decmatrix offers a clear and interactive way to understand the fundamental concepts of linear algebra."
+            "linearAlgebraSection": {
+                "title": "Linear Algebra",
+                "description": "Perform matrix operations instantly and understand linear algebra visually."
             }
         },
 
         "avaliableTools": {
             "title": "Available Tools",
+            "subtitle": "Choose a tool and learn by doing",
 
             "acessCalculatorButtonLabel": "Access Calculator",
             "acessSimulatorButtonLabel": "Access Simulator",
@@ -191,10 +197,12 @@
 
             "valuesSection": {
                 "title": "Our Values",
-                "value01": "<strong>Clarity:</strong> Present information in a simple and straightforward manner, facilitating understanding.",
-                "value02": "<strong>Practicality:</strong> Develop useful tools that can be applied in users' daily lives.",
-                "value03": "<strong>Accessibility:</strong> Ensure that our tools are accessible to everyone, regardless of prior knowledge level.",
-                "value04": "<strong>Innovation:</strong> Constantly seek new ways to improve and expand our offerings, incorporating user feedback and technological advances."
+                "values": [
+                    "<strong>Clarity:</strong> Present information in a simple and straightforward manner, facilitating understanding.",
+                    "<strong>Practicality:</strong> Develop useful tools that can be applied in users' daily lives.",
+                    "<strong>Accessibility:</strong> Ensure that our tools are accessible to everyone, regardless of prior knowledge level.",
+                    "<strong>Innovation:</strong> Constantly seek new ways to improve and expand our offerings, incorporating user feedback and technological advances."
+                ]
             }
         }
     },
@@ -301,6 +309,13 @@
         "usageTutorial": {
             "title": "How to Use the Compound Interest Calculator",
             "intro": "To use the Compound Interest Calculator, follow the steps below:",
+            "steps": [
+                "Enter the initial capital you want to invest or lend in the <strong>Initial Capital ($)</strong> field.",
+                "Enter the interest rate in the <strong>Interest Rate (%)</strong> field and select whether it is monthly or yearly.",
+                "Set the investment or loan period in the <strong>Period (t)</strong> field and choose whether it is in months or years.",
+                "If desired, enter a monthly contribution in the <strong>Monthly Contribution ($)</strong> field.",
+                "Click the <strong>Calculate Compound Interest</strong> button to see the detailed results of your investment."
+            ],
             "step01": "Enter the initial capital you want to invest or lend in the <strong>Initial Capital ($)</strong> field.",
             "step02": "Enter the interest rate in the <strong>Interest Rate (%)</strong> field and select whether it is monthly or yearly.",
             "step03": "Set the investment or loan period in the <strong>Period (t)</strong> field and choose whether it is in months or years.",
@@ -339,14 +354,14 @@
 
             "formula01Title": "Compound Interest Amount Formula without Contributions",
             "formula01Intro": "When you invest only the initial capital, the formula is:",
-            "formula01List01": "<strong>M</strong> — final amount (capital + interest).",
-            "formula01List02": "<strong>C</strong> — initial capital.",
-            "formula01List03": "<strong>i</strong> — interest rate per period.",
-            "formula01List04": "<strong>t</strong> — number of periods.",
+            "formula01List01": " Final amount (capital + interest).",
+            "formula01List02": " Initial capital.",
+            "formula01List03": " Interest rate per period.",
+            "formula01List04": " Number of periods.",
 
             "formula02Title": "Compound Interest Amount Formula with Contributions",
             "formula02Intro": "Adding constant contributions (PMT), the amount follows:",
-            "formula02List01": "<strong>PMT</strong> — value of the periodic contribution.",
+            "formula02List01": " Value of the periodic contribution.",
             "formula02List02": "The other symbols maintain the same meaning as in the previous formula.",
 
             "interestFormulaIntro": "Interest is always calculated as the final amount minus the total invested (initial capital + sum of contributions). Therefore:"
@@ -392,10 +407,12 @@
         "usageTutorial": {
             "title": "How to Use the Simple Interest Calculator",
             "intro": "To use the simple interest calculator, follow the steps below:",
-            "step1": "Enter the initial capital you want to invest or lend in the \"Initial Capital ($)\" field.",
-            "step2": "Enter the interest rate in the \"Interest Rate (%)\" field. Select whether the rate is monthly or yearly from the dropdown menu next to it.",
-            "step3": "Set the period during which interest will be applied in the \"Period (t)\" field. Choose whether the period is in months or years from the corresponding dropdown menu.",
-            "step4": "Click the \"Calculate Simple Interest\" button to see the results.",
+            "steps": [
+                "Enter the initial capital you want to invest or lend in the <strong>Initial Capital ($)</strong> field.",
+                "Enter the interest rate in the <strong>Interest Rate (%)</strong> field. Select whether the rate is monthly or yearly from the dropdown menu next to it.",
+                "Set the period during which interest will be applied in the <strong>Period (t)</strong> field. Choose whether the period is in months or years from the corresponding dropdown menu.",
+                "Click the <strong>Calculate Simple Interest</strong> button to see the results."
+            ],
             "conclusion": "After clicking the button, the calculator will display a summary of your investment, including the total invested, total interest, and final amount. In addition, graphs will be presented that illustrate the distribution of the amount and the evolution of the investment over time."
         },
 
@@ -418,7 +435,8 @@
         "comparativeSection": {
             "title": "Difference Between Simple and Compound Interest",
             "intro": "Simple interest always targets only the initial capital. Compound interest accumulates each gain and reinvests it, growing at an accelerated pace each period.",
-            "example": "<strong>Comparing:</strong> with 10% per year, compound interest will yield more as time goes on. Meanwhile, simple interest will always yield the same amount annually. That is, if we invest $100.00 at 10% per year, in 10 years we will have: $200.00 total in simple interest versus $259.37 total in compound interest."
+            "example": "<strong>Comparing:</strong> with 10% per year, compound interest will yield more as time goes on. Meanwhile, simple interest will always yield the same amount annually. That is, if we invest $100.00 at 10% per year, in 10 years we will have: $200.00 total in simple interest versus $259.37 total in compound interest.",
+            "conclusion": "Even though the difference may seem small at first, over time compound interest significantly outperforms simple interest. With our example, in the third year you would already have $133.10 with compound interest, while simple interest would only yield $30.00 in total. If we continue this example for 10 years, simple interest would give $100.00, while compound interest would result in $259.37."
         },
 
         "formularySection": {
@@ -482,9 +500,9 @@
             "step4Content": "Using the quadratic formula to find the roots:",
             "step5Content": "Analyze the roots found and interpret their meaning in the context of the problem.",
             "conclusion": "By following these steps, you will be able to solve any quadratic equation and find its roots.",
-            "deltaPositive": "Since Δ > 0, the equation has two distinct real roots.",
-            "deltaZero": "Since Δ = 0, the equation has one double real root.",
-            "deltaNegative": "Since Δ < 0, the equation has no real roots (the roots are complex)."
+            "deltaPositive": " Since Δ > 0, the equation has two distinct real roots.",
+            "deltaZero": " Since Δ = 0, the equation has one double real root.",
+            "deltaNegative": " Since Δ < 0, the equation has no real roots (the roots are complex)."
         },
 
         "definitionSection": {
@@ -656,10 +674,12 @@
         "usageTutorial": {
             "title": "How to use the Matrix Multiplier",
             "intro": "To use the Matrix Multiplier, follow the steps below:",
-            "step01": "Enter the size of the first matrix (Matrix A) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
-            "step02": "Enter the desired values in Matrix A in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>",
-            "step03": "Enter the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
-            "step04": "Enter the desired values in Matrix B in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>",
+            "steps": [
+                "Enter the size of the first matrix (Matrix A) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+                "Enter the desired values in Matrix A in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>",
+                "Enter the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+                "Enter the desired values in Matrix B in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>"
+            ],
             "observation": "Remember that the number of columns of Matrix A must be equal to the number of rows of Matrix B for multiplication to be possible.",
             "conclusion": "The multiplier will provide the result of multiplying the matrices, allowing you to clearly visualize the product of the two matrices."
         },
@@ -698,10 +718,10 @@
             "intro": "The formula for multiplying two matrices A and B, where A is an m × n matrix and B is an n × p matrix, is given by:",
 
             "formulaList": {
-                "formulaList01": "<strong>C<sub>i,j</sub></strong> — element of the resulting matrix C at position (i, j).",
-                "formulaList02": "<strong>A<sub>i,k</sub></strong> — element of matrix A at position (i, k).",
-                "formulaList03": "<strong>B<sub>k,j</sub></strong> — element of matrix B at position (k, j).",
-                "formulaList04": "<strong>n</strong> — number of columns of A (equal to the number of rows of B)."
+                "formulaList01": " Element of the resulting matrix C at position (i, j).",
+                "formulaList02": " Element of matrix A at position (i, k).",
+                "formulaList03": " Element of matrix B at position (k, j).",
+                "formulaList04": " Number of columns of A (equal to the number of rows of B)."
             },
 
             "observation": "Although it may seem complex, matrix multiplication is an operation that can be performed systematicall by following the formula above. With practice, you will be able to perform matrix multiplications quickly and accurately, which is especially useful in contexts such as linear algebra, computer graphics, and data science."
@@ -714,10 +734,12 @@
         "usageTutorial": {
             "title": "How to Use Matrix Addition and Subtraction",
             "intro": "To use the Matrix Addition and Subtraction tool, follow the steps below:",
-            "step01": "Enter the size of the first matrix (Matrix A) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
-            "step02": "Enter the desired values in Matrix A in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed, such as 3/4)</strong>.",
-            "step03": "Enter the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
-            "step04": "Enter the desired values in Matrix B in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed, such as 3/4)</strong>.",
+            "steps": [
+                "Insert the size of the first matrix (Matrix A) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+                "Insert the desired values in Matrix A in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed)</strong>",
+                "Insert the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
+                "Insert the desired values in Matrix B in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed)</strong>"
+            ],
             "conclusion": "The calculator will display the result of the addition and subtraction of the matrices, allowing you to clearly visualize the result of both matrices."
         },
 
@@ -737,12 +759,12 @@
             "steps": [
                 {
                     "number": 1,
-                    "title": "Identify the positions",
+                    "title": "Step 01: Identify the positions",
                     "description": "Each element of the matrix is identified by its position (row, column). For an n x n matrix, we have n² positions: a₁₁, a₁₂ ..., a₂₁, a₂₂,... for Matrix A and b₁₁, b₁₂, b₂₁, b₂₂,... for Matrix B."
                 },
                 {
                     "number": 2,
-                    "title": "Add each corresponding position",
+                    "title": "Step 02: Add each corresponding position",
                     "description": "Perform the operation element by element. In this example, we will call the result matrix c:",
                     "operations": [
                         "a₁₁ + b₁₁ = c₁₁",
@@ -764,7 +786,7 @@
                 },
                 {
                     "number": 4,
-                    "title": "Build the result matrix",
+                    "title": "Step 03: Build the result matrix",
                     "description": "Arrange the calculated values in the same positions as the original matrix."
                 }
             ],

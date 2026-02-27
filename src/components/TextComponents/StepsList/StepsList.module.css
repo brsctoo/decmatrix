@@ -1,0 +1,62 @@
+.stepsList {
+    margin: 1.25rem 0;
+    color: #a3a3a3;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.stepsList ol {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin: 0;
+}
+
+.orderedList {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin: 1.25rem 0;
+    color: #a3a3a3;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.listItem {
+    margin-bottom: 0.5rem;
+}
+
+.stepsList li::marker,
+.orderedList li::marker {
+    color: #f7f8f8b7;
+    font-weight: 500;
+}
+
+.subStepsStyle {
+    margin-top: 0.5rem;
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.subStepsStyle ol {
+    list-style-type: lower-alpha;
+    padding-left: 1.75rem;
+    margin: 0.4rem 0 0 0;
+}
+
+.subStepsStyle li::marker {
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.stepsList li,
+.orderedList li,
+.subStepsStyle li {
+    margin-bottom: 0.4rem;
+}
+
+.stepsList strong,
+.orderedList strong,
+.subStepsStyle strong {
+    color: #e5e7eb;
+    font-weight: 600;
+}

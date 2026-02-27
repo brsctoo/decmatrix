@@ -1,13 +1,22 @@
 .resultContainer {
-  width: 1000px; 
+  width: 100%;
+  max-width: 1000px; 
   display: flex;
   align-items: center; 
   justify-content: center;
   flex-direction: column;
-  color: #6e6152;
-  margin: 20px auto;
-  padding: 30px;
-  background: #efe9e3;
-  border: 3px solid rgb(190, 168, 140);
-  border-radius: 10px;
+  color: #F7F8F8;
+  margin: 32px auto 24px;
+  padding: 24px 28px;
+  background: #050505;
+  border-radius: 18px;
+  border: 1px solid rgba(247, 248, 248, 0.08);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+}
+
+.resultMatrix {
+  border: 1px solid rgba(0, 185, 71, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(0, 185, 71, 0.35),
+    0 24px 70px rgba(0, 0, 0, 0.95);
 }

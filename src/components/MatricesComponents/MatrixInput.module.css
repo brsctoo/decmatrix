@@ -2,21 +2,21 @@
 
 .inputContainer {
   align-items: flex-start;
-  background-color: rgb(239, 233, 227);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-width: fit-content; 
-  min-width: 1000px;
-  gap: 10px 50px;
+  max-width: 1100px;
+  width: 100%;
+  gap: 10px 32px;
 
-  color: #6e6152;
+  color: #F7F8F8;
 
-  /* Margem e background */
-  margin: 0 auto 20px;
-  padding: 30px;
-  border: solid 3px rgb(201, 181, 156);
-  border-radius: 10px;
+  margin: 40px auto 24px;
+  padding: 24px 28px;
+  background-color: #050505;
+  border-radius: 18px;
+  border: 1px solid rgba(247, 248, 248, 0.08);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
 }
 
 .inputContainer > * {
@@ -44,16 +44,18 @@
 
 /* A caixa fixa (O fundo bege) */
 .matrixContainer {
-  width: 676px; 
+  width: 100%;
+  max-width: 760px; 
   display: flex;
   align-items: center; 
   justify-content: center; /* Centraliza a matriz "abraçada" lá dentro */
   
-  margin: 20px auto;
-  padding: 30px;
-  background-color: rgb(239, 233, 227);
-  border: solid 3px rgb(201, 181, 156);
-  border-radius: 10px;
+  margin: 24px auto 16px;
+  padding: 24px;
+  background-color: #050505;
+  border-radius: 16px;
+  border: 1px solid rgba(247, 248, 248, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
 }
 
 /* O sub-container que realmente "abraça" a matriz */
@@ -69,7 +71,7 @@
 .bracketLeft, .bracketRight {
   width: 10px; /* Largura da "perninha" */
   align-self: stretch; /* Estica na altura conforme o grid cresce */
-  border: 2px solid #6e6152;
+  border: 2px solid rgba(163, 163, 163, 0.9);
 }
 
 .bracketLeft {
@@ -89,17 +91,16 @@
 }
 
 .cellInput {
-  width: 50px;
-  height: 40px;
+  width: 60px;
+  height: 46px;
   padding: 5px;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 15px;
 
-  color: #523c2d;
-  background-color: rgb(201, 181, 156, 0.5);
-  border: #8b7a67 solid 1px;
+  color: #F7F8F8;
+  background-color: #050505;
+  border: 1px solid rgba(247, 248, 248, 0.18);
 
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -111,12 +112,15 @@
 
 .cellInput:hover {
   transform: scale(1.02);
+  border-color: rgba(247, 248, 248, 0.35);
 }
 
 .cellInput:focus {
   outline: none;
-  border-color: #523c2d;
-  box-shadow: 0 0 5px rgba(82, 60, 45, 0.5);
+  border-color: #00b947;
+  box-shadow: 
+    0 0 2px rgba(24, 201, 100, 0.9),
+    0 0 12px rgba(24, 201, 100, 0.35);
 }
 
 /* Remove spin buttons dos inputs da matriz */
@@ -128,19 +132,20 @@
 
 /* Estilo para o título da matriz */
 .matrixTitle {
-  color: #654a38;
+  color: #F7F8F8;
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
   margin-bottom: 10px;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
   .inputContainer {
     max-width: 100%;
     min-width: unset;
-    margin: 20px;
+    margin: 24px 20px;
     padding: 20px;
     gap: 15px;
   }

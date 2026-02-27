@@ -4,7 +4,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
-    color: rgb(170, 143, 109);
+    color: #00b947;
     pointer-events: none; /* não atrapalha clique */
 }
 
@@ -14,7 +14,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
-    color: rgb(170, 143, 109);
+    color: #00b947;
     pointer-events: none; /* não atrapalha clique */
 }
 
@@ -24,19 +24,20 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
-    color: rgb(170, 143, 109);
+    color: #00b947;
     pointer-events: none; /* não atrapalha clique */
 }
 
 .inputFieldsContainer {
+    color: #F7F8F8;
     align-items: flex-start;
-    background-color: rgb(239, 233, 227);
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-wrap: wrap;
     gap: 10px 50px;
-    margin: 0 auto 20px;
+    margin: 40px auto 20px;
     padding: 30px;
-    border: solid 3px rgb(201, 181, 156);
     max-width: 1000px;
     border-radius: 10px;
     min-height: 300px;
@@ -69,45 +70,46 @@
     align-items: stretch;
     justify-content: center;
     gap: 32px;
-    margin: 0 auto 20px;
-    max-width: 2000px;
+    margin: 36px auto 24px;
+    max-width: 1000px;
 }
 
-/* Container principal (Texto e Gráfico) */
+/* Container principal (Gráficos) */
 .chartsContainer {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: center;
-    gap: 32px;
-    margin: 0 auto 20px;
-    max-width: 1000px;
-    border: solid 2px rgba(51, 68, 67, 0.208);
-    padding: 30px;
-    border-radius: 10px;
+    gap: 24px;
+    margin: 24px auto 40px;
+    max-width: 1100px;
 }
 
-.resultCard,
+.resultsCard,
 .chartWrapper {
     position: relative;
-    flex: 1 1 430px;
-    max-width: 600px;
-    padding: 28px 32px;
-    border-radius: 20px;
-    background: rgba(255, 252, 247, 0.9);
-    border: 3px solid rgba(201, 181, 156, 0.4);
+    flex: 1 1 320px;
+    width: 100%;
+    max-width: none;
+    padding: 24px 28px;
+    border-radius: 18px;
+    background: #050505;
+    border: 1px solid rgba(247, 248, 248, 0.08);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
     overflow: hidden;
 }
 
-.resultCard::before,
+.resultsCard::before,
 .chartWrapper::before {
     content: "";
     position: absolute;
     inset: -140px;
     z-index: 0;
+    background:
+        radial-gradient(circle at top left, rgba(0, 185, 71, 0.14), transparent 55%);
 }
 
-.resultCard > *,
+.resultsCard > *,
 .chartWrapper > * {
     position: relative;
     z-index: 1;
@@ -123,10 +125,11 @@
 }
 
 .cardTitle {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: rgb(156, 109, 60);
-    letter-spacing: 0.4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F7F8F8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     margin-bottom: 16px;
 }
 
@@ -137,9 +140,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid rgba(201, 181, 156, 0.85);
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(163, 163, 163, 0.45);
 }
 
 .resultRow:last-of-type {
@@ -147,16 +150,16 @@
 }
 
 .resultLabel {
-    color: rgb(107, 82, 58);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.2px;
+    color: #A3A3A3;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
 }
 
 .resultValue {
-    color: rgb(176, 102, 48);
-    font-size: 1.1rem;
-    font-weight: 700;
+    color: #F7F8F8;
+    font-size: 1rem;
+    font-weight: 600;
     font-family: "Inter", sans-serif;
 }
 
@@ -165,24 +168,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 4px;
-    padding: 22px 24px;
-    background: linear-gradient(135deg, rgba(227, 186, 120, 0.28), rgba(242, 210, 162, 0.24));
+    margin-top: 6px;
+    padding: 20px 22px;
+    background: radial-gradient(circle at top right, rgba(0, 185, 71, 0.24), transparent 65%);
     border-radius: 16px;
-    border: 1px solid rgba(188, 143, 94, 0.45);
+    border: 1px solid rgba(0, 185, 71, 0.65);
 }
 
 .resultRowHighlight .resultLabel {
-    color: rgb(120, 73, 35);
-    font-weight: 700;
-    font-size: 1rem;
+    color: #A3A3A3;
+    font-weight: 600;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.12em;
 }
 
 .resultRowHighlight .resultValue {
-    color: rgb(150, 77, 27);
-    font-size: 1.5rem;
+    color: #00b947;
+    font-size: 1.4rem;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
 }

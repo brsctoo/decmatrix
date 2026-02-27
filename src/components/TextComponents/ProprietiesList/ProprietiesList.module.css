@@ -1,0 +1,78 @@
+.proprietiesList {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+    background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.048), #a3a3a307);
+    border: 1px solid rgba(34, 197, 94, 0.315);
+    box-shadow: 0 9px 19px rgba(34, 197, 94, 0.075);
+    color: #e5e7eb;
+    font-size: 16px;
+    line-height: 1.7;
+    position: relative;
+    overflow: hidden;
+}
+
+.proprietiesList::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.14), transparent 55%);
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+}
+
+.proprietiesList ol {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin: 0;
+}
+
+.orderedList {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin: 1.25rem 0;
+    color: #d1d5db;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.listItem {
+    margin-bottom: 0.55rem;
+}
+
+.stepsList li::marker,
+.orderedList li::marker {
+    color: #4ade80; /* verde de destaque */
+    font-weight: 600;
+}
+
+.subProprietiesStyle {
+    margin-top: 0.6rem;
+    color: #d1d5db;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.subProprietiesStyle ol {
+    list-style-type: lower-alpha;
+    padding-left: 1.75rem;
+    margin: 0.4rem 0 0 0;
+}
+
+.subProprietiesStyle li::marker {
+    color: #86efac; /* verde mais claro para subpassos */
+    font-weight: 500;
+}
+
+.proprietiesList li,
+.orderedList li,
+.subProprietiesStyle li {
+    margin-bottom: 0.45rem;
+}
+
+.proprietiesList strong,
+.orderedList strong,
+.subProprietiesStyle strong {
+    color: #f9fafb;
+    font-weight: 600;
+}

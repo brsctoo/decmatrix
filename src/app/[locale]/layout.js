@@ -1,4 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  GeistPixelSquare,
+  GeistPixelGrid,
+  GeistPixelCircle,
+  GeistPixelTriangle,
+  GeistPixelLine,
+} from "geist/font/pixel";
+
+import { GeistSans } from "geist/font/sans";
+
 import "./globals.css";
 import LateralBar from "../../components/LateralBar";
 import Basebord from "../../components/Basebord";
@@ -17,16 +26,6 @@ import { ViewportProvider } from "@/context/ViewportContext";
 // IMPORTAÇÕES DO NEXT-INTL
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Decimatrix",
@@ -47,8 +46,8 @@ export default async function RootLayout({ children, params }) {
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang={locale} className={GeistSans.variable}>
+      <body>
         {/* 4. O PROVIDER É OBRIGATÓRIO!
             Ele pega as mensagens que o servidor carregou e entrega
             para os componentes de cliente.

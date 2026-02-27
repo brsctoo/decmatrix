@@ -4,11 +4,14 @@ import JsonLd from "@/components/JsonLd";
 import React, { useRef, useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 
-import tStyle from "@/components/GenericTextDesign.module.css";
-import Article from "@/components/Article";
+import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
 import styles from "./page.module.css";
 import BinaryTree from "@/components/BinaryTree";
 import { useTranslations } from "use-intl";
+import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import HighlightSection from '@/components/TextComponents/HighlightSection';
+import ParagraphSection from '@/components/TextComponents/ParagraphSection';
+
 
 
 {/*
@@ -29,45 +32,47 @@ function bst_tree_builder() {
   return (
     <div>
       <JsonLd dataName="bstTreeBuilder" locale={locale} />
-      <h1 className={tStyle.mainTitle}>{t("bstMainTitle")}</h1>
+      <div className={TextGenericDesigns.pagesMainTitle}>{t("bstMainTitle")}</div>
         <BinaryTree 
           inputFieldsContainerStyle={styles.inputFieldsContainer}
           treeType="BST"
-        />
+        /> 
           
-        <Article title={t("bstDefinitionTitle")}>
-          <div className={tStyle.textSection}>
-            <p className={tStyle.textParagraph}>
-            {t("bstDefinitionText01")}
-            </p>
+        <ArticleLayoutDefault title={t("bstDefinitionTitle")}>
+          <ParagraphSection
+            paragraphs={[
+              t("bstDefinitionText01"),
+            ]}
+          />
 
-            <p className={tStyle.infoHighlight}>
-              {t.rich('bstDefinitionText02', {
-                strong: (chunks) => <strong>{chunks}</strong>
-              })}
-            </p>
-          </div>
-        </Article>
+          <HighlightSection>
+            <ParagraphSection
+              paragraphs={[
+                t.rich("bstDefinitionText02", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                }),
+              ]}
+            />
+          </HighlightSection>
+        </ArticleLayoutDefault>
 
-        <Article title={t("bstProprietiesTitle")}>
-          <p className={tStyle.textParagraph}>
-            {t("bstProprietiesText01")}
-          </p>
-        </Article>
+        <ArticleLayoutDefault title={t("bstProprietiesTitle")}>
+          <ParagraphSection
+            paragraphs={[
+              t("bstProprietiesText01"),
+            ]}
+          />
+        </ArticleLayoutDefault>
 
-        <Article title={t("bstSearchInsertionAndRemovalTitle")}>
-          <div className={tStyle.textSection}>
-            <p className={tStyle.textParagraph}>
-            {t("bstSearchText")}
-            </p>
-            <p className={tStyle.textParagraph}>
-              {t("bstInsertionText")}
-            </p>
-            <p className={tStyle.textParagraph}>
-              {t("bstRemovalText")}
-            </p> 
-          </div>
-        </Article>
+        <ArticleLayoutDefault title={t("bstSearchInsertionAndRemovalTitle")}>
+          <ParagraphSection
+            paragraphs={[
+              t("bstSearchText"),
+              t("bstInsertionText"),
+              t("bstRemovalText"),
+            ]}
+          />
+        </ArticleLayoutDefault>
         
     </div>
   );

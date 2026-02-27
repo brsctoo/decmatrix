@@ -64,8 +64,8 @@
 
         "categories": {
             "financial_calculators": "Financeiro",
-            "algebra": "Álgebra",
-            "matrix_calculators": "Calculadoras de Matrizes",
+            "precalculus": "Pré-cálculo",
+            "linear_algebra": "Álgebra Linear",
             "data_structures": "Estruturas de Dados"
         },
         
@@ -75,12 +75,12 @@
                 "compoundInterestCalculator": "Juros Compostos"
             },
 
-            "matrixCalculators": {
+            "linear_algebra": {
                 "matrixMultiplication": "Multiplicação de Matrizes",
                 "matrixBasicOperations": "Operações básicas"
             },
 
-            "algebra": {
+            "precalculus": {
                 "quadraticEquation": "Equação do segundo grau"
             },
 
@@ -91,8 +91,8 @@
             }
         },
 
-        "algebra": {
-            "title": "Álgebra",
+        "precalculus": {
+            "title": "Pré-cálculo",
             "quadraticEquation": "Equações do segundo grau"
         },
 
@@ -111,6 +111,12 @@
     },
 
     "Home": {
+        "title": {
+            "mainTitle": "Explore algoritmos e matemática com <retroText>ferramentas interativas.</retroText>",
+            "subTitle01": "Resolva problemas matemáticos e visualize algoritmos em tempo real.",
+            "subTitle02": "Calcule, visualize, entenda."
+        },
+
         "introduction": {
             "intro": "O Decmatrix é uma plataforma de ferramentas matemáticas e computacionais desenvolvida para simplificar cálculos complexos  e auxiliar a tomada de decisões baseada em dados, de forma clara, prática e acessível.",
 
@@ -118,68 +124,67 @@
         },
 
         "mainAreas": {
-            "title": "Principais áreas abordadas pelo Decmatrix",
-
             "dataStructuresSection": {
                 "title": "Estruturas de Dados",
-                "description": "As estruturas de dados são fundamentais na ciência da computação, permitindo a organização e manipulação eficiente de dados. No Decmatrix, você encontra simuladores interativos de árvores binárias de busca (BST) e árvores AVL, que ajudam a visualizar e entender como essas estruturas funcionam, facilitando o aprendizado dos conceitos essenciais de algoritmos e otimização de dados."
+                "description": "Simulador interativo de árvores binárias de busca e AVL para visualizar como as estruturas de dados funcionam na prática."
             },
 
-            "algebraSection": {
-                "title": "Álgebra",
-                "description": "A álgebra é um ramo fundamental da matemática que lida com símbolos e as regras para manipular esses símbolos. No Decmatrix, você encontra ferramentas que facilitam a resolução de equações do segundo grau, oferecendo explicações passo a passo e recursos interativos para aprimorar seu entendimento e habilidades algébricas."
+            "precalculusSection": {
+                "title": "Pré-cálculo",
+                "description": "Resolva equações algébricas e explore conceitos algébricos com ferramentas interativas passo a passo."
             },
 
             "financialCalculatorsSection": {
                 "title": "Calculadoras Financeiras",
-                "description": "As calculadoras financeiras do Decmatrix são projetadas para ajudar você a tomar decisões sobre suas finanças pessoais e investimentos. Com ferramentas como a calculadora de juros simples e compostos, o Decmatrix oferece uma maneira prática de entender como seu dinheiro pode crescer ao longo do tempo, facilitando o planejamento financeiro eficaz."
+                "description": "Planeje e simule cenários financeiros com ferramentas intuitivas de juros e investimentos."
             },
 
-            "matrixSection": {
-                "title": "Calculadoras de Matrizes",
-                "description": "As calculadoras de matrizes do Decmatrix são projetadas para ajudar você a realizar operações matriciais complexas de forma prática e eficiente. Com ferramentas que permitem adição, subtração, multiplicação e inversão de matrizes, o Decmatrix oferece uma maneira clara e interativa de entender os conceitos fundamentais da álgebra linear."
+            "linearAlgebraSection": {
+                "title": "Álgebra Linear",
+                "description": "Realize operações com matrizes instantaneamente e entenda a álgebra linear de forma visual."
             }
         },
 
         "avaliableTools": {
             "title": "Ferramentas Disponíveis",
+            "subtitle": "Escolha uma ferramenta e aprenda na prática",
 
             "acessCalculatorButtonLabel": "Acessar calculadora",
             "acessSimulatorButtonLabel": "Acessar simulador",
 
             "secondGradeEquationCard": {
                 "title": "Calculadora de equações do 2º grau",
-                "description": "Resolva equações do segundo grau de forma rápida e fácil, com explicações passo a passo."
+                "description": "Resolva equações quadráticas instantaneamente com resultados claros e passo a passo."
             },
 
             "compoundInterestCalculatorCard": {
                 "title": "Calculadora de Juros Compostos",
-                "description": "Calcule o crescimento do seu investimento ao longo do tempo com juros compostos, considerando aportes periódicos."
+                "description": "Simule o crescimento do seu investimento ao longo do tempo com juros compostos."
             },
 
             "simpleInterestCalculatorCard": {
                 "title": "Calculadora de Juros Simples",
-                "description": "Calcule juros simples de forma rápida e prática, ideal para planejamento financeiro básico."
+                "description": "Calcule juros simples rapidamente para planejar financiamentos e investimentos."
             },
 
             "binarySearchTreeSimulatorCard": {
                 "title": "Simulador de Árvore Binária de Busca",
-                "description": "Simulador de árvore binária de busca (BST) que permite inserir, remover e visualizar a estrutura da árvore em tempo real, facilitando o entendimento de seu funcionamento e propriedades."
+                "description": "Insira, remova e visualize operações em uma árvore binária de busca em tempo real."
             },
 
             "avlTreeSimulatorCard": {
                 "title": "Simulador de Árvore AVL",
-                "description": "Simulador de árvore AVL que permite inserir, remover e visualizar a estrutura da árvore balanceada em tempo real, ajudando a compreender como as árvores AVL mantêm o equilíbrio durante operações de inserção e remoção."
+                "description": "Explore árvores AVL balanceadas e entenda rotações e reequilíbrio visualmente."
             },
 
             "matrixMultiplication": {
                 "title": "Multiplicador de Matrizes",
-                "description": "Multiplicador de matrizes que permite realizar operações de multiplicação entre matrizes, com suporte para matrizes de diferentes dimensões."
+                "description": "Multiplique matrizes de forma rápida."
             },
 
             "matrixBasicOperations": {
                 "title": "Operações básicas de matrizes",
-                "description": "Calculadora de operações básicas de matrizes, adição e subtração. Além disso, permite transpor e inverter matrizes, com suporte para matrizes de diferentes dimensões."
+                "description": "Execute soma, subtração, transposição e inversão de matrizes."
             }
         },
         
@@ -193,10 +198,12 @@
 
             "valuesSection": {
                 "title": "Nossos valores",
-                "value01": "<strong>Clareza:</strong> Apresentar informações de forma simples e direta, facilitando o entendimento.",
-                "value02": "<strong>Praticidade:</strong> Desenvolver ferramentas úteis que possam ser aplicadas no dia a dia dos usuários.",
-                "value03": "<strong>Acessibilidade:</strong> Garantir que nossas ferramentas sejam acessíveis a todos, independentemente do nível de conhecimento prévio.",
-                "value04": "<strong>Inovação:</strong> Buscar constantemente novas formas de melhorar e expandir nossas ofertas, incorporando feedback dos usuários e avanços tecnológicos."
+                "values": [
+                    "<strong>Clareza:</strong> Apresentar informações de forma simples e direta, facilitando o entendimento.",
+                    "<strong>Praticidade:</strong> Desenvolver ferramentas úteis que possam ser aplicadas no dia a dia dos usuários.",
+                    "<strong>Acessibilidade:</strong> Garantir que nossas ferramentas sejam acessíveis a todos, independentemente do nível de conhecimento prévio.",
+                    "<strong>Inovação:</strong> Buscar constantemente novas formas de melhorar e expandir nossas ofertas, incorporando feedback dos usuários e avanços tecnológicos."
+                ]
             }
         }
     },
@@ -303,6 +310,13 @@
         "usageTutorial": {
             "title": "Como utilizar a Calculadora de Juros Compostos",
             "intro": "Para utilizar a Calculadora de Juros Compostos, siga os passos abaixo:",
+            "steps": [
+                "Insira o capital inicial que você deseja investir ou emprestar no campo <strong>Capital inicial (R$)</strong>.",
+                "Informe a taxa de juros no campo <strong>Taxa de juros (%)</strong> e selecione se é mensal ou anual.",
+                "Defina o período do investimento ou empréstimo no campo <strong>Período (t)</strong> e escolha se é em meses ou anos.",
+                "Se desejar, insira uma contribuição mensal no campo <strong>Contribuição Mensal (R$)</strong>.",
+                "Clique no botão <strong>Calcular Juros Compostos</strong> para ver os resultados detalhados do seu investimento."
+            ],
             "step01": "Insira o capital inicial que você deseja investir ou emprestar no campo <strong>Capital inicial (R$)</strong>.",
             "step02": "Informe a taxa de juros no campo <strong>Taxa de juros (%)</strong> e selecione se é mensal ou anual.",
             "step03": "Defina o período do investimento ou empréstimo no campo <strong>Período (t)</strong> e escolha se é em meses ou anos.",
@@ -341,15 +355,14 @@
 
             "formula01Title": "Fórmula do Montante com Juros Compostos sem Contribuições",
             "formula01Intro": "Quando você investe apenas o capital inicial, a fórmula é:",
-            "formula01List01": "<strong>M</strong> — montante final (capital + juros).",
-            "formula01List02": "<strong>C</strong> — capital inicial.",
-            "formula01List03": "<strong>i</strong> — taxa de juros por período.",
-            "formula01List04": "<strong>t</strong> — número de períodos.",
+            "formula01List01": " Montante final (capital + juros).",
+            "formula01List02": " Capital inicial.",
+            "formula01List03": " Taxa de juros por período.",
+            "formula01List04": " Número de períodos.",
 
             "formula02Title": "Fórmula do Montante com Juros Compostos com Contribuições",
             "formula02Intro": "Acrescentando aportes constantes (PMT), o montante segue:",
-            "formula02List01": "<strong>PMT</strong> — valor da contribuição periódica.",
-            "formula02List02": "Os demais símbolos mantêm o mesmo significado da fórmula anterior.",
+            "formula02List01": " Valor da contribuição periódica.",
 
             "interestFormulaIntro": "O juros é sempre calculado como sendo o montante final menos o total investido (capital inicial + somatório das contribuições). Logo:"
         }
@@ -394,10 +407,12 @@
         "usageTutorial": {
             "title": "Como utilizar a calculadora de juros simples",
             "intro": "Para utilizar a calculadora de juros simples, siga os passos abaixo:",
-            "step1": "Insira o capital inicial que você deseja investir ou emprestar no campo \"Capital Inicial (R$)\".",
-            "step2": "Informe a taxa de juros no campo \"Taxa de juros (%)\". Selecione se a taxa é mensal ou anual no menu suspenso ao lado.",
-            "step3": "Defina o período durante o qual os juros serão aplicados no campo \"Período (t)\". Escolha se o período está em meses ou anos no menu suspenso correspondente.",
-            "step4": "Clique no botão \"Calcular Juros Simples\" para ver os resultados.",
+            "steps": [
+                "Insira o capital inicial que você deseja investir ou emprestar no campo <strong>Capital Inicial (R$)</strong>.",
+                "Informe a taxa de juros no campo <strong>Taxa de juros (%)</strong>. Selecione se a taxa é mensal ou anual no menu suspenso ao lado.",
+                "Defina o período durante o qual os juros serão aplicados no campo <strong>Período (t)</strong>. Escolha se o período está em meses ou anos no menu suspenso correspondente.",
+                "Clique no botão <strong>Calcular Juros Simples</strong> para ver os resultados."
+            ],
             "conclusion": "Após clicar no botão, a calculadora exibirá um resumo do investimento, incluindo o total investido, o total de juros e o montante final. Além disso, serão apresentados gráficos que ilustram a distribuição do montante e a evolução do investimento ao longo do tempo."
         },
 
@@ -420,7 +435,8 @@
         "comparativeSection": {
             "title": "Diferença entre juros simples e compostos",
             "intro": "Juros simples sempre miram apenas o capital inicial. Juros compostos acumulam cada ganho e o reinvestem, crescendo em ritmo acelerado a cada período.",
-            "example": "<strong>Comparando:</strong> com 10% ao ano, os juros compostos vão render mais conforme o tempo passa. Enquanto isso, os juros simples vão render sempre o mesmo tanto anualmente. Ou seja, se investirmos R$ 100,00 a 10% ao ano, em 10 anos teremos: R$ 200,00 totais em juros simples versus R$ 259,37 totais em juros compostos."
+            "example": "<strong>Comparando:</strong> com 10% ao ano, os juros compostos vão render mais conforme o tempo passa. Enquanto isso, os juros simples vão render sempre o mesmo tanto anualmente. Ou seja, se investirmos R$ 100,00 a 10% ao ano, em 10 anos teremos: R$ 200,00 totais em juros simples versus R$ 259,37 totais em juros compostos.",
+            "conclusion": "Por mais que a diferença pareça pequena no início, ao longo do tempo os juros compostos superam os simples de forma significativa. Com o nosso exemplo, no terceiro ano você já teria R$ 133,10 com juros compostos, enquanto os juros simples renderiam apenas R$ 30,00 no total. Se continuarmos esse exemplo por 10 anos, os juros simples dariam R$ 100,00, enquanto os compostos resultariam em R$ 259,37."
         },
 
         "formularySection": {
@@ -474,19 +490,16 @@
 
         "stepByStep": {
             "title": "Passo a passo da resolução",
-            "step1": "Identifique os coeficientes:",
-            "step2": "Calcule o discriminante (delta) (Δ):",
-            "step3": "Determine o número de raízes:",
-            "step4": "Calcule as raízes:",
-            "step5": "Interprete os resultados:",
-            "step1Content": "Na equação {equation}, temos a = {a}, b = {b} e c = {c}.",
-            "step2Content": "Usando a fórmula Δ = b² - 4ac para calcular o valor do delta, temos:",
-            "step4Content": "Usando a fórmula de Bhaskara para encontrar as raízes:",
-            "step5Content": "Analise as raízes encontradas e interprete seu significado no contexto do problema.",
+
+            "step1": "<strong>Identifique os coeficientes:</strong> Na equação {equation}, temos a = {a}, b = {b} e c = {c}.",
+            "step2": "<strong>Calcule o discriminante (Δ):</strong> Use a fórmula Δ = b² - 4ac para calcular o valor do delta, que nos ajudará a determinar o número e o tipo de raízes da equação.",
+            "step3": "<strong>Determine o número de raízes:</strong> Analise o valor de Δ.",
+            "step4": "<strong>Calcule as raízes:</strong> Use a fórmula de Bhaskara: x = (-b ± √Δ) / 2a.",
+            "step5": "<strong>Interprete os resultados:</strong> Analise as raízes encontradas e interprete seu significado no contexto do problema.",
             "conclusion": "Seguindo esses passos, você poderá resolver qualquer equação do segundo grau e encontrar suas raízes.",
-            "deltaPositive": "Como Δ > 0, a equação tem duas raízes reais e distintas.",
-            "deltaZero": "Como Δ = 0, a equação tem uma raiz real dupla.",
-            "deltaNegative": "Como Δ < 0, a equação não tem raízes reais (as raízes são complexas)."
+            "deltaPositive": " Como Δ > 0, a equação tem duas raízes reais e distintas.",
+            "deltaZero": " Como Δ = 0, a equação tem uma raiz real dupla.",
+            "deltaNegative": " Como Δ < 0, a equação não tem raízes reais (as raízes são complexas)."
         },
 
         "definitionSection": {
@@ -541,16 +554,16 @@
             "symmetry": "A parábola é simétrica em relação a uma linha vertical chamada de eixo de simetria, que passa pelo vértice da parábola. Isso significa que os pontos equidistantes do eixo de simetria têm o mesmo valor de y.",
             "vertex": "Além disso, também é possível identificar pontos importantes no gráfico, como o vértice, que é o ponto mais alto ou mais baixo da parábola. O vértice pode ser calculado usando as fórmulas:",
             "vertexFormulas": "Vx = -b / 2a, Vy = -Δ / 4a",
-            "symbolAB": "<strong>a, b</strong> — coeficientes da equação do segundo grau.",
-            "symbolDelta": "<strong>Δ</strong> — delta da equação do segundo grau."
+            "symbolAB": " Coeficientes da equação do segundo grau.",
+            "symbolDelta": " Delta da equação do segundo grau."
         },
 
         "factorization": {
             "title": "Fatoração de Equações do Segundo Grau",
             "intro": "A fatoração de uma equação do segundo grau é um método utilizado para expressar a equação na forma de um produto de dois binômios. A fatoração é da forma:",
             "formula": "ax² + bx + c = a(x - x₁)(x - x₂)",
-            "symbolABC": "<strong>a, b, c</strong> — coeficientes da equação do segundo grau.",
-            "symbolRoots": "<strong>x₁, x₂</strong> — raízes da equação do segundo grau.",
+            "symbolABC": " Coeficientes da equação do segundo grau.",
+            "symbolRoots": " Raízes da equação do segundo grau.",
             "example01": "<strong>Exemplo rápido:</strong> A equação x² - 5x + 6 = 0, fatora-se como (x - 2)(x - 3) = 0. Veja que o produto (x - 2)(x - 3) resulta em 0 tanto se (x - 2) = 0 quanto se (x - 3) = 0, o que torna fácil de perceber que as raízes são x₁ = 2 e x₂ = 3.",
             "example02": "<strong>Mais um exemplo rápido:</strong> Além de ser fácil achar as raízes na forma fatorada, também é possível acharmos a forma fatorada a partir das raízes. Por exemplo, se temos as raízes x₁ = 4 e x₂ = -1, podemos montar a forma fatorada como (x - 4)(x + 1) = 0. Por curiosidade, expandindo esse produto, obtemos a equação x² - 3x - 4 = 0.",
             "conclusion": "A fatoração é uma ferramenta útil para resolver equações do segundo grau, especialmente quando as raízes são números racionais. Também é interessante notar que se as raízes forem complexas, a fatoração pode ser expressa em termos de números complexos. Além disso, se o delta (Δ) for 0, a fatoração resultará em um binômio ao quadrado."
@@ -658,10 +671,12 @@
         "usageTutorial": {
             "title": "Como utilizar o Multiplicador de Matrizes",
             "intro": "Para utilizar o Multiplicador de Matrizes, siga os passos abaixo:",
-            "step01": "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
-            "step02": "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
-            "step03": "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
-            "step04": "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+            "steps": [
+                "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+                "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+                "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+                "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>"
+            ],
             "observation": "Lembre-se de que o número de colunas da Matriz A deve ser igual ao número de linhas da Matriz B para que a multiplicação seja possível.",
             "conclusion": "O multiplicador fornecerá o resultado da multiplicação das matrizes, permitindo visualizar claramente o produto das duas matrizes."
         },
@@ -700,10 +715,10 @@
             "intro": "A fórmula para multiplicar duas matrizes A e B, onde A é uma matriz m × n e B é uma matriz n × p, é dada por:",
 
             "formulaList": {
-                "formulaList01": "<strong>C<sub>i,j</sub></strong> — elemento da matriz resultante C na posição (i, j).",
-                "formulaList02": "<strong>A<sub>i,k</sub></strong> — elemento da matriz A na posição (i, k).",
-                "formulaList03": "<strong>B<sub>k,j</sub></strong> — elemento da matriz B na posição (k, j).",
-                "formulaList04": "<strong>n</strong> — número de colunas de A (igual ao número de linhas de B)."
+                "formulaList01": " Elemento da matriz resultante C na posição (i, j).",
+                "formulaList02": " Elemento da matriz A na posição (i, k).",
+                "formulaList03": " Elemento da matriz B na posição (k, j).",
+                "formulaList04": " Número de colunas de A (igual ao número de linhas de B)."
             },
 
             "observation": "Por mais que pareça complexo, a multiplicação de matrizes é uma operação que pode ser realizada de forma sistemática seguindo a fórmula acima. Com prática, você poderá realizar multiplicações de matrizes de forma rápida e precisa, o que é especialmente útil em contextos como álgebra linear, computação gráfica e análise de dados."
@@ -716,10 +731,12 @@
         "usageTutorial": {
             "title": "Como utilizar o Soma e Subtração de Matrizes",
             "intro": "Para utilizar o Soma e Subtração de Matrizes, siga os passos abaixo:",
-            "step01": "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
-            "step02": "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
-            "step03": "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
-            "step04": "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+            "steps": [
+                "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+                "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados)</strong>",
+                "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
+                "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados)</strong>"
+            ],
             "conclusion": "A calculadora irá exibir o resultado da soma e subtração das matrizes, permitindo visualizar claramente o resultado das duas matrizes."
         },
 
@@ -739,12 +756,12 @@
             "steps": [
                 {
                     "number": 1,
-                    "title": "Identifique as posições",
+                    "title": "Passo 01: Identifique as posições",
                     "description": "Cada elemento da matriz é identificado por sua posição (linha, coluna). Para uma matriz n x n, temos n² posições: a₁₁, a₁₂ ..., a₂₁, a₂₂,... para a Matriz A e b₁₁, b₁₂, b₂₁, b₂₂,... para a Matriz B."
                 },
                 {
                     "number": 2,
-                    "title": "Some cada posição correspondente",
+                    "title": "Passo 02: Some cada posição correspondente",
                     "description": "Realize a operação elemento a elemento, para o exemplo, diremos que a matriz resultado é a matriz c:",
                     "operations": [
                         "a₁₁ + b₁₁ = c₁₁",
@@ -766,7 +783,7 @@
                 },
                 {
                     "number": 4,
-                    "title": "Monte a matriz resultado",
+                    "title": "Passo 03: Monte a matriz resultado",
                     "description": "Organize os valores calculados nas mesmas posições da matriz original."
                 }
             ],
@@ -835,6 +852,4 @@
             "importance": "A soma de matrizes é essencial em diversas áreas, incluindo computação gráfica, análise de dados e resolução de sistemas lineares. A subtração de matrizes é igualmente importante, pois permite comparar e analisar diferenças entre conjuntos de dados representados por matrizes."
         }    
     }
-
-
 }

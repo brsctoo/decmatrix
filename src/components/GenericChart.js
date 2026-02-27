@@ -67,21 +67,21 @@ function GenericChart({
     const allKeys = Object.keys(firstItem);
 
     const COLORS = [
-        "#4f46e5", // Indigo
-        "#10b981", // Emerald
+        "#00b947", // Green primary
+        "#15803d", // Dark green
+        "#0f766e", // Teal
         "#f59e0b", // Amber
-        "#ef4444", // Red
-        "#3b82f6", // Blue
-        "#8b5cf6"  // Violet
+        "#ea580c", // Deep orange
+        "#a3a3a3"  // Neutral gray
     ];
 
     const AREA_COLORS = [
-        "#0F766E", // Teal
-        "#F59E0B", // Amber
-        "#38BDF8", // Cyan
-        "#E879F9", // Magenta
-        "#F97316", // Orange
-        "#94A3B8"  // Slate
+        "#00b947", // Green primary
+        "#15803d", // Dark green
+        "#0f766e", // Teal
+        "#f59e0b", // Amber
+        "#ea580c", // Deep orange
+        "#64748b"  // Slate
     ];
 
     
@@ -115,10 +115,23 @@ function GenericChart({
                 <ResponsiveContainer width="100%" height={360}>
                     <AreaChart width={600} height={360} data={data}>
                         {/* Eixo X: Usamos o seu "xKey" (tempo/categoria) */}
-                        <XAxis dataKey={xKey} />
-                        <CartesianGrid strokeDasharray="5 5" />
+                        <XAxis 
+                            dataKey={xKey}
+                            tick={{ fill: '#9ca3af', fontSize: 12 }}
+                            axisLine={{ stroke: 'rgba(148,163,184,0.4)' }}
+                            tickLine={false}
+                        />
+                        <YAxis
+                            tick={{ fill: '#9ca3af', fontSize: 12 }}
+                            axisLine={{ stroke: 'rgba(148,163,184,0.4)' }}
+                            tickLine={false}
+                        />
+                        <CartesianGrid strokeDasharray="4 4" stroke="rgba(148,163,184,0.25)" vertical={false} />
                         <Tooltip formatter={tooltipFormatter} labelFormatter={(label) => `${LABEL_MAP(locale)[xKey] || t('periodLabel')}: ${label}`} />
-                        <Legend formatter={legendFormatter} />
+                        <Legend 
+                            formatter={legendFormatter}
+                            wrapperStyle={{ paddingTop: 12, color: '#F7F8F8' }}
+                        />
 
                         {/* Por mais que a data seja algo do tipo:
                         data = (
@@ -173,7 +186,11 @@ function GenericChart({
                             margin={{ top: 20, right: 30, left: 0, bottom: 20 }} // Margem para não cortar texto
                         >
                             {/* 1. Grid Suave */}
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
+                            <CartesianGrid 
+                                strokeDasharray="4 4" 
+                                vertical={false} 
+                                stroke="rgba(148,163,184,0.25)" 
+                            />
 
                             {/* 2. Eixo X */}
                             <XAxis 
@@ -188,42 +205,45 @@ function GenericChart({
                                 // 3. Formata para não aparecer números quebrados (ex: 3.000001)
                                 tickFormatter={(value) => value.toFixed(1)}
 
-                                axisLine={false} 
+                                axisLine={{ stroke: 'rgba(148,163,184,0.4)' }} 
                                 tickLine={false} 
-                                tick={{ fill: '#6b7280', fontSize: 12 }} 
+                                tick={{ fill: '#9ca3af', fontSize: 12 }} 
                                 dy={10}
                             />
 
                             {/* 3. Eixo Y */}
                             <YAxis 
-                                axisLine={false}
+                                axisLine={{ stroke: 'rgba(148,163,184,0.4)' }}
                                 tickLine={false}
-                                tick={{ fill: '#6b7280', fontSize: 12 }}
+                                tick={{ fill: '#9ca3af', fontSize: 12 }}
                                 width={40} // Espaço para os números não cortarem
                             />
 
                             {/* 4. Tooltip */}
                             <Tooltip 
                                 contentStyle={{ 
-                                    backgroundColor: '#fff', 
+                                    backgroundColor: '#020617', 
                                     borderRadius: '8px',
-                                    color: '#000', 
-                                    border: 'none', 
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' 
+                                    color: '#F7F8F8', 
+                                    border: '1px solid rgba(148,163,184,0.5)', 
+                                    boxShadow: '0 20px 45px rgba(0, 0, 0, 0.85)' 
                                 }}
                                 formatter={(value) => [Number(value).toFixed(2), "Y"]}
-                                cursor={{ stroke: 'red', strokeWidth: 1 }} // Cria uma linha guia vermelha
+                                cursor={{ stroke: '#00b947', strokeWidth: 1 }} // Linha guia verde
                                 labelFormatter={(value) => `X: ${Number(value).toFixed(2)}`} // Mostra o X formatado
                             />
 
                             {children}
 
-                            <Legend wrapperStyle={{ paddingTop: '20px' }} formatter={legendFormatter} />
+                            <Legend 
+                                wrapperStyle={{ paddingTop: '20px', color: '#F7F8F8' }} 
+                                formatter={legendFormatter} 
+                            />
 
                             {/* 5. Linhas de Referência */}
                             {/* Cruz preta no meio se tiver números negativos */}
-                            <ReferenceLine y={0} stroke="#9ca3af" strokeWidth={1} />
-                            <ReferenceLine x={0} stroke="#9ca3af" strokeWidth={1} />
+                            <ReferenceLine y={0} stroke="#4b5563" strokeWidth={1} />
+                            <ReferenceLine x={0} stroke="#4b5563" strokeWidth={1} />
 
                             {/* 6. As Linhas do Gráfico */}
                             {dataKeys.map((key, index) => (

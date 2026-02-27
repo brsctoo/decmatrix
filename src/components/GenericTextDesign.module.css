@@ -90,10 +90,10 @@
     margin: 24px auto;
     padding: 5px 14px;
     border-radius: 20px;
-    border: 1px solid rgba(176, 102, 48, 0.35);
+    border: 1px solid #00b947;
     font-size: 1.5rem;
     font-weight: 700;
-    color: rgb(87, 55, 32);
+    color: #00b947;
     text-align: center;
     display: block;
     align-items: center;

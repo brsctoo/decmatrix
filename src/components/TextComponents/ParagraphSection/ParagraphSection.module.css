@@ -1,0 +1,15 @@
+.paragraphSection {
+    color: #a3a3a3;
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+.paragraphSection {
+    margin-bottom: 1.0rem;
+}
+
+/* Estilo que faz partes em negrito ficarem mais claras */
+.paragraphSection strong {
+    color: #f7f8f8;
+    font-weight: 600;
+}

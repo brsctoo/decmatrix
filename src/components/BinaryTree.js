@@ -19,6 +19,7 @@ import BinarySearchTree, { setNodesCoordinates as bst_setNodesCoordinates } from
 
 // Estilos
 import style from './BinaryTree.module.css';
+import TextGenericDesigns from './TextComponents/TextGenericDesigns.module.css';
 
 // ---- FUNÇÕES DE RENDERIZAÇÃO
 
@@ -37,13 +38,16 @@ function drawTree(tree, treeType = "BST", hoveredNodeId, setHoveredNodeId) {
             width: "40px",
             height: "40px",
             borderRadius: "50%",
-            backgroundColor: "rgb(201, 181, 156)",
-            color: "rgb(82, 60, 45)",
+            backgroundColor: "#050505",
+            color: "#00b947",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontWeight: "bold",
-            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+            border: hoveredNodeId === node.id
+              ? "2px solid #00b947"
+              : "1px solid rgba(0, 185, 71, 0.6)",
+            boxShadow: "0 0 0 1px rgba(0, 185, 71, 0.35), 0 10px 25px rgba(0,0,0,0.85)",
             zIndex: hoveredNodeId === node.id ? 20 : 10 // Traz para frente se for o focado
         }}
         onMouseEnter={() => setHoveredNodeId(node.id)}
@@ -57,10 +61,11 @@ function drawTree(tree, treeType = "BST", hoveredNodeId, setHoveredNodeId) {
                 top: "-18px", 
                 right: "35px",
                 fontSize: "12px", 
-                color: "rgb(100, 100, 100)", 
-                backgroundColor: "rgb(230, 230, 230, 1)", 
-                borderRadius: "50%",
-                padding: "4px"
+                color: "#00b947", 
+                backgroundColor: "rgba(5, 5, 5, 0.95)", 
+                borderRadius: "999px",
+                padding: "4px 6px",
+                border: "1px solid rgba(0, 185, 71, 0.6)"
                 }}
             > 
                 {`L:${node.leftHeight}`} 
@@ -70,10 +75,11 @@ function drawTree(tree, treeType = "BST", hoveredNodeId, setHoveredNodeId) {
                 top: "-18px", 
                 left: "35px", 
                 fontSize: "12px", 
-                color: "rgb(100, 100, 100)", 
-                backgroundColor: "rgb(230, 230, 230, 1)", 
-                borderRadius: "50%", 
-                padding: "4px"
+                color: "#00b947", 
+                backgroundColor: "rgba(5, 5, 5, 0.95)", 
+                borderRadius: "999px", 
+                padding: "4px 6px",
+                border: "1px solid rgba(0, 185, 71, 0.6)"
                 }}
             > 
                 {`R:${node.rightHeight}`} 
@@ -105,8 +111,9 @@ function drawEdges(tree) {
           y1={node.y}
           x2={node.left.x}
           y2={node.left.y}
-          stroke="#8b4513" 
-          strokeWidth="2"
+                    stroke="#00b947" 
+                    strokeWidth="2"
+                    strokeOpacity="0.85"
         />
       );
       generateEdge(node.left);
@@ -121,8 +128,9 @@ function drawEdges(tree) {
           y1={node.y}
           x2={node.right.x}
           y2={node.right.y}
-          stroke="#8b4513"
-          strokeWidth="2"
+                    stroke="#00b947"
+                    strokeWidth="2"
+                    strokeOpacity="0.85"
         />
       );
       generateEdge(node.right);
@@ -700,7 +708,6 @@ export default function BinaryTree({
                     position: 'relative', 
                     width: '60%', 
                     height: '580px', 
-                    border: '1px solid #ccc',
                     overflow: 'hidden', 
                     margin: '0 auto' 
                 }}>
@@ -816,24 +823,26 @@ export default function BinaryTree({
                     </div>
 
                     {/* 2.3 INFO */}
-                    <motion.div
-                        key={operationInfo}
-                        className={style.treeInfoStyle} 
-                        style={{
-                            position: 'absolute', 
-                            top: '10px',    
-                            left: '230px',
-                            zIndex: 11, 
-                            width: '215px', 
-                            userSelect: 'none',
-                            pointerEvents: 'auto' 
-                        }}
-                        initial={{ opacity: 0 }} // Começa em 0
-                        animate={{ opacity: [0, 1, 0] }} // 3 etapas: 0 -> 1 -> 0
-                        transition={{ duration: 2, times: [0, 0.3, 1] }} // Passa para 1 em 30% do tempo, depois some até 2s
-                    >
-                        {operationInfo}
-                    </motion.div>
+                    {operationInfo && (
+                        <motion.div
+                            key={operationInfo}
+                            className={style.treeInfoStyle} 
+                            style={{
+                                position: 'absolute', 
+                                top: '10px',    
+                                left: '230px',
+                                zIndex: 11, 
+                                width: '215px', 
+                                userSelect: 'none',
+                                pointerEvents: 'auto' 
+                            }}
+                            initial={{ opacity: 0 }} // Começa em 0
+                            animate={{ opacity: [0, 1, 0] }} // 3 etapas: 0 -> 1 -> 0
+                            transition={{ duration: 2, times: [0, 0.3, 1] }} // Passa para 1 em 30% do tempo, depois some até 2s
+                        >
+                            {operationInfo}
+                        </motion.div>
+                    )}
 
                     {/* 3. CONTAINER SCROLL */}
                     <div 
@@ -952,15 +961,17 @@ export default function BinaryTree({
                         >
 
                             {/* Info da operação */}
-                            <motion.div
-                                key={operationInfo}
-                                className={style.treeInfoStyle}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: [0, 1, 0] }}
-                                transition={{ duration: 2, times: [0, 0.3, 1] }}
-                            >
-                                {operationInfo}
-                            </motion.div>
+                            {operationInfo && (
+                                <motion.div
+                                    key={operationInfo}
+                                    className={style.treeInfoStyle}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: [0, 1, 0] }}
+                                    transition={{ duration: 2, times: [0, 0.3, 1] }}
+                                >
+                                    {operationInfo}
+                                </motion.div>
+                            )}
 
                             <div 
                                 ref={scope}

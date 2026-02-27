@@ -54,11 +54,17 @@ export default function MatrixInput({ matrixInstance, rowsValue, colsValue, onSi
                             onKeyDown={(e) => e.key === "Enter" && handleFinalize('cols', e.target.value)} // Aplica validação e sincronização no Enter
                         />
                         {matrixInstance.rows !== matrixInstance.cols ? (
-                            <p style={{ color: "orange", marginTop: "20px" }}>{t("notSquareMatrix")}</p>
+                            <p style={{ color: "#A3A3A3", marginTop: "20px" }}>{t("notSquareMatrix")}</p>
                         ) : toNum(determinant(matrixInstance)) !== 0 ? (
-                            <p style={{ marginTop: "20px" }}><span style={{ color: "#523c2d", fontWeight: "600" }}>{t("determinant")}:</span> <span style={{ color: "green", fontWeight: "600" }}>{determinant(matrixInstance)}</span></p>
+                            <p style={{ marginTop: "20px" }}>
+                                <span style={{ color: "#A3A3A3", fontWeight: "600" }}>{t("determinant")}:</span>{" "}
+                                <span style={{ color: "#00b947", fontWeight: "700" }}>{determinant(matrixInstance)}</span>
+                            </p>
                         ) : (
-                            <p style={{ marginTop: "20px" }}><span style={{ color: "#523c2d", fontWeight: "600" }}>{t("determinant")}:</span> <span style={{ color: "red", fontWeight: "600" }}>0 (Singular)</span></p>
+                            <p style={{ marginTop: "20px" }}>
+                                <span style={{ color: "#A3A3A3", fontWeight: "600" }}>{t("determinant")}:</span>{" "}
+                                <span style={{ color: "#ef4444", fontWeight: "700" }}>0 (Singular)</span>
+                            </p>
                         )} 
                     </div>
                     <div>

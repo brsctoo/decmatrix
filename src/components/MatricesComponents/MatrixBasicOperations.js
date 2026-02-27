@@ -110,14 +110,14 @@ export default function MatrixBasicOperations() {
 
             <div className={style.resultContainer}> 
                 <h2>{t("addResultTitle")}</h2>
-                {handleSum() ? <MatrixDisplay matrix={handleSum()} /> : 
+                {handleSum() ? <MatrixDisplay matrix={handleSum()} otherClasses={style.resultMatrix} /> : 
                     <p style={{ color: "red" }}>{t("error")}</p>
                 }
              </div>
 
             <div className={style.resultContainer}> 
                 <h2>{t("subtractResultTitle")}</h2>
-                {handleSubtract() ? <MatrixDisplay matrix={handleSubtract()} /> : 
+                {handleSubtract() ? <MatrixDisplay matrix={handleSubtract()} otherClasses={style.resultMatrix} /> : 
                     <p style={{ color: "red" }}>{t("error")}</p>
                 }
              </div>
