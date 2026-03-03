@@ -1,7 +1,28 @@
 .articleLayoutSplit {
+    margin: 40px auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: minmax(260px, 1.1fr) minmax(320px, 1.4fr);
+    gap: 3rem;
+    align-items: flex-start;
+}
 
-    margin: auto;
-}   
+.splitTitle h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.splitContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .articleLayoutSplit {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 32px auto;
+    }
+}

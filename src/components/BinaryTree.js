@@ -1,15 +1,15 @@
 // React e Hooks
-import React, { useRef, useState, useEffect, useMemo } from "react";
+import React, { useRef, useState, useEffect, useMemo, useLayoutEffect } from "react";
 
 // Componentes
 import InputField from './InputField';
 import ReactiveButton from './ReactiveButton';
 
 // Animações
-import { useAnimate, motion } from 'framer-motion';
+import { useAnimate, motion, color } from 'framer-motion';
 
 // Utilidades e contextos
-import { useDraggableScroll } from "../utils/MouseGrab.js";
+import ScrollContainer from 'react-indiana-drag-scroll';
 import { useIsMobile } from '@/context/ViewportContext';
 import { useTranslations } from 'use-intl';
 
@@ -143,7 +143,8 @@ function drawEdges(tree) {
 
 export default function BinaryTree({
     inputFieldsContainerStyle,
-    treeType = "BST"
+    treeType = "BST",
+    preview = false
 }) {
     const t = useTranslations('BinaryTree');
 
@@ -155,13 +156,41 @@ export default function BinaryTree({
         }
     };
 
-    const treeRef = useRef(treeTypeInstance()); // Referência para a árvore binária
+    const treeRef = useRef(treeTypeInstance()); // continua igual
+
+    // Valores usados no preview da home
+    const PREVIEW_VALUES = [
+        200, 100, 300, 50, 150, 250, 350,
+        25, 75, 125, 175, 225, 275, 325, 375
+    ];
+
+    // ------- CONFIGURAÇÕES DA ÁRVORE
+
+    const WORLD_WIDTH = 4000;  // Largura gigante
+    const WORLD_HEIGHT = 2000; // Altura gigante
+    const START_X = preview ? 280 : WORLD_WIDTH / 2; // O centro do mundo (2000px)
+    
+    const containerRef = useRef(null); // Referência para o container de scroll
+
+        const updateCoordinates = (root, startX) => {
+        if (treeType === "AVL") {
+            avl_SetNodesCoordinates(root, startX); // Executa direto
+        } else {
+            bst_setNodesCoordinates(root, startX); // Executa direto
+        }
+    }
+
+    if (preview && treeRef.current.nodes.length === 0) {
+      const tree = treeRef.current;
+            PREVIEW_VALUES.forEach(v => tree.insert(v));
+      updateCoordinates(tree.root, START_X);
+    }
 
     const [hoveredNodeId, setHoveredNodeId] = useState(null); // Nó atualmente em hover
 
     const [rawText, setRawText] = useState(""); // Input visual do usuário
 
-    const [valueToRemove, setValueToRemove] = useState(); // Valor a ser removido da árvore
+    const [valueToRemove, setValueToRemove] = useState(preview ? "300" : ""); // Valor a ser removido da árvore (50 por padrão no preview)
 
     const [version, setVersion] = useState(0); // Versão da árvore (força redraw)
 
@@ -175,28 +204,20 @@ export default function BinaryTree({
         [version, treeType, hoveredNodeId]
     );
 
-    const updateCoordinates = (root, startX) => {
-        if (treeType === "AVL") {
-            avl_SetNodesCoordinates(root, startX); // Executa direto
-        } else {
-            bst_setNodesCoordinates(root, startX); // Executa direto
-        }
-    }
-
-    // ----- HISTORICO ANTERIOR
+    
+    // ----- HISTORICO ANTERIOR ---- //
     const [history, setHistory] = useState([]);
     
 
-    // ----- OPERAÇÕES
+    // ----- OPERAÇÕES ---- //
     const [operationInfo, setOperationInfo] = useState(""); // Informação da operação atual
 
-    // ---- ANIMAÇÃO 
-
+    // ---- ANIMAÇÃO ---- //
     const [isOnAnimation, setIsOnAnimation] = useState(false); // Se está em animação
 
     const [scope, animate] = useAnimate();
 
-    const [animSpeed, setAnimSpeed] = useState(3); // Velocidade da animação
+    const [animSpeed, setAnimSpeed] = useState(1); // Velocidade da animação
 
     // useEffct atualiza quando a velocidade da animação muda
     const animSpeedRef = useRef(animSpeed);
@@ -219,21 +240,11 @@ export default function BinaryTree({
         }
     }, [animSpeed]);
 
-    const [sequences, setSequences] = useState({
+    const [sequences, setSequences] = useState(() => ({
         externQueue: [], // Fila externa -> Não participa da lógica da árvore, só para visualização
-        insertQueue: [], // Fila para inserção
-        nodeQueue: [], // Fila da sequência de nós inseridos
-    }); 
-    
-
-    // ------- CONFIGURAÇÕES DA ÁRVORE
-
-    const WORLD_WIDTH = 4000;  // Largura gigante
-    const WORLD_HEIGHT = 2000; // Altura gigante
-    const START_X = WORLD_WIDTH / 2; // O centro do mundo (2000px)
-    
-    const containerRef = useRef(null); // 1. Crie a referência
-    const { events, style: dragStyle } = useDraggableScroll(containerRef);
+        insertQueue: [], // Fila interna -> Participa da lógica da árvore
+        nodeQueue: preview ? [...PREVIEW_VALUES] : [], // Fila da sequência de nós inseridos
+    })); 
     
     // 2. Use este efeito para centralizar a visão no início
     useEffect(() => {
@@ -404,6 +415,9 @@ export default function BinaryTree({
 
         // Força redesenho após remoção
         setVersion((v) => v + 1);
+
+        // Limpa o valor de remoção após remover com sucesso
+        setValueToRemove("");
     }
 
     async function animatePath(firstNode, finalNode, animateMode) {
@@ -676,43 +690,48 @@ export default function BinaryTree({
         setVersion((v) => v + 1);
     }
 
+
     const isMobile = useIsMobile();
 
     return (
         <div>
-            <div className={style.topInputSection}>
-                <div className={`${inputFieldsContainerStyle || ''} ${style.topInputInner}`}>
-                    <InputField 
-                        label={t('inputField.label')}
-                        name="values"
-                        value={rawText}
-                        onChange={handleInputChange}
-                        type="text"
-                        placeholder={"e.g. 50, 30, 70, 20, 40"}
-                        info={t('inputField.info')}
-                    >
-                    </InputField>
-                
-                    <ReactiveButton 
-                        onClick={isOnAnimation ? undefined : handleQueueChange} 
-                        label={t('insertValuesQueueLabel')}
-                        extraStyles={isOnAnimation ? style.buttonExtraStyle : undefined} 
-                        haveIsOverStyle={isOnAnimation ? false : true}
-                    />
+            {!preview && (
+                <div className={style.topInputSection}>
+                    <div className={`${inputFieldsContainerStyle || ''} ${style.topInputInner}`}>
+                        <InputField 
+                            label={t('inputField.label')}
+                            name="values"
+                            value={rawText}
+                            onChange={handleInputChange}
+                            type="text"
+                            placeholder={"e.g. 50, 30, 70, 20, 40"}
+                            info={t('inputField.info')}
+                        >
+                        </InputField>
+                    
+                        <ReactiveButton 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : handleQueueChange)} 
+                            label={t('insertValuesQueueLabel')}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
+            
             
             {/* 1. MOLDURA FIXA DA ÁRVORE PARA DESKTOP */}
             {!isMobile && 
                 <div style={{ 
                     position: 'relative', 
-                    width: '60%', 
-                    height: '580px', 
-                    overflow: 'hidden', 
+                    width: preview ? '85%' : '60%', 
+                    height: preview ? '300px' : '580px', 
+                    overflow: preview ? 'visible' : 'hidden', 
                     margin: '0 auto' 
                 }}>
 
-                    {/* 2.1 TOOLBOX FLUTUANTE -> ESQUERDA */}
+                {/* 2.1 TOOLBOX FLUTUANTE -> ESQUERDA */}
+                {!preview && 
                     <div 
                         className={style.treeToolsStyle} 
                         style={{
@@ -726,17 +745,17 @@ export default function BinaryTree({
                         }}
                     >   
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : handleNextStep} 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : handleNextStep)} 
                             label={t('stepButtons.nextLabel')} 
-                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                            haveIsOverStyle={isOnAnimation ? false : true}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
                         />
 
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : returnToPreviousState} 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : returnToPreviousState)} 
                             label={t('stepButtons.previousLabel')} 
-                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                            haveIsOverStyle={isOnAnimation ? false : true}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
                         />
 
                         <div 
@@ -762,10 +781,10 @@ export default function BinaryTree({
                         </div>
                     
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : () => { resetAll(); resetHistory(); }} 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : () => { resetAll(); resetHistory(); })} 
                             label={t('resetTreeButtonLabel')} 
-                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                            haveIsOverStyle={isOnAnimation ? false : true}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
                         />
 
                         <div className={style.toolInputRemoval}>
@@ -777,29 +796,30 @@ export default function BinaryTree({
                                 type="number"
                                 placeholder={"e.g. 50"}
                                 info={t('removalCard.inputFieldInfo')}
-                            >
-                            </InputField>
-
+                            />
                             <ReactiveButton 
                                 onClick={isOnAnimation ? undefined : handleRemoveValue} 
                                 label={t('removalCard.buttonLabel')}
-                                extraStyles={`${style.toolButton} ${style.toolRemoveButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                                haveIsOverStyle={isOnAnimation ? false : true}
+                                extraStyles={`${style.toolButton} ${style.toolRemoveButton}`} 
+                                blocked={isOnAnimation || valueToRemove === ""}
                             />
                         </div>
                     
                         <ReactiveButton 
-                            onClick={resetView} 
+                            onClick={preview ? undefined : resetView} 
                             label={t('resetViewButtonLabel')} 
-                            extraStyles={`${style.toolButton}`} 
+                            extraStyles={style.toolButton}
+                            blocked={preview}
                         />
 
                         <ReactiveButton 
-                            onClick={skipSteps} 
+                            onClick={preview ? undefined : skipSteps} 
                             label={t('skipStepsButtonLabel')} 
-                            extraStyles={`${style.toolButton}`} 
+                            extraStyles={style.toolButton}
+                            blocked={preview}
                         />
                     </div>
+                }   
                     
                     {/* 2.2 TOOLBOX FLUTUANTE -> DIREITA */}
                     <div 
@@ -814,12 +834,30 @@ export default function BinaryTree({
                             pointerEvents: 'auto' 
                         }}
                     >
-                        <div className={style.queueInfo}>
+                        {!preview && <div className={style.queueInfo}>
                             {t('queueInfo.insertQueue')}: {sequences.insertQueue.length > 0 ? sequences.insertQueue.join(", ") : t("queueInfo.empty")}
-                        </div>
+                        </div>}
                         <div className={style.queueInfo}>
                         {t('queueInfo.nodeQueue')}: {sequences.nodeQueue.length > 0 ? sequences.nodeQueue.join(", ") : t("queueInfo.empty")}
                         </div>
+                        
+                        {preview && <div className={style.toolInputRemoval}>
+                            <InputField 
+                                label={t('removalCard.inputFieldLabel')}
+                                name="removeValue"
+                                value={valueToRemove}
+                                onChange={(e) => setValueToRemove(e.target.value)}
+                                type="number"
+                                placeholder={"e.g. 50"}
+                                info={t('removalCard.inputFieldInfo')}
+                            />
+                            <ReactiveButton 
+                                onClick={isOnAnimation ? undefined : handleRemoveValue} 
+                                label={t('removalCard.buttonLabel')}
+                                extraStyles={`${style.toolButton} ${style.toolRemoveButton}`} 
+                                blocked={isOnAnimation || valueToRemove === ""}
+                            />
+                        </div>}
                     </div>
 
                     {/* 2.3 INFO */}
@@ -828,11 +866,13 @@ export default function BinaryTree({
                             key={operationInfo}
                             className={style.treeInfoStyle} 
                             style={{
+                                fontSize: preview ? '10px' : '12px',
+                                padding: preview ? '5px 7px' : '10px 14px',
                                 position: 'absolute', 
                                 top: '10px',    
-                                left: '230px',
+                                left: preview ? '10px' : '230px',
                                 zIndex: 11, 
-                                width: '215px', 
+                                width: preview ? '170px' : '215px', 
                                 userSelect: 'none',
                                 pointerEvents: 'auto' 
                             }}
@@ -845,84 +885,169 @@ export default function BinaryTree({
                     )}
 
                     {/* 3. CONTAINER SCROLL */}
-                    <div 
-                        ref={containerRef} 
-                        className={style.treeContainer} 
-                        {...events}  
-                        style={{ 
-                            position: 'relative',
-                            width: '100%',   // Enche a moldura
-                            height: '100%',  // Enche a moldura
-                            overflow: 'hidden', 
-                            cursor: 'grab', 
-                        }} 
-                    >
-                        {/* Conteúdo de dentro (4000px) */}
+                    {preview ? (
                         <div 
-                            ref={scope}
+                            ref={containerRef} 
+                            className={style.treeContainer} 
                             style={{ 
                                 position: 'relative',
-                                width: `${WORLD_WIDTH}px`,   
-                                    minWidth: `${WORLD_WIDTH}px`,
-                                height: `${WORLD_HEIGHT}px` 
+                                width: '100%',   // Enche a moldura
+                                height: '100%',  // Enche a moldura
+                                overflow: 'hidden', 
+                                cursor: 'default',
                             }} 
-                            className={style.treeWorld}
-                        >            
-                            {/* SVG das Linhas */}
-                            <svg
-                                style={{
-                                    position: "absolute", top: 0, left: 0, width: "100%", height: "100%", 
-                                    pointerEvents: "none", zIndex: 0
-                                }}
-                            >
-                                {renderedEdges}
-                            </svg>
+                        >
+                            {/* Conteúdo de dentro (4000px) */}
+                            <div 
+                                ref={scope}
+                                style={{ 
+                                    position: 'relative',
+                                    width: `${WORLD_WIDTH}px`,   
+                                    minWidth: `${WORLD_WIDTH}px`,
+                                    height: `${WORLD_HEIGHT}px` 
+                                }} 
+                                className={style.treeWorld}
+                            >            
+                                {/* SVG das Linhas */}
+                                <svg
+                                    style={{
+                                        position: "absolute", top: 0, left: 0, width: "100%", height: "100%", 
+                                        pointerEvents: "none", zIndex: 0
+                                    }}
+                                >
+                                    {renderedEdges}
+                                </svg>
 
-                            {/* Nós da Árvore */}
-                            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}> 
-                                {renderedNodes}
+                                {/* Nós da Árvore */}
+                                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}> 
+                                    {renderedNodes}
+                                </div>
+
+                                {/* Animação */}
+                                <motion.div 
+                                    id="popBorder"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0, left: 0,
+                                        marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
+                                        width: "40px", height: "40px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #3b82f6",
+                                        backgroundColor: "transparent", // Fundo transparente
+                                        zIndex: 10,
+                                        opacity: 0, 
+                                        pointerEvents: "none"
+                                    }}
+                                />
+
+                                <motion.div 
+                                    id="traveler"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0, left: 0,
+                                        marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
+                                        width: "40px", height: "40px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #3b82f6",
+                                        backgroundColor: "transparent", // Fundo transparente
+                                        zIndex: 10,
+                                        opacity: 0, 
+                                        pointerEvents: "none"
+                                    }}
+                                />
                             </div>
-
-                            {/* Animação */}
-                            <motion.div 
-                                id="popBorder"
-                                style={{
-                                    position: "absolute",
-                                    top: 0, left: 0,
-                                    marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
-                                    width: "40px", height: "40px",
-                                    borderRadius: "50%",
-                                    border: "3px solid #3b82f6",
-                                    backgroundColor: "transparent", // Fundo transparente
-                                    zIndex: 10,
-                                    opacity: 0, 
-                                    pointerEvents: "none"
-                                }}
-                            />
-
-                            <motion.div 
-                                id="traveler"
-                                style={{
-                                    position: "absolute",
-                                    top: 0, left: 0,
-                                    marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
-                                    width: "40px", height: "40px",
-                                    borderRadius: "50%",
-                                    border: "3px solid #3b82f6",
-                                    backgroundColor: "transparent", // Fundo transparente
-                                    zIndex: 10,
-                                    opacity: 0, 
-                                    pointerEvents: "none"
-                                }}
-                            />
                         </div>
-                    </div>
+                    ) : (
+                        <ScrollContainer
+                            innerRef={containerRef}
+                            className={style.treeContainer}
+                            horizontal // Habilita scroll horizontal
+                            vertical // Habilita scroll vertical
+                            hideScrollbars // Esconde as barras de rolagem
+                            nativeMobileScroll={false}
+                            style={{ 
+                                position: 'relative',
+                                width: '100%',   // Enche a moldura
+                                height: '100%',  // Enche a moldura
+                                overflow: 'auto',
+                                cursor: 'grab',
+                            }}
+                        >
+                            {/* Conteúdo de dentro (4000px) */}
+                            <div 
+                                ref={scope}
+                                style={{ 
+                                    position: 'relative',
+                                    width: `${WORLD_WIDTH}px`,   
+                                    minWidth: `${WORLD_WIDTH}px`,
+                                    height: `${WORLD_HEIGHT}px` 
+                                }} 
+                                className={style.treeWorld}
+                            >            
+                                {/* SVG das Linhas */}
+                                <svg
+                                    style={{
+                                        position: "absolute", top: 0, left: 0, width: "100%", height: "100%", 
+                                        pointerEvents: "none", zIndex: 0
+                                    }}
+                                >
+                                    {renderedEdges}
+                                </svg>
+
+                                {/* Nós da Árvore */}
+                                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}> 
+                                    {renderedNodes}
+                                </div>
+
+                                {/* Animação */}
+                                <motion.div 
+                                    id="popBorder"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0, left: 0,
+                                        marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
+                                        width: "40px", height: "40px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #3b82f6",
+                                        backgroundColor: "transparent", // Fundo transparente
+                                        zIndex: 10,
+                                        opacity: 0, 
+                                        pointerEvents: "none"
+                                    }}
+                                />
+
+                                <motion.div 
+                                    id="traveler"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0, left: 0,
+                                        marginLeft: "-20px", marginTop: "-20px", // Centralizar com margem negativa
+                                        width: "40px", height: "40px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #3b82f6",
+                                        backgroundColor: "transparent", // Fundo transparente
+                                        zIndex: 10,
+                                        opacity: 0, 
+                                        pointerEvents: "none"
+                                    }}
+                                />
+                            </div>
+                        </ScrollContainer>
+                    )}
                 </div>
             }
 
             {/* 2. LAYOUT MOBILE -> Controles em coluna acima da árvore */}
             {isMobile && 
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px", padding: "10px" }}>
+                <div 
+                    style=
+                    {{
+                        display: "flex", 
+                        flexDirection: "column", 
+                        gap: "20px", 
+                        padding: "20px",
+                    }}
+                >
                     
 
                     {/* Informações das filas */}
@@ -935,30 +1060,27 @@ export default function BinaryTree({
                         </div>
                     </div>
 
-                    
-
                     {/* Moldura da árvore */}
                     <div style={{ 
                         position: 'relative', 
                         width: '100%', 
                         height: '400px', 
-                        border: '1px solid #ccc',
                         overflow: 'hidden'
                     }}>
                         
 
-                        <div 
-                            ref={containerRef} 
-                            className={style.treeContainer} 
-                            {...events}  
-                            style={{ 
-                                position: 'relative',
-                                width: '100%',
-                                height: '100%',
-                                overflow: 'hidden', 
-                                cursor: 'grab', 
-                            }} 
-                        >
+                        {preview ? (
+                            <div 
+                                ref={containerRef} 
+                                className={style.treeContainer} 
+                                style={{ 
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '100%',
+                                    overflow: 'hidden', 
+                                    cursor: 'default',
+                                }} 
+                            >
 
                             {/* Info da operação */}
                             {operationInfo && (
@@ -973,96 +1095,201 @@ export default function BinaryTree({
                                 </motion.div>
                             )}
 
-                            <div 
-                                ref={scope}
-                                style={{ 
-                                    position: 'relative',
-                                    width: `${WORLD_WIDTH}px`,   
-                                    minWidth: `${WORLD_WIDTH}px`,
-                                    height: `${WORLD_HEIGHT}px` 
-                                }} 
-                                className={style.treeWorld}
-                            >            
-                                <svg
-                                    style={{
-                                        position: "absolute", 
+                                <div 
+                                    ref={scope}
+                                    style={{ 
+                                        position: 'relative',
+                                        width: `${WORLD_WIDTH}px`,   
+                                        minWidth: `${WORLD_WIDTH}px`,
+                                        height: `${WORLD_HEIGHT}px` 
+                                    }} 
+                                    className={style.treeWorld}
+                                >            
+                                    <svg
+                                        style={{
+                                            position: "absolute", 
+                                            top: 0, 
+                                            left: 0, 
+                                            width: "100%", 
+                                            height: "100%", 
+                                            pointerEvents: "none", 
+                                            zIndex: 0
+                                        }}
+                                    >
+                                        {renderedEdges}
+                                    </svg>
+
+                                    <div style={{ 
+                                        position: 'absolute', 
                                         top: 0, 
                                         left: 0, 
-                                        width: "100%", 
-                                        height: "100%", 
-                                        pointerEvents: "none", 
-                                        zIndex: 0
-                                    }}
-                                >
-                                    {renderedEdges}
-                                </svg>
+                                        width: '100%', 
+                                        height: '100%', 
+                                        zIndex: 10 
+                                    }}> 
+                                        {renderedNodes}
+                                    </div>
 
-                                <div style={{ 
-                                    position: 'absolute', 
-                                    top: 0, 
-                                    left: 0, 
-                                    width: '100%', 
-                                    height: '100%', 
-                                    zIndex: 10 
-                                }}> 
-                                    {renderedNodes}
+                                    <motion.div 
+                                        id="popBorder"
+                                        style={{
+                                            position: "absolute",
+                                            top: 0, 
+                                            left: 0,
+                                            marginLeft: "-20px", 
+                                            marginTop: "-20px",
+                                            width: "40px", 
+                                            height: "40px",
+                                            borderRadius: "50%",
+                                            border: "3px solid #3b82f6",
+                                            backgroundColor: "transparent",
+                                            zIndex: 10,
+                                            opacity: 0, 
+                                            pointerEvents: "none"
+                                        }}
+                                    />
+
+                                    <motion.div 
+                                        id="traveler"
+                                        style={{
+                                            position: "absolute",
+                                            top: 0, 
+                                            left: 0,
+                                            marginLeft: "-20px", 
+                                            marginTop: "-20px",
+                                            width: "40px", 
+                                            height: "40px",
+                                            borderRadius: "50%",
+                                            border: "3px solid #3b82f6",
+                                            backgroundColor: "transparent",
+                                            zIndex: 10,
+                                            opacity: 0, 
+                                            pointerEvents: "none"
+                                        }}
+                                    />
                                 </div>
-
-                                <motion.div 
-                                    id="popBorder"
-                                    style={{
-                                        position: "absolute",
-                                        top: 0, 
-                                        left: 0,
-                                        marginLeft: "-20px", 
-                                        marginTop: "-20px",
-                                        width: "40px", 
-                                        height: "40px",
-                                        borderRadius: "50%",
-                                        border: "3px solid #3b82f6",
-                                        backgroundColor: "transparent",
-                                        zIndex: 10,
-                                        opacity: 0, 
-                                        pointerEvents: "none"
-                                    }}
-                                />
-
-                                <motion.div 
-                                    id="traveler"
-                                    style={{
-                                        position: "absolute",
-                                        top: 0, 
-                                        left: 0,
-                                        marginLeft: "-20px", 
-                                        marginTop: "-20px",
-                                        width: "40px", 
-                                        height: "40px",
-                                        borderRadius: "50%",
-                                        border: "3px solid #3b82f6",
-                                        backgroundColor: "transparent",
-                                        zIndex: 10,
-                                        opacity: 0, 
-                                        pointerEvents: "none"
-                                    }}
-                                />
                             </div>
-                        </div>
+                        ) : (
+                           <ScrollContainer
+                                innerRef={containerRef}
+                                className={style.treeContainer}
+                                horizontal
+                                vertical
+                                hideScrollbars
+                                nativeMobileScroll={false} // Mantém a mágica do JS no mobile
+                                style={{ 
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '100%',
+                                    overflow: 'auto', 
+                                    cursor: 'grab',
+                                    overscrollBehavior: 'none', // Mata o efeito elástico no iOS/Android
+                                }} 
+                            >
+                                {/* Info da operação */}
+                                {operationInfo && (
+                                    <motion.div
+                                        key={operationInfo}
+                                        className={style.treeInfoStyle}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: [0, 1, 0] }}
+                                        transition={{ duration: 2, times: [0, 0.3, 1] }}
+                                    >
+                                        {operationInfo}
+                                    </motion.div>
+                                )}
+
+                                <div 
+                                    ref={scope}
+                                    style={{ 
+                                        position: 'relative',
+                                        width: `${WORLD_WIDTH}px`,   
+                                        minWidth: `${WORLD_WIDTH}px`,
+                                        height: `${WORLD_HEIGHT}px` 
+                                    }} 
+                                    className={style.treeWorld}
+                                >            
+                                    <svg
+                                        style={{
+                                            position: "absolute", 
+                                            top: 0, 
+                                            left: 0, 
+                                            width: "100%", 
+                                            height: "100%", 
+                                            pointerEvents: "none", 
+                                            zIndex: 0
+                                        }}
+                                    >
+                                        {renderedEdges}
+                                    </svg>
+
+                                    <div style={{ 
+                                        position: 'absolute', 
+                                        top: 0, 
+                                        left: 0, 
+                                        width: '100%', 
+                                        height: '100%', 
+                                        zIndex: 10 
+                                    }}> 
+                                        {renderedNodes}
+                                    </div>
+
+                                    <motion.div 
+                                        id="popBorder"
+                                        style={{
+                                            position: "absolute",
+                                            top: 0, 
+                                            left: 0,
+                                            marginLeft: "-20px", 
+                                            marginTop: "-20px",
+                                            width: "40px", 
+                                            height: "40px",
+                                            borderRadius: "50%",
+                                            border: "3px solid #3b82f6",
+                                            backgroundColor: "transparent",
+                                            zIndex: 10,
+                                            opacity: 0, 
+                                            pointerEvents: "none"
+                                        }}
+                                    />
+
+                                    <motion.div 
+                                        id="traveler"
+                                        style={{
+                                            position: "absolute",
+                                            top: 0, 
+                                            left: 0,
+                                            marginLeft: "-20px", 
+                                            marginTop: "-20px",
+                                            width: "40px", 
+                                            height: "40px",
+                                            borderRadius: "50%",
+                                            border: "3px solid #3b82f6",
+                                            backgroundColor: "transparent",
+                                            zIndex: 10,
+                                            opacity: 0, 
+                                            pointerEvents: "none"
+                                        }}
+                                    />
+                                </div>
+                            </ScrollContainer>
+                        )}
                     </div>
 
                     {/* Controles inferiores */}
                     <div className={style.treeToolsStyle}>   
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : handleNextStep} 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : handleNextStep)} 
                             label={t('stepButtons.nextLabel')} 
-                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                            haveIsOverStyle={isOnAnimation ? false : true}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
                         />
 
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : returnToPreviousState} 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : returnToPreviousState)} 
                             label={t('stepButtons.previousLabel')} 
-                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                            haveIsOverStyle={isOnAnimation ? false : true}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
                         />
 
                         <div className={style.slider}>
@@ -1085,10 +1312,10 @@ export default function BinaryTree({
                         </div>
                     
                         <ReactiveButton 
-                            onClick={isOnAnimation ? undefined : () => { resetAll(); resetHistory(); }} 
+                            onClick={preview ? undefined : (isOnAnimation ? undefined : () => { resetAll(); resetHistory(); })} 
                             label={t('resetTreeButtonLabel')} 
-                            extraStyles={`${style.toolButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                            haveIsOverStyle={isOnAnimation ? false : true}
+                            extraStyles={style.toolButton}
+                            blocked={preview || isOnAnimation}
                         />
 
                         <div className={style.toolInputRemoval}>
@@ -1101,25 +1328,26 @@ export default function BinaryTree({
                                 placeholder={"e.g. 50"}
                                 info={t('removalCard.inputFieldInfo')}
                             />
-
                             <ReactiveButton 
                                 onClick={isOnAnimation ? undefined : handleRemoveValue} 
                                 label={t('removalCard.buttonLabel')}
-                                extraStyles={`${style.toolButton} ${style.toolRemoveButton} ${isOnAnimation ? style.buttonExtraStyle : ''}`} 
-                                haveIsOverStyle={isOnAnimation ? false : true}
+                                extraStyles={`${style.toolButton} ${style.toolRemoveButton}`} 
+                                blocked={isOnAnimation || valueToRemove === ""}
                             />
                         </div>
                     
                         <ReactiveButton 
-                            onClick={resetView} 
+                            onClick={preview ? undefined : resetView} 
                             label={t('resetViewButtonLabel')} 
-                            extraStyles={`${style.toolButton}`} 
+                            extraStyles={style.toolButton}
+                            blocked={preview}
                         />
 
                         <ReactiveButton 
-                            onClick={skipSteps} 
+                            onClick={preview ? undefined : skipSteps} 
                             label={t('skipStepsButtonLabel')} 
-                            extraStyles={`${style.toolButton}`} 
+                            extraStyles={style.toolButton}
+                            blocked={preview}
                         />
                     </div>
                     

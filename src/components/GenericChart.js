@@ -127,7 +127,11 @@ function GenericChart({
                             tickLine={false}
                         />
                         <CartesianGrid strokeDasharray="4 4" stroke="rgba(148,163,184,0.25)" vertical={false} />
-                        <Tooltip formatter={tooltipFormatter} labelFormatter={(label) => `${LABEL_MAP(locale)[xKey] || t('periodLabel')}: ${label}`} />
+                        <Tooltip 
+                            formatter={tooltipFormatter} 
+                            labelFormatter={(label) => `${LABEL_MAP(locale)[xKey] || t('periodLabel')}: ${label}`}
+                            wrapperStyle={{ userSelect: 'none' }}
+                        />
                         <Legend 
                             formatter={legendFormatter}
                             wrapperStyle={{ paddingTop: 12, color: '#F7F8F8' }}
@@ -164,7 +168,11 @@ function GenericChart({
                         {/* Eixo X: Usamos o seu "xKey" (tempo/categoria) */}
                         <XAxis dataKey={xKey} />
                         <CartesianGrid strokeDasharray="5 5" />
-                        <Tooltip formatter={tooltipFormatter} labelFormatter={(label) => `${LABEL_MAP[xKey] || t('periodLabel')}: ${label}`} />
+                        <Tooltip 
+                            formatter={tooltipFormatter} 
+                            labelFormatter={(label) => `${LABEL_MAP[xKey] || t('periodLabel')}: ${label}`}
+                            wrapperStyle={{ userSelect: 'none' }}
+                        />
                         <Legend formatter={legendFormatter} />
                         {dataKeys.map((key, index) => (
                             <Bar 
@@ -228,6 +236,7 @@ function GenericChart({
                                     border: '1px solid rgba(148,163,184,0.5)', 
                                     boxShadow: '0 20px 45px rgba(0, 0, 0, 0.85)' 
                                 }}
+                                wrapperStyle={{ userSelect: 'none' }}
                                 formatter={(value) => [Number(value).toFixed(2), "Y"]}
                                 cursor={{ stroke: '#00b947', strokeWidth: 1 }} // Linha guia verde
                                 labelFormatter={(value) => `X: ${Number(value).toFixed(2)}`} // Mostra o X formatado
@@ -282,7 +291,10 @@ function GenericChart({
                                 <Cell key={`cell-${entry.name}-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                         </Pie>
-                        <Tooltip formatter={tooltipFormatter} />
+                        <Tooltip 
+                            formatter={tooltipFormatter} 
+                            wrapperStyle={{ userSelect: 'none' }}
+                        />
                         <Legend formatter={legendFormatter} />
                     </PieChart>
                 </ResponsiveContainer>

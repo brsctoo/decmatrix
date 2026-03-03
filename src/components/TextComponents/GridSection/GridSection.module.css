@@ -1,7 +1,7 @@
 .gridSectionContainer {
   width: 100%;
   max-width: 1200px;
-  margin: 0px auto 80px;
+  margin: 10px auto 20px;
   padding: 40px 20px;
 
   display: grid;
@@ -10,6 +10,7 @@
 }
 
 .mainTitle {
+  margin-top: 80px;
   text-align: center;
   color: #F7F8F8;
   font-size: clamp(1.6rem, 2.4vw, 2.2rem);
@@ -92,4 +93,11 @@
   line-height: 1.5;
   opacity: 0.75;
   color: #A3A3A3
+}
+
+@media (max-width: 768px) {
+  .gridSectionContainer {
+    padding: 20px 10px;
+    margin-top: 20px;
+  }
 }

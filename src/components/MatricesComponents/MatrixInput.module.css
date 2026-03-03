@@ -143,9 +143,9 @@
 
 @media (max-width: 768px) {
   .inputContainer {
-    max-width: 100%;
+    max-width: 90%;
     min-width: unset;
-    margin: 24px 20px;
+    margin: 24px auto 20px;
     padding: 20px;
     gap: 15px;
   }

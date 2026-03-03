@@ -270,6 +270,35 @@
 
 
 @media (max-width: 768px) {
+    .inputFieldsContainer {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 16px;
+        padding: 18px 16px;
+        gap: 12px 0;
+        max-width: 100%;
+        min-height: auto;
+    }
+
+    .inputFieldsContainer > * {
+        flex: 1 1 100%;
+        min-width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .resultContainer {
+        margin: 24px 16px 16px;
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .chartSection {
+        margin: 16px;
+        padding: 16px;
+        border-radius: 16px;
+        box-shadow: 0 14px 38px rgba(0, 0, 0, 0.75);
+    }
+
     .quadraticResultsFormulaCard {
         display: flex;
         flex-direction: column;
@@ -287,21 +316,21 @@
     }
 
     .quadraticRowFormulaCard {
-        display: wrap;
+        display: flex;
         flex-direction: column;
-        margin: auto;
-        padding: 10px;
-        gap: 5px;
-        font-size: 1rem;
+        margin: 12px auto;
+        padding: 8px 4px;
+        gap: 6px;
+        font-size: 0.95rem;
     }
 
 
     .quadraticFormulaCard {
-        display: wrap;
+        display: flex;
         flex-direction: column;
-        margin: auto;
-        padding: 10px;
-        gap: 120px;
+        margin: 12px auto;
+        padding: 8px 4px;
+        gap: 12px;
     }
 
     .interativeFormulaCard {
@@ -314,12 +343,9 @@
 
     .resultsCard,
     .chartWrapper {
-        padding: 24px;
-    }
-
-    .inputFieldsContainer {
-        /* Gap reduzido para mobile: 10px vertical, 20px horizontal */
-        gap: 10px 20px; 
+        padding: 20px 16px;
+        border-radius: 16px;
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.8);
     }
 
     .buttonContainer {
@@ -339,5 +365,10 @@
 
     .resultLabel {
         margin-bottom: 4px;
+    }
+
+    .imageAttribution {
+        margin: 16px auto;
+        max-width: 100%;
     }
 }

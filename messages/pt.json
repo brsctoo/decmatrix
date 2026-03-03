@@ -123,6 +123,16 @@
             "idea": "Do planejamento financeiro à simulador de árvores binárias, passando por equações, funções e conceitos fundamentais de estrutura de dados, o Decmatrix visa reunir explicações intuitivas e calculadoras interativas que ajudam a transformar teoria em aplicação real. Quanto mais o tempo passa, mais ferramentas são adicionadas ao Decmatrix, sempre com foco em usabilidade e clareza."
         },
 
+        "clarityText": {
+            "title": "Construídas para a Clareza",
+            "description": "Nossas ferramentas são projetadas para fornecer resultados claros e concisos, tornando fácil para os usuários entenderem conceitos matemáticos complexos e cálculos."
+        },
+
+        "previewBinaryTree": {
+            "title": "Preview de nosso simulador de árvore binária de busca",
+            "description": "Interaja com a prévia do nosso simulador de árvore binária de busca. Clique em 'Remover valor' para acompanhar passo a passo como a árvore se reestrutura."
+        },
+
         "mainAreas": {
             "dataStructuresSection": {
                 "title": "Estruturas de Dados",
@@ -205,9 +215,24 @@
                     "<strong>Inovação:</strong> Buscar constantemente novas formas de melhorar e expandir nossas ofertas, incorporando feedback dos usuários e avanços tecnológicos."
                 ]
             }
-        }
-    },
+        },
 
+        "faqSection": [
+            {
+                "question": "01. Quais ferramentas e simuladores matemáticos o Decmatrix oferece?",
+                "answer": "O Decmatrix é uma plataforma gratuita com foco em estudantes de exatas, engenharia e ciência da computação. Oferecemos simuladores interativos de estruturas de dados (como Árvore Binária de Busca - BST e Árvore AVL auto-balanceada), calculadoras financeiras para juros simples e compostos, resoluções passo a passo de equações do 2º grau (pré-cálculo), ferramentas de álgebra linear para multiplicação e operações básicas de matrizes e mais."
+            },
+            {
+                "question": "02. Como os simuladores de algoritmos e calculadoras ajudam nos estudos?",
+                "answer": "Nosso foco é a visualização em tempo real. Em vez de apenas entregar o resultado final, o Decmatrix detalha o cálculo passo a passo. Você pode visualizar árvores AVL, entender a lógica matemática por trás da soma e inversão de matrizes, e analisar gráficos detalhados de crescimento de investimentos financeiros."
+            },
+            {
+                "question": "03. Não encontrou a calculadora ou o algoritmo estrutural que precisava?",
+                "answer": "O Decmatrix é um projeto em constante evolução. Se você tem ideias para novas ferramentas, encontrou algum erro nas páginas, ou quer sugerir melhorias no site, envie seu feedback pelo e-mail decimatrix25@gmail.com. A sua sugestão é sempre bem-vinda!"
+            }
+        ]
+    },
+    
     "AVLTreeBuilder": {
         "mainTitle": "Construtor de árvore binária AVL",
 
@@ -246,7 +271,22 @@
                 "case03": "<strong>Rotação dupla á esquerda:</strong> Ocorre quando um nó tem um fator de balanceamento maior que 1 e seu filho esquerdo tem um fator de balanceamento menor que 0.",
                 "case04": "<strong>Rotação dupla á direita:</strong> Ocorre quando um nó tem um fator de balanceamento menor que -1 e seu filho direito tem um fator de balanceamento maior que 0."
             }
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. O que é uma árvore AVL e para que ela serve?",
+                "answer": "Uma árvore AVL é uma árvore binária de busca auto-balanceada. A sua principal regra é que a diferença de altura entre os lados esquerdo e direito de qualquer nó (fator de balanceamento) nunca pode ser maior que 1. Isso garante que buscas, inserções e remoções sejam sempre eficientes."
+            },
+            {
+                "question": "02. Como a árvore AVL faz o seu balanceamento automático?",
+                "answer": "O sistema calcula o fator de balanceamento de cada nó. Se após você inserir ou remover um valor esse fator estourar o limite (ficando maior que 1 ou menor que -1), a árvore executa automaticamente rotações estruturais para restaurar o próprio equilíbrio."
+            },
+            {
+                "question": "03. O que são as rotações da árvore AVL?",
+                "answer": "São os movimentos que corrigem o desbalanceamento. Existem quatro tipos principais de rotação: simples à direita, simples à esquerda, dupla à esquerda e dupla à direita. O algoritmo escolhe qual usar dependendo exatamente de onde o desequilíbrio aconteceu na estrutura."
+            }
+        ]
     },
 
     "BSTTreeBuilder": {
@@ -263,7 +303,22 @@
         "bstSearchText": "A busca em uma árvore BST começa na raiz e percorre a árvore comparando o valor buscado com o valor do nó atual, movendo-se para a esquerda ou direita conforme necessário. O algoritmo é muito simples e eficiente, sendo O(log n) em média.",
         "bstInsertionText": "A inserção de um novo valor na árvore BST segue um processo semelhante à busca, localizando a posição correta para o novo nó e inserindo-o sempre como uma folha.",
         "binarySearchTreeSimulatorLink": "simulador de árvore binária de busca",
-        "bstRemovalText": "A remoção de um nó em uma árvore BST pode ser mais complexa, dependendo do número de filhos do nó a ser removido. Nós sem filhos podem ser removidos diretamente, nós com um filho podem ser substituídos por seu filho, e nós com dois filhos requerem a substituição pelo sucessor ou predecessor in-order."
+        "bstRemovalText": "A remoção de um nó em uma árvore BST pode ser mais complexa, dependendo do número de filhos do nó a ser removido. Nós sem filhos podem ser removidos diretamente, nós com um filho podem ser substituídos por seu filho, e nós com dois filhos requerem a substituição pelo sucessor ou predecessor in-order.",
+
+        "faqSection": [
+            {
+                "question": "01. Qual a regra principal de uma árvore binária de busca (BST)?",
+                "answer": "Em uma árvore BST, cada nó pode ter no máximo dois filhos. A regra é: todos os valores que ficam na subárvore à esquerda são menores que o nó pai, e todos os valores à direita são obrigatoriamente maiores."
+            },
+            {
+                "question": "02. Qual é a desvantagem ou o pior cenário de uma BST?",
+                "answer": "Normalmente ela é muito eficiente (levando tempo médio logarítmico). Porém, se você inserir dados já ordenados, todos os nós podem cair para um único lado. Isso cria uma 'árvore degenerada', destruindo a eficiência e fazendo a busca demorar tanto quanto em uma lista simples."
+            },
+            {
+                "question": "03. Como funciona a remoção de um nó na árvore BST?",
+                "answer": "Depende da posição do nó. Se ele for uma 'folha' (sem filhos), basta apagá-lo. Se tiver um filho, o filho sobe e o substitui. Se o nó tiver dois filhos, a lógica é mais complexa: ele precisa ser substituído pelo seu sucessor ou predecessor na ordem da árvore."
+            }
+        ]
     },
 
     "CompoundInterestCalculator": {
@@ -365,7 +420,22 @@
             "formula02List01": " Valor da contribuição periódica.",
 
             "interestFormulaIntro": "O juros é sempre calculado como sendo o montante final menos o total investido (capital inicial + somatório das contribuições). Logo:"
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. O que são juros compostos e como eles funcionam na prática?",
+                "answer": "Os juros compostos funcionam sob a lógica de 'juros sobre juros'. Diferente dos juros simples, o rendimento de cada período é somado ao capital inicial. No mês ou ano seguinte, a nova taxa de juros é calculada sobre esse valor total, fazendo o montante final crescer de forma exponencial ao longo do tempo."
+            },
+            {
+                "question": "02. Posso calcular juros compostos com aportes mensais na calculadora?",
+                "answer": "Sim! A nossa calculadora de juros compostos possui um campo específico para 'Contribuição Mensal'. Isso permite simular cenários reais de investimentos, onde você deposita um valor recorrente além do capital inicial, turbinando ainda mais o efeito dos juros sobre juros."
+            },
+            {
+                "question": "03. Onde os juros compostos são aplicados no mercado financeiro?",
+                "answer": "Eles são a regra absoluta do mercado. A favor do seu dinheiro, são usados na grande maioria dos investimentos (CDBs, Tesouro Direto, fundos e contas remuneradas). Contra o seu bolso, são o motor por trás dos financiamentos imobiliários, empréstimos bancários e do rotativo do cartão de crédito, o que explica por que essas dívidas crescem de forma tão agressiva."
+            }
+        ]
     },
 
     "SimpleInterestCalculator": {
@@ -451,7 +521,22 @@
             "formulaExplanation": "Com essa fórmula, você pode calcular o montante final (M) ao investir um capital inicial (C) a uma taxa de juros (i) por um determinado número de períodos (t).",
             "interestCalculation": "Assim como nos juros compostos, o juros é calculado por M - C, ou seja, o montante menos o capital inicial.",
             "interestFormula": "J = C × i × t = M - C"
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. O que são juros simples e qual a principal diferença para os compostos?",
+                "answer": "Nos juros simples, a taxa de rendimento é aplicada exclusivamente sobre o capital inicial durante todo o período. Ao contrário dos juros compostos (onde o rendimento acelera), nos juros simples o valor ganho é sempre fixo e linear a cada mês ou ano."
+            },
+            {
+                "question": "02. Como calcular o montante final e o rendimento em juros simples?",
+                "answer": "Para calcular o rendimento exato, basta multiplicar o capital inicial, a taxa de juros e o tempo (J = C × i × t). Para descobrir o montante final, você soma esse juros gerado ao valor do capital inicial original (M = C + J)."
+            },
+            {
+                "question": "03. Quando o sistema de juros simples é utilizado no mercado?",
+                "answer": "Embora os juros compostos dominem os investimentos de longo prazo, os juros simples ainda são muito utilizados em operações financeiras curtas, descontos de duplicatas, antecipação de recebíveis e cálculo de multas por atraso de pagamento."
+            }
+        ]
     },
 
     "QuadraticEquationCalculator": {
@@ -491,11 +576,15 @@
         "stepByStep": {
             "title": "Passo a passo da resolução",
 
-            "step1": "<strong>Identifique os coeficientes:</strong> Na equação {equation}, temos a = {a}, b = {b} e c = {c}.",
-            "step2": "<strong>Calcule o discriminante (Δ):</strong> Use a fórmula Δ = b² - 4ac para calcular o valor do delta, que nos ajudará a determinar o número e o tipo de raízes da equação.",
-            "step3": "<strong>Determine o número de raízes:</strong> Analise o valor de Δ.",
-            "step4": "<strong>Calcule as raízes:</strong> Use a fórmula de Bhaskara: x = (-b ± √Δ) / 2a.",
-            "step5": "<strong>Interprete os resultados:</strong> Analise as raízes encontradas e interprete seu significado no contexto do problema.",
+            "step1": "Identifique os coeficientes:",
+            "step2": "Calcule o discriminante (Δ):",
+            "step3": "Determine o número de raízes:",
+            "step4": "Calcule as raízes:",
+            "step5": "Interprete os resultados:",
+            "step1Content": "Na equação {equation}, temos a = {a}, b = {b} e c = {c}.",
+            "step2Content": "Use a fórmula Δ = b² - 4ac para calcular o valor do delta, que nos ajudará a determinar o número e o tipo de raízes da equação.",
+            "step4Content": "Use a fórmula de Bhaskara para encontrar as raízes: x = (-b ± √Δ) / 2a.",
+            "step5Content": "Analise as raízes encontradas e interprete seu significado no contexto do problema.",
             "conclusion": "Seguindo esses passos, você poderá resolver qualquer equação do segundo grau e encontrar suas raízes.",
             "deltaPositive": " Como Δ > 0, a equação tem duas raízes reais e distintas.",
             "deltaZero": " Como Δ = 0, a equação tem uma raiz real dupla.",
@@ -573,7 +662,22 @@
             "title": "Equações do segundo grau na vida real",
             "intro": "As equações do segundo grau são amplamente utilizadas em diversas áreas da vida real, incluindo física, engenharia, economia e biologia. Elas são particularmente úteis para modelar situações que envolvem movimento, crescimento e otimização.",
             "examples": "Alguns exemplos práticos incluem: trajetórias de objetos em queda livre, cálculo de áreas máximas, análise de lucros e perdas, e modelagem de populações biológicas. As equações do segundo grau ajudam a descrever e prever comportamentos complexos em sistemas naturais e artificiais."
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. Como resolver uma equação do segundo grau com a Fórmula de Bhaskara?",
+                "answer": "O método clássico exige dois passos: primeiro, calcular o discriminante (Delta) usando a fórmula Δ = b² - 4ac. Depois, aplicar a Fórmula de Bhaskara: x = (-b ± √Δ) / 2a. A nossa calculadora mostra exatamente esse passo a passo, exibindo como os coeficientes 'a', 'b' e 'c' interagem para encontrar as raízes reais ou complexas."
+            },
+            {
+                "question": "02. O que acontece se o Delta (Δ) for negativo ou igual a zero?",
+                "answer": "O valor do Delta define o tipo de raiz da equação quadrática. Se Δ > 0, a parábola cruza o eixo X duas vezes (duas raízes distintas). Se Δ = 0, a equação toca o eixo X em apenas um ponto (uma raiz real dupla). Se Δ < 0, a equação não possui raízes reais, gerando raízes complexas (a parábola flutua sem tocar o eixo X)."
+            },
+            {
+                "question": "03. Como descobrir o vértice da parábola de uma equação quadrática?",
+                "answer": "O vértice representa o ponto de valor máximo (se a concavidade for para baixo) ou mínimo (se for para cima) do gráfico. Ele é calculado diretamente a partir dos coeficientes e do Delta, usando as fórmulas matemáticas Vx = -b / 2a (para o eixo X) e Vy = -Δ / 4a (para o eixo Y)."
+            }
+        ]
     },
 
     "TermsOfUse": {
@@ -722,7 +826,22 @@
             },
 
             "observation": "Por mais que pareça complexo, a multiplicação de matrizes é uma operação que pode ser realizada de forma sistemática seguindo a fórmula acima. Com prática, você poderá realizar multiplicações de matrizes de forma rápida e precisa, o que é especialmente útil em contextos como álgebra linear, computação gráfica e análise de dados."
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. Qual é a regra principal para multiplicar duas matrizes?",
+                "answer": "A condição obrigatória de existência é que o número de colunas da Matriz A deve ser exatamente igual ao número de linhas da Matriz B. Se essa regra não for atendida, a multiplicação é matematicamente impossível."
+            },
+            {
+                "question": "02. A multiplicação de matrizes é comutativa (A × B = B × A)?",
+                "answer": "Não. Diferente da multiplicação de números comuns, na álgebra linear a ordem dos fatores altera o produto. Multiplicar a Matriz A pela Matriz B geralmente gera um resultado completamente diferente de multiplicar a Matriz B pela Matriz A."
+            },
+            {
+                "question": "03. Como é feito o cálculo passo a passo da multiplicação?",
+                "answer": "O cálculo não é feito elemento por elemento. Você deve multiplicar os elementos de uma linha inteira da primeira matriz pelos elementos correspondentes de uma coluna da segunda matriz, e depois somar todos esses produtos para encontrar um único valor na matriz resultante."
+            }
+        ]
     },
 
     "matrixBasicOperations": {
@@ -850,6 +969,21 @@
             },
 
             "importance": "A soma de matrizes é essencial em diversas áreas, incluindo computação gráfica, análise de dados e resolução de sistemas lineares. A subtração de matrizes é igualmente importante, pois permite comparar e analisar diferenças entre conjuntos de dados representados por matrizes."
-        }    
+        },
+        
+        "faqSection": [
+            {
+                "question": "01. É possível somar ou subtrair matrizes de tamanhos diferentes?",
+                "answer": "Não. Para que a soma ou a subtração exista, as duas matrizes precisam ter exatamente as mesmas dimensões (mesmo número de linhas e mesmo número de colunas). Por exemplo, não é possível somar uma matriz 2x3 com uma matriz 3x2."
+            },
+            {
+                "question": "02. Como funciona o cálculo de soma e subtração de matrizes?",
+                "answer": "Diferente da multiplicação, a soma e a subtração são operações diretas. O cálculo é feito elemento por elemento. Você simplesmente soma ou subtrai o número que está na posição exata (i, j) da primeira matriz com o número na mesma posição da segunda matriz."
+            },
+            {
+                "question": "03. A soma de matrizes possui a propriedade comutativa?",
+                "answer": "Sim. Na adição de matrizes, a ordem não importa. A soma da Matriz A com a Matriz B (A + B) produzirá exatamente o mesmo resultado que a soma da Matriz B com a Matriz A (B + A)."
+            }
+        ]
     }
 }

@@ -12,6 +12,8 @@ import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.m
 import HighlightSection from '@/components/TextComponents/HighlightSection';
 import ParagraphSection from '@/components/TextComponents/ParagraphSection';
 
+import FAQ from "@/components/TextComponents/FAQ";
+
 
 
 {/*
@@ -74,6 +76,10 @@ function bst_tree_builder() {
           />
         </ArticleLayoutDefault>
         
+        <FAQ questions={t.raw("faqSection").map((_, index) => ({
+          question: t(`faqSection.${index}.question`),
+          answer: t(`faqSection.${index}.answer`),
+        }))} />
     </div>
   );
 }

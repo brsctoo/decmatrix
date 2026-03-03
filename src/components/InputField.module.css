@@ -94,6 +94,7 @@
 }
 
 .tooltip {
+    overflow: visible;
     visibility: hidden;
     width: 200px;
     background-color: rgb(51, 68, 67);

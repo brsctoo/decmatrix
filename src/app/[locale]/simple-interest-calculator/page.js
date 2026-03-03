@@ -19,6 +19,7 @@ import ExampleSection from '@/components/TextComponents/ExampleSection';
 import SymbolLegend from '@/components/TextComponents/SymbolLegend';
 import FormulaCard from '@/components/TextComponents/FormulaCard';
 import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import FAQ from "@/components/TextComponents/FAQ";
 
 {/* Layouts */}
 import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
@@ -446,6 +447,11 @@ function interest_calculator() {
 
       <FormulaCard equations={[t("formularySection.interestFormula")]} />
     </ArticleLayoutDefault>
+
+    <FAQ questions={t.raw("faqSection").map((_, index) => ({
+      question: t(`faqSection.${index}.question`),
+      answer: t(`faqSection.${index}.answer`),
+    }))} />
     </div>
   );
 }

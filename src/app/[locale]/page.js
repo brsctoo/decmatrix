@@ -1,20 +1,24 @@
 "use client";
 import React from "react";
 
+import BinaryTree from "@/components/BinaryTree";
+
 import Image from "next/image";
 import ReactiveButton from "@/components/ReactiveButton";
 import style from "./page.module.css";
 
+import ArticleLayoutSplit from "@/components/TextComponents/ArticleLayouts/ArticleLayoutSplit";
 import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
 import { GridSections, GridSection } from "@/components/TextComponents/GridSection";
+
+{/* Context */}
+import { useIsMobile } from "@/context/ViewportContext";
 
 {/* Styles */}
 import HighlightSection from '@/components/TextComponents/HighlightSection';
 import ParagraphSection from '@/components/TextComponents/ParagraphSection';
 import DefaultList from '@/components/TextComponents/DefaultList';
-import ExampleSection from '@/components/TextComponents/ExampleSection';
-import SymbolLegend from '@/components/TextComponents/SymbolLegend';
-import FormulaCard from '@/components/TextComponents/FormulaCard';
+import FAQ from '@/components/TextComponents/FAQ';
 import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
 
 
@@ -22,6 +26,7 @@ import { useRouter, usePathname, useParams } from 'next/navigation';
 import { useTranslations } from "next-intl";
 
 function Home() {
+  const isMobile = useIsMobile();
   const router = useRouter();
   const pathname = usePathname(); // Retorna "/pt/alguma-coisa"
   const params = useParams();     
@@ -57,6 +62,29 @@ function Home() {
             {t("mainAreas.linearAlgebraSection.description")}
           </GridSection>
       </GridSections>
+
+      <ArticleLayoutSplit title={t("clarityText.title")}>
+        <ParagraphSection paragraphs={[t("clarityText.description")]} />
+      </ArticleLayoutSplit>
+
+      {!isMobile && <HighlightSection>
+        <div className={style.binaryTreePreviewSection}>
+          <div className={style.binaryTreePreviewText}>
+            <h2 className={style.binaryTreePreviewTitle}>{t("previewBinaryTree.title")}</h2>
+            <p className={style.binaryTreePreviewDescription}>
+              {t("previewBinaryTree.description")}
+            </p>
+          </div>
+
+          <div className={style.binaryTreePreviewTree}>
+            <BinaryTree 
+              treeType="BST"
+              preview={true}
+              style={{ overflow: "visible" }}
+            />
+          </div>
+        </div>
+      </HighlightSection> }
 
       {/* Ferramentas disponíveis */}
       <GridSections clickable={true} title={t("avaliableTools.title")} subtitle={t("avaliableTools.subtitle")}>
@@ -140,6 +168,11 @@ function Home() {
             />
           </HighlightSection>
         </ArticleLayoutDefault>
+
+        <FAQ questions={t.raw("faqSection").map((_, index) => ({
+          question: t(`faqSection.${index}.question`),
+          answer: t(`faqSection.${index}.answer`),
+        }))} />
     </div>
   );
 }

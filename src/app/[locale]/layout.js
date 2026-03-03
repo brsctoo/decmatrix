@@ -48,12 +48,9 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={locale} className={GeistSans.variable}>
       <body>
-        {/* 4. O PROVIDER É OBRIGATÓRIO!
-            Ele pega as mensagens que o servidor carregou e entrega
-            para os componentes de cliente.
-        */}
-
-        <GoogleAnalytics />
+        {process.env.NODE_ENV === 'production' && (
+          <GoogleAnalytics />
+        )}
 
         <NextIntlClientProvider messages={messages}>
             <UIProvider>

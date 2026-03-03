@@ -223,12 +223,39 @@
 
 @media (max-width: 768px) {
     .inputFieldsContainer {
-        /* Gap reduzido para mobile: 10px vertical, 20px horizontal */
-        gap: 10px 20px; 
+        /* Empilha os campos e reduz o respiro no mobile */
+        gap: 10px 12px;
+        padding: 18px 14px;
+        margin: 18px 10px 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+        max-width: 100%;
+    }
+
+    .inputFieldsContainer > * {
+        flex: 1 1 100%;
+        min-width: 0;
     }
 
     .buttonContainer {
         margin: 10px auto 10px;
         max-width: calc(100%);
+    }
+    
+    .chartSection {
+        margin: 18px auto 30px;
+        background-color: transparent;
+        border: none;
+        padding: 0 8px;
+    }
+
+    .resultContainer {
+        margin: 24px 10px 18px;
+        gap: 20px;
+    }
+
+    .resultsCard,
+    .chartWrapper {
+        padding: 18px 14px;
+        border-radius: 14px;
     }
 }

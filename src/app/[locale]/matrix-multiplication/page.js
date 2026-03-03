@@ -28,6 +28,7 @@ import ParagraphSection from '@/components/TextComponents/ParagraphSection';
 import StepsList from '@/components/TextComponents/StepsList';
 import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
 import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import FAQ from "@/components/TextComponents/FAQ";
 import style from "./page.module.css";
 
 export default function MatrixMultiplicationPage() {
@@ -173,6 +174,11 @@ export default function MatrixMultiplicationPage() {
                     ]}
                 />
             </ArticleLayoutDefault>
+
+            <FAQ questions={t.raw("faqSection").map((_, index) => ({
+                question: t(`faqSection.${index}.question`),
+                answer: t(`faqSection.${index}.answer`),
+            }))} />
         </div>
     );
 }

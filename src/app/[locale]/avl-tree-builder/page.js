@@ -14,9 +14,7 @@ import { useTranslations } from "use-intl";
 import HighlightSection from '@/components/TextComponents/HighlightSection';
 import ParagraphSection from '@/components/TextComponents/ParagraphSection';
 import DefaultList from '@/components/TextComponents/DefaultList';
-import ExampleSection from "@/components/TextComponents/ExampleSection";
-import SymbolLegend from '@/components/TextComponents/SymbolLegend';
-import FormulaCard from '@/components/TextComponents/FormulaCard';
+import FAQ from "@/components/TextComponents/FAQ";
 import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
 
 // Layouts
@@ -120,6 +118,10 @@ function avl_tree_builder() {
           </HighlightSection>
         </ArticleLayoutDefault>
         
+        <FAQ questions={t.raw("faqSection").map((_, index) => ({
+          question: t(`faqSection.${index}.question`),
+          answer: t(`faqSection.${index}.answer`),
+        }))} />
     </div>
   );
 }

@@ -29,6 +29,7 @@ import ProprietiesList from '@/components/TextComponents/ProprietiesList';
 import ParagraphSection from '@/components/TextComponents/ParagraphSection';
 import StepsList from '@/components/TextComponents/StepsList';
 import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import FAQ from "@/components/TextComponents/FAQ";
 
 {/* Layouts */}
 import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
@@ -205,6 +206,11 @@ export default function MatrixBasicOperationsPage() {
                     t("definitionSection.importance")
                 ]} />
             </ArticleLayoutDefault>
+
+            <FAQ questions={t.raw("faqSection").map((_, index) => ({
+                question: t(`faqSection.${index}.question`),
+                answer: t(`faqSection.${index}.answer`),
+            }))} />
         </div>
     );
 }

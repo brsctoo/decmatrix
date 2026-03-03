@@ -23,6 +23,7 @@ import SymbolLegend from '@/components/TextComponents/SymbolLegend';
 import FormulaCard from '@/components/TextComponents/FormulaCard';
 import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
 import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import FAQ from "@/components/TextComponents/FAQ";
 
 
 {/* Imagens */}
@@ -475,6 +476,11 @@ function interest_calculator() {
         equations={[`\\mathbf{J = M - (C + PMT \\times t)}`]}
       />
     </ArticleLayoutDefault>
+
+    <FAQ questions={t.raw("faqSection").map((_, index) => ({
+      question: t(`faqSection.${index}.question`),
+      answer: t(`faqSection.${index}.answer`),
+    }))} />
     </div>
   );
 }

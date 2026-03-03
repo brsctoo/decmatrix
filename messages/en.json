@@ -122,6 +122,16 @@
             "idea": "From financial planning to binary tree simulators, through equations, functions, and fundamental data structure concepts, Decmatrix aims to bring together intuitive explanations and interactive calculators that help transform theory into real-world application. As time goes on, more tools are added to Decmatrix, always focusing on usability and clarity."
         },
 
+        "clarityText": {
+            "title": "Built for clarity",
+            "description": "Our tools are designed to provide clear and concise results, making it easy for users to understand complex mathematical concepts and computations."
+        },
+
+        "previewBinaryTree": {
+            "title": "Preview of our Binary Search Tree Simulator",
+            "description": "Interact with the preview of our binary search tree simulator. Click 'Remove value' to follow step-by-step how the tree restructures itself."
+        },
+
         "mainAreas": {
             "dataStructuresSection": {
                 "title": "Data Structures",
@@ -204,7 +214,22 @@
                     "<strong>Innovation:</strong> Constantly seek new ways to improve and expand our offerings, incorporating user feedback and technological advances."
                 ]
             }
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. What mathematical tools and simulators does Decmatrix offer?",
+                "answer": "Decmatrix is a free platform focused on students of exact sciences, engineering, and computer science. We offer interactive simulators for data structures (such as Binary Search Tree - BST and self-balancing AVL Tree), financial calculators for simple and compound interest, step-by-step solutions for second-degree equations (pre-calculus), linear algebra tools for matrix multiplication and basic operations, and more."
+            },
+            {
+                "question": "02. How do algorithm simulators and calculators help in studies?",
+                "answer": "Our focus is real-time visualization. Instead of just delivering the final result, Decmatrix details the calculation step by step. You can visualize AVL trees, understand the mathematical logic behind matrix addition and inversion, and analyze detailed graphs of financial investment growth."
+            },
+            {
+                "question": "03. Didn't find the calculator or structural algorithm you needed?",
+                "answer": "Decmatrix is a constantly evolving project. If you have ideas for new tools, found an error on any page, or want to suggest improvements to the website, send your feedback via email decimatrix25@gmail.com. Your suggestion is always welcome!"
+            }
+        ]
     },
 
     "AVLTreeBuilder": {
@@ -245,7 +270,22 @@
                 "case03": "<strong>Left double rotation:</strong> Occurs when a node has a balance factor greater than 1 and its left child has a balance factor less than 0.",
                 "case04": "<strong>Right double rotation:</strong> Occurs when a node has a balance factor less than -1 and its right child has a balance factor greater than 0."
             }
-        }
+        },
+
+        "faqSection": [
+            {
+            "question": "01. What is an AVL tree and what is it used for?",
+            "answer": "An AVL tree is a self-balancing binary search tree. Its main rule is that the height difference between the left and right subtrees of any node (the balance factor) can never be greater than 1. This guarantees that searches, insertions, and removals remain efficient."
+            },
+            {
+            "question": "02. How does an AVL tree perform its automatic balancing?",
+            "answer": "The system calculates the balance factor of each node. If, after you insert or remove a value, this factor goes beyond the allowed range (becoming greater than 1 or less than -1), the tree automatically performs structural rotations to restore its balance."
+            },
+            {
+            "question": "03. What are rotations in an AVL tree and how do they work?",
+            "answer": "They are the operations that correct imbalances. There are four main types of rotation: single right, single left, double left, and double right. The algorithm chooses which one to use depending exactly on where the imbalance occurred in the structure."
+            }
+        ]
     },
 
     "BSTTreeBuilder": {
@@ -261,7 +301,22 @@
         "bstSearchText": "Searching in a BST tree starts at the root and traverses the tree by comparing the searched value with the current node's value, moving left or right as needed. The algorithm is very simple and efficient, being O(log n) on average.",
         "bstInsertionText": "Inserting a new value in the BST tree follows a process similar to searching, locating the correct position for the new node and always inserting it as a leaf.",
         "binarySearchTreeSimulatorLink": "binary search tree simulator",
-        "bstRemovalText": "Removing a node in a BST tree can be more complex, depending on the number of children the node to be removed has. Nodes without children can be removed directly, nodes with one child can be replaced by their child, and nodes with two children require replacement by the in-order successor or predecessor."
+        "bstRemovalText": "Removing a node in a BST tree can be more complex, depending on the number of children the node to be removed has. Nodes without children can be removed directly, nodes with one child can be replaced by their child, and nodes with two children require replacement by the in-order successor or predecessor.",
+
+        "faqSection": [
+            {
+                "question": "01. What is the main rule of a Binary Search Tree (BST)?",
+                "answer": "In a BST, each node can have at most two children. The rule is: all values in the left subtree are smaller than the parent node's value, and all values in the right subtree are greater."
+            },
+            {
+                "question": "02. What is the disadvantage or worst-case scenario of a BST?",
+                "answer": "Usually it is very efficient (taking logarithmic time on average). However, if you insert already sorted data, all nodes can fall to one side. This creates a 'degenerate tree', destroying efficiency and making search take as long as in a simple list."
+            },
+            {
+                "question": "03. How does the removal of a node work in a BST?",
+                "answer": "It depends on the position of the node. If it is a 'leaf' (without children), it can be simply deleted. If it has one child, the child replaces it. If the node has two children, the logic is more complex: it must be replaced by its successor or predecessor in tree order."
+            }
+        ]
     },
 
     "CompoundInterestCalculator": {
@@ -365,7 +420,22 @@
             "formula02List02": "The other symbols maintain the same meaning as in the previous formula.",
 
             "interestFormulaIntro": "Interest is always calculated as the final amount minus the total invested (initial capital + sum of contributions). Therefore:"
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. What are compound interest and how do they work in practice?",
+                "answer": "Compound interest works under the logic of 'interest on interest'. Unlike simple interest, the return of each period is added to the initial capital. In the following month or year, the new interest rate is calculated on this total value, making the final amount grow exponentially over time."
+            },
+            {
+                "question": "02. Is it possible to simulate scenarios with monthly contributions in the compound interest calculator?",
+                "answer": "Yes! Your calculator allows you to enter a monthly contribution amount. This means that in addition to the initial capital, you can simulate regular investments, which will further enhance the growth of your investment over time due to the compound effect."
+            },
+            {
+                "question": "03. Where are compound interest applied in the financial market?",
+                "answer": "They are the absolute rule of the market. In favor of your money, they are used in most investments (CDBs, Direct Treasury, funds and remunerated accounts). Against your pocket, they are the engine behind real estate financing, bank loans and credit card revolving payments, which explains why these debts grow so aggressively."
+            }
+        ]
     },
 
     "SimpleInterestCalculator": {
@@ -451,7 +521,22 @@
             "formulaExplanation": "With this formula, you can calculate the final amount (M) when investing an initial capital (C) at an interest rate (i) for a given number of periods (t).",
             "interestCalculation": "Just as in compound interest, the interest is calculated by M - C, that is, the final amount minus the initial capital.",
             "interestFormula": "J = C × i × t = M - C"
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. What are simple interest and what is the main difference from compound interest?",
+                "answer": "In simple interest, the return rate is applied exclusively to the initial capital during the entire period. Unlike compound interest (where returns accelerate), in simple interest the earned value is always fixed and linear each month or year."
+            },
+            {
+                "question": "02. How to calculate the final amount and interest in simple interest?",
+                "answer": "To calculate the exact interest, simply multiply the initial capital, interest rate, and time (J = C × i × t). To discover the final amount, you add this generated interest to the original initial capital value (M = C + J)."
+            },
+            {
+                "question": "03. When is the simple interest system used in the market?",
+                "answer": "Although compound interest dominates long-term investments, simple interest is still widely used in short-term financial operations, bill discounts, early receivables anticipation, and late payment penalty calculations."
+            }
+        ]
     },
 
     "QuadraticEquationCalculator": {
@@ -576,7 +661,22 @@
             "title": "Quadratic Equations in Real Life",
             "intro": "Quadratic equations are widely used in various areas of real life, including physics, engineering, economics, and biology. They are particularly useful for modeling situations involving motion, growth, and optimization.",
             "examples": "Some practical examples include: trajectories of objects in free fall, calculation of maximum areas, analysis of profits and losses, and modeling of biological populations. Quadratic equations help describe and predict complex behaviors in natural and artificial systems."
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. How to solve a quadratic equation using the Bhaskara Formula?",
+                "answer": "The classical method requires two steps: first, calculate the discriminant (Delta) using the formula Δ = b² - 4ac. Then, apply the Bhaskara Formula: x = (-b ± √Δ) / 2a. Our calculator shows exactly this step-by-step process, displaying how coefficients 'a', 'b', and 'c' interact to find real or complex roots."
+            },
+            {
+                "question": "02. What happens if the Delta (Δ) is negative or zero?",
+                "answer": "The value of Delta defines the type of root of the quadratic equation. If Δ > 0, the parabola crosses the X-axis twice (two distinct roots). If Δ = 0, the equation touches the X-axis at only one point (a double real root). If Δ < 0, the equation has no real roots, generating complex roots (the parabola floats without touching the X-axis)."
+            },
+            {
+                "question": "03. How to discover the vertex of a parabola from a quadratic equation?",
+                "answer": "The vertex represents the point of maximum value (if the parabola opens downward) or minimum value (if it opens upward) of the graph. It is calculated directly from the coefficients and Delta using mathematical formulas: Vx = -b / 2a (for the X-axis) and Vy = -Δ / 4a (for the Y-axis)."
+            }
+        ]
     },
 
     "TermsOfUse": {
@@ -725,7 +825,22 @@
             },
 
             "observation": "Although it may seem complex, matrix multiplication is an operation that can be performed systematicall by following the formula above. With practice, you will be able to perform matrix multiplications quickly and accurately, which is especially useful in contexts such as linear algebra, computer graphics, and data science."
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. What is the main rule for multiplying two matrices?",
+                "answer": "The necessary condition for existence is that the number of columns of Matrix A must be exactly equal to the number of rows of Matrix B. If this rule is not met, the multiplication is mathematically impossible."
+            },
+            {
+                "question": "02. Is matrix multiplication commutative (A × B = B × A)?",
+                "answer": "No. Unlike multiplication of common numbers, in linear algebra the order of factors changes the product. Multiplying Matrix A by Matrix B usually generates a completely different result than multiplying Matrix B by Matrix A."
+            },
+            {
+                "question": "03. How is the step-by-step calculation of matrix multiplication done?",
+                "answer": "The calculation is not done element by element. You must multiply the elements of an entire row of the first matrix by the corresponding elements of a column of the second matrix, and then sum all these products to find a single value in the resulting matrix."
+            }
+        ]
     },
 
     "matrixBasicOperations": {
@@ -851,7 +966,22 @@
                 ]
             },
             "importance": "Matrix addition is essential in several areas, including computer graphics, data analysis, and solving linear systems. Matrix subtraction is equally important, as it allows comparing and analyzing differences between data sets represented by matrices."
-        }
+        },
+
+        "faqSection": [
+            {
+                "question": "01. It is possible to add or subtract matrices of different sizes?",
+                "answer": "NNo. For addition or subtraction to be possible, both matrices must have exactly the same dimensions (same number of rows and columns). For example, it is not possible to add a 2x3 matrix with a 3x2 matrix."
+            },
+            {
+                "question": "02. How does the calculation of matrix addition and subtraction work?",
+                "answer": "Unlike multiplication, addition and subtraction are direct operations. The calculation is done element by element. You simply add or subtract the number that is in the exact position (i, j) of the first matrix with the number in the same position of the second matrix."
+            },
+            {
+                "question": "03. Does matrix addition have the commutative property?",
+                "answer": "Yes. In matrix addition, the order does not matter. The sum of Matrix A with Matrix B (A + B) will produce exactly the same result as the sum of Matrix B with Matrix A (B + A)."
+            }
+        ]
     }
 
 }

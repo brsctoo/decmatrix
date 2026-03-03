@@ -21,6 +21,7 @@ import quadraticEquationResultExample01En from "@/assets/precalculus/quadratic_e
 import quadraticEquationResultExample02En from "@/assets/precalculus/quadratic_equation/result_example02_en.png";
 
 // Styles
+import FAQ from "@/components/TextComponents/FAQ";
 import HighlightSection from '@/components/TextComponents/HighlightSection';
 import ParagraphSection from '@/components/TextComponents/ParagraphSection';
 import StepsList from '@/components/TextComponents/StepsList';
@@ -643,6 +644,11 @@ function quadratic_equation_calculator() {
           t("realWorld.examples")
         ]}/>
       </ArticleLayoutDefault>
+
+      <FAQ questions={t.raw("faqSection").map((_, index) => ({
+        question: t(`faqSection.${index}.question`),
+        answer: t(`faqSection.${index}.answer`),
+      }))} />
     </div>
   );
 }
