@@ -31,7 +31,6 @@ import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/Art
   para remover o último valor inserido  
 */}
 
-
 function avl_tree_builder() {
   const t = useTranslations("AVLTreeBuilder");
 

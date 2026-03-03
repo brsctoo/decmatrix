@@ -691,7 +691,7 @@ export default function BinaryTree({
     }
 
 
-    const isMobile = useIsMobile();
+    const isMobile = useIsMobile(); 
 
     return (
         <div>
