@@ -87,7 +87,10 @@
             "dataStructures": {
                 "title": "Data Structures",
                 "binarySearchTreeSimulator": "Binary Search Tree",
-                "AVLTreeSimulator": "AVL Tree"
+                "AVLTreeSimulator": "AVL Tree",
+                "bubbleSort": "Bubble Sort",
+                "insertionSort": "Insertion Sort",
+                "selectionSort": "Selection Sort"
             }
         },
 
@@ -105,7 +108,10 @@
         "dataStructures": {
             "title": "Data Structures",
             "binarySearchTreeSimulator": "Binary Search Tree",
-            "AVLTreeSimulator": "AVL Tree"
+            "AVLTreeSimulator": "AVL Tree", 
+            "bubbleSort": "Bubble Sort",
+            "insertionSort": "Insertion Sort",
+            "selectionSort": "Selection Sort"
         }
     },
 
@@ -982,6 +988,265 @@
                 "answer": "Yes. In matrix addition, the order does not matter. The sum of Matrix A with Matrix B (A + B) will produce exactly the same result as the sum of Matrix B with Matrix A (B + A)."
             }
         ]
-    }
+    },
 
+    "sortAlgorithmsComponent": {
+        "bubbleSort": {
+            "description": "Bubble Sort is a simple sorting algorithm that repeatedly walks through the list to be sorted, comparing each pair of adjacent elements and swapping them if they are in the wrong order. This process is repeated until the list is sorted. The name 'Bubble Sort' comes from the fact that larger elements 'bubble' to the top of the list with each iteration.",
+            "complexity": "<strong>Complexity:</strong> In the classic version, the time complexity is always O(n²) in all scenarios (worst, average, and best case). Since this algorithm has no early-stop mechanism, even if the list is already completely sorted (best case), it will still perform all passes and comparisons in a 'blind' way, wasting processing time."
+        },
+        "bubbleSortOtimized": {
+            "description": "The optimized Bubble Sort is a variation of the Bubble Sort algorithm that includes a check to determine whether the list is already sorted. If during a full pass through the list no swaps occur, the algorithm can conclude that the list is sorted and stop immediately, avoiding unnecessary passes. This can significantly improve performance in cases where the list is almost sorted or already sorted.",
+            "complexity": "<strong>Complexity:</strong> In the worst case (reverse-ordered list) and in the average case, the time complexity remains O(n²). However, the big performance gain occurs in the best case (already sorted list): the algorithm makes only one initial pass, realizes that no swap was needed, and immediately stops execution (using 'break'). This results in a time complexity of O(n), making it extremely efficient for lists that are already almost sorted."
+        },
+        "insertion": {
+            "description": "Insertion Sort is a sorting algorithm that builds the sorted portion of the list one element at a time. At each step it removes an element from the unsorted part of the array and inserts it in the correct position inside the already sorted part, shifting the other elements to the right.",
+            "complexity": "<strong>Complexity:</strong> In the worst and average cases (reverse or random order), the time complexity is O(n²). In the best case (already sorted list), the algorithm only walks through the list once without needing to shift elements, resulting in O(n) time complexity. Like Bubble Sort, it is an in-place algorithm with O(1) space complexity."
+        },
+        "selection": {
+            "description": "Selection Sort is a simple sorting algorithm that divides the array into two parts: a sorted part and an unsorted part. In each iteration, it scans the unsorted part to find the smallest element and swaps it with the first element of the unsorted part, effectively moving it to the sorted part. This process is repeated until the entire array is sorted.",
+            "complexity": "<strong>Complexity:</strong> Unlike Bubble Sort and Insertion Sort, Selection Sort is not adaptive. It does not know if the list is already sorted and will always perform a complete scan. Therefore, its time complexity is O(n²) in all scenarios (worst, average, and best case). Its only significant advantage over the other two algorithms is the reduced number of swaps in memory (at most O(n) swaps). It is an in-place algorithm with O(1) space complexity."
+        },
+        "ui": {
+            "inputLabel": "Values to be sorted",
+            "inputPlaceholder": "e.g. 50, -30, 70, 20, -40",
+            "inputInfo": "Enter up to 21 integer numbers from -999 to 999, separated by commas.",
+
+            "errorDuplicateComma": "There seems to be a missing element (a duplicate comma somewhere perhaps).",
+            "errorInvalidNegative": "There seems to be an invalid negative sign (double '-' detected).",
+            "errorTooManyNumbers": "Please enter 21 numbers or fewer to avoid visual clutter.",
+            "errorOutOfRange": "Please enter numbers between -999 and 999.",
+            "errorAtLeastOneNumber": "Please enter at least one valid number.",
+
+            "playButtonLabel": "Insert values to sort",
+
+            "variantSelectLabel": "Select an option",
+            "variantBubbleLabel": "Bubble Sort",
+            "variantBubbleOptimizedLabel": "Optimized Bubble Sort",
+
+            "stepsTitle": "Steps:",
+            "stepsFallbackMessage": "Run the algorithm to see the recorded steps.",
+
+            "stepsExecuted": "Steps executed: {value}",
+            "stepsRemaining": "Remaining: {value}",
+            "stepsTotal": "Total: {value}",
+            "noStepsMessage": "No steps recorded yet.",
+
+            "prevStepLabel": "Previous step",
+            "nextStepLabel": "Next step",
+            "playForwardLabel": "Play ▶",
+            "playBackwardLabel": "Play ◀",
+            "pauseLabel": "Pause ⏸",
+
+            "animationSpeedLabel": "Animation speed",
+            "animationSpeedSlow": "Slow",
+            "animationSpeedFast": "Fast",
+
+            "codeSectionTitle": "Code"
+        }
+    },
+
+    "sortAlgorithmsSteps": {
+        "classic": {
+            "init": "Starting classic Bubble Sort. Array size: {n}.",
+            "startPass": "Starting pass {pass}. Checking {remaining} elements.",
+            "compare": "Comparing: Is the value {left} greater than {right}?",
+            "swap": "Yes! Swapping the values.",
+            "noSwap": "No. The values are already in the correct order.",
+            "endPass": "End of pass {pass}. The largest element has moved to the end.",
+            "finished": "Array fully sorted!"
+        },
+        "optimized": {
+            "init": "Starting optimized Bubble Sort. Array size: {n}.",
+            "startPass": "Starting pass {pass}. Checking {remaining} elements.",
+            "compare": "Comparing: Is the value {left} greater than {right}?",
+            "swap": "Yes! Swapping the values.",
+            "noSwap": "No. The values are already in the correct order.",
+            "endPassSwapped": "End of pass. Were there swaps? Yes. Continue.",
+            "endPassNoSwap": "End of pass. Were there swaps? No! The array is already sorted (Break).",
+            "finished": "Array fully sorted!"
+        },
+        "insertion": {
+            "init": "Starting Insertion Sort. Array size: {n}.",
+            "startPass": "Picking the element at position {pass} (value {value}) to insert into the sorted part.",
+            "compare": "Comparing: is the value {left} greater than the element we are inserting ({current})?",
+            "swap": "Yes. Swapping the two values.",
+            "shift": "Yes. Shifting the value {shifted} one position to the right.",
+            "noShift": "No. We found the point where the value on the left ({left}) is not greater than the current element.",
+            "reachedStart": "We reached the beginning of the array. The element will be inserted in the first position.",
+            "insert": "Inserting value {value} at position {pos}.",
+            "finished": "Array fully sorted with Insertion Sort!"
+        },
+        "selection": {
+            "init": "Starting Selection Sort. Array size: {n}.",
+            "startPass": "Pass {pass}: the value {min} is defined as the provisional smallest element.",
+            "compare": "Current value: {current}. Is it smaller than the provisional minimum ({min})?",
+            "newMin": "Yes! {newMin} is the new provisional smallest element.",
+            "checkSwap": "End of scan. Is the smallest found ({min}) in the position of the initial element ({target})?",
+            "swap": "NNo! Performing swap: {min} goes to its definitive position.",
+            "noSwap": "Sim. {min} já está na posição correta. Nenhuma troca necessária.",
+            "finished": "Array ordenado com sucesso pelo Selection Sort!"
+        }
+    },
+
+    "sortAlgorithmsPages": {
+        "bubbleSort": {
+            "mainTitle": "Bubble Sort",
+
+            "definition": {
+                "title": "Definition of Bubble Sort",
+                "content": "Bubble Sort is a simple sorting algorithm that repeatedly walks through the list to be sorted. It compares each pair of adjacent elements and swaps them if they are in the wrong order. The process is repeated until the entire list is sorted. The name 'Bubble Sort' comes from the fact that larger elements 'bubble' to the end of the list with each iteration."
+            },
+
+            "howWorks": {
+                "title": "How Bubble Sort Works",
+                "steps": [
+                    "Start by <strong>comparing the first two elements</strong> of the list.",
+                    "If the <strong>first element is greater than the second, swap them.</strong>",
+                    "Move to the next elements and <strong>repeat the process.</strong>",
+                    "Continue until you have <strong>walked through the entire list</strong> without needing to make any more swaps.",
+                    "The list is sorted when <strong>no more swaps</strong> are needed."
+                ]
+            },
+
+            "contextAndUsage": {
+                "title": "Applications and Real-World Use",
+                "content": "Although it is one of the most famous and studied algorithms in programming, Bubble Sort is rarely implemented in production systems, real-world software, or standard libraries. Its quadratic nature O(n²) makes it extremely slow as the amount of data grows. Its main value is <strong>didactic</strong>: it is the perfect tool to introduce students to sorting concepts, array iteration, and performance analysis, serving as an essential foundation for understanding more efficient algorithms."
+            },
+
+            "proprieties": {
+                "title": "Properties of Bubble Sort",
+                "list": [
+                    "<strong>Time complexity:</strong> The worst and average cases of Bubble Sort have a time complexity of O(n²), where n is the number of elements in the list. The best case, when the list is already sorted, has a time complexity of O(n) due to the need to walk through the list to verify that it is sorted.",
+                    "<strong>Space complexity:</strong> Bubble Sort is an in-place sorting algorithm, which means it does not require significant additional space beyond what is needed to store the original list. Therefore, its space complexity is O(1).",
+                    "<strong>Stability:</strong> Bubble Sort is a stable sorting algorithm, which means it preserves the relative order of equal elements. If two elements have the same value, they will remain in the same order as in the original list after sorting."
+                ]
+            },
+
+            "faqSection": [
+                {
+                    "question": "01. Why is Bubble Sort considered an inefficient algorithm?",
+                    "answer": "Because it requires repeatedly comparing adjacent elements many times, even when many of them are already close to the correct position. In a very large list, the number of operations grows quadratically (n²), which can drastically slow down processing."
+                },
+                {
+                    "question": "02. What is the difference between Classic and Optimized Bubble Sort?",
+                    "answer": "Classic Bubble Sort always performs all possible passes, even if the list has become sorted halfway through the process. The Optimized version has a 'flag' (a sentinel variable) that checks whether any swap has been made in the last pass. If no swap occurred, it understands that the list is perfectly sorted and immediately stops the algorithm, saving time."
+                },
+                {
+                    "question": "03. Does Bubble Sort need extra memory to run?",
+                    "answer": "No. One of its few technical advantages is being an in-place algorithm. It needs only a minimal space in memory (a single temporary variable) to hold a number while swapping the positions of two elements."
+                },
+                {
+                    "question": "04. When should I choose Bubble Sort in a real project?",
+                    "answer": "In practice, almost never. Native language algorithms (such as JavaScript or Python's .sort()) use much faster methods under the hood (such as TimSort). Bubble Sort would only be acceptable on tiny lists where the absolute simplicity of the code matters more than execution speed."
+                }
+            ]
+        },
+
+        "insertionSort": {
+            "mainTitle": "Insertion Sort",
+            
+            "definition": {
+                "title": "Definition of Insertion Sort",
+                "content": "Insertion Sort is a simple sorting algorithm that builds the sorted list progressively, one element at a time. It works very similarly to the way you would organize playing cards in your hands: you take a new card from the unsorted pile and insert it in the exact position among the cards that are already in order in your hand."
+            },
+
+            "howWorks": {
+                "title": "How Insertion Sort Works",
+                "steps": [
+                "Assume that the <strong>first element</strong> of the list (index 0) is already in its final, sorted position.",
+                "Take the <strong>next element</strong>",
+                "Compare this element with the previous ones (which are already sorted), moving from <strong>right to left</strong>.",
+                "While the previous element is greater than the current card, <strong>swap their positions</strong> to push the larger values to the right.",
+                "The current card will find its <strong>correct spot</strong>. Repeat this process for all remaining items in the list."
+                ]
+            },
+            
+            "contextAndUsage": {
+                "title": "Applications and Real-World Use",
+                "content": "Unlike Bubble Sort, Insertion Sort is very useful in the real world. Although it is inefficient for huge and completely unsorted lists, it is incredibly fast for <strong>small lists</strong> (fewer than 50 items) or data that is already <strong>almost sorted</strong>. Because of this surgical efficiency, languages like Python and Java use hybrid algorithms (such as TimSort) that break huge lists into small chunks and trigger Insertion Sort under the hood to sort these fragments at lightning speed."
+            },
+
+            "proprieties": {
+                "title": "Properties of Insertion Sort",
+                "list": [
+                "<strong>Time complexity:</strong> The worst case (reversed list) and the average case have a time complexity of O(n²). However, its big advantage shines in the best case: when the list is already sorted or almost sorted, the complexity drops to O(n), since it makes only one comparison per element and almost no swaps.",
+                "<strong>Space complexity:</strong> It is an in-place algorithm. It reorders the elements by moving them inside the original array itself, needing only one temporary variable for swaps. Therefore, its space complexity is O(1).",
+                "<strong>Stability:</strong> Insertion Sort is a stable algorithm. If two elements have the same value, the algorithm will not swap their positions, perfectly preserving their original relative order."
+                ]
+            },
+
+            "faqSection": [
+                {
+                "question": "01. Is Insertion Sort better than Bubble Sort?",
+                "answer": "Yes. Although both belong to the O(n²) complexity category in the worst case, Insertion Sort performs considerably fewer comparisons and movements in practice. In real scenarios, it is almost always faster and more efficient than Bubble Sort and Selection Sort."
+                },
+                {
+                "question": "02. What does it mean to say that it is an 'adaptive' algorithm?",
+                "answer": "It means that its performance adapts and improves drastically according to the current state of the list. If you give it a huge list with only two numbers out of place, Insertion Sort will 'skip' the part that is already correct and fix only the defect, running almost at the maximum speed of O(n)."
+                },
+                {
+                "question": "03. Why does it always start scanning from the second element (index 1)?",
+                "answer": "Because, mathematically speaking, a sublist made up of a single element is already considered perfectly sorted. The algorithm assumes that index 0 is the correct base and then starts inserting the remaining elements around it."
+                },
+                {
+                "question": "04. When should I choose to use Insertion Sort in my projects?",
+                "answer": "You should use it in two main situations: when the amount of data is very small, or when you have a system that receives new data one by one (such as a continuous stream) and needs to insert them into a database or list that is already sorted."
+                }
+            ]
+        },
+
+        "selectionSort": {
+            "mainTitle": "Selection Sort",
+
+            "definition": {
+                "title": "Definition of Selection Sort",
+                "content": "Selection Sort divides the list into two parts: a sorted part (on the left) and an unsorted part (on the right). On each iteration, it finds the smallest element in the unsorted part and moves it to the end of the sorted part. This process repeats until the entire list is sorted."
+            },
+
+            "howWorks": {
+                "title": "How Selection Sort Works",
+                "steps": [
+                    "Consider the first element of the unsorted part as the <strong>current minimum</strong>.",
+                    "Scan all elements to the right, comparing each one against the current minimum.",
+                    "If a smaller value is found, it becomes the <strong>new current minimum</strong>.",
+                    "After the scan, perform a <strong>single swap</strong>: place the smallest value found at the first position of the unsorted part.",
+                    "Advance the sorted boundary one position and <strong>repeat</strong> until the end of the array."
+                ]
+            },
+
+            "contextAndUsage": {
+                "title": "Applications and Real-World Usage",
+                "content": "Like Bubble Sort, Selection Sort is rarely used in production due to its quadratic complexity. Its main advantage is performing the <strong>minimum possible number of swaps</strong> — at most N−1. This makes it useful in constrained hardware environments, such as flash memory (EEPROM), where each write operation consumes processing power and physically degrades the chip."
+            },
+
+            "proprieties": {
+                "title": "Properties of Selection Sort",
+                "list": [
+                    "<strong>Time complexity:</strong> O(n²) in all cases — best, average, and worst. Because it is not adaptive, the algorithm always scans the entire list on every pass, even if it is already sorted.",
+                    "<strong>Space complexity:</strong> O(1). It is an in-place algorithm: elements are reordered within the original array, using only a single temporary variable for the swap.",
+                    "<strong>Stability:</strong> Not stable. The long-distance swap can reverse the relative order of two elements with equal values."
+                ]
+            },
+
+            "faqSection": [
+                {
+                    "question": "01. What is the main difference between Selection Sort and Insertion Sort?",
+                    "answer": "Insertion Sort is adaptive: if the list is already nearly sorted, it finishes much faster. Selection Sort is not adaptive — it always performs O(n²) comparisons, scanning the entire list on every pass regardless of the initial order of the data."
+                },
+                {
+                    "question": "02. If it is always O(n²), why learn this algorithm?",
+                    "answer": "For its educational value. It clearly illustrates the difference between the number of comparisons (many) and the number of memory swaps (very few) — an important concept for understanding algorithmic trade-offs."
+                },
+                {
+                    "question": "03. Why is classic Selection Sort not stable?",
+                    "answer": "Consider the list [4a, 4b, 1]. On the first pass, the algorithm finds the smallest element (1) and swaps it with the first element (4a), resulting in [1, 4b, 4a]. The 4a, which appeared before 4b, now comes after it — the relative order of equal elements has been broken."
+                },
+                {
+                    "question": "04. Does Selection Sort require extra memory?",
+                    "answer": "No. It is in-place: it operates directly on the original array without allocating any auxiliary structures. Memory usage is O(1)."
+                }
+            ]
+        }
+    }
 }

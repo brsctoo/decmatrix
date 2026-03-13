@@ -1,0 +1,329 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #fff;
+}
+
+.inputRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* alinha input e erro pelo topo */
+  gap: 12px;
+  width: 100%;
+}
+
+.inputWrapper {
+  flex: 1 1 auto;
+  min-width: 650px; /* mantém o input largo em telas grandes */
+}
+
+.errorMessageWrapper {
+  flex: 0 0 280px; /* largura fixa para o bloco de erro */
+  min-height: 1.1rem;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: flex-start; /* texto começa de cima, não centralizado */
+}
+
+.errorMessage {
+  color: #ff4444;
+  font-size: 0.85rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;  
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;    
+}
+
+.sortContainer {
+  width: 100%;
+  margin: 0;
+}
+
+.buttonsContainer button {
+  width: 100%;
+  height: 40px;            /* mais alto */
+  font-size: 0.8rem;
+  padding: 0 12px;         /* remove padding vertical, mantém lateral */
+  margin-top: 0;           /* alinha com o dropdown ao lado */
+}
+
+.controlsContainer {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.arrayContainer {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(39, 39, 42, 0.9);
+  background: radial-gradient(circle at center, #00b94725, #050505);
+  flex-wrap: wrap;
+  min-height: 400px;
+  width: 100%;
+  max-width: 1200px; /* segue o limite do container principal */
+}
+
+.infoOverlay {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  max-width: 260px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background:  rgba(0, 185, 71, 0.068);
+  border-left: 3px solid rgb(0, 185, 71);
+  font-size: 0.75rem;
+  color: #e5e7eb;
+  z-index: 11;
+}
+
+
+
+/* O wrapper segura as 3 partes: a zona positiva, a linha e a zona negativa */
+.columnWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+}
+
+/* ZONAS: Elas têm altura fixa para garantir que a linha do Eixo Zero fique reta */
+.positiveZone {
+  display: flex;
+  flex-direction: column; /* Direção normal! */
+  align-items: center;
+  justify-content: flex-end; /* Empurra o bloco inteiro para encostar no Eixo Zero */
+  height: 150px; 
+}
+
+.negativeZone {
+  display: flex;
+  flex-direction: column; /* A barra cresce para baixo a partir do eixo */
+  align-items: center;
+  justify-content: flex-start; /* O número fica no fundo do contêiner flex */
+  height: 150px; 
+}
+
+/* BARRAS */
+.barPositive {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* O SEGREDO: Prende o número no "chão" da barra */
+  width: 36px;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.15s ease, height 0.2s ease;
+  padding-bottom: 2px; /* Espacinho para o número não bater na linha */
+}
+
+.barNegative {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* O SEGREDO: Prende o número no "teto" da barra */
+  width: 36px;
+  border-radius: 0 0 4px 4px;
+  transition: background 0.15s ease, height 0.2s ease;
+  padding-top: 2px; /* Espacinho para o número não bater na linha */
+}
+
+/* EIXO ZERO: A linha que corta o gráfico no meio */
+.indexAxis {
+  width: 120%; /* Faz a linha azul passar um pouco da largura da barra */
+  text-align: center;
+  font-size: 0.75rem;
+  color: #888;
+  border-top: 2px solid #333; /* Linha divisória */
+  border-bottom: 2px solid #333; 
+  background-color: #1a1a1a;
+  padding: 4px 0;
+  margin: 2px 0;
+  z-index: 10;
+}
+
+.itemValuePositive {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #f9fafb;
+  /* Removemos o margin: auto */
+  margin-bottom: 2px; /* Esse é o espacinho milagroso para o "1" não ralar no eixo */
+}
+
+.itemValueNegative {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #f9fafb;
+  /* Removemos o margin: auto */
+  margin-top: 2px; /* Espacinho para o "-1" não ralar no eixo */
+}
+
+/* ------------------------------------ */
+/* -------------- Área de Passos (Highlight Section) -------------- */
+
+.stepsHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Linha divisória sutil super elegante */
+}
+
+.stepsTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.stepsMessage {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* O layout mestre do rodapé (3 Colunas perfeitamente alinhadas) */
+.stepsFooterRow {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centraliza tudo na vertical */
+  gap: 20px;
+  flex-wrap: wrap; 
+}
+
+/* COLUNA 1: Textos (Fica na esquerda) */
+.stepsCounterInfo {
+  display: flex;
+  flex-direction: column; /* Empilha os status para leitura mais rápida */
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  flex: 1;
+  min-width: 150px;
+}
+
+.stepsCounterInfo span {
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+/* COLUNA 2: O Media Player (Fica no centro) */
+.stepsPlayButtons {
+  display: flex;
+  flex-direction: row; /* Coloca tudo na mesma linha! */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 2; /* Dá mais espaço para o player ficar centralizado */
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stepsPlayButtons > :nth-child(1) { order: 1; } /* Mantém o Prev em primeiro */
+.stepsPlayButtons > :nth-child(3) { order: 2; } /* Puxa o Grupo de Plays para o meio */
+.stepsPlayButtons > :nth-child(2) { order: 3; } /* Joga o Next lá para o final */
+
+.stepsPlayGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 8px; /* Dá um respiro entre o Prev/Next e os botões centrais */
+}
+
+.stepsPlayGroup > :nth-child(3) { order: 1; } /* Coloca o Play Inverso na esquerda */
+.stepsPlayGroup > :nth-child(2) { order: 2; } /* Mantém o Pause no meio */
+.stepsPlayGroup > :nth-child(1) { order: 3; } /* Joga o Play Normal para a direita */
+
+.stepsPlayButtons button,
+.stepsPlayGroup button {
+  width: auto;
+  min-width: 40px; /* Bem mais compactos */
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* COLUNA 3: O Slider (Fica na direita) */
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  flex: 1; 
+  padding: 12px 16px;
+}
+
+.sliderLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a3a3a3;
+  margin-bottom: 5px;
+}
+
+/* A trilha de fundo */
+.sliderTrack {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px; /* Pouquinho mais grosso */
+  border-radius: 999px;
+  background: linear-gradient(90deg, #064e3b 0%, #16a34a 50%, #4ade80 100%);
+  outline: none;
+}
+
+.sliderTrack::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+/* O "Botão" do Slider (Thumb) */
+.sliderTrack::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.123); /* Glow inicial suave */
+  cursor: pointer;
+  margin-top: -4px; /* Centraliza verticalmente na trilha de 8px */
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.sliderTrack:focus-visible {
+  outline: none;
+}
+
+.sliderScale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #4b5563;
+  text-transform: uppercase;
+}

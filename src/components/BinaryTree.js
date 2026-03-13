@@ -208,7 +208,6 @@ export default function BinaryTree({
     // ----- HISTORICO ANTERIOR ---- //
     const [history, setHistory] = useState([]);
     
-
     // ----- OPERAÇÕES ---- //
     const [operationInfo, setOperationInfo] = useState(""); // Informação da operação atual
 

@@ -105,6 +105,27 @@ function LateralBar() {
             labelKey: 'dataStructures.AVLTreeSimulator',
             path: `/${params.locale}/avl-tree-builder`,
             category: 'data_structures'
+        },
+
+        'bubbleSort': {
+            id: 'bubbleSort',
+            labelKey: 'dataStructures.bubbleSort',
+            path: `/${params.locale}/bubble-sort`,
+            category: 'data_structures'
+        },
+
+        'insertionSort': {
+            id: 'insertionSort',
+            labelKey: 'dataStructures.insertionSort',
+            path: `/${params.locale}/insertion-sort`,
+            category: 'data_structures'
+        },
+
+        'selectionSort': {
+            id: 'selectionSort',
+            labelKey: 'dataStructures.selectionSort',
+            path: `/${params.locale}/selection-sort`,
+            category: 'data_structures'
         }
     }
 

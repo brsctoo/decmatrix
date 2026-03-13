@@ -582,5 +582,254 @@ export const schemas = {
                 }
             ]
         }
+    },
+    bubbleSort: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/bubble-sort#software",
+                    "name": "Decimatrix - Bubble Sort Visualizer",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Visualize e entenda o algoritmo de ordenação Bubble Sort com animações passo a passo.",
+                    "url": "https://decmatrix.com/pt/bubble-sort"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como visualizar o Bubble Sort",
+                    "description": "Aprenda a inserir valores e visualizar o algoritmo de ordenação em tempo real.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Insira valores", "text": "Digite uma lista de números inteiros separados por vírgula e insira no array." },
+                        { "@type": "HowToStep", "name": "Visualize a ordenação", "text": "Dê o play para ver os maiores números flutuando para o final enquanto as barras trocam de posição." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/pt"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Bubble Sort",
+                            "item": "https://decmatrix.com/pt/bubble-sort"
+                        }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/bubble-sort#software",
+                    "name": "Decimatrix - Bubble Sort Visualizer",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Visualize and understand the Bubble Sort algorithm with step-by-step animations.",
+                    "url": "https://decmatrix.com/en/bubble-sort"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to visualize Bubble Sort",
+                    "description": "Learn to insert values and watch the sorting process in real-time.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Insert values", "text": "Type a list of comma-separated integer numbers and insert them into the array." },
+                        { "@type": "HowToStep", "name": "Visualize sorting", "text": "Hit play to see the largest numbers float to the end as the bars swap positions." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/en"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Bubble Sort",
+                            "item": "https://decmatrix.com/en/bubble-sort"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    insertionSort: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/insertion-sort#software",
+                    "name": "Decimatrix - Insertion Sort Visualizer",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Visualize e entenda o algoritmo de ordenação Insertion Sort com animações passo a passo.",
+                    "url": "https://decmatrix.com/pt/insertion-sort"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como visualizar o Insertion Sort",
+                    "description": "Aprenda a inserir valores e visualizar o algoritmo de ordenação em tempo real.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Insira valores", "text": "Digite uma lista de números inteiros separados por vírgula e insira no array." },
+                        { "@type": "HowToStep", "name": "Visualize a ordenação", "text": "Dê o play para ver cada elemento sendo selecionado, deslizado para a esquerda e inserido na posição correta da sublista já ordenada." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/pt"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Insertion Sort",
+                            "item": "https://decmatrix.com/pt/insertion-sort"
+                        }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/insertion-sort#software",
+                    "name": "Decimatrix - Insertion Sort Visualizer",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Visualize and understand the Insertion Sort algorithm with step-by-step animations.",
+                    "url": "https://decmatrix.com/en/insertion-sort"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to visualize Insertion Sort",
+                    "description": "Learn to insert values and watch the sorting process in real-time.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Insert values", "text": "Type a list of comma-separated integer numbers and insert them into the array." },
+                        { "@type": "HowToStep", "name": "Visualize sorting", "text": "Hit play to see each element being selected, shifted to the left, and inserted into its correct position within the sorted sublist." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/en"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Insertion Sort",
+                            "item": "https://decmatrix.com/en/insertion-sort"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    selectionSort: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/selection-sort#software",
+                    "name": "Decimatrix - Selection Sort Visualizer",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Visualize e entenda o algoritmo de ordenação Selection Sort com animações passo a passo.",
+                    "url": "https://decmatrix.com/pt/selection-sort"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como visualizar o Selection Sort",
+                    "description": "Aprenda a inserir valores e visualizar o algoritmo de ordenação por seleção em tempo real.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Insira valores", "text": "Digite uma lista de números inteiros separados por vírgula e insira no array." },
+                        { "@type": "HowToStep", "name": "Visualize a ordenação", "text": "Dê o play para ver cada passagem do algoritmo encontrando o menor elemento da sublista não ordenada e trocando-o para a posição correta." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/pt"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Selection Sort",
+                            "item": "https://decmatrix.com/pt/selection-sort"
+                        }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/selection-sort#software",
+                    "name": "Decimatrix - Selection Sort Visualizer",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Visualize and understand the Selection Sort algorithm with step-by-step animations.",
+                    "url": "https://decmatrix.com/en/selection-sort"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to visualize Selection Sort",
+                    "description": "Learn to insert values and watch the selection sorting process in real-time.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Insert values", "text": "Type a list of comma-separated integer numbers and insert them into the array." },
+                        { "@type": "HowToStep", "name": "Visualize sorting", "text": "Hit play to see each pass of the algorithm scanning the unsorted sublist, finding the minimum element, and swapping it into its correct position." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/en"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Selection Sort",
+                            "item": "https://decmatrix.com/en/selection-sort"
+                        }
+                    ]
+                }
+            ]
+        }
     }
 };

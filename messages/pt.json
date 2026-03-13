@@ -87,7 +87,10 @@
             "dataStructures": {
                 "title": "Estruturas de Dados",
                 "binarySearchTreeSimulator": "Árvore Binária de Busca",
-                "AVLTreeSimulator": "Árvore AVL"
+                "AVLTreeSimulator": "Árvore AVL",
+                "bubbleSort": "Bubble Sort",
+                "insertionSort": "Insertion Sort",
+                "selectionSort": "Selection Sort"
             }
         },
 
@@ -105,7 +108,10 @@
         "dataStructures": {
             "title": "Estruturas de Dados",
             "binarySearchTreeSimulator": "Simulador de Árvore Binária",
-            "AVLTreeSimulator": "Simulador de Árvore AVL"
+            "AVLTreeSimulator": "Simulador de Árvore AVL",
+            "bubbleSort": "Bubble Sort",
+            "insertionSort": "Insertion Sort",
+            "selectionSort": "Selection Sort"
         }
         
     },
@@ -372,11 +378,6 @@
                 "Se desejar, insira uma contribuição mensal no campo <strong>Contribuição Mensal (R$)</strong>.",
                 "Clique no botão <strong>Calcular Juros Compostos</strong> para ver os resultados detalhados do seu investimento."
             ],
-            "step01": "Insira o capital inicial que você deseja investir ou emprestar no campo <strong>Capital inicial (R$)</strong>.",
-            "step02": "Informe a taxa de juros no campo <strong>Taxa de juros (%)</strong> e selecione se é mensal ou anual.",
-            "step03": "Defina o período do investimento ou empréstimo no campo <strong>Período (t)</strong> e escolha se é em meses ou anos.",
-            "step04": "Se desejar, insira uma contribuição mensal no campo <strong>Contribuição Mensal (R$)</strong>.",
-            "step05": "Clique no botão <strong>Calcular Juros Compostos</strong> para ver os resultados detalhados do seu investimento.",
             "conclusion": "A calculadora fornecerá um resumo do investimento, incluindo o total investido, o total de juros ganhos e o montante final, além de gráficos ilustrativos."
         },
 
@@ -985,5 +986,265 @@
                 "answer": "Sim. Na adição de matrizes, a ordem não importa. A soma da Matriz A com a Matriz B (A + B) produzirá exatamente o mesmo resultado que a soma da Matriz B com a Matriz A (B + A)."
             }
         ]
+    },
+
+    "sortAlgorithmsComponent": {
+        "bubbleSort": {
+            "description": "O Bubble Sort é um algoritmo de ordenação simples que funciona repetidamente percorrendo a lista a ser ordenada, comparando cada par de elementos adjacentes e os trocando de posição se estiverem na ordem errada. O processo é repetido até que a lista esteja ordenada. O nome 'Bubble Sort' vem do fato de que os elementos maiores 'borbulham' para o topo da lista a cada iteração.",
+            "complexity": "<strong>Complexidade:</strong> Na versão clássica, a complexidade de tempo é sempre O(n²) em todos os cenários (pior caso, médio e melhor caso). Como este algoritmo não possui um mecanismo de parada antecipada, mesmo que a lista já venha completamente ordenada (melhor caso), ele executará todas as passagens e comparações de forma 'cega', desperdiçando processamento."
+        },
+        "bubbleSortOtimized": {
+            "description": "O bubble sort otimizado é uma variação do algoritmo de ordenação bubble sort que inclui uma verificação para determinar se a lista já está ordenada. Se durante uma passagem completa pela lista não houver trocas, o algoritmo pode concluir que a lista está ordenada e interromper o processo, evitando passagens desnecessárias. Isso pode melhorar significativamente o desempenho do algoritmo em casos onde a lista já está quase ordenada ou completamente ordenada.",
+            "complexity": "<strong>Complexidade:</strong> No pior caso (lista em ordem inversa) e no caso médio, a complexidade continua sendo O(n²). No entanto, o grande salto de performance ocorre no melhor caso (lista já ordenada): o algoritmo faz apenas uma passagem inicial, percebe que nenhuma troca foi necessária e encerra a execução imediatamente (usando o 'break'). Isso resulta em uma complexidade de tempo de O(n), tornando-o extremamente eficiente para listas que já estão quase ordenadas."
+        },
+        "insertion": {
+            "description": "O Insertion Sort é um algoritmo de ordenação que constrói a parte ordenada da lista um elemento por vez. A cada passo ele remove um elemento da parte não ordenada do array e o insere na posição correta da parte já ordenada, deslocando os demais elementos para a direita.",
+            "complexity": "<strong>Complexidade:</strong> No pior caso e no caso médio (lista em ordem inversa ou aleatória), a complexidade de tempo é O(n²). No melhor caso (lista já ordenada), o algoritmo apenas percorre a lista uma vez sem precisar deslocar elementos, resultando em complexidade de tempo O(n). Assim como o Bubble Sort, ele é um algoritmo in-place com complexidade de espaço O(1)."
+        },
+        "selection": {
+            "description": "O Selection Sort divide o array em duas partes: uma já ordenada (à esquerda) e outra ainda não ordenada (à direita). A cada iteração, o algoritmo varre toda a parte não ordenada em busca do menor elemento. Ao encontrá-lo, realiza uma única troca, posicionando esse elemento no início da parte não ordenada. A barreira entre as duas partes avança uma posição, e o processo se repete até que todo o array esteja ordenado.",
+            "complexity": "<strong>Complexidade:</strong> O Selection Sort não é adaptativo — ele sempre varre o array inteiro, independentemente de a lista já estar ordenada. Por isso, sua complexidade de tempo é O(n²) nos três cenários: melhor, médio e pior caso. Sua principal vantagem técnica é o número reduzido de trocas: no máximo O(n) swaps, muito menos que o Bubble Sort ou o Insertion Sort. É um algoritmo in-place, com complexidade de espaço O(1)."
+        },
+        "ui": {
+            "inputLabel": "Valores a serem ordenados",
+            "inputPlaceholder": "ex.: 50, -30, 70, 20, -40",
+            "inputInfo": "Insira até 21 números inteiros de -999 a 999, separados por vírgulas.",
+
+            "errorDuplicateComma": "Parece haver um elemento faltando (talvez uma vírgula duplicada).",
+            "errorInvalidNegative": "Parece haver um sinal de negativo inválido (dois '-' seguidos).",
+            "errorTooManyNumbers": "Insira 21 números ou menos para evitar poluição visual.",
+            "errorOutOfRange": "Insira números entre -999 e 999.",
+            "errorAtLeastOneNumber": "Insira ao menos um número válido.",
+
+            "playButtonLabel": "Inserir valores para ordenar",
+
+            "variantSelectLabel": "Selecione uma opção",
+            "variantBubbleLabel": "Bubble Sort",
+            "variantBubbleOptimizedLabel": "Bubble Sort Otimizado",
+
+            "stepsTitle": "Passos:",
+            "stepsFallbackMessage": "Execute o algoritmo para ver os passos gravados.",
+
+            "stepsExecuted": "Passos executados: {value}",
+            "stepsRemaining": "Restantes: {value}",
+            "stepsTotal": "Total: {value}",
+            "noStepsMessage": "Nenhum passo registrado ainda.",
+
+            "prevStepLabel": "Passo anterior",
+            "nextStepLabel": "Próximo passo",
+            "playForwardLabel": "Play ▶",
+            "playBackwardLabel": "Play ◀",
+            "pauseLabel": "Pause ⏸",
+
+            "animationSpeedLabel": "Velocidade da animação",
+            "animationSpeedSlow": "Lento",
+            "animationSpeedFast": "Rápido",
+
+            "codeSectionTitle": "Código"
+        }
+    },
+
+    "sortAlgorithmsPages": {
+        "bubbleSort": {
+            "mainTitle": "Bubble Sort",
+            
+            "definition": {
+                "title": "Definição do Bubble Sort",
+                "content": "O Bubble Sort é um algoritmo de ordenação simples que funciona repetidamente percorrendo a lista a ser ordenada. Ele compara cada par de elementos adjacentes e os troca de posição se estiverem na ordem errada. O processo é repetido até que a lista inteira esteja ordenada. O nome 'Bubble Sort' vem do fato de que os elementos maiores 'borbulham' para o final da lista a cada iteração."
+            },
+
+            "howWorks": {
+                "title": "Como o Bubble Sort Funciona",
+                "steps": [
+                    "Comece <strong>comparando os dois primeiros elementos</strong> da lista.",
+                    "Se o <strong>primeiro elemento for maior que o segundo, troque-os de posição.</strong>",
+                    "Mova para os próximos elementos e <strong>repita o processo.</strong>",
+                    "Continue até percorrer <strong>toda a lista</strong> sem precisar fazer mais trocas.",
+                    "A lista estará ordenada quando <strong>não houver mais trocas</strong> a serem feitas."
+                ]
+            },
+            
+            "contextAndUsage": {
+                "title": "Aplicações e Uso Real",
+                "content": "Apesar de ser um dos algoritmos mais famosos e estudados na programação, o Bubble Sort raramente é implementado em sistemas de produção, softwares reais ou bibliotecas nativas. Sua natureza quadrática O(n²) faz com que ele se torne extremamente lento à medida que a quantidade de dados cresce. Seu principal valor é <strong>didático</strong>, pois é a ferramenta perfeita para introduzir estudantes aos conceitos de ordenação, iteração de arrays e análise de desempenho, servindo como base essencial para entender algoritmos mais eficientes."
+            },
+
+            "proprieties": {
+                "title": "Propriedades do Bubble Sort",
+                "list": [
+                    "<strong>Complexidade de tempo:</strong> O pior caso e o caso médio do Bubble Sort têm uma complexidade de tempo de O(n²), onde n é o número de elementos na lista. O melhor caso, quando a lista já está ordenada, tem uma complexidade de O(n) devido à necessidade de percorrer a lista para verificar se está ordenada.",
+                    "<strong>Complexidade de espaço:</strong> O Bubble Sort é um algoritmo de ordenação in-place, o que significa que ele não requer espaço adicional significativo além do necessário para armazenar a lista original. Portanto, sua complexidade de espaço é O(1).",
+                    "<strong>Estabilidade:</strong> O Bubble Sort é um algoritmo de ordenação estável, o que significa que ele mantém a ordem relativa dos elementos iguais. Se dois elementos têm o mesmo valor, eles permanecerão na mesma ordem em que estavam na lista original após a ordenação."
+                ]
+            },
+
+            "faqSection": [
+                {
+                    "question": "01. Por que o Bubble Sort é considerado um algoritmo ineficiente?",
+                    "answer": "Porque ele exige a comparação repetida de elementos adjacentes várias vezes, mesmo que muitos deles já estejam perto da posição correta. Em uma lista muito grande, o número de operações cresce de forma exponencial (n²), o que pode lentificar drasticamente o processamento do sistema."
+                },
+                {
+                    "question": "02. Qual é a diferença entre o Bubble Sort Clássico e o Otimizado?",
+                    "answer": "O Bubble Sort Clássico sempre executa todas as varreduras possíveis, mesmo que a lista já tenha ficado ordenada no meio do processo. O Otimizado possui uma 'flag' (uma variável sentinela) que verifica se alguma troca foi feita na última varredura. Se nenhuma troca ocorreu, ele entende que a lista está perfeitamente ordenada e interrompe o algoritmo imediatamente, economizando tempo."
+                },
+                {
+                    "question": "03. O Bubble Sort precisa de memória extra para rodar?",
+                    "answer": "Não. Uma de suas poucas vantagens técnicas é ser um algoritmo 'in-place'. Ele precisa apenas de um espaço mínimo na memória (uma única variável temporária) para guardar um número enquanto realiza a troca de posição entre dois elementos."
+                },
+                {
+                    "question": "04. Quando eu deveria escolher o Bubble Sort em um projeto real?",
+                    "answer": "Na prática, quase nunca. Algoritmos nativos das linguagens (como o .sort() do JavaScript ou do Python) usam métodos muito mais rápidos por baixo dos panos (como o TimSort). O Bubble Sort só seria aceitável em listas minúsculas onde a simplicidade absoluta do código importa mais do que a velocidade de execução."
+                }
+            ]
+        },
+
+        "insertionSort": {
+            "mainTitle": "Insertion Sort",
+            
+            "definition": {
+                "title": "Definição do Insertion Sort",
+                "content": "O Insertion Sort (Ordenação por Inserção) constrói a lista ordenada progressivamente, um elemento de cada vez. É semelhante a organizar cartas de baralho na mão: você pega uma carta do monte desordenado e a encaixa na posição correta entre as cartas que já estão em ordem."
+            },
+
+            "howWorks": {
+                "title": "Como o Insertion Sort Funciona",
+                "steps": [
+                    "O <strong>primeiro elemento</strong> (índice 0) é considerado já ordenado.",
+                    "Pegue o <strong>próximo elemento</strong> da parte não ordenada — este é o elemento atual.",
+                    "Compare-o com os elementos à sua esquerda, movendo-se da <strong>direita para a esquerda</strong>.",
+                    "Enquanto o elemento à esquerda for maior, <strong>troque-os de posição</strong>, empurrando os maiores para a direita.",
+                    "Quando nenhuma troca for mais necessária, o elemento atual está na <strong>posição correta</strong>. Repita para todos os elementos restantes."
+                ]
+            },
+            
+            "contextAndUsage": {
+                "title": "Aplicações e Uso Real",
+                "content": "Diferente do Bubble Sort, o Insertion Sort tem muita utilidade no mundo real. Embora seja ineficiente para listas gigantes e totalmente desordenadas, ele é incrivelmente rápido para <strong>listas pequenas</strong> (menos de 50 itens) ou dados que já estão <strong>quase ordenados</strong>. Por causa dessa eficiência cirúrgica, linguagens como Python e Java usam algoritmos híbridos (como o TimSort), que dividem listas imensas em pedaços pequenos e acionam o Insertion Sort por baixo dos panos para ordenar esses fragmentos na velocidade da luz."
+            },
+
+            "proprieties": {
+                "title": "Propriedades do Insertion Sort",
+                "list": [
+                    "<strong>Complexidade de tempo:</strong> O pior caso (lista invertida) e o caso médio têm uma complexidade de tempo de O(n²). No entanto, sua grande vantagem brilha no melhor caso: quando a lista já está ordenada ou quase ordenada, a complexidade despenca para O(n), pois ele faz apenas uma comparação por elemento e quase nenhuma troca.",
+                    "<strong>Complexidade de espaço:</strong> É um algoritmo in-place (in-loco). Ele reordena os elementos movendo-os dentro do próprio array original, precisando apenas de uma variável temporária para as trocas. Portanto, sua complexidade de espaço é O(1).",
+                    "<strong>Estabilidade:</strong> O Insertion Sort é um algoritmo estável. Se dois elementos possuírem o mesmo valor, o algoritmo não os inverterá de lugar, preservando perfeitamente a ordem relativa original."
+                ]
+            },
+
+            "faqSection": [
+                {
+                    "question": "01. O Insertion Sort é melhor que o Bubble Sort?",
+                    "answer": "Sim. Embora ambos pertençam à categoria de complexidade O(n²) no pior caso, o Insertion Sort faz consideravelmente menos comparações e movimentações na prática. Em cenários reais, ele é quase sempre mais rápido e mais eficiente que o Bubble Sort e o Selection Sort."
+                },
+                {
+                    "question": "02. O que significa dizer que ele é um algoritmo 'adaptativo'?",
+                    "answer": "Significa que a performance dele se adapta e melhora drasticamente de acordo com o estado atual da lista. Se você entregar uma lista enorme, mas com apenas dois números fora de lugar, o Insertion Sort 'pulará' a parte que já está certa e arrumará apenas o defeito, rodando quase na velocidade máxima de O(n)."
+                },
+                {
+                    "question": "03. Por que ele sempre começa a varredura a partir do segundo elemento (índice 1)?",
+                    "answer": "Porque, matematicamente falando, uma sublista composta por apenas um único elemento já é considerada perfeitamente ordenada. O algoritmo assume que o índice 0 é a base correta e passa a inserir o restante dos elementos ao redor dele."
+                },
+                {
+                    "question": "04. Quando eu devo escolher usar o Insertion Sort nos meus projetos?",
+                    "answer": "Você deve usá-lo em duas situações principais: quando a quantidade de dados for bem pequena, ou quando você tem um sistema que recebe novos dados um a um (como um stream contínuo) e precisa inseri-los em um banco de dados ou lista que já se encontra ordenado."
+                }
+            ]
+        },
+        
+        "selectionSort": {
+            "mainTitle": "Selection Sort",
+
+            "definition": {
+                "title": "Definição do Selection Sort",
+                "content": "O Selection Sort (Ordenação por Seleção) divide a lista em duas partes: uma ordenada (à esquerda) e uma não ordenada (à direita). A cada iteração, ele busca o menor elemento da parte não ordenada e o move para o final da parte ordenada. O processo se repete até que toda a lista esteja ordenada."
+            },
+
+            "howWorks": {
+                "title": "Como o Selection Sort Funciona",
+                "steps": [
+                    "Considere o primeiro elemento da parte não ordenada como o <strong>menor valor provisório</strong>.",
+                    "Percorra todos os elementos à direita comparando cada um com o menor valor provisório.",
+                    "Se encontrar um valor menor, ele passa a ser o <strong>novo menor valor provisório</strong>.",
+                    "Ao final da varredura, realize uma <strong>única troca (swap)</strong>: coloque o menor valor encontrado na primeira posição da parte não ordenada.",
+                    "Avance a barreira da parte ordenada uma posição e <strong>repita</strong> até o final do array."
+                ]
+            },
+
+            "contextAndUsage": {
+                "title": "Aplicações e Uso Real",
+                "content": "Assim como o Bubble Sort, o Selection Sort raramente é usado em produção devido à sua complexidade quadrática. Sua principal vantagem é realizar o <strong>número mínimo possível de trocas</strong> — no máximo N−1. Isso o torna útil em contextos de hardware limitado, como memórias flash (EEPROM), onde cada operação de escrita consome processamento e desgasta fisicamente o chip."
+            },
+
+            "proprieties": {
+                "title": "Propriedades do Selection Sort",
+                "list": [
+                    "<strong>Complexidade de tempo:</strong> O(n²) em todos os casos — melhor, médio e pior. Por não ser adaptativo, o algoritmo sempre varre a lista inteira a cada rodada, mesmo que ela já esteja ordenada.",
+                    "<strong>Complexidade de espaço:</strong> O(1). É um algoritmo in-place: reordena os elementos dentro do próprio array, usando apenas uma variável temporária para a troca.",
+                    "<strong>Estabilidade:</strong> Não é estável. A troca de longa distância pode inverter a ordem relativa de dois elementos com valores iguais."
+                ]
+            },
+
+            "faqSection": [
+                {
+                    "question": "01. Qual é a principal diferença entre o Selection Sort e o Insertion Sort?",
+                    "answer": "O Insertion Sort é adaptativo: se a lista já estiver quase ordenada, ele termina muito mais rápido. O Selection Sort não é adaptativo — ele sempre executa O(n²) comparações, varrendo a lista inteira a cada rodada, independentemente da ordem inicial dos dados."
+                },
+                {
+                    "question": "02. Se ele é sempre O(n²), por que aprender esse algoritmo?",
+                    "answer": "Pelo valor didático. Ele ilustra de forma clara a diferença entre o número de comparações (muitas) e o número de trocas na memória (pouquíssimas), um conceito importante para entender trade-offs em algoritmos."
+                },
+                {
+                    "question": "03. Por que o Selection Sort clássico não é estável?",
+                    "answer": "Considere a lista [4a, 4b, 1]. No primeiro passo, o algoritmo encontra o menor elemento (1) e o troca com o primeiro (4a), resultando em [1, 4b, 4a]. O 4a, que era anterior ao 4b, agora aparece depois — a ordem relativa entre iguais foi quebrada."
+                },
+                {
+                    "question": "04. O Selection Sort precisa de memória extra?",
+                    "answer": "Não. Ele é in-place: opera diretamente sobre o array original, sem alocar estruturas auxiliares. O uso de memória é O(1)."
+                }
+            ]
+        }
+    },
+
+    "sortAlgorithmsSteps": {
+        "classic": {
+            "init": "Iniciando Bubble Sort padrão. Tamanho do array: {n}.",
+            "startPass": "Iniciando varredura {pass}. Verificando {remaining} elementos.",
+            "compare": "Comparando: O valor {left} é maior que {right}?",
+            "swap": "Sim! Trocando os valores de lugar.",
+            "noSwap": "Não. Os valores já estão na ordem certa.",
+            "endPass": "Fim da varredura {pass}. O maior elemento já subiu para o final.",
+            "finished": "Array completamente ordenado!"
+        },
+        "optimized": {
+            "init": "Iniciando Bubble Sort otimizado. Tamanho do array: {n}.",
+            "startPass": "Iniciando varredura {pass}. Verificando {remaining} elementos.",
+            "compare": "Comparando: O valor {left} é maior que {right}?",
+            "swap": "Sim! Trocando os valores de lugar.",
+            "noSwap": "Não. Os valores já estão na ordem certa.",
+            "endPassSwapped": "Fim da varredura. Houve trocas? Sim. Continuar.",
+            "endPassNoSwap": "Fim da varredura. Houve trocas? Não! O array já está ordenado (Break).",
+            "finished": "Array completamente ordenado!"
+        },
+        "insertion": {
+            "init": "Iniciando Insertion Sort. Tamanho do array: {n}.",
+            "startPass": "Pegando o elemento da posição {pass} (valor {value}) para inserir na parte ordenada.",
+            "compare": "Comparando: o valor {left} é maior que o elemento que estamos inserindo ({current})?",
+            "swap": "Sim. Trocando os dois valores de posição.",
+            "shift": "Sim. Deslocando o valor {shifted} uma posição para a direita.",
+            "noShift": "Não. Encontramos o ponto onde o valor à esquerda ({left}) não é maior que o elemento atual.",
+            "reachedStart": "Chegamos ao início do array. O elemento será inserido na primeira posição.",
+            "insert": "Inserindo o valor {value} na posição {pos}.",
+            "finished": "Array completamente ordenado com Insertion Sort!"
+        },
+        "selection": {
+            "init": "Iniciando Selection Sort. Tamanho do array: {n}.",
+            "startPass": "Rodada {pass}: o valor {min} é definido como menor elemento provisório.",
+            "compare": "Valor atual: {current}. Ele é menor que o mínimo provisório ({min})?",
+            "newMin": "Sim! {newMin} é o novo menor elemento provisório.",
+            "checkSwap": "Fim da varredura. O menor encontrado ({min}) está na posição do elemento inicial ({target})?",
+            "swap": "Não! Realizando swap: {min} vai para sua posição definitiva.",
+            "noSwap": "Sim. {min} já está na posição correta. Nenhuma troca necessária.",
+            "finished": "Array ordenado com sucesso pelo Selection Sort!"
+        }
     }
 }

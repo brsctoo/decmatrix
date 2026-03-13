@@ -26,7 +26,6 @@ import FAQ from "@/components/TextComponents/FAQ";
   
 */}
 
-
 function bst_tree_builder() {
   const t = useTranslations("BSTTreeBuilder");
 

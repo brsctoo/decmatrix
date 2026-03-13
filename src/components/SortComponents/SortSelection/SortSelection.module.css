@@ -1,0 +1,72 @@
+.dropdownContainer {
+    position: relative;
+    width: 100%;
+    font-family: inherit;
+}
+
+.dropdownHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;          /* mesma altura visual do botão */
+    padding: 0 16px;       /* só padding lateral */
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 0.8rem;     /* casa com o botão */
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdownHeader:hover {
+    border-color: #555;
+}
+
+.arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+/* Gira a setinha quando o menu está aberto */
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+.dropdownList {
+    position: absolute;
+    top: 110%; /* Fica logo abaixo do botão */
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 100; /* Garante que flutue por cima do CodeViewer */
+    overflow: hidden;
+}
+
+.dropdownItem {
+    padding: 10px 16px;
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+/* O estilo da opção que está ativa (O seu Verde!) */
+.dropdownItem.selected {
+    color: #00b947;
+    background-color: rgba(0, 185, 71, 0.1);
+    font-weight: bold;
+    border-left: 3px solid #00b947;
+}
