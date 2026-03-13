@@ -150,6 +150,34 @@ function Home() {
           
           {t("avaliableTools.matrixBasicOperations.description")}
         </GridSection>  
+
+        <GridSection 
+          title={t("avaliableTools.bubbleSortSimulatorCard.title")} 
+          route={`/bubble-sort`}
+          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
+        >
+          
+          {t("avaliableTools.bubbleSortSimulatorCard.description")}
+        </GridSection>  
+
+        <GridSection 
+          title={t("avaliableTools.insertionSortSimulatorCard.title")} 
+          route={`/insertion-sort`}
+          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
+        >
+          
+          {t("avaliableTools.insertionSortSimulatorCard.description")}
+        </GridSection>  
+
+        <GridSection 
+          title={t("avaliableTools.selectionSortSimulatorCard.title")} 
+          route={`/selection-sort`}
+          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
+        >
+          
+          {t("avaliableTools.selectionSortSimulatorCard.description")}
+        </GridSection>  
+        
       </GridSections>
 
       {/* Nossa visão */}

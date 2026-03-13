@@ -200,6 +200,21 @@
             "matrixBasicOperations": {
                 "title": "Basic Matrix Operations",
                 "description": "Calculator for basic matrix operations, addition and subtraction. Additionally, it allows transposing and inverting matrices, with support for matrices of different dimensions."
+            },
+
+            "bubbleSortSimulatorCard": {
+                "title": "Bubble Sort Simulator",
+                "description": "Step-by-step Bubble Sort visualizer with animated bars."
+            },
+
+            "insertionSortSimulatorCard": {
+                "title": "Insertion Sort Simulator",
+                "description": "See how Insertion Sort places each element in the correct position."
+            },
+
+            "selectionSortSimulatorCard": {
+                "title": "Selection Sort Simulator",
+                "description": "Follow Selection Sort picking the smallest value each round."
             }
         },
         

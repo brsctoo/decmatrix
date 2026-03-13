@@ -201,6 +201,21 @@
             "matrixBasicOperations": {
                 "title": "Operações básicas de matrizes",
                 "description": "Execute soma, subtração, transposição e inversão de matrizes."
+            },
+
+            "bubbleSortSimulatorCard": {
+                "title": "Simulador de Bubble Sort",
+                "description": "Visualize passo a passo o Bubble Sort com barras animadas."
+            },
+
+            "insertionSortSimulatorCard": {
+                "title": "Simulador de Insertion Sort",
+                "description": "Veja como o Insertion Sort insere cada elemento na posição correta."
+            },
+
+            "selectionSortSimulatorCard": {
+                "title": "Simulador de Selection Sort",
+                "description": "Acompanhe o Selection Sort escolhendo o menor valor a cada rodada."
             }
         },
         
