@@ -35,6 +35,22 @@
       { url: `${baseUrl}/pt/matrix-multiplication`, lastModified: new Date() },
       { url: `${baseUrl}/en/matrix-multiplication`, lastModified: new Date() },
 
+      // --- BUBBLE SORT ---
+      { url: `${baseUrl}/pt/bubble-sort`, lastModified: new Date() },
+      { url: `${baseUrl}/en/bubble-sort`, lastModified: new Date() },
+
+      // --- INSERTION SORT ---
+      { url: `${baseUrl}/pt/insertion-sort`, lastModified: new Date() },
+      { url: `${baseUrl}/en/insertion-sort`, lastModified: new Date() },
+
+      // --- SELECTION SORT ---
+      { url: `${baseUrl}/pt/selection-sort`, lastModified: new Date() },
+      { url: `${baseUrl}/en/selection-sort`, lastModified: new Date() },
+
+      // --- MULTIPLICAÇÃO DE MATRIZES ---
+      { url: `${baseUrl}/pt/matrix-multiplication`, lastModified: new Date() },
+      { url: `${baseUrl}/en/matrix-multiplication`, lastModified: new Date() },
+
       // --- POLÍTICA DE PRIVACIDADE ---
       { url: `${baseUrl}/pt/privacy-policy`, lastModified: new Date() },
       { url: `${baseUrl}/en/privacy-policy`, lastModified: new Date() },
@@ -42,5 +58,6 @@
       // --- TERMOS DE SERVIÇO ---
       { url: `${baseUrl}/pt/terms-of-service`, lastModified: new Date() },
       { url: `${baseUrl}/en/terms-of-service`, lastModified: new Date() },
+      
     ]
   }
