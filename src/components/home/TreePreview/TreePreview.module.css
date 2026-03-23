@@ -1,0 +1,49 @@
+.treePreviewContainer {
+  align-items: center;
+  display: flex;
+  margin: 10px auto 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 8px 24px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+  color: #F7F8F8
+}
+
+.binaryTreePreviewSection {
+  margin: 56px auto 40px;
+  max-width: 100%;
+  text-align: left;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.binaryTreePreviewText {
+  flex: 0 0 360px;
+  max-width: 420px;
+  padding-left: 55px;
+}
+
+.binaryTreePreviewTitle {
+  color: #F7F8F8;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+}
+
+.binaryTreePreviewDescription {
+  color: #d4d4d4;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.binaryTreePreviewTree {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+}

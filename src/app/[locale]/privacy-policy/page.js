@@ -1,13 +1,16 @@
 import styles from './page.module.css';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { generateSeo } from "@/utils/Seo";
 
-export const metadata = {
-  title: 'Política de Privacidade | Decimatrix',
-  description: 'Saiba como o Decimatrix coleta, usa e protege os seus dados.'
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
 
-export default function PrivacyPolicyPage() {
-  const t = useTranslations("PrivacyPolicy");
+  return await generateSeo(locale, "PrivacyPolicy");
+}
+
+export default async function PrivacyPolicyPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PrivacyPolicy" });
 
   const paragraphs = t.raw('paragraphs') || [];
   const cookiesItems = t.raw('cookiesItems') || [];

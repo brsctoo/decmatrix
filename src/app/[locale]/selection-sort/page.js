@@ -1,19 +1,26 @@
-import SortAlgorithms from '@/components/SortComponents/SortAlgorithms';
-import { useTranslations} from 'next-intl';
+import SortAlgorithms from '@/components/data-structures/SortComponents/SortAlgorithms/SortAlgorithms';
+import { getTranslations } from "next-intl/server";
 import JsonLd from '@/components/JsonLd';
+import { generateSeo } from "@/utils/Seo";
 
 
-import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
-import styles from "./page.module.css";
-import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
-import HighlightSection from '@/components/TextComponents/HighlightSection';
-import ParagraphSection from '@/components/TextComponents/ParagraphSection';
-import ProprietiesList from '@/components/TextComponents/ProprietiesList';
-import StepsList from '@/components/TextComponents/StepsList';
-import FAQ from "@/components/TextComponents/FAQ";
+import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayoutDefault/ArticleLayoutDefault";
+import TextGenericDesigns from '@/components/text/TextGenericDesigns.module.css';
+import HighlightSection from '@/components/text/HighlightSection/HighlightSection';
+import ParagraphSection from '@/components/text/ParagraphSection/ParagraphSection';
+import ProprietiesList from '@/components/text/ProprietiesList/ProprietiesList';
+import StepsList from '@/components/text/StepsList/StepsList';
+import FAQ from "@/components/text/FAQ/FAQ";
 
-export default function SelectionSortPage() {
-    const t = useTranslations("sortAlgorithmsPages.selectionSort");
+export async function generateMetadata({ params }) {
+    const { locale } = await params;
+
+    return await generateSeo(locale, "sortAlgorithmsPages.selectionSort");
+}
+
+export default async function SelectionSortPage({ params }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "sortAlgorithmsPages.selectionSort" });
 
     return (
         <div style={{ padding: '20px' }}>

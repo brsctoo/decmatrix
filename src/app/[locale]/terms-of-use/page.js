@@ -1,13 +1,16 @@
 import styles from './page.module.css';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { generateSeo } from "@/utils/Seo";
 
-export const metadata = {
-  title: 'Termos de Uso | Decimatrix',
-  description: 'Condições de uso das ferramentas e serviços oferecidos pelo Decimatrix.'
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
 
-export default function TermsOfUsePage() {
-  const t = useTranslations("TermsOfUse");
+  return await generateSeo(locale, "TermsOfUse");
+}
+
+export default async function TermsOfUsePage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "TermsOfUse" });
 
   const sections = t.raw('sections') || [];
   const effectiveLabel = t('effective');

@@ -9,7 +9,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/matrix-basic-operations#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Ferramenta para soma e subtração de matrizes com suporte a frações e passo a passo explicativo.",
@@ -49,7 +49,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/matrix-basic-operations#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Online tool for matrix addition and subtraction with fractions support and step-by-step solutions.",
                     "url": "https://decmatrix.com/en/matrix-basic-operations"
@@ -93,7 +93,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/matrix-multiplication#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Ferramenta para multiplicação de matrizes com suporte a frações e explicação passo a passo.",
@@ -133,7 +133,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/matrix-multiplication#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Online tool for matrix multiplication with fractions support and step-by-step explanations.",
                     "url": "https://decmatrix.com/en/matrix-multiplication"
@@ -176,7 +176,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/simple-interest-calculator#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Calculadora de juros simples online com gráficos e explicações passo a passo.",
@@ -216,7 +216,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/simple-interest-calculator#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Online simple interest calculator with charts and step-by-step explanations.",
                     "url": "https://decmatrix.com/en/simple-interest-calculator"
@@ -259,7 +259,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/compound-interest-calculator#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Calculadora de juros compostos online com contribuições periódicas, gráficos e explicações.",
@@ -299,7 +299,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/compound-interest-calculator#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Online compound interest calculator with periodic contributions, charts, and explanations.",
                     "url": "https://decmatrix.com/en/compound-interest-calculator"
@@ -342,7 +342,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/quadratic-equation-calculator#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Calculadora de equações do 2º grau online com gráficos e explicações passo a passo.",
@@ -382,7 +382,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/quadratic-equation-calculator#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Online quadratic equation calculator with charts and step-by-step explanations.",
                     "url": "https://decmatrix.com/en/quadratic-equation-calculator"
@@ -425,7 +425,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/bst-tree-builder#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Construa e visualize árvores binárias de busca (BST) com inserção, remoção e passo a passo.",
@@ -465,7 +465,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/bst-tree-builder#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Build and visualize binary search trees (BST) with insertion, removal, and step-by-step visualization.",
                     "url": "https://decmatrix.com/en/bst-tree-builder"
@@ -508,7 +508,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/avl-tree-builder#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Construa e visualize árvores AVL com balanceamento automático e passo a passo.",
@@ -548,7 +548,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/avl-tree-builder#software",
-                    "name": "Decimatrix",
+                    "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "description": "Build and visualize AVL trees with automatic balancing and step-by-step visualization.",
                     "url": "https://decmatrix.com/en/avl-tree-builder"
@@ -590,7 +590,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/bubble-sort#software",
-                    "name": "Decimatrix - Bubble Sort Visualizer",
+                    "name": "Decmatrix - Bubble Sort Visualizer",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Visualize e entenda o algoritmo de ordenação Bubble Sort com animações passo a passo.",
@@ -630,7 +630,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/bubble-sort#software",
-                    "name": "Decimatrix - Bubble Sort Visualizer",
+                    "name": "Decmatrix - Bubble Sort Visualizer",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Visualize and understand the Bubble Sort algorithm with step-by-step animations.",
@@ -673,7 +673,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/insertion-sort#software",
-                    "name": "Decimatrix - Insertion Sort Visualizer",
+                    "name": "Decmatrix - Insertion Sort Visualizer",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Visualize e entenda o algoritmo de ordenação Insertion Sort com animações passo a passo.",
@@ -713,7 +713,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/insertion-sort#software",
-                    "name": "Decimatrix - Insertion Sort Visualizer",
+                    "name": "Decmatrix - Insertion Sort Visualizer",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Visualize and understand the Insertion Sort algorithm with step-by-step animations.",
@@ -756,7 +756,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/pt/selection-sort#software",
-                    "name": "Decimatrix - Selection Sort Visualizer",
+                    "name": "Decmatrix - Selection Sort Visualizer",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Visualize e entenda o algoritmo de ordenação Selection Sort com animações passo a passo.",
@@ -796,7 +796,7 @@ export const schemas = {
                 {
                     "@type": "SoftwareApplication",
                     "@id": "https://decmatrix.com/en/selection-sort#software",
-                    "name": "Decimatrix - Selection Sort Visualizer",
+                    "name": "Decmatrix - Selection Sort Visualizer",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
                     "description": "Visualize and understand the Selection Sort algorithm with step-by-step animations.",

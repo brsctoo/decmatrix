@@ -1,14 +1,10 @@
-"use client";
 import JsonLd from "@/components/JsonLd";
 
-import MatrixMultiplication from "@/components/MatricesComponents/MatrixMultiplication";
+import MatrixMultiplication from "@/components/matrices/Multiplication/Multiplication";
 import Image from "next/image";
 
-import { MathDisplayEquation } from "@/components/MathDisplay";
-
-import { useTranslations } from "next-intl";
-import Link from 'next/link';
-import { useParams } from 'next/navigation'; 
+import { getTranslations } from "next-intl/server";
+import { generateSeo } from "@/utils/Seo";
 
 // Images
 import multiplicationExample01_pt from "@/assets/algebra/matrix_multiplication/multiplication_example01_pt.png";
@@ -20,20 +16,27 @@ import multiplicationExample02_en from "@/assets/algebra/matrix_multiplication/m
 import multiplicationResult_en from "@/assets/algebra/matrix_multiplication/multiplication_result_example_en.png";
 
 // Text components & layouts
-import HighlightSection from '@/components/TextComponents/HighlightSection';
-import ProprietiesList from '@/components/TextComponents/ProprietiesList';
-import SymbolLegend from '@/components/TextComponents/SymbolLegend';
-import FormulaCard from '@/components/TextComponents/FormulaCard';
-import ParagraphSection from '@/components/TextComponents/ParagraphSection';
-import StepsList from '@/components/TextComponents/StepsList';
-import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
-import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
-import FAQ from "@/components/TextComponents/FAQ";
+import HighlightSection from '@/components/text/HighlightSection/HighlightSection';
+import ProprietiesList from '@/components/text/ProprietiesList/ProprietiesList';
+import SymbolLegend from '@/components/text/SymbolLegend/SymbolLegend';
+import FormulaCard from '@/components/text/FormulaCard/FormulaCard';
+import ParagraphSection from '@/components/text/ParagraphSection/ParagraphSection';
+import StepsList from '@/components/text/StepsList/StepsList';
+import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayoutDefault/ArticleLayoutDefault";
+import TextGenericDesigns from '@/components/text/TextGenericDesigns.module.css';
+import FAQ from "@/components/text/FAQ/FAQ";
 import style from "./page.module.css";
 
-export default function MatrixMultiplicationPage() {
-    const { locale } = useParams();
-    const t = useTranslations("matrixMultiplication");
+export async function generateMetadata({ params }) {
+    const { locale } = await params;
+
+    return await generateSeo(locale, "matrixMultiplication");
+}
+
+export default async function MatrixMultiplicationPage({ params }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "matrixMultiplication" });
+    
     return (
         <div>
             <JsonLd dataName="matrixMultiplication" locale={locale} />

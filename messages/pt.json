@@ -117,6 +117,9 @@
     },
 
     "Home": {
+        "seoTitle": "Decmatrix | Calculadoras Matemáticas e Simuladores Interativos",
+        "seoDescription": "Explore ferramentas interativas de estruturas de dados, álgebra linear, pré-cálculo e matemática financeira. Visualize algoritmos e resolva cálculos passo a passo.",
+
         "title": {
             "mainTitle": "Explore algoritmos e matemática com <retroText>ferramentas interativas.</retroText>",
             "subTitle01": "Resolva problemas matemáticos e visualize algoritmos em tempo real.",
@@ -255,6 +258,9 @@
     },
     
     "AVLTreeBuilder": {
+        "seoTitle": "Simulador de Árvore AVL Interativo",
+        "seoDescription": "Aprenda estruturas de dados na prática com nosso Simulador de Árvore AVL. Insira valores, visualize o balanceamento e entenda as rotações passo a passo.",
+        
         "mainTitle": "Construtor de árvore binária AVL",
 
         "definition": {
@@ -309,8 +315,11 @@
             }
         ]
     },
-
+ 
     "BSTTreeBuilder": {
+        "seoTitle": "Simulador de Árvore Binária de Busca",
+        "seoDescription": "Construa e visualize árvores binárias de busca em tempo real. Insira e remova valores, acompanhe passo a passo e entenda as propriedades da BST.",
+
         "bstMainTitle": "Construtor de árvore binária de busca",
 
         "bstDefinitionTitle": "Árvore BST - Definição",
@@ -343,8 +352,16 @@
     },
 
     "CompoundInterestCalculator": {
+        "seoTitle": "Calculadora de Juros Compostos Online",
+        "seoDescription": "Simule juros compostos com capital inicial e aportes mensais. Veja resumos detalhados e gráficos da evolução do seu investimento ao longo do tempo.",
+
         "alertWrongValues": "Por favor, insira valores válidos para todos os campos.",
         "mainTitle": "Calculadora de Juros Compostos",
+
+        "unitLabels": {
+            "monthly": "Mensal",
+            "yearly": "Anual"
+        },
 
         "inputCapital": {
             "label": "Capital inicial (R$)",
@@ -455,9 +472,19 @@
     },
 
     "SimpleInterestCalculator": {
+        "seoTitle": "Calculadora de Juros Simples Online",
+        "seoDescription": "Calcule juros simples para empréstimos e investimentos. Informe capital, taxa e período para ver total investido, juros e montante final com gráficos.",
+
         "alertWrongValues": "Por favor, preencha os campos corretamente.",
 
         "mainTitle": "Calculadora de Juros Simples",
+
+        "unitLabels": {
+            "monthly": "Mensal",
+            "yearly": "Anual",
+            "months": "Meses",
+            "years": "Anos"
+        },
 
         "inputCapital": {
             "label": "Capital Inicial (R$)",
@@ -556,6 +583,9 @@
     },
 
     "QuadraticEquationCalculator": {
+        "seoTitle": "Calculadora de Equações do 2º Grau com Gráficos",
+        "seoDescription": "Resolva equações do segundo grau passo a passo, veja raízes, delta, fatoração e gráficos interativos da parábola.",
+
         "alertWrongValues": "Por favor, insira valores numéricos válidos para os coeficientes, e certifique-se de que 'a' não seja zero.",
         "alertMaxCharacters": "O valor máximo permitido é de 9 caracteres.",
         "alertACannotBeZero": "O coeficiente 'a' não pode ser zero em uma equação do segundo grau.",
@@ -697,24 +727,27 @@
     },
 
     "TermsOfUse": {
+        "seoTitle": "Termos de Uso",
+        "seoDescription": "Conheça as condições de uso das ferramentas e serviços do Decmatrix, responsabilidades e limitações de responsabilidade.",
+
         "title": "Termos de Uso",
         "sections": [
             {
                 "heading": "1. Aceitação dos Termos",
-                "content": "Ao acessar e utilizar o site Decimatrix, você concorda em cumprir e estar vinculado a estes termos e condições. Se você não concorda com qualquer parte destes termos, não deve utilizar nossas ferramentas."
+                "content": "Ao acessar e utilizar o site Decmatrix, você concorda em cumprir e estar vinculado a estes termos e condições. Se você não concorda com qualquer parte destes termos, não deve utilizar nossas ferramentas."
             },
             {
                 "heading": "2. Isenção de Responsabilidade (Disclaimer)",
-                "content": "As calculadoras e ferramentas fornecidas pelo Decimatrix (incluindo, mas não se limitando a Matriz de Decisão, Juros Compostos e Calculadora Freelancer) são destinadas exclusivamente para fins informativos e educacionais.",
+                "content": "As calculadoras e ferramentas fornecidas pelo Decmatrix (incluindo, mas não se limitando a Matriz de Decisão, Juros Compostos e Calculadora Freelancer) são destinadas exclusivamente para fins informativos e educacionais.",
                 "listItems": [
                     "Os resultados gerados são estimativas baseadas em fórmulas matemáticas e entradas do usuário.",
-                    "O Decimatrix não garante a precisão, integridade ou adequação dos resultados para qualquer situação específica.",
+                    "O Decmatrix não garante a precisão, integridade ou adequação dos resultados para qualquer situação específica.",
                     "Esses cálculos não constituem aconselhamento financeiro, jurídico ou profissional. Sempre consulte um profissional qualificado antes de tomar decisões financeiras importantes."
                 ]
             },
             {
                 "heading": "3. Limitação de Responsabilidade",
-                "content": "Em nenhuma circunstância o Decimatrix ou seus proprietários serão responsáveis por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro, ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar as ferramentas do site."
+                "content": "Em nenhuma circunstância o Decmatrix ou seus proprietários serão responsáveis por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro, ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar as ferramentas do site."
             },
             {
                 "heading": "4. Uso das Ferramentas",
@@ -722,7 +755,7 @@
             },
             {
                 "heading": "5. Modificações",
-                "content": "O Decimatrix pode revisar estes termos de uso a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão vigente desses termos."
+                "content": "O Decmatrix pode revisar estes termos de uso a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão vigente desses termos."
             }
         ],
         "effective": "Estes termos são regidos e interpretados de acordo com as leis vigentes e entram em vigor em ",
@@ -730,8 +763,11 @@
     },
 
     "PrivacyPolicy": {
+        "seoTitle": "Política de Privacidade",
+        "seoDescription": "Saiba como o Decmatrix coleta, utiliza e protege seus dados pessoais, cookies e informações de uso.",
+
         "title": "Política de Privacidade",
-        "intro": "A sua privacidade é importante para nós. É política do Decimatrix respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site e em outros sites que possuímos e operamos.",
+        "intro": "A sua privacidade é importante para nós. É política do Decmatrix respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site e em outros sites que possuímos e operamos.",
         "paragraphs": [
             "Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemos isso por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.",
             "Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas, roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.",
@@ -747,11 +783,11 @@
             "Vários parceiros anunciam em nosso nome e os cookies de rastreamento de afiliados simplesmente nos permitem ver se nossos usuários acessaram o site por meio de um dos sites de nossos parceiros."
         ],
         "commitmentHeading": "Compromisso do Usuário",
-        "commitmentIntro": "O usuário se compromete a fazer uso adequado dos conteúdos e das informações que o Decimatrix oferece no site, em caráter enunciativo, mas não limitativo:",
+        "commitmentIntro": "O usuário se compromete a fazer uso adequado dos conteúdos e das informações que o Decmatrix oferece no site, em caráter enunciativo, mas não limitativo:",
         "commitmentItems": [
             "a) Não se envolver em atividades que sejam ilegais ou contrárias à boa-fé e à ordem pública;",
             "b) Não difundir propaganda ou conteúdo de natureza racista, xenófoba ou contra os direitos humanos;",
-            "c) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do Decimatrix ou introduzir e disseminar vírus informáticos."
+            "c) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do Decmatrix ou introduzir e disseminar vírus informáticos."
         ],
         "moreInfoHeading": "Mais informações",
         "moreInfoParagraph": "Esperamos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados caso interaja com alguma funcionalidade do nosso site."
@@ -786,6 +822,9 @@
     },
     
     "matrixMultiplication": {
+        "seoTitle": "Calculadora de Multiplicação de Matrizes",
+        "seoDescription": "Multiplique matrizes de diferentes dimensões com suporte a frações e exemplos detalhados. Entenda a multiplicação de matrizes passo a passo.",
+
         "mainTitle": "Multiplicador de Matrizes",
 
         "usageTutorial": {
@@ -861,6 +900,9 @@
     },
 
     "matrixBasicOperations": {
+        "seoTitle": "Calculadora de Soma e Subtração de Matrizes",
+        "seoDescription": "Realize soma e subtração de matrizes com suporte a transposição e inversão. Trabalhe com frações e visualize os resultados com clareza.",
+
         "mainTitle": "Soma e subtração de matrizes",
 
         "usageTutorial": {
@@ -1061,6 +1103,9 @@
 
     "sortAlgorithmsPages": {
         "bubbleSort": {
+            "seoTitle": "Simulador de Bubble Sort",
+            "seoDescription": "Acompanhe o algoritmo Bubble Sort passo a passo com barras animadas, propriedades e explicações de uso.",
+
             "mainTitle": "Bubble Sort",
             
             "definition": {
@@ -1114,6 +1159,9 @@
         },
 
         "insertionSort": {
+            "seoTitle": "Simulador de Insertion Sort",
+            "seoDescription": "Visualize como o Insertion Sort organiza o vetor passo a passo, com explicações e propriedades.",
+
             "mainTitle": "Insertion Sort",
             
             "definition": {
@@ -1167,6 +1215,9 @@
         },
         
         "selectionSort": {
+            "seoTitle": "Simulador de Selection Sort",
+            "seoDescription": "Acompanhe como o Selection Sort seleciona repetidamente o menor elemento, com explicações interativas e propriedades.",
+
             "mainTitle": "Selection Sort",
 
             "definition": {

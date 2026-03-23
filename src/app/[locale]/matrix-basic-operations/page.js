@@ -1,12 +1,10 @@
-"use client";
 import JsonLd from "@/components/JsonLd";
 
-import MatrixBasicOperations from "@/components/MatricesComponents/MatrixBasicOperations";
+import MatrixBasicOperations from "@/components/matrices/BasicOperations/BasicOperations";
 import Image from "next/image";
 
-import { useTranslations } from "next-intl";
-import Link from 'next/link';
-import { useParams } from 'next/navigation'; 
+import { getTranslations } from "next-intl/server";
+import { generateSeo } from "@/utils/Seo";
 
 // Images
 import basicOperationExample01_pt from "@/assets/algebra/matrix_basicOperations/basicOperation_example01_pt.png";
@@ -18,23 +16,32 @@ import basicOperationExample02_en from "@/assets/algebra/matrix_basicOperations/
 import basicOperationResult_en from "@/assets/algebra/matrix_basicOperations/basicOperation_result_en.png";
 
 
-import MatrixDisplay from "@/components/MatricesComponents/MatrixDisplay";
+import MatrixDisplay from "@/components/matrices/Display/Display";
 import { Matrix } from "@/utils/matrixLogic/core";
 
 import style from "./page.module.css";
 
 {/* Styles */}
-import HighlightSection from '@/components/TextComponents/HighlightSection';
-import ProprietiesList from '@/components/TextComponents/ProprietiesList';
-import ParagraphSection from '@/components/TextComponents/ParagraphSection';
-import StepsList from '@/components/TextComponents/StepsList';
-import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
-import FAQ from "@/components/TextComponents/FAQ";
+import HighlightSection from '@/components/text/HighlightSection/HighlightSection';
+import ProprietiesList from '@/components/text/ProprietiesList/ProprietiesList';
+import ParagraphSection from '@/components/text/ParagraphSection/ParagraphSection';
+import StepsList from '@/components/text/StepsList/StepsList';
+import TextGenericDesigns from '@/components/text/TextGenericDesigns.module.css';
+import FAQ from "@/components/text/FAQ/FAQ";
 
 {/* Layouts */}
-import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
+import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayoutDefault/ArticleLayoutDefault";
 
-export default function MatrixBasicOperationsPage() {
+export async function generateMetadata({ params }) {
+    const { locale } = await params;
+
+    return await generateSeo(locale, "matrixBasicOperations");
+}
+
+export default async function MatrixBasicOperationsPage({ params }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "matrixBasicOperations" });
+
     const matrixA_example = new Matrix(3, 3);
     matrixA_example.data = [[2, 5, 3], [1, 4, 6], [7, 2, 8]];
     const matrixB_example = new Matrix(3, 3);
@@ -43,9 +50,7 @@ export default function MatrixBasicOperationsPage() {
     matrixSum_example.data = [[8, 8, 7], [6, 6, 7], [9, 11, 11]];
     const matrixSub_example = new Matrix(3, 3);
     matrixSub_example.data = [[-4, 2, -1], [-4, 2, 5], [5, -7, 5]];
-    
-    const { locale } = useParams();
-    const t = useTranslations("matrixBasicOperations");
+
     return (
         <div>
             <JsonLd dataName="matrixBasicOperations" locale={locale} />

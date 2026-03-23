@@ -1,17 +1,9 @@
-import {
-  GeistPixelSquare,
-  GeistPixelGrid,
-  GeistPixelCircle,
-  GeistPixelTriangle,
-  GeistPixelLine,
-} from "geist/font/pixel";
-
 import { GeistSans } from "geist/font/sans";
 
 import "./globals.css";
-import LateralBar from "../../components/LateralBar";
-import Basebord from "../../components/Basebord";
-import Topbord from "../../components/Topbord";
+import LateralBar from "../../components/LateralBar/LateralBar";
+import Basebord from "../../components/Basebord/Basebord";
+import Topbord from "../../components/TopBoard/Topbord";
 import { notFound } from "next/navigation";
 import { languages } from "../../../constants/language";
 

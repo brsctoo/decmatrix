@@ -1,25 +1,23 @@
-"use client";
 import JsonLd from "@/components/JsonLd";
 
-import React, { useRef, useState, useEffect } from "react";
-import { useParams } from 'next/navigation';
+import React from "react";
+import { generateSeo } from "@/utils/Seo";
 import Link from "next/link";
 
 import styles from "./page.module.css";
-import BinaryTree from "@/components/BinaryTree";
-import { useTranslations } from "use-intl";
+import BinaryTree from "@/components/data-structures/BinaryTree/BinaryTree";
+import { getTranslations } from "next-intl/server";
 
 
 // Styles
-import HighlightSection from '@/components/TextComponents/HighlightSection';
-import ParagraphSection from '@/components/TextComponents/ParagraphSection';
-import DefaultList from '@/components/TextComponents/DefaultList';
-import FAQ from "@/components/TextComponents/FAQ";
-import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import HighlightSection from '@/components/text/HighlightSection/HighlightSection';
+import ParagraphSection from '@/components/text/ParagraphSection/ParagraphSection';
+import DefaultList from '@/components/text/DefaultList/DefaultList';
+import FAQ from "@/components/text/FAQ/FAQ";
+import TextGenericDesigns from '@/components/text/TextGenericDesigns.module.css';
 
 // Layouts
-import ArticleLayoutSplit from "@/components/TextComponents/ArticleLayouts/ArticleLayoutSplit";
-import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
+import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayoutDefault/ArticleLayoutDefault";
 
 
 {/*
@@ -31,10 +29,15 @@ import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/Art
   para remover o último valor inserido  
 */}
 
-function avl_tree_builder() {
-  const t = useTranslations("AVLTreeBuilder");
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
 
-  const { locale } = useParams();     
+  return await generateSeo(locale, "AVLTreeBuilder");
+}
+
+export default async function avl_tree_builder({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "AVLTreeBuilder" });
 
   return (
     <div>
@@ -124,5 +127,3 @@ function avl_tree_builder() {
     </div>
   );
 }
-
-export default avl_tree_builder;

@@ -116,6 +116,9 @@
     },
 
     "Home": {
+        "seoTitle": "Decmatrix | Interactive Math Calculators and Algorithm Simulators",
+        "seoDescription": "Explore interactive tools for data structures, linear algebra, precalculus, and financial math. Visualize algorithms and solve calculations step by step.",
+
         "title": {
             "mainTitle": "<retroText>Interactive Tools</retroText> for Algorithms and Computational Math.",
             "subTitle01": "Solve mathematical problems and visualize algorithms in real time.",
@@ -254,6 +257,9 @@
     },
 
     "AVLTreeBuilder": {
+        "seoTitle": "Interactive AVL Tree Simulator",
+        "seoDescription": "Learn data structures in practice with our Interactive AVL Tree Simulator. Insert values, visualize balancing, and understand rotations step by step.",
+        
         "mainTitle": "AVL Binary Tree Builder",
 
         "definition": {
@@ -310,6 +316,9 @@
     },
 
     "BSTTreeBuilder": {
+        "seoTitle": "Interactive Binary Search Tree Simulator",
+        "seoDescription": "Build and visualize Binary Search Trees in real time. Insert and remove values, follow each step, and understand BST properties and operations.",
+
         "bstMainTitle": "Binary Search Tree Builder",
 
         "bstDefinitionTitle": "BST Tree - Definition",
@@ -341,9 +350,17 @@
     },
 
     "CompoundInterestCalculator": {
+        "seoTitle": "Compound Interest Calculator with Contributions",
+        "seoDescription": "Simulate compound interest with initial capital and monthly contributions. See detailed summaries and charts of your investment growth over time.",
+
         "alertWrongValues": "Please enter valid values for all fields.",
         
         "mainTitle": "Compound Interest Calculator",
+
+        "unitLabels": {
+            "monthly": "Monthly",
+            "yearly": "Yearly"
+        },
 
         "inputCapital": {
             "label": "Initial Capital ($)",
@@ -460,9 +477,19 @@
     },
 
     "SimpleInterestCalculator": {
+        "seoTitle": "Simple Interest Calculator",
+        "seoDescription": "Calculate simple interest for loans and investments. Enter capital, rate, and period to see total invested, interest, and final amount with charts.",
+
         "alertWrongValues": "Please fill in the fields correctly.",
 
         "mainTitle": "Simple Interest Calculator",
+
+        "unitLabels": {
+            "monthly": "Monthly",
+            "yearly": "Yearly",
+            "months": "Months",
+            "years": "Years"
+        },
 
         "inputCapital": {
             "label": "Initial Capital ($)",
@@ -561,6 +588,9 @@
     },
 
     "QuadraticEquationCalculator": {
+        "seoTitle": "Quadratic Equation Calculator with Graphs",
+        "seoDescription": "Solve quadratic equations step by step, view roots, delta, factorization, and interactive graphs for the parabola.",
+
         "alertWrongValues": "Please enter valid numeric values for the coefficients, and make sure 'a' is not zero.",
         "alertMaxCharacters": "The maximum allowed value is 9 characters.",
         "alertACannotBeZero": "The coefficient 'a' cannot be zero in a quadratic equation.",
@@ -701,24 +731,27 @@
     },
 
     "TermsOfUse": {
+        "seoTitle": "Terms of Use",
+        "seoDescription": "Read the conditions for using Decmatrix tools and services, responsibilities, and limitations of liability.",
+
         "title": "Terms of Use",
         "sections": [
             {
                 "heading": "1. Acceptance of Terms",
-                "content": "By accessing and using the Decimatrix website, you agree to comply with and be bound by these terms and conditions. If you do not agree with any part of these terms, you should not use our tools."
+                "content": "By accessing and using the Decmatrix website, you agree to comply with and be bound by these terms and conditions. If you do not agree with any part of these terms, you should not use our tools."
             },
             {
                 "heading": "2. Disclaimer",
-                "content": "The calculators and tools provided by Decimatrix (including, but not limited to Decision Matrix, Compound Interest and Freelancer Calculator) are intended exclusively for informational and educational purposes.",
+                "content": "The calculators and tools provided by Decmatrix (including, but not limited to Decision Matrix, Compound Interest and Freelancer Calculator) are intended exclusively for informational and educational purposes.",
                 "listItems": [
                     "Results generated are estimates based on mathematical formulas and user input.",
-                    "Decimatrix does not guarantee the accuracy, completeness, or suitability of results for any specific situation.",
+                    "Decmatrix does not guarantee the accuracy, completeness, or suitability of results for any specific situation.",
                     "These calculations do not constitute financial, legal, or professional advice. Always consult a qualified professional before making important financial decisions."
                 ]
             },
             {
                 "heading": "3. Limitation of Liability",
-                "content": "In no event shall Decimatrix or its owners be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising from the use or inability to use the website's tools."
+                "content": "In no event shall Decmatrix or its owners be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising from the use or inability to use the website's tools."
             },
             {
                 "heading": "4. Use of Tools",
@@ -726,7 +759,7 @@
             },
             {
                 "heading": "5. Modifications",
-                "content": "Decimatrix may revise these terms of use at any time without prior notice. By using this website, you agree to be bound by the current version of these terms."
+                "content": "Decmatrix may revise these terms of use at any time without prior notice. By using this website, you agree to be bound by the current version of these terms."
             }
         ],
         "effective": "These terms are governed and interpreted in accordance with applicable laws and become effective on ",
@@ -734,8 +767,11 @@
     },
 
     "PrivacyPolicy": {
+        "seoTitle": "Privacy Policy",
+        "seoDescription": "Understand how Decmatrix collects, uses, and protects your personal data, cookies, and usage information.",
+
         "title": "Privacy Policy",
-        "intro": "Your privacy is important to us. It is the policy of Decimatrix to respect your privacy regarding any information we may collect on the website and on other websites that we own and operate.",
+        "intro": "Your privacy is important to us. It is the policy of Decmatrix to respect your privacy regarding any information we may collect on the website and on other websites that we own and operate.",
         "paragraphs": [
             "We request personal information only when we really need it to provide you with a service. We do this through fair and legal means, with your knowledge and consent. We also inform you why we are collecting and how it will be used.",
             "We only retain information collected for as long as needed to provide the requested service. When we store data, we protect it within commercially acceptable means to prevent loss, theft, as well as unauthorized access, disclosure, copying, use or modification.",
@@ -751,11 +787,11 @@
             "Various partners advertise on our behalf and affiliate tracking cookies simply allow us to see if our users have accessed the website through one of our partner sites."
         ],
         "commitmentHeading": "User Commitment",
-        "commitmentIntro": "The user commits to making appropriate use of the contents and information that Decimatrix offers on the website, in an enunciative but not limited manner:",
+        "commitmentIntro": "The user commits to making appropriate use of the contents and information that Decmatrix offers on the website, in an enunciative but not limited manner:",
         "commitmentItems": [
             "a) Not engage in activities that are illegal or contrary to good faith and public order;",
             "b) Not spread propaganda or content of a racist, xenophobic or anti-human rights nature;",
-            "c) Not cause damage to Decimatrix's physical (hardware) and logical (software) systems or introduce and spread computer viruses."
+            "c) Not cause damage to Decmatrix's physical (hardware) and logical (software) systems or introduce and spread computer viruses."
         ],
         "moreInfoHeading": "More Information",
         "moreInfoParagraph": "We hope this is clear and, as mentioned earlier, if there is anything you are unsure about whether you need or not, it is generally safer to leave cookies enabled in case you interact with any functionality on our website."
@@ -790,6 +826,9 @@
     },
     
     "matrixMultiplication": {
+        "seoTitle": "Interactive Matrix Multiplication Calculator",
+        "seoDescription": "Multiply matrices of different dimensions with fraction support and detailed examples. Understand matrix multiplication step by step.",
+
         "mainTitle": "Matrix Multiplier",
 
         "usageTutorial": {
@@ -865,6 +904,9 @@
     },
 
     "matrixBasicOperations": {
+        "seoTitle": "Matrix Addition and Subtraction Calculator",
+        "seoDescription": "Perform matrix addition and subtraction with support for transposition and inversion. Work with fractions and visualize results clearly.",
+
         "mainTitle": "Matrix Addition and Subtraction",
 
         "usageTutorial": {
@@ -1106,6 +1148,9 @@
 
     "sortAlgorithmsPages": {
         "bubbleSort": {
+            "seoTitle": "Bubble Sort Algorithm Visualizer",
+            "seoDescription": "Watch the Bubble Sort algorithm step by step with animated bars, properties, and usage explanations.",
+
             "mainTitle": "Bubble Sort",
 
             "definition": {
@@ -1159,6 +1204,9 @@
         },
 
         "insertionSort": {
+            "seoTitle": "Insertion Sort Algorithm Visualizer",
+            "seoDescription": "Visualize how Insertion Sort builds the sorted array step by step, with explanations and properties.",
+
             "mainTitle": "Insertion Sort",
             
             "definition": {
@@ -1212,6 +1260,9 @@
         },
 
         "selectionSort": {
+            "seoTitle": "Selection Sort Algorithm Visualizer",
+            "seoDescription": "Follow how Selection Sort repeatedly selects the smallest element, with interactive explanation and properties.",
+
             "mainTitle": "Selection Sort",
 
             "definition": {

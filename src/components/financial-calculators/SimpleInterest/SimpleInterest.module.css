@@ -1,0 +1,234 @@
+.percentageIcon {
+    position: absolute;
+    right: 105px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #00b947;
+    pointer-events: none; /* não atrapalha clique */
+}
+
+.moneyIconReal {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #00b947;
+    pointer-events: none; /* não atrapalha clique */
+}
+
+.moneyIconDolar {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #00b947;
+    pointer-events: none; /* não atrapalha clique */
+}
+
+
+.inputFieldsContainer {
+    color: #F7F8F8;
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 50px;
+    margin: 40px auto 20px;
+    padding: 30px;
+    max-width: 1000px;
+    border-radius: 10px;
+    min-height: 300px;
+}
+
+.inputFieldsContainer > * {
+    position: relative;
+    flex: 1 1 calc(45% - 20px); 
+    min-width: 280px; 
+    max-width: 100%; 
+    margin-bottom: 0px;
+    box-sizing: border-box;
+}
+
+.buttonContainer {
+    flex: 1 1 100%;
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 32px;
+    margin: 36px auto 24px;
+    max-width: 1000px;
+}
+
+.resultsCard,
+.chartWrapper {
+    position: relative;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: none;
+    padding: 24px 28px;
+    border-radius: 18px;
+    background: #050505;
+    border: 1px solid rgba(247, 248, 248, 0.08);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+}
+
+.resultsCard::before,
+.chartWrapper::before {
+    content: "";
+    position: absolute;
+    inset: -140px;
+    z-index: 0;
+    background:
+        radial-gradient(circle at top left, rgba(0, 185, 71, 0.14), transparent 55%);
+}
+
+.resultsCard > *,
+.chartWrapper > * {
+    position: relative;
+    z-index: 1;
+}
+
+.chartWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 24px;
+    min-height: 360px;
+}
+
+.chartSection {
+    width: 100%;
+    max-width: 1100px;
+    margin: 24px auto 40px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    background: #050505;
+    border: 1px solid rgba(247, 248, 248, 0.08);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F7F8F8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+/* --- Bloco de Texto (Esquerda) --- */
+
+
+.resultRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(163, 163, 163, 0.45);
+}
+
+.resultRow:last-of-type {
+    border-bottom: none;
+}
+
+.resultLabel {
+    color: #A3A3A3;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+
+.resultValue {
+    color: #F7F8F8;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+/* --- Destaque do Montante Final --- */
+.resultRowHighlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    padding: 20px 22px;
+    background: radial-gradient(circle at top right, rgba(0, 185, 71, 0.24), transparent 65%);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 185, 71, 0.65);
+}
+
+.resultRowHighlight .resultLabel {
+    color: #A3A3A3;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.resultRowHighlight .resultValue {
+    color: #00b947;
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- Bloco do Gráfico (Direita) --- */
+.chartWrapper {
+  overflow: hidden;
+}
+
+@media (max-width: 1050px) {
+    .inputFieldsContainer {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .inputFieldsContainer {
+        /* Empilha os campos e reduz o respiro no mobile */
+        gap: 10px 12px;
+        padding: 18px 14px;
+        margin: 18px 10px 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+        max-width: 100%;
+    }
+
+    .inputFieldsContainer > * {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+
+    .buttonContainer {
+        margin: 10px auto 10px;
+        max-width: calc(100%);
+    }
+    
+    .chartSection {
+        margin: 18px auto 30px;
+        background-color: transparent;
+        border: none;
+        padding: 0 8px;
+    }
+
+    .resultContainer {
+        margin: 24px 10px 18px;
+        gap: 20px;
+    }
+
+    .resultsCard,
+    .chartWrapper {
+        padding: 18px 14px;
+        border-radius: 14px;
+    }
+}

@@ -1,38 +1,32 @@
-"use client";
 import React from "react";
 
-import BinaryTree from "@/components/BinaryTree";
+import { generateSeo } from "@/utils/Seo";
+import { getTranslations } from "next-intl/server";
 
-import Image from "next/image";
-import ReactiveButton from "@/components/ReactiveButton";
+import TreePreview from "@/components/home/TreePreview/TreePreview";
+
 import style from "./page.module.css";
 
-import ArticleLayoutSplit from "@/components/TextComponents/ArticleLayouts/ArticleLayoutSplit";
-import ArticleLayoutDefault from "@/components/TextComponents/ArticleLayouts/ArticleLayoutDefault";
-import { GridSections, GridSection } from "@/components/TextComponents/GridSection";
-
-{/* Context */}
-import { useIsMobile } from "@/context/ViewportContext";
+import ArticleLayoutSplit from "@/components/text/article-layouts/ArticleLayoutSplit/ArticleLayoutSplit";
+import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayoutDefault/ArticleLayoutDefault";
+import { GridSections, GridSection } from "@/components/text/GridSection/GridSection";
 
 {/* Styles */}
-import HighlightSection from '@/components/TextComponents/HighlightSection';
-import ParagraphSection from '@/components/TextComponents/ParagraphSection';
-import DefaultList from '@/components/TextComponents/DefaultList';
-import FAQ from '@/components/TextComponents/FAQ';
-import TextGenericDesigns from '@/components/TextComponents/TextGenericDesigns.module.css';
+import HighlightSection from '@/components/text/HighlightSection/HighlightSection';
+import ParagraphSection from '@/components/text/ParagraphSection/ParagraphSection';
+import DefaultList from '@/components/text/DefaultList/DefaultList';
+import FAQ from '@/components/text/FAQ/FAQ';
+import TextGenericDesigns from '@/components/text/TextGenericDesigns.module.css';
 
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
 
-import { useRouter, usePathname, useParams } from 'next/navigation';
-import { useTranslations } from "next-intl";
+  return await generateSeo(locale, "Home");
+}
 
-function Home() {
-  const isMobile = useIsMobile();
-  const router = useRouter();
-  const pathname = usePathname(); // Retorna "/pt/alguma-coisa"
-  const params = useParams();     
-  const locale = params.locale;   // "pt" ou "en"
-
-  const t = useTranslations("Home");
+async function Home({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Home" });
 
   return (
     <div className={style.homeContainer} >
@@ -67,24 +61,10 @@ function Home() {
         <ParagraphSection paragraphs={[t("clarityText.description")]} />
       </ArticleLayoutSplit>
 
-      {!isMobile && <HighlightSection>
-        <div className={style.binaryTreePreviewSection}>
-          <div className={style.binaryTreePreviewText}>
-            <h2 className={style.binaryTreePreviewTitle}>{t("previewBinaryTree.title")}</h2>
-            <p className={style.binaryTreePreviewDescription}>
-              {t("previewBinaryTree.description")}
-            </p>
-          </div>
-
-          <div className={style.binaryTreePreviewTree}>
-            <BinaryTree 
-              treeType="BST"
-              preview={true}
-              style={{ overflow: "visible" }}
-            />
-          </div>
-        </div>
-      </HighlightSection> }
+      <TreePreview 
+        title={t("previewBinaryTree.title")}
+        description={t("previewBinaryTree.description")}
+      />
 
       {/* Ferramentas disponíveis */}
       <GridSections clickable={true} title={t("avaliableTools.title")} subtitle={t("avaliableTools.subtitle")}>
