@@ -2,14 +2,13 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './LateralBar.module.css';
-import ReactiveButton from '../ui/ReactiveButton/ReactiveButton';
 import { usePathname, useRouter, useParams } from "next/navigation";
 
 {/* Contexto */}
 import { useUI } from '@/context/UIContext'; 
 
 {/* Ícones */}
-import { Sigma, Network, CircleDollarSign, ChevronLeft, Grid3x3 } from 'lucide-react';
+import { Sigma, Network, CircleDollarSign, ChevronLeft, Grid3x3, Binary } from 'lucide-react';
 
 {/* Animação */}
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,7 +44,8 @@ export default function LateralBar() {
         'precalculus': <Sigma size={18} />,
         'data_structures': <Network size={18} />,
         'financial_calculators': <CircleDollarSign size={18} />,
-        'linear_algebra': <Grid3x3 size={18} />
+        'linear_algebra': <Grid3x3 size={18} />,
+        'computational_math': <Binary size={18} />
     }
 
     // Categorias disponíveis
@@ -54,6 +54,7 @@ export default function LateralBar() {
         { id: 'precalculus', label: 'Matemática' },
         { id: 'linear_algebra', label: 'Matrizes' },
         { id: 'data_structures', label: 'Computação' },
+        { id: 'computational_math', label: 'Matemática Computacional' },
     ];
 
     // Itens de navegação disponíveis
@@ -126,6 +127,20 @@ export default function LateralBar() {
             labelKey: 'dataStructures.selectionSort',
             path: `/${params.locale}/selection-sort`,
             category: 'data_structures'
+        },
+
+        'baseConverter': {
+            id: 'baseConverter',
+            labelKey: 'computationalMath.baseConverter',
+            path: `/${params.locale}/base-converter`,
+            category: 'computational_math'
+        },
+
+        'truthTable': {
+            id: 'truthTable',
+            labelKey: 'computationalMath.truthTable',
+            path: `/${params.locale}/truth-table-generator`,
+            category: 'computational_math'
         }
     }
 

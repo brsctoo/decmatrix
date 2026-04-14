@@ -66,7 +66,8 @@
             "financial_calculators": "Financeiro",
             "precalculus": "Pré-cálculo",
             "linear_algebra": "Álgebra Linear",
-            "data_structures": "Estruturas de Dados"
+            "data_structures": "Estruturas de Dados",
+            "computational_math": "Matemática Computacional"
         },
         
         "tools": {
@@ -91,6 +92,11 @@
                 "bubbleSort": "Bubble Sort",
                 "insertionSort": "Insertion Sort",
                 "selectionSort": "Selection Sort"
+            },
+
+            "computationalMath": {
+                "baseConverter": "Conversor de Bases",
+                "truthTable": "Tabela Verdade"
             }
         },
 
@@ -112,8 +118,14 @@
             "bubbleSort": "Bubble Sort",
             "insertionSort": "Insertion Sort",
             "selectionSort": "Selection Sort"
-        }
+        },
         
+        "computationalMath": {
+            "title": "Matemática Computacional",
+            "baseConverter": "Conversor de Bases",
+            "truthTable": "Tabela Verdade"
+        }
+
     },
 
     "Home": {
@@ -1312,5 +1324,286 @@
             "noSwap": "Sim. {min} já está na posição correta. Nenhuma troca necessária.",
             "finished": "Array ordenado com sucesso pelo Selection Sort!"
         }
+    },
+
+    "BaseConverterComponent": {
+        "mainInput": {
+            "label": "Número",
+            "placeholder": "Ex: 1010"
+        },
+
+        "sourceBaseSection": {
+            "label": "Base de origem",
+            "placeholder": "Ex: 19"
+        },
+
+        "addBaseSection": {
+            "label": "Adicionar base à tabela",
+            "placeholder": "Ex: 19",
+            "buttonLabel": "ADICIONAR"
+        },
+
+        "resultsSection": {
+            "label": "Resultados",
+            "subtitle": "Base {base} → todas"
+        },
+
+        "tableHeaders": {
+            "base": "Base",
+            "result": "Resultado"
+        },
+
+        "removeButtonLabel": "REMOVER",
+
+        "exportSection": {
+            "label": "Tabela para exportação",
+            "buttonLabel": "EXPORTAR CSV",
+            
+            "headers": {
+                "base": "Base",
+                "name": "Nome",
+                "result": "Resultado"
+            }
+        },
+
+        "defaultBaseLabels": {
+            "binary": "Binário",
+            "octal": "Octal",
+            "decimal": "Decimal",
+            "hexadecimal": "Hexadecimal"
+        },
+        
+        "customBaseLabel": "Base {base}",
+
+        "baseOptions": {
+            "binary": "Binário",
+            "decimal": "Decimal",
+            "octal": "Octal",
+            "hexadecimal": "Hexadecimal",
+            "personalized": "Base Personalizada"
+        }
+    },
+
+    "baseConverter": { 
+        "seoTitle": "Calculadora de Conversão de Bases",
+        "seoDescription": "Converta números entre diferentes bases numéricas com suporte a bases personalizadas. Exporte resultados em CSV.",
+
+        "mainTitle": "Calculadora de Conversão de Bases",
+
+        "introSection": {
+            "title": "Converta bases sem complicação",
+            "paragraph01": "A conversão de bases é uma ideia central da computação e da matemática discreta. Ela mostra que um mesmo valor pode assumir representações diferentes, dependendo do sistema numérico utilizado. Em vez de pensar apenas em decimal, passamos a entender como o número existe em binário, octal, hexadecimal e outras bases.",
+            "paragraph02": "Nesta calculadora, você digita um número, escolhe a base de origem e vê a conversão acontecer na hora. Além disso, é possível adicionar bases personalizadas, ocultar linhas que não interessam naquele momento e exportar tudo em CSV para reutilizar os dados em estudo, aula ou documentação.",
+            "highlights": [
+                "Suporte às bases binária, octal, decimal e hexadecimal, com leitura direta dos resultados.",
+                "Aceita bases personalizadas de 2 até 36, cobrindo praticamente qualquer sistema posicional comum.",
+                "Permite exportar a tabela final em CSV para uso externo, mantendo os rótulos traduzidos."
+            ]
+        },
+
+        "definitionSection": {
+            "title": "O que é conversão de bases?",
+            "content": "A conversão de bases é o processo de transformar um número representado em um sistema numérico para outro. Cada base possui um conjunto limitado de símbolos válidos e uma regra própria para posicionar os dígitos. Em decimal usamos dez símbolos; em hexadecimal, usamos dez dígitos e mais seis letras; em binário, apenas dois símbolos são suficientes para representar qualquer valor.",
+            "highlight": "O valor não muda quando a base muda. O que muda é somente a forma de representar esse valor e a maneira como lemos cada posição."
+        },
+
+        "howItWorksSection": {
+            "title": "Como a conversão funciona",
+            "intro": "O processo é direto: primeiro você informa a base em que o número foi escrito e depois a calculadora interpreta cada dígito conforme essa base. A partir daí, o sistema converte o valor para todas as bases exibidas na tabela, sem que você precise fazer as contas manualmente.",
+            "steps": [
+                "Selecione a base de origem ou use a opção de base personalizada caso o número não esteja em uma base padrão.",
+                "Digite o número que deseja converter, respeitando os dígitos permitidos por essa base.",
+                "Veja o resultado nas bases padrão e nas bases extras que você adicionou à tabela.",
+                "Exporte a tabela quando quiser reutilizar os valores em outro lugar ou montar um material de estudo."
+            ],
+            "conclusion": "Esse fluxo deixa a conversão mais visual, reduz a chance de erro e ajuda a entender como o mesmo valor se comporta em sistemas diferentes."
+        },
+
+        "formularySection": {
+            "title": "Base posicional",
+            "intro": "Em bases posicionais, cada dígito representa uma potência da base. Isso explica por que o mesmo número pode ter aparência diferente em outro sistema numérico e também por que a posição de um dígito altera completamente o valor final.",
+            "formula": "N = \\sum_{i=0}^{n} d_i \\cdot b^i",
+            "symbols": {
+                "N": "Valor final do número representado na base escolhida.",
+                "d": "Dígito de cada posição, sempre menor que a base.",
+                "b": "Base numérica usada na representação."
+            },
+            "explanation": "Na prática, isso quer dizer que cada posição vale mais ou menos conforme sua distância da direita para a esquerda. É esse comportamento que torna a conversão entre bases totalmente sistemática e previsível, permitindo que a calculadora funcione com qualquer base entre 2 e 36."
+        },
+
+        "positionExampleSection": {
+            "title": "Exemplo de base posicional",
+            "intro": "Veja como a mesma sequência de dígitos muda de valor quando as posições são interpretadas em uma base diferente. Isso é o coração da ideia de base posicional.",
+            "example": "Tomando 1010 na base 2, a leitura correta é: 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰.",
+            "steps": [
+                "O primeiro dígito da esquerda vale 1 × 2³, porque está na casa das unidades de oito.",
+                "O segundo dígito vale 0 × 2², então não altera o total.",
+                "O terceiro dígito vale 1 × 2¹, somando mais dois ao resultado.",
+                "O último dígito vale 0 × 2⁰, mantendo o valor final sem mudança."
+            ],
+            "conclusion": "Somando tudo, chegamos a 10 na base decimal. Esse mesmo raciocínio vale para qualquer base posicional: você sempre multiplica cada dígito pela potência correspondente da base e soma os resultados."
+        },
+
+        "practicalExamplesSection": {
+            "title": "Exemplo prático",
+            "intro": "Se você digitar 1010 na base 2, a calculadora lê o valor como um número binário e mostra a equivalência nas outras bases. Isso é útil para perceber que o número não muda, apenas muda a forma de escrevê-lo.",
+            "example": "Por exemplo, 1010₂ = 10₁₀ = A₁₆. Em outras palavras, a calculadora mostra a mesma quantidade usando representações diferentes.",
+            "conclusion": "Esse tipo de comparação é útil para estudar computação, programação de baixo nível, eletrônica digital e representação interna dos dados em memória."
+        },
+
+        "whyItMattersSection": {
+            "title": "Por que isso importa?",
+            "intro": "Mesmo parecendo um assunto teórico, a conversão de bases aparece em várias situações do dia a dia técnico. Ela ajuda a enxergar o que acontece por baixo da interface e cria uma base sólida para entender programação, arquitetura de computadores e sistemas digitais.",
+            "list": [
+                "Ajuda a entender como o computador armazena e processa números internamente.",
+                "É essencial em programação, redes, eletrônica e arquitetura de computadores.",
+                "Facilita a leitura de valores em hexadecimal, muito comuns em sistemas, depuração e interfaces técnicas."
+            ]
+        },
+
+        "faqSection": [
+            {
+                "question": "01. Qual base a calculadora suporta?",
+                "answer": "Ela suporta as bases padrão mais usadas e também bases personalizadas entre 2 e 36."
+            },
+            {
+                "question": "02. Posso limpar o campo sem travar a conversão?",
+                "answer": "Sim. O campo aceita ser apagado normalmente para que você possa digitar outro número sem conflito de validação."
+            },
+            {
+                "question": "03. O que acontece quando eu escolho base personalizada?",
+                "answer": "Você informa a base de origem manualmente e a calculadora passa a interpretar o número conforme esse valor."
+            },
+            {
+                "question": "04. O CSV exportado usa os mesmos textos da interface?",
+                "answer": "Sim. O arquivo exportado usa os rótulos traduzidos da tabela para manter consistência com a interface exibida."
+            },
+            {
+                "question": "05. O que é uma base posicional na prática?",
+                "answer": "É um sistema em que o valor de cada dígito depende da posição em que ele aparece. Quanto mais à esquerda, maior o peso daquele dígito, porque ele é multiplicado por potências da base."
+            }
+        ]
+    },
+
+    "truthTable": {
+        "seoTitle": "Tabela Verdade | Gerador Interativo de Expressões Lógicas",
+        "seoDescription": "Monte tabelas verdade para expressões booleanas, visualize combinações automaticamente e compare resultados em tempo real.",
+
+        "mainTitle": "Tabela Verdade Interativa",
+
+        "ui": {
+            "inputLabel": "Expressões lógicas",
+            "inputPlaceholder": "Ex.: A∨B, ¬C∧A",
+            "generateButtonLabel": "Gerar tabela",
+            "variablesLabel": "Variáveis detectadas",
+            "errorEmptyExpression": "Digite ao menos uma expressão.",
+            "errorNoVariables": "Nenhuma variável encontrada. Use letras maiúsculas (A, B, C...).",
+            "insertButtonAriaLabel": "Inserir {value}"
+        },
+
+        "introSection": {
+            "title": "Explore expressões booleanas sem esforço",
+            "paragraph01": "A tabela verdade é uma forma direta de enxergar como uma expressão lógica se comporta em todas as combinações possíveis dos seus valores de entrada. Em vez de testar cenário por cenário manualmente, você vê o resultado completo em uma única visão.",
+            "paragraph02": "Nesta página, você digita uma ou mais expressões, a calculadora identifica as variáveis automaticamente e monta a tabela com os resultados em tempo real. Isso facilita tanto o estudo de lógica booleana quanto a validação de regras usadas em programação e circuitos digitais.",
+            "highlights": [
+                "Detecta variáveis automaticamente e monta todas as combinações possíveis de valores.",
+                "Aceita várias expressões na mesma análise, separadas por vírgula.",
+                "Ajuda a estudar lógica proposicional, programação e eletrônica digital com clareza."
+            ]
+        },
+
+        "definitionSection": {
+            "title": "O que é uma tabela verdade?",
+            "content": "Uma tabela verdade é um quadro que mostra o resultado de uma expressão lógica para cada combinação possível de seus valores de entrada. Cada linha representa um cenário diferente, e cada coluna revela como a expressão se comporta quando as variáveis mudam de verdadeiro para falso ou vice-versa.",
+            "highlight": "Cada nova variável dobra o número de linhas da tabela. Por isso, uma expressão com poucas variáveis é fácil de visualizar, enquanto expressões maiores exigem mais atenção para não perder nenhuma combinação."
+        },
+
+        "howItWorksSection": {
+            "title": "Como a tabela é gerada",
+            "intro": "O processo é automático: primeiro você informa a expressão, depois o sistema identifica as variáveis presentes e organiza todas as combinações possíveis. A partir daí, cada expressão é avaliada linha por linha para mostrar se o resultado é verdadeiro ou falso.",
+            "steps": [
+                "Digite uma ou mais expressões booleanas, separadas por vírgula, como A∧B ou ¬A∨C.",
+                "O sistema detecta automaticamente as variáveis usadas em cada expressão.",
+                "A tabela gera todas as combinações possíveis de valores para essas variáveis.",
+                "Cada expressão é avaliada em todas as linhas, mostrando o resultado final com clareza."
+            ],
+            "conclusion": "Esse fluxo torna a análise mais rápida, reduz erros de interpretação e deixa visível o comportamento lógico de cada expressão."
+        },
+
+        "operatorsSection": {
+            "title": "Operadores lógicos suportados",
+            "symbols": {
+                "not": "Negação: inverte o valor lógico da expressão.",
+                "and": "Conjunção: só é verdadeira quando os dois lados são verdadeiros.",
+                "or": "Disjunção: é verdadeira quando pelo menos um lado é verdadeiro.",
+                "implication": "Implicação: só é falsa quando a primeira parte é verdadeira e a segunda é falsa.",
+                "biconditional": "Bicondicional: é verdadeira quando os dois lados têm o mesmo valor lógico.",
+                "xor": "OU exclusivo: é verdadeira quando exatamente uma das partes é verdadeira."
+            }
+        },
+
+        "formularySection": {
+            "title": "Quantidade de linhas",
+            "intro": "Uma tabela verdade com n variáveis booleanas sempre possui 2^n linhas. Isso acontece porque cada nova variável dobra o número de combinações possíveis de verdadeiro e falso.",
+            "formula": "L = 2^n",
+            "symbols": {
+                "L": "Quantidade total de linhas geradas pela tabela verdade.",
+                "n": "Número de variáveis booleanas analisadas na expressão."
+            },
+            "explanation": "Com 1 variável, há 2 linhas. Com 2 variáveis, há 4. Com 3 variáveis, há 8. Esse crescimento exponencial mostra por que expressões mais complexas exigem uma análise mais cuidadosa."
+        },
+
+        "exampleSection": {
+            "title": "Exemplo com duas variáveis",
+            "intro": "Se você usar as variáveis A e B, a tabela verdade terá quatro linhas, cobrindo todas as combinações possíveis.",
+            "example": "Na expressão A ∧ B, o resultado só é verdadeiro quando A e B são verdadeiros ao mesmo tempo.",
+            "steps": [
+                "Na primeira linha, A e B são falsos, então A ∧ B continua falso.",
+                "Na segunda linha, apenas uma variável é verdadeira, então o resultado ainda é falso.",
+                "Na terceira linha acontece a mesma coisa: uma das entradas continua falsa.",
+                "Na última linha, A e B são verdadeiros ao mesmo tempo, e a expressão fica verdadeira."
+            ],
+            "conclusion": "Esse padrão deixa claro como a tabela verdade funciona: ela mostra exatamente em quais cenários a expressão aceita ou rejeita uma combinação de valores."
+        },
+
+        "practicalExamplesSection": {
+            "title": "Exemplo prático",
+            "intro": "Se você digitar A∨B, a tabela mostra que a expressão só será falsa quando ambas as variáveis forem falsas. Isso ajuda a enxergar rapidamente a lógica por trás da regra.",
+            "example": "Já em ¬A∨B, a expressão muda de acordo com a negação de A, o que é útil para testar condições e validar comportamentos em algoritmos e circuitos.",
+            "conclusion": "Esse tipo de leitura é útil em lógica proposicional, programação condicional, eletrônica digital e na construção de regras de decisão mais confiáveis."
+        },
+
+        "whyItMattersSection": {
+            "title": "Por que isso importa?",
+            "intro": "Tabela verdade não é só um exercício acadêmico. Ela aparece sempre que precisamos validar regras lógicas, simplificar condições ou entender o comportamento de uma expressão antes de colocá-la em prática.",
+            "list": [
+                "Ajuda a verificar se uma regra lógica está correta antes de usá-la em código ou circuitos.",
+                "Facilita o estudo de lógica proposicional, álgebra booleana e eletrônica digital.",
+                "Serve como base para simplificação de expressões e análise de condições complexas."
+            ]
+        },
+
+        "faqSection": [
+            {
+                "question": "01. Quantas expressões posso analisar ao mesmo tempo?",
+                "answer": "Você pode inserir mais de uma expressão na mesma análise, separando cada uma por vírgula."
+            },
+            {
+                "question": "02. Quais operadores a calculadora entende?",
+                "answer": "Ela suporta negação, conjunção, disjunção, implicação, bicondicional e OU exclusivo."
+            },
+            {
+                "question": "03. O que acontece se eu digitar uma expressão sem variáveis?",
+                "answer": "O sistema não consegue montar a tabela porque não há valores lógicos para combinar. Nesse caso, é preciso usar pelo menos uma variável maiúscula como A, B ou C."
+            },
+            {
+                "question": "04. As variáveis são organizadas em alguma ordem?",
+                "answer": "Sim. Elas são detectadas automaticamente e organizadas para manter a tabela consistente durante a avaliação."
+            },
+            {
+                "question": "05. Para que isso é útil na prática?",
+                "answer": "Para validar condições em programação, simplificar expressões lógicas e entender o comportamento de circuitos digitais com mais clareza."
+            }
+        ]
     }
 }

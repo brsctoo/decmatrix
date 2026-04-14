@@ -66,7 +66,8 @@
             "financial_calculators": "Financial",
             "precalculus": "Precalculus",
             "linear_algebra": "Linear Algebra",
-            "data_structures": "Data Structures"
+            "data_structures": "Data Structures",
+            "computational_math": "Computational Math"
         },
 
         "tools": {
@@ -91,6 +92,11 @@
                 "bubbleSort": "Bubble Sort",
                 "insertionSort": "Insertion Sort",
                 "selectionSort": "Selection Sort"
+            },
+
+            "computationalMath": {
+                "baseConverter": "Base Converter",
+                "truthTable": "Truth Table"
             }
         },
 
@@ -112,6 +118,12 @@
             "bubbleSort": "Bubble Sort",
             "insertionSort": "Insertion Sort",
             "selectionSort": "Selection Sort"
+        },
+
+        "computationalMath": {
+            "title": "Computational Math",
+            "baseConverter": "Base Converter",
+            "truthTable": "Truth Table"
         }
     },
 
@@ -1314,5 +1326,285 @@
                 }
             ]
         }
+    },
+
+    "BaseConverterComponent": {
+        "mainInput": {
+            "label": "Number",
+            "placeholder": "Ex: 1010"
+        },
+
+        "sourceBaseSection": {
+            "label": "Source base",
+            "placeholder": "Ex: 19"
+        },
+
+        "addBaseSection": {
+            "label": "Add base to table",
+            "placeholder": "Ex: 19",
+            "buttonLabel": "ADD"
+        },
+
+        "resultsSection": {
+            "label": "Results",
+            "subtitle": "Base {base} → all"
+        },
+
+        "tableHeaders": {
+            "base": "Base",
+            "result": "Result"
+        },
+
+        "removeButtonLabel": "REMOVE",
+
+        "exportSection": {
+            "label": "Export table",
+            "buttonLabel": "EXPORT CSV",
+            "headers": {
+                "base": "Base",
+                "name": "Name",
+                "result": "Result"
+            }
+        },
+
+        "defaultBaseLabels": {
+            "binary": "Binary",
+            "octal": "Octal",
+            "decimal": "Decimal",
+            "hexadecimal": "Hexadecimal"
+        },
+
+        "customBaseLabel": "Base {base}",
+
+        "baseOptions": {
+            "binary": "Binary",
+            "decimal": "Decimal",
+            "octal": "Octal",
+            "hexadecimal": "Hexadecimal",
+            "personalized": "Custom base"
+        }
+    },
+
+    "truthTable": {
+        "seoTitle": "Truth Table | Interactive Logic Expression Builder",
+        "seoDescription": "Build truth tables for boolean expressions, visualize combinations automatically, and compare results in real time.",
+
+        "mainTitle": "Interactive Truth Table",
+
+        "ui": {
+            "inputLabel": "Logical expressions",
+            "inputPlaceholder": "Ex.: A∨B, ¬C∧A",
+            "generateButtonLabel": "Generate table",
+            "variablesLabel": "Detected variables",
+            "errorEmptyExpression": "Enter at least one expression.",
+            "errorNoVariables": "No variables found. Use uppercase letters (A, B, C...).",
+            "insertButtonAriaLabel": "Insert {value}"
+        },
+
+        "introSection": {
+            "title": "Explore boolean expressions with no friction",
+            "paragraph01": "A truth table is a direct way to see how a logical expression behaves across every possible combination of its input values. Instead of checking each case manually, you get the full result in a single view.",
+            "paragraph02": "On this page, you can type one or more expressions, the calculator detects the variables automatically, and the table is generated in real time. That makes it easier to study boolean logic and to validate rules used in programming and digital circuits.",
+            "highlights": [
+                "Automatically detects variables and builds every possible value combination.",
+                "Accepts multiple expressions in the same analysis, separated by commas.",
+                "Helps you study propositional logic, programming, and digital electronics clearly."
+            ]
+        },
+
+        "definitionSection": {
+            "title": "What is a truth table?",
+            "content": "A truth table is a chart that shows the result of a logical expression for every possible combination of its input values. Each row represents a different scenario, and each column shows how the expression behaves as variables switch between true and false.",
+            "highlight": "Each new variable doubles the number of rows in the table. That is why expressions with few variables are easy to inspect, while larger ones require more attention to avoid missing any combination."
+        },
+
+        "howItWorksSection": {
+            "title": "How the table is generated",
+            "intro": "The process is automatic: first you enter the expression, then the system identifies the variables and organizes every possible combination. After that, each expression is evaluated row by row to show whether the result is true or false.",
+            "steps": [
+                "Type one or more boolean expressions, separated by commas, such as A∧B or ¬A∨C.",
+                "The system automatically detects the variables used in each expression.",
+                "The table generates every possible true/false combination for those variables.",
+                "Each expression is evaluated across all rows, making the final result easy to read."
+            ],
+            "conclusion": "This flow makes analysis faster, reduces interpretation mistakes, and keeps the logical behavior of each expression visible."
+        },
+
+        "operatorsSection": {
+            "title": "Supported logical operators",
+            "symbols": {
+                "not": "Negation: flips the logical value of an expression.",
+                "and": "Conjunction: true only when both sides are true.",
+                "or": "Disjunction: true when at least one side is true.",
+                "implication": "Implication: false only when the first part is true and the second is false.",
+                "biconditional": "Biconditional: true when both sides have the same logical value.",
+                "xor": "Exclusive OR: true when exactly one side is true."
+            }
+        },
+
+        "formularySection": {
+            "title": "Number of rows",
+            "intro": "A truth table with n boolean variables always has 2^n rows. Each new variable doubles the number of possible true and false combinations.",
+            "formula": "L = 2^n",
+            "symbols": {
+                "L": "Total number of rows generated by the truth table.",
+                "n": "Number of boolean variables analyzed in the expression."
+            },
+            "explanation": "With 1 variable, there are 2 rows. With 2 variables, there are 4. With 3 variables, there are 8. This exponential growth is why more complex expressions require a more careful inspection."
+        },
+
+        "exampleSection": {
+            "title": "Example with two variables",
+            "intro": "If you use variables A and B, the truth table will have four rows and cover every possible combination.",
+            "example": "For the expression A ∧ B, the result is true only when both A and B are true at the same time.",
+            "steps": [
+                "In the first row, A and B are both false, so A ∧ B remains false.",
+                "In the second row, only one variable is true, so the result is still false.",
+                "The third row has the same pattern: one input is still false.",
+                "In the last row, A and B are both true, so the expression becomes true."
+            ],
+            "conclusion": "This pattern makes the truth table behavior obvious: it shows exactly which scenarios make the expression accept or reject a combination of values."
+        },
+
+        "practicalExamplesSection": {
+            "title": "Practical example",
+            "intro": "If you type A∨B, the table shows that the expression is false only when both variables are false. That makes the underlying logic easy to spot at a glance.",
+            "example": "With ¬A∨B, the result changes according to the negation of A, which is useful for testing conditions and validating behavior in algorithms and circuits.",
+            "conclusion": "This kind of reading is useful in propositional logic, conditional programming, digital electronics, and the construction of more reliable decision rules."
+        },
+
+        "whyItMattersSection": {
+            "title": "Why this matters",
+            "intro": "Truth tables are not just an academic exercise. They are used whenever we need to validate logical rules, simplify conditions, or understand the behavior of an expression before putting it into practice.",
+            "list": [
+                "They help verify whether a logical rule is correct before using it in code or circuits.",
+                "They make propositional logic, boolean algebra, and digital electronics easier to study.",
+                "They provide a base for simplifying expressions and analyzing complex conditions."
+            ]
+        },
+
+        "faqSection": [
+            {
+                "question": "01. How many expressions can I analyze at once?",
+                "answer": "You can enter more than one expression in the same analysis by separating each one with a comma."
+            },
+            {
+                "question": "02. Which operators does the calculator understand?",
+                "answer": "It supports negation, conjunction, disjunction, implication, biconditional, and exclusive OR."
+            },
+            {
+                "question": "03. What happens if I enter an expression without variables?",
+                "answer": "The system cannot build the table because there are no logical values to combine. In that case, you need at least one uppercase variable such as A, B, or C."
+            },
+            {
+                "question": "04. Are the variables sorted in any way?",
+                "answer": "Yes. They are detected automatically and organized to keep the table consistent while it is evaluated."
+            },
+            {
+                "question": "05. What is this useful for in practice?",
+                "answer": "It is useful for validating conditions in programming, simplifying logical expressions, and understanding digital circuits more clearly."
+            }
+        ]
+    },
+
+    "baseConverter": { 
+        "seoTitle": "Calculadora de Conversão de Bases",
+        "seoDescription": "Converta números entre diferentes bases numéricas com suporte a bases personalizadas. Exporte resultados em CSV.",
+
+        "mainTitle": "Base Converter",
+
+        "introSection": {
+            "title": "Convert bases without friction",
+            "paragraph01": "Base conversion is a central idea in computer science and discrete mathematics. It shows that the same value can be represented in different ways depending on the numeral system being used. Instead of thinking only in decimal, you begin to understand how the number exists in binary, octal, hexadecimal, and other bases.",
+            "paragraph02": "In this calculator, you enter a number, choose the source base, and watch the conversion happen instantly. You can also add custom bases, hide rows you do not need at the moment, and export everything as CSV for study, teaching, or documentation.",
+            "highlights": [
+                "Supports binary, octal, decimal, and hexadecimal bases with direct readable output.",
+                "Accepts custom bases from 2 up to 36, covering nearly every common positional system.",
+                "Lets you export the final table as CSV for external use while preserving translated labels."
+            ]
+        }, 
+
+        "definitionSection": {
+            "title": "What is base conversion?",
+            "content": "Base conversion is the process of transforming a number represented in one numeral system into another. Each base has a limited set of valid symbols and its own rule for placing digits. In decimal, for example, we use ten symbols; in hexadecimal, we use ten digits plus six letters; in binary, only two symbols are enough to represent any value.",
+            "highlight": "The value does not change when the base changes. Only the representation changes, along with how we read each position."
+        },
+
+        "howItWorksSection": {
+            "title": "How conversion works",
+            "intro": "The process is direct: first you provide the base the number was written in, and then the calculator interprets each digit according to that base. From there, it converts the value into every base shown in the table, so you never have to do the arithmetic manually.",
+            "steps": [
+                "Select the source base or use the custom base option when the number is not written in a standard base.",
+                "Type the number you want to convert, respecting the digits allowed in that base.",
+                "See the result in the default bases and in any extra bases you added to the table.",
+                "Export the table whenever you want to reuse the values elsewhere or build study material."
+            ],
+            "conclusion": "This flow makes the conversion more visual, reduces the chance of mistakes, and helps explain how the same value behaves in different systems."
+        },
+
+        "formularySection": {
+            "title": "Positional notation",
+            "intro": "In positional numeral systems, each digit represents a power of the base. This is why the same number can look different in another system and why a digit's position completely changes the final value.",
+            "formula": "N = \\sum_{i=0}^{n} d_i \\cdot b^i",
+            "symbols": {
+                "N": "Final value of the number represented in the chosen base.",
+                "d": "Digit in each position, always smaller than the base.",
+                "b": "Numerical base used in the representation."
+            },
+            "explanation": "In practice, this means that each position carries more or less value depending on its distance from right to left. That behavior is what makes base conversion fully systematic and predictable, allowing the calculator to work with any base from 2 to 36."
+        },
+
+        "positionExampleSection": {
+            "title": "Positional base example",
+            "intro": "See how the same sequence of digits changes value when positions are interpreted in a different base. That is the core of positional notation.",
+            "example": "Taking 1010 in base 2, the correct reading is: 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰.",
+            "steps": [
+                "The leftmost digit is worth 1 × 2³ because it sits in the eight's place.",
+                "The second digit is worth 0 × 2², so it does not change the total.",
+                "The third digit is worth 1 × 2¹, adding two more to the result.",
+                "The last digit is worth 0 × 2⁰, leaving the final value unchanged."
+            ],
+            "conclusion": "Adding everything together gives 10 in decimal. The same logic works for any positional base: multiply each digit by the corresponding power of the base and sum the results."
+        },
+
+        "practicalExamplesSection": {
+            "title": "Practical example",
+            "intro": "If you type 1010 in base 2, the calculator reads the value as binary and shows the equivalent result in the other bases. That makes it easy to see that the number itself does not change, only the notation does.",
+            "example": "For example, 1010₂ = 10₁₀ = A₁₆. In other words, the calculator shows the same quantity using different representations.",
+            "conclusion": "This kind of comparison is useful when studying computer science, low-level programming, digital electronics, and internal data representation in memory."
+        },
+
+        "whyItMattersSection": {
+            "title": "Why this matters",
+            "intro": "Even though it looks theoretical, base conversion appears in many everyday technical situations. It helps you see what is happening underneath the interface and builds a solid foundation for understanding programming, computer architecture, and digital systems.",
+            "list": [
+                "It helps explain how computers store and process numbers internally.",
+                "It is essential in programming, networking, electronics, and computer architecture.",
+                "It makes hexadecimal values easier to read, which is common in systems, debugging, and technical interfaces."
+            ]
+        },
+
+        "faqSection": [
+            {
+                "question": "01. Which bases does the calculator support?",
+                "answer": "It supports the most common standard bases and also custom bases from 2 to 36."
+            },
+            {
+                "question": "02. Can I clear the field without breaking the conversion?",
+                "answer": "Yes. The field can be cleared normally so you can type another number without validation conflicts."
+            },
+            {
+                "question": "03. What happens when I choose a custom base?",
+                "answer": "You enter the source base manually and the calculator starts interpreting the number using that value."
+            },
+            {
+                "question": "04. Does the exported CSV use the same texts as the interface?",
+                "answer": "Yes. The exported file uses the translated table labels so it stays consistent with what you see on screen."
+            },
+            {
+                "question": "05. What is a positional base in practice?",
+                "answer": "It is a system in which each digit's value depends on the position where it appears. The further left the digit is, the greater its weight, because it is multiplied by powers of the base."
+            }
+        ]
     }
 }

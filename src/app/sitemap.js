@@ -51,6 +51,14 @@
       { url: `${baseUrl}/pt/matrix-multiplication`, lastModified: new Date() },
       { url: `${baseUrl}/en/matrix-multiplication`, lastModified: new Date() },
 
+      // --- CONVERSOR DE BASE  ---
+      { url: `${baseUrl}/pt/base-converter`, lastModified: new Date() },
+      { url: `${baseUrl}/en/base-converter`, lastModified: new Date() },
+      
+      // --- GERADOR DE TABELA VERDADE ---
+      { url: `${baseUrl}/pt/truth-table-generator`, lastModified: new Date() },
+      { url: `${baseUrl}/en/truth-table-generator`, lastModified: new Date() },
+      
       // --- POLÍTICA DE PRIVACIDADE ---
       { url: `${baseUrl}/pt/privacy-policy`, lastModified: new Date() },
       { url: `${baseUrl}/en/privacy-policy`, lastModified: new Date() },

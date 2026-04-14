@@ -9,7 +9,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
+body {  
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-geist-sans), sans-serif;

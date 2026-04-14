@@ -1,0 +1,216 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 12px 0 40px;
+}
+
+.inputCard,
+.tableCard {
+	background: #070707;
+	border: 1px solid rgba(74, 222, 128, 0.16);
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(74, 222, 128, 0.03);
+}
+
+.inputCard {
+	padding: 24px 28px;
+}
+
+.actionsRow {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-top: 18px;
+	flex-wrap: wrap;
+}
+
+.generateButton {
+	min-width: 118px;
+	height: 32px;
+	padding: 0 12px !important;
+	font-size: 11px !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.5px;
+}
+
+.actionsHint {
+	color: #8a8a8a;
+	font-size: 12px;
+	font-family: 'JetBrains Mono', 'Courier New', monospace;
+	letter-spacing: 0.4px;
+}
+
+.toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 18px;
+}
+
+.logicBtn {
+	height: 40px;
+	min-width: 44px;
+	padding: 0 14px;
+	border-radius: 10px;
+	border: 1px solid rgba(74, 222, 128, 0.16);
+	background: linear-gradient(180deg, rgba(10, 10, 10, 0.96), rgba(8, 8, 8, 0.96));
+	color: #f1f1f1;
+	font-size: 15px;
+	font-weight: 800;
+	cursor: pointer;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(74, 222, 128, 0.03);
+	transition: all 0.2s ease;
+}
+
+.logicBtn:hover {
+	transform: translateY(-1px);
+	border-color: rgba(74, 222, 128, 0.45);
+	color: #b7ffbf;
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(74, 222, 128, 0.04);
+}
+
+.variablesRow {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 18px;
+	padding-top: 18px;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.variablesLabel,
+.tableHeaderLabel {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #7cff9a;
+}
+
+.variablesList,
+.tableHeaderRight {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.variableBadge,
+.expressionBadge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 34px;
+	padding: 0 12px;
+	border-radius: 8px;
+	background: #0a0a0a;
+	border: 1.5px solid rgba(74, 222, 128, 0.18);
+	color: #7cff9a;
+	font-size: 13px;
+	font-weight: 800;
+	font-family: 'JetBrains Mono', 'Courier New', monospace;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(74, 222, 128, 0.03);
+}
+
+.tableCard {
+	width: 100%;
+}
+
+.tableScroll {
+	overflow-x: auto;
+}
+
+.truthTable {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 540px;
+}
+
+.truthTable thead tr {
+	background: #080808;
+}
+
+.truthTable th {
+	padding: 12px 24px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: #3f7a3f;
+	text-align: center;
+	border-bottom: 1px solid rgba(74, 222, 128, 0.08);
+}
+
+.truthTable td {
+	padding: 16px 24px;
+	text-align: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	font-family: 'JetBrains Mono', 'Courier New', monospace;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: #f1f1f1;
+}
+
+.truthTable tbody tr:nth-child(odd) {
+	background: rgba(255, 255, 255, 0.012);
+}
+
+.truthTable tbody tr:hover {
+	background: rgba(74, 222, 128, 0.03);
+}
+
+.resultCell {
+	color: #7cff9a;
+}
+
+.errorMsg {
+	margin-top: 14px;
+	color: #ffb8b8;
+	font-size: 12px;
+	font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+	.wrapper {
+		gap: 20px;
+		max-width: 100%;
+		padding: 8px 12px 32px;
+	}
+
+	.inputCard,
+	.tableCard {
+		border-radius: 10px;
+	}
+
+	.inputCard {
+		padding: 18px 20px;
+	}
+
+	.tableHeader {
+		padding: 14px 18px;
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.truthTable th,
+	.truthTable td {
+		padding: 10px 16px;
+		font-size: 12px;
+	}
+
+	.actionsRow {
+		align-items: flex-start;
+	}
+
+	.logicBtn {
+		height: 36px;
+		min-width: 40px;
+		padding: 0 12px;
+		font-size: 14px;
+	}
+}

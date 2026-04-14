@@ -2,6 +2,180 @@
 
 
 export const schemas = {
+    baseConverter: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/base-converter#software",
+                    "name": "Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Ferramenta online para converter números entre bases diferentes, com suporte a bases personalizadas e exportação CSV.",
+                    "url": "https://decmatrix.com/pt/base-converter"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como usar o conversor de bases",
+                    "description": "Aprenda a converter números entre diferentes bases numéricas.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Escolha a base de origem", "text": "Selecione a base em que o número foi escrito ou informe uma base personalizada." },
+                        { "@type": "HowToStep", "name": "Digite o número", "text": "Informe o número que deseja converter." },
+                        { "@type": "HowToStep", "name": "Visualize e exporte", "text": "Veja os resultados nas outras bases, adicione bases extras e exporte a tabela em CSV." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/pt"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Conversor de Bases",
+                            "item": "https://decmatrix.com/pt/base-converter"
+                        }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/base-converter#software",
+                    "name": "Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Online tool to convert numbers between different bases, with custom base support and CSV export.",
+                    "url": "https://decmatrix.com/en/base-converter"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to use the base converter",
+                    "description": "Learn how to convert numbers between different numeral bases.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Choose the source base", "text": "Select the base the number is written in or enter a custom base." },
+                        { "@type": "HowToStep", "name": "Enter the number", "text": "Type the number you want to convert." },
+                        { "@type": "HowToStep", "name": "View and export", "text": "See the converted results, add extra bases, and export the table as CSV." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/en"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Base Converter",
+                            "item": "https://decmatrix.com/en/base-converter"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+
+    truthTable: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/truth-table-generator#software",
+                    "name": "Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Ferramenta interativa para montar tabelas verdade, avaliar expressões booleanas e visualizar resultados em tempo real.",
+                    "url": "https://decmatrix.com/pt/truth-table-generator"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como usar a tabela verdade",
+                    "description": "Aprenda a avaliar expressões booleanas com todas as combinações possíveis de valores.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Digite a expressão", "text": "Informe uma ou mais expressões booleanas separadas por vírgula." },
+                        { "@type": "HowToStep", "name": "Revise as variáveis", "text": "A ferramenta detecta automaticamente as variáveis usadas na expressão." },
+                        { "@type": "HowToStep", "name": "Analise os resultados", "text": "Veja cada combinação possível e o valor final de cada expressão." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/pt"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Tabela Verdade",
+                            "item": "https://decmatrix.com/pt/truth-table-generator"
+                        }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/truth-table-generator#software",
+                    "name": "Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Interactive tool for building truth tables, evaluating boolean expressions, and viewing results in real time.",
+                    "url": "https://decmatrix.com/en/truth-table-generator"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to use the truth table",
+                    "description": "Learn how to evaluate boolean expressions across every possible combination of values.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Type the expression", "text": "Enter one or more boolean expressions separated by commas." },
+                        { "@type": "HowToStep", "name": "Review the variables", "text": "The tool automatically detects the variables used in the expression." },
+                        { "@type": "HowToStep", "name": "Analyze the results", "text": "See every possible combination and the final value of each expression." }
+                    ],
+                    "totalTime": "PT1M"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://decmatrix.com/en"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Truth Table",
+                            "item": "https://decmatrix.com/en/truth-table-generator"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+
     matrixBasicOperations: {
         pt: {
             "@context": "https://schema.org",
@@ -583,6 +757,7 @@ export const schemas = {
             ]
         }
     },
+
     bubbleSort: {
         pt: {
             "@context": "https://schema.org",
@@ -666,6 +841,7 @@ export const schemas = {
             ]
         }
     },
+
     insertionSort: {
         pt: {
             "@context": "https://schema.org",
@@ -749,6 +925,7 @@ export const schemas = {
             ]
         }
     },
+
     selectionSort: {
         pt: {
             "@context": "https://schema.org",
