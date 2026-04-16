@@ -10,7 +10,7 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/_next/'], // Não gasta "crawl budget" com código interno
+      disallow: ['/api/'], // Deixe bloqueado apenas as rotas de API
     },
     sitemap: 'https://decmatrix.com/sitemap.xml',
   }

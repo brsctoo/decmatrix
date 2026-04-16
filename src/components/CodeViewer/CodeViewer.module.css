@@ -1,13 +1,26 @@
 .codeViewerContainer {
     border-radius: 16px;
     overflow: hidden;
-    /* Borda sutil e fundo escuro profundo */
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: #0d0d0d;
-    /* Sombra em camadas: uma escura para profundidade e uma clarinha para contorno */
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03);
-    max-width: 960px; /* Aumentei a largura máxima */
-    margin: 4rem auto 2rem; /* Mais respiro em cima e embaixo */
+    max-width: 960px;
+    margin: 4rem auto 2rem;
+}
+
+@media (max-width: 768px) {
+    .codeViewerContainer {
+        max-width: 100%;
+        margin: 2rem 0;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .codeViewerContainer {
+        margin: 1.5rem 0;
+        border-radius: 8px;
+    }
 }
 .codeViewerCustomStyle {
     margin: 0;

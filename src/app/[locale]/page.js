@@ -10,6 +10,7 @@ import style from "./page.module.css";
 import ArticleLayoutSplit from "@/components/text/article-layouts/ArticleLayoutSplit/ArticleLayoutSplit";
 import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayoutDefault/ArticleLayoutDefault";
 import { GridSections, GridSection } from "@/components/text/GridSection/GridSection";
+import AvaliableTools from "@/components/home/AvaliableTools/AvaliableTools";
 
 {/* Styles */}
 import HighlightSection from '@/components/text/HighlightSection/HighlightSection';
@@ -67,98 +68,7 @@ async function Home({ params }) {
       />
 
       {/* Ferramentas disponíveis */}
-      <GridSections clickable={true} title={t("avaliableTools.title")} subtitle={t("avaliableTools.subtitle")}>
-        <GridSection 
-          title={t("avaliableTools.secondGradeEquationCard.title")} 
-          route={`/quadratic-equation-calculator`}
-          clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
-        >
-
-          {t("avaliableTools.secondGradeEquationCard.description")}
-        </GridSection>
-        
-        <GridSection 
-          title={t("avaliableTools.compoundInterestCalculatorCard.title")}
-          route={`/compound-interest-calculator`}
-          clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
-        >
-
-          {t("avaliableTools.compoundInterestCalculatorCard.description")}
-        </GridSection>
-
-        <GridSection 
-          title={t("avaliableTools.simpleInterestCalculatorCard.title")}
-          route={`/simple-interest-calculator`}
-          clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
-        >
-
-          {t("avaliableTools.simpleInterestCalculatorCard.description")}
-        </GridSection>
-
-        <GridSection 
-          title={t("avaliableTools.binarySearchTreeSimulatorCard.title")}
-          route={`/bst-tree-builder`}
-          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.binarySearchTreeSimulatorCard.description")}
-        </GridSection>
-
-        <GridSection 
-          title={t("avaliableTools.avlTreeSimulatorCard.title")} 
-          route={`/avl-tree-builder`}
-          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.avlTreeSimulatorCard.description")}
-        </GridSection>
-
-        <GridSection 
-          title={t("avaliableTools.matrixMultiplication.title")} 
-          route={`/matrix-multiplication`}
-          clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.matrixMultiplication.description")}
-        </GridSection>
-
-        <GridSection 
-          title={t("avaliableTools.matrixBasicOperations.title")} 
-          route={`/matrix-basic-operations`}
-          clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.matrixBasicOperations.description")}
-        </GridSection>  
-
-        <GridSection 
-          title={t("avaliableTools.bubbleSortSimulatorCard.title")} 
-          route={`/bubble-sort`}
-          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.bubbleSortSimulatorCard.description")}
-        </GridSection>  
-
-        <GridSection 
-          title={t("avaliableTools.insertionSortSimulatorCard.title")} 
-          route={`/insertion-sort`}
-          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.insertionSortSimulatorCard.description")}
-        </GridSection>  
-
-        <GridSection 
-          title={t("avaliableTools.selectionSortSimulatorCard.title")} 
-          route={`/selection-sort`}
-          clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
-        >
-          
-          {t("avaliableTools.selectionSortSimulatorCard.description")}
-        </GridSection>  
-        
-      </GridSections>
+      <AvaliableTools/>
 
       {/* Nossa visão */}
       <ArticleLayoutDefault title={t('objectiveAndValues.objectivesSection.title')}>

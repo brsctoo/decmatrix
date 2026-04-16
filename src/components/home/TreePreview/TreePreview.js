@@ -10,8 +10,6 @@ import { useIsMobile } from "@/context/ViewportContext";
 export default function TreePreview({ title, description }) {
     const isMobile = useIsMobile();
 
-    // Dica de Sênior: Se for celular, já mata o componente aqui no topo.
-    // Assim você não renderiza as tags HTML à toa.
     if (isMobile) return null;
 
     return ( 

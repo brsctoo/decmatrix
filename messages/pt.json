@@ -1081,7 +1081,8 @@
 
             "errorDuplicateComma": "Parece haver um elemento faltando (talvez uma vírgula duplicada).",
             "errorInvalidNegative": "Parece haver um sinal de negativo inválido (dois '-' seguidos).",
-            "errorTooManyNumbers": "Insira 21 números ou menos para evitar poluição visual.",
+            "errorTooManyNumbersPC": "Insira 21 números ou menos para evitar poluição visual.",
+            "errorTooManyNumbersMobile": "Insira 9 números ou menos para evitar poluição visual.",
             "errorOutOfRange": "Insira números entre -999 e 999.",
             "errorAtLeastOneNumber": "Insira ao menos um número válido.",
 

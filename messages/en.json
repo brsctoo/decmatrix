@@ -1083,7 +1083,8 @@
 
             "errorDuplicateComma": "There seems to be a missing element (a duplicate comma somewhere perhaps).",
             "errorInvalidNegative": "There seems to be an invalid negative sign (double '-' detected).",
-            "errorTooManyNumbers": "Please enter 21 numbers or fewer to avoid visual clutter.",
+            "errorTooManyNumbersPC": "Please enter 21 numbers or fewer to avoid visual clutter.",
+            "errorTooManyNumbersMobile": "Please enter 9 numbers or fewer to avoid visual clutter.",
             "errorOutOfRange": "Please enter numbers between -999 and 999.",
             "errorAtLeastOneNumber": "Please enter at least one valid number.",
 

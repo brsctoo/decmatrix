@@ -18,6 +18,9 @@ import ArticleLayoutSplit from '../../../text/article-layouts/ArticleLayoutSplit
 import HighlightSection from '../../../text/HighlightSection/HighlightSection';
 import ParagraphSection from '../../../text/ParagraphSection/ParagraphSection';
 
+// Context
+import { useIsMobile } from "@/context/ViewportContext";
+
 // Transforma a string de entrada em um array de objetos com IDs únicos
 function getNumbersFromInput(input) {
     return input
@@ -94,6 +97,9 @@ export default function SortAlgorithms({ type = "bubble" }) {
     const sortStepsRef = useRef([]);
 
     const speedRef = useRef(350); // Valor inicial de 350ms
+
+    const isMobile = useIsMobile();
+    const maxNumbers = isMobile ? 9 : 21; // Limite de números baseado no dispositivo
 
     useEffect(() => {
         applyAlgorithmWithVariant(DEFAULT_ARRAY, { type, variant: bubbleVariant });
@@ -272,8 +278,8 @@ export default function SortAlgorithms({ type = "bubble" }) {
         const newArray = getNumbersFromInput(cleanInput);
 
         if (!localError) {
-            if (newArray.length > 21) {
-                localError = tUi("errorTooManyNumbers");
+            if (newArray.length > maxNumbers) { // 
+                localError = isMobile ? tUi("errorTooManyNumbersMobile") : tUi("errorTooManyNumbersPC");
                 localCanInsert = false;
             } else if (newArray.some(item => item.value < -999 || item.value > 999)) {
                 localError = tUi("errorOutOfRange");
