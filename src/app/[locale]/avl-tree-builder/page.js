@@ -32,7 +32,7 @@ import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayou
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
-  return await generateSeo(locale, "AVLTreeBuilder");
+  return await generateSeo(locale, "AVLTreeBuilder", 'avl-tree-builder');
 }
 
 export default async function avl_tree_builder({ params }) {

@@ -27,8 +27,7 @@ import { generateSeo } from "@/utils/Seo";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-
-  return await generateSeo(locale, "QuadraticEquationCalculator");
+  return await generateSeo(locale, "QuadraticEquationCalculator", 'quadratic-equation-calculator');
 }
 
 export default async function QuadraticEquationCalculatorPage({ params }) {
@@ -138,7 +137,7 @@ export default async function QuadraticEquationCalculatorPage({ params }) {
           <ParagraphSection paragraphs={[
             t("usageTutorial.conclusion")
           ]}/>
-          
+
           {/* Seção com imagens */}
           <ExampleSection title={t("exampleCalculation.title")}>
             <ParagraphSection paragraphs={[
@@ -175,7 +174,7 @@ export default async function QuadraticEquationCalculatorPage({ params }) {
 
         <FormulaCard equations={[`\\mathbf{Vx =\\frac{-b}{2a}}`, `\\mathbf{Vy =\\frac{-\\Delta}{4a}}`]} />
 
-        <SymbolLegend 
+        <SymbolLegend
           symbols={{
             "a, b, c": t.rich("graphSection.symbolAB", { strong: (children) => <strong>{children}</strong> }),
             "Δ": t.rich("graphSection.symbolDelta", { strong: (children) => <strong>{children}</strong> })
@@ -187,10 +186,10 @@ export default async function QuadraticEquationCalculatorPage({ params }) {
         <ParagraphSection paragraphs={[
           t("factorization.intro")
         ]}/>
-        
+
         <FormulaCard equations={[`\\mathbf{${t("factorization.formula")}}`]} />
 
-        <SymbolLegend 
+        <SymbolLegend
           symbols={{
             "a, b, c": t.rich("factorization.symbolABC", { strong: (children) => <strong>{children}</strong> }),
             "x₁, x₂": t.rich("factorization.symbolRoots", { strong: (children) => <strong>{children}</strong> })
@@ -208,7 +207,7 @@ export default async function QuadraticEquationCalculatorPage({ params }) {
             t.rich("factorization.example02", { strong: (children) => <strong>{children}</strong> })
           ]}/>
         </HighlightSection>
-        
+
         <ParagraphSection paragraphs={[
           t("factorization.conclusion")
         ]}/>

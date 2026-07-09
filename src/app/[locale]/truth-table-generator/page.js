@@ -18,7 +18,7 @@ import TextGenericDesigns from "@/components/text/TextGenericDesigns.module.css"
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "truthTable");
+    return await generateSeo(locale, "truthTable", 'truth-table-generator');
 }
 
 export default async function TruthTablePage({ params }) {

@@ -30,7 +30,7 @@ import style from "./page.module.css";
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "matrixMultiplication");
+    return await generateSeo(locale, "matrixMultiplication", 'matrix-multiplication');
 }
 
 export default async function MatrixMultiplicationPage({ params }) {

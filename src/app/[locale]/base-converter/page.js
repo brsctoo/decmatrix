@@ -19,7 +19,7 @@ import FAQ from "@/components/text/FAQ/FAQ";
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "baseConverter");
+    return await generateSeo(locale, "baseConverter", 'base-converter');
 }
 
 export default async function BaseConverterPage({ params }) {

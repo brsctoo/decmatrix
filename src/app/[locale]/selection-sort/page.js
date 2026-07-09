@@ -15,7 +15,7 @@ import FAQ from "@/components/text/FAQ/FAQ";
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "sortAlgorithmsPages.selectionSort");
+    return await generateSeo(locale, "sortAlgorithmsPages.selectionSort", 'selection-sort');
 }
 
 export default async function SelectionSortPage({ params }) {

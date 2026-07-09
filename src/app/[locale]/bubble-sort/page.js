@@ -15,7 +15,7 @@ import FAQ from "@/components/text/FAQ/FAQ";
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "sortAlgorithmsPages.bubbleSort");
+    return await generateSeo(locale, "sortAlgorithmsPages.bubbleSort", 'bubble-sort');
 }
 
 export default async function BubbleSortPage({ params }) {

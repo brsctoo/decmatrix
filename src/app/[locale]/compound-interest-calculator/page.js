@@ -23,7 +23,7 @@ import compoundInterestResultExample from "@/assets/financial/compound_interest/
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  return await generateSeo(locale, "CompoundInterestCalculator");
+  return await generateSeo(locale, "CompoundInterestCalculator", 'compound-interest-calculator');
 }
 
 export default async function CompoundInterestPage({ params }) {

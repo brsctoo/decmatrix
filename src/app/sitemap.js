@@ -26,7 +26,7 @@
       // --- EQUAÇÃO DE SEGUNDO GRAU ---
       { url: `${baseUrl}/pt/quadratic-equation-calculator`, lastModified: new Date() },
       { url: `${baseUrl}/en/quadratic-equation-calculator`, lastModified: new Date() },
-      
+
       // --- SOMA E SUBTRAÇÃO DE MATRIZES ---
       { url: `${baseUrl}/pt/matrix-basic-operations`, lastModified: new Date() },
       { url: `${baseUrl}/en/matrix-basic-operations`, lastModified: new Date() },
@@ -47,25 +47,21 @@
       { url: `${baseUrl}/pt/selection-sort`, lastModified: new Date() },
       { url: `${baseUrl}/en/selection-sort`, lastModified: new Date() },
 
-      // --- MULTIPLICAÇÃO DE MATRIZES ---
-      { url: `${baseUrl}/pt/matrix-multiplication`, lastModified: new Date() },
-      { url: `${baseUrl}/en/matrix-multiplication`, lastModified: new Date() },
-
       // --- CONVERSOR DE BASE  ---
       { url: `${baseUrl}/pt/base-converter`, lastModified: new Date() },
       { url: `${baseUrl}/en/base-converter`, lastModified: new Date() },
-      
+
       // --- GERADOR DE TABELA VERDADE ---
       { url: `${baseUrl}/pt/truth-table-generator`, lastModified: new Date() },
       { url: `${baseUrl}/en/truth-table-generator`, lastModified: new Date() },
-      
+
       // --- POLÍTICA DE PRIVACIDADE ---
       { url: `${baseUrl}/pt/privacy-policy`, lastModified: new Date() },
       { url: `${baseUrl}/en/privacy-policy`, lastModified: new Date() },
 
       // --- TERMOS DE SERVIÇO ---
-      { url: `${baseUrl}/pt/terms-of-service`, lastModified: new Date() },
-      { url: `${baseUrl}/en/terms-of-service`, lastModified: new Date() },
-      
+      { url: `${baseUrl}/pt/terms-of-use`, lastModified: new Date() },
+      { url: `${baseUrl}/en/terms-of-use`, lastModified: new Date() },
+
     ]
   }

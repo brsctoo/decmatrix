@@ -23,7 +23,7 @@ import simpleInterestResultExampleEn from "@/assets/financial/simple_interest/re
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  return await generateSeo(locale, "SimpleInterestCalculator");
+  return await generateSeo(locale, "SimpleInterestCalculator", 'simple-interest-calculator');
 }
 
 export default async function SimpleInterestPage({ params }) {

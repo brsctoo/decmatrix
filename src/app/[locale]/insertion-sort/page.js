@@ -15,7 +15,7 @@ import FAQ from "@/components/text/FAQ/FAQ";
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "sortAlgorithmsPages.insertionSort");
+    return await generateSeo(locale, "sortAlgorithmsPages.insertionSort", 'insertion-sort');
 }
 
 export default async function InsertionSortPage({ params }) {

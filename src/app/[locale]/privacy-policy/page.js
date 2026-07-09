@@ -5,7 +5,7 @@ import { generateSeo } from "@/utils/Seo";
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
-  return await generateSeo(locale, "PrivacyPolicy");
+  return await generateSeo(locale, "PrivacyPolicy", 'privacy-policy');
 }
 
 export default async function PrivacyPolicyPage({ params }) {

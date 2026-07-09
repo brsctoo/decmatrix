@@ -26,7 +26,7 @@ import FAQ from "@/components/text/FAQ/FAQ";
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
-  return await generateSeo(locale, "BSTTreeBuilder");
+  return await generateSeo(locale, "BSTTreeBuilder", 'bst-tree-builder');
 }
 
 export default async function bst_tree_builder({ params }) {

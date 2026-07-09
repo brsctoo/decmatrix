@@ -35,7 +35,7 @@ import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayou
 export async function generateMetadata({ params }) {
     const { locale } = await params;
 
-    return await generateSeo(locale, "matrixBasicOperations");
+    return await generateSeo(locale, "matrixBasicOperations", 'matrix-basic-operations');
 }
 
 export default async function MatrixBasicOperationsPage({ params }) {
