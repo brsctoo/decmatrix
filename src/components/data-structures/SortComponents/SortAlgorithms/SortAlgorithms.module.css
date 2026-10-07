@@ -380,6 +380,7 @@
 
   .buttonsContainer {
     width: 100%;
+    min-width: 0;
   }
 
   .sortContainer {
@@ -399,5 +400,39 @@
   .slider {
     width: 100%;
     min-width: unset;
+  }
+
+  .buttonsContainer button,
+  .stepsPlayButtons button {
+    min-height: 44px;
+    height: auto;
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .stepsPlayGroup {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-inline: 0;
+  }
+
+  .stepsHeaderRow {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .stepsMessage,
+  .errorMessageWrapper {
+    overflow-wrap: anywhere;
+    min-width: 0;
+  }
+
+  .infoOverlay {
+    max-width: calc(100% - 28px);
+  }
+
+  .sliderTrack:focus-visible {
+    outline: 2px solid #00b947;
+    outline-offset: 4px;
   }
 }

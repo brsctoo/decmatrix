@@ -88,3 +88,69 @@
     font-size: 13px;
   }
 }
+
+/* Opt-in: scroll only the matrix, without shrinking numbers to mobile cells. */
+.protectedWrapper {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.matrixContainerDisplay.protectedDisplay {
+  min-width: 0;
+  max-width: 100% !important;
+  overflow-x: auto;
+  justify-content: flex-start;
+}
+
+.protectedDisplay .matrixInner {
+  flex-shrink: 0;
+  margin-inline: auto;
+}
+
+.protectedDisplay .cellDisplay {
+  width: auto;
+  min-width: 64px;
+  height: 48px;
+  padding-inline: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .matrixContainerDisplay {
+    min-width: 0;
+    max-width: 100% !important;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .matrixInner {
+    flex-shrink: 0;
+    margin-inline: auto;
+  }
+
+  .cellDisplay {
+    width: auto;
+    min-width: 64px;
+    height: 48px;
+    padding-inline: 10px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .cellDisplay:hover {
+    transform: none;
+  }
+}
+
+.matrixContainerDisplay:focus-visible {
+  outline: 2px solid #00b947;
+  outline-offset: 2px;
+}

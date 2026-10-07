@@ -22,6 +22,11 @@
 }
 
 .question {
+    border: 0;
+    width: 100%;
+    background: transparent;
+    font-family: inherit;
+    text-align: left;
     margin: 0;
     display: flex;
     align-items: center;
@@ -55,9 +60,17 @@
 
     .question {
         font-size: 14px;
+        min-height: 44px;
+        overflow-wrap: anywhere;
     }
 
     .answer {
-        font-size: 13px;
+        font-size: 14px;
+        overflow-wrap: anywhere;
     }
+}
+
+.question:focus-visible {
+    outline: 2px solid #00b947;
+    outline-offset: 2px;
 }

@@ -147,6 +147,7 @@ export default function BinaryTree({
     preview = false
 }) {
     const t = useTranslations('BinaryTree');
+    const isMobile = useIsMobile();
 
     const treeTypeInstance = () => {
         if (treeType === "AVL") {
@@ -257,9 +258,18 @@ export default function BinaryTree({
             const centerPosition = START_X - (screenWidth / 2);
 
             // 3. Aplica o scroll
-            containerRef.current.scrollLeft = centerPosition;
+            const container = containerRef.current;
+            container.scrollLeft = centerPosition;
+            let previousWidth = screenWidth;
+            const observer = new ResizeObserver(() => {
+                const width = container.clientWidth;
+                container.scrollLeft += (previousWidth - width) / 2;
+                previousWidth = width;
+            });
+            observer.observe(container);
+            return () => observer.disconnect();
         }
-    }, []);
+    }, [isMobile]);
 
     function handleChange(value, name) {
         {/*
@@ -690,7 +700,6 @@ export default function BinaryTree({
     }
 
 
-    const isMobile = useIsMobile(); 
 
     return (
         <div>
@@ -887,7 +896,8 @@ export default function BinaryTree({
                     {preview ? (
                         <div 
                             ref={containerRef} 
-                            className={style.treeContainer} 
+                            className={style.treeContainer}
+                            tabIndex={0}
                             style={{ 
                                 position: 'relative',
                                 width: '100%',   // Enche a moldura
@@ -1174,8 +1184,9 @@ export default function BinaryTree({
                                 className={style.treeContainer}
                                 horizontal
                                 vertical
-                                hideScrollbars
-                                nativeMobileScroll={false} // Mantém a mágica do JS no mobile
+                                hideScrollbars={false}
+                                nativeMobileScroll
+                                tabIndex={0}
                                 style={{ 
                                     position: 'relative',
                                     width: '100%',

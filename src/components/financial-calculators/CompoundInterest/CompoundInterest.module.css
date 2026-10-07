@@ -195,7 +195,7 @@
   overflow: hidden;
 }
 
-.imageAttribution { 
+.imageAttribution {
     max-width: 100%; 
     display: block; 
     margin: 30px auto 30px; 
@@ -219,5 +219,37 @@
     .buttonContainer {
         margin: 10px auto 10px;
         max-width: calc(100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .inputFieldsContainer {
+        margin: 16px;
+        padding: 18px 16px;
+        gap: 12px;
+        min-height: auto;
+    }
+
+    .inputFieldsContainer > *,
+    .resultsCard,
+    .chartWrapper {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .inputFieldsContainer > * {
+        flex-basis: 100%;
+    }
+
+    .chartsContainer {
+        margin-inline: 16px;
+    }
+
+    .resultRow,
+    .resultRowHighlight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        overflow-wrap: anywhere;
     }
 }

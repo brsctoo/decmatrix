@@ -280,6 +280,33 @@
 
 /* ── Responsivo ── */
 @media (max-width: 768px) {
+    .tableScroll {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .tableScroll:focus-visible {
+        outline: 2px solid #00b947;
+        outline-offset: -2px;
+    }
+
+    .styledTable,
+    .exportTable {
+        min-width: 540px;
+    }
+
+    .actionCell button,
+    .addBaseButton {
+        min-height: 44px !important;
+        height: auto !important;
+        font-size: 14px !important;
+    }
+
+    .tableHeader {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
     .wrapper {
         gap: 20px;
         max-width: 100%;

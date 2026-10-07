@@ -55,3 +55,20 @@
     border-color: rgba(39, 39, 42, 1) !important;
 }
 
+.reactiveButton:focus-visible {
+    outline: 2px solid #00b947;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .reactiveButton {
+        min-height: 44px;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .reactiveButton:hover {
+        transform: none;
+    }
+}
+

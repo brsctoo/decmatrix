@@ -1,4 +1,5 @@
 import JsonLd from "@/components/JsonLd";
+import Link from "next/link";
 
 import MatrixMultiplication from "@/components/matrices/Multiplication/Multiplication";
 import Image from "next/image";
@@ -40,7 +41,7 @@ export default async function MatrixMultiplicationPage({ params }) {
     return (
         <div>
             <JsonLd dataName="matrixMultiplication" locale={locale} />
-            <div className={TextGenericDesigns.pagesMainTitle}>{t("mainTitle")}</div>
+            <h1 className={TextGenericDesigns.pagesMainTitle}>{t("mainTitle")}</h1>
             <MatrixMultiplication />
 
             <ArticleLayoutDefault title={t("usageTutorial.title")}>
@@ -64,6 +65,9 @@ export default async function MatrixMultiplicationPage({ params }) {
                     paragraphs={[
                         t("usageTutorial.observation"),
                         t("usageTutorial.conclusion"),
+                        t.rich("usageTutorial.relatedOperation", {
+                            linkBasicOperations: children => <Link href={`/${locale}/matrix-basic-operations`} className={TextGenericDesigns.inlineLink}>{children}</Link>,
+                        }),
                     ]}
                 />
             </ArticleLayoutDefault>

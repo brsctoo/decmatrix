@@ -173,7 +173,7 @@
     flex: 0 0 auto;
 }
 
-.topInputInner button {
+.topInputInner > button {
     width: auto;
 }
 
@@ -195,5 +195,22 @@
 
     .topInputInner > * {
         width: 100%;
+    }
+
+    .treeToolsStyle,
+    .queueInfo {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .slider {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .treeContainer:focus-visible,
+    .sliderTrack:focus-visible {
+        outline: 2px solid #00b947;
+        outline-offset: -3px;
     }
 }

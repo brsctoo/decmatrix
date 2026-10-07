@@ -8,7 +8,7 @@ export default function FormulaCard({
         <div className={styles.formulaCard}>
             {equations!=null && (
                 equations.map((equation, index) => (
-                    <div key={index}>
+                    <div key={index} tabIndex={0}>
                         <MathDisplayEquation equation={`\\mathbf{${equation}}`} />
                     </div>
                 ))

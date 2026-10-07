@@ -47,3 +47,10 @@
   max-width: 100%;
   margin: 0;
 }
+
+/* Match the intentional mobile omission before hydration as well. */
+@media (max-width: 768px) {
+  .desktopPreview {
+    display: none;
+  }
+}

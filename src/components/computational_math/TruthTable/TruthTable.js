@@ -63,7 +63,7 @@ function createTruthTableLogic(variables) {
 function TruthTableView({ table, variables, expressions, expressionResults }) {
     return (
         <div className={styles.tableCard}>
-            <div className={styles.tableScroll}>
+            <div className={styles.tableScroll} tabIndex={0}>
                 <table className={styles.truthTable}>
                     <thead>
                         <tr>

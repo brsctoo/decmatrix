@@ -48,8 +48,10 @@ export default function FAQ({questions}) {
             <h2 className={style.faqTitle}>FAQ</h2>
             {questions.map((qa, index) => (
                 <div key={index} className={style.faqItem}>
-                    <h3 
+                    <h3>
+                    <button type="button"
                         className={style.question}
+                        aria-expanded={isActive(index)}
                         onClick={() => handleCategory(index)}
                     >
                         <motion.div
@@ -61,6 +63,7 @@ export default function FAQ({questions}) {
                             ▶
                         </motion.div>
                         {qa.question}
+                    </button>
                     </h3>
                     <AnimatePresence initial={false}>
                         {isActive(index) && (

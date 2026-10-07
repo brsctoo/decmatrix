@@ -47,6 +47,15 @@ export default async function avl_tree_builder({ params }) {
           inputFieldsContainerStyle={styles.inputFieldsContainer}
           treeType="AVL"
         />
+        <p className={styles.bstInvitation}>
+          {t.rich("bstInvitation", {
+            linkBST: (chunks) => (
+              <Link href={`/${locale}/bst-tree-builder`} className={styles.bstLink}>
+                {chunks}
+              </Link>
+            ),
+          })}
+        </p>
         
         <ArticleLayoutDefault title={t("definition.title")}>
           <ParagraphSection paragraphs={[
@@ -73,16 +82,7 @@ export default async function avl_tree_builder({ params }) {
           <ParagraphSection paragraphs={[
             t("operations.searchText"),
 
-            t.rich("operations.insertionText", {
-                linkBTS: (chunks) => (
-                  <Link 
-                    href={`/${locale}/bst-tree-builder`}
-                    className={TextGenericDesigns.inlineLink}
-                  >
-                    {chunks}
-                  </Link>
-                ),
-            }),
+            t("operations.insertionText"),
             
             t("operations.removalText")
           ]}/>

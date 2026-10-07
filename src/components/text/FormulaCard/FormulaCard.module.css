@@ -25,5 +25,19 @@
         width: 100%;
         max-width: 400px;
         margin: 32px auto 32px;
+        min-width: 0;
+        overflow-x: auto;
+        align-items: stretch;
+    }
+
+    .formulaCard > div {
+        min-width: 0;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .formulaCard :global(.katex-display) {
+        width: max-content;
+        min-width: 100%;
     }
 }

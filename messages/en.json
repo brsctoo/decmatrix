@@ -1,4 +1,5 @@
 {   
+    "LanguageSwitch": { "label": "Select language" },
     "BaseBoard": {
         "decimatrix": "Decmatrix - Your open-source mathematical toolkit for calculations, conversions, and more.",
         "termsOfUse": "Terms of Use",
@@ -78,7 +79,9 @@
 
             "linear_algebra": {
                 "matrixMultiplication": "Matrix Multiplication",
-                "matrixBasicOperations": "Basic Operations"
+                "matrixBasicOperations": "Basic Operations",
+                "matrixDeterminant": "Matrix Determinant",
+                "matrixInverse": "Matrix Inverse"
             },
 
             "precalculus": {
@@ -217,6 +220,14 @@
                 "description": "Calculator for basic matrix operations, addition and subtraction. Additionally, it allows transposing and inverting matrices, with support for matrices of different dimensions."
             },
 
+            "matrixDeterminant": {
+                "title": "Matrix Determinant Calculator",
+                "description": "Calculate determinants of square matrices and explore their properties."
+            },
+            "matrixInverse": {
+                "title": "Matrix Inverse Calculator",
+                "description": "Find the inverse of a square matrix and learn when it exists."
+            },
             "bubbleSortSimulatorCard": {
                 "title": "Bubble Sort Simulator",
                 "description": "Step-by-step Bubble Sort visualizer with animated bars."
@@ -273,6 +284,7 @@
         "seoDescription": "Learn data structures in practice with our Interactive AVL Tree Simulator. Insert values, visualize balancing, and understand rotations step by step.",
         
         "mainTitle": "AVL Binary Tree Builder",
+        "bstInvitation": "Try the same sequence in the <linkBST>binary search tree (BST) simulator</linkBST> and compare the resulting structure with the AVL tree.",
 
         "definition": {
             "title": "AVL Tree - Definition",
@@ -291,7 +303,7 @@
 
             "searchText": "Search in an AVL tree is similar to search in a standard binary search tree, leveraging the ordering of elements to quickly locate the desired value.",
 
-            "insertionText": "Insertion in an AVL tree starts like in a binary search tree, locating the correct position for the new node. After insertion, it is necessary to check the balance of the tree and, if needed, perform rotations to restore balance. To understand insertion operations in binary search trees, you can visit our <linkBTS>binary search tree simulator</linkBTS>.",
+            "insertionText": "Insertion in an AVL tree starts like in a binary search tree, locating the correct position for the new node. After insertion, it is necessary to check the balance of the tree and, if needed, perform rotations to restore balance.",
 
             "removalText": "Removal in an AVL tree also follows the process of a binary search tree, but after removal, it is necessary to check and restore the balance of the tree, if needed, using appropriate rotations."
         },
@@ -809,6 +821,164 @@
         "moreInfoParagraph": "We hope this is clear and, as mentioned earlier, if there is anything you are unsure about whether you need or not, it is generally safer to leave cookies enabled in case you interact with any functionality on our website."
     },
 
+    "matrixDeterminantComponent": {
+        "calculateButton": "Calculate determinant",
+        "squareNote": "Square matrix of order 1 to 10. Rows and columns are synchronized. Use integers, decimals or fractions.",
+        "cellLabel": "Matrix A, row {row}, column {column}",
+        "resultTitle": "Determinant Result",
+        "resultLabel": "det(A) {relation} {value}",
+        "singularResult": "Zero determinant: the matrix is singular and has no inverse.",
+        "precisionNote": "Floating-point approximation (up to 12 significant digits); cancellation can reduce precision.",
+        "exactNote": "Exact result using rational arithmetic.",
+        "approximateZero": "The approximate value is zero; cancellation can hide a nonzero determinant.",
+        "stepsTitle": "Step by step",
+        "stepsUnavailable": "Step-by-step calculations are available only for orders 1, 2 and 3.",
+        "methods": {
+            "order1": "For a 1×1 matrix, the determinant is its only element.",
+            "order2": "For A with rows (a, b) and (c, d), det(A) = ad − bc.",
+            "order3": "Sarrus' rule: add three products and subtract the other three. This rule applies ONLY to 3×3 matrices."
+        },
+        "steps": {
+            "single": "Read the only element.",
+            "twoProducts": "Calculate the products ad and bc.",
+            "positiveProducts": "Calculate the three products of the diagonals being added.",
+            "negativeProducts": "Calculate the three products of the diagonals being subtracted.",
+            "sums": "Add each group of three products.",
+            "difference": "Subtract the second total from the first."
+        },
+        "errors": {
+            "invalidOrder": "Enter an integer order between 1 and 10.",
+            "pendingOrder": "Confirm the new order with Enter, by leaving the field or by clicking calculate.",
+            "notSquare": "The determinant requires a square matrix: rows and columns must be equal.",
+            "invalidValue": "Fill every cell with a valid number. Fractions must have a nonzero denominator.",
+            "numericLimit": "Use zero or values with magnitude between 10⁻¹² and 10¹². The calculation must remain finite.",
+            "singular": "The matrix is singular: its determinant is zero.",
+            "unstable": "The matrix is nearly singular; numerical precision is insufficient for a reliable result."
+        }
+    },
+    "matrixInverseComponent": {
+        "calculateButton": "Calculate inverse",
+        "squareNote": "Square matrix of order 1 to 10. Rows and columns are synchronized. Use integers, decimals or fractions.",
+        "cellLabel": "Matrix A, row {row}, column {column}",
+        "resultTitle": "Matrix Inverse Result",
+        "resultLabel": "Inverse of A",
+        "singularResult": "The matrix is singular and has no inverse.",
+        "precisionNote": "Displayed values are approximate, with up to 12 significant digits. The A × A⁻¹ ≈ I and A⁻¹ × A ≈ I checks use internal values before rounding, with a maximum error of 10⁻⁸ in each product.",
+        "errors": {
+            "invalidOrder": "Enter an integer order between 1 and 10.",
+            "pendingOrder": "Confirm the new order with Enter, by leaving the field or by clicking calculate.",
+            "notSquare": "The inverse requires a square matrix: rows and columns must be equal.",
+            "invalidValue": "Fill every cell with a valid number. Fractions must have a nonzero denominator.",
+            "numericLimit": "Use zero or values with magnitude between 10⁻¹² and 10¹². The calculation must remain finite.",
+            "singular": "The matrix is singular: its determinant is zero and its inverse does not exist.",
+            "unstable": "The matrix is nearly singular; numerical precision is insufficient for a reliable inverse."
+        }
+    },
+    "matrixDeterminant": {
+        "seoTitle": "Matrix Determinant Calculator",
+        "seoDescription": "Calculate determinants of square matrices of order 1 to 10 using integers, decimals and fractions. Explore examples and properties.",
+        "mainTitle": "Matrix Determinant Calculator",
+        "usageTutorial": {
+            "title": "How to Use the Determinant Calculator",
+            "intro": "Fill a single matrix A to calculate its determinant:",
+            "steps": [
+                "Choose an order from 1 to 10 in <strong>Rows</strong> or <strong>Columns</strong>. Both fields stay synchronized.",
+                "Confirm the size with Enter or by leaving the field, then fill each cell with an integer, decimal or fraction, such as 3/4.",
+                "Read the updated result below the matrix or click <strong>Calculate determinant</strong> to confirm the entered size."
+            ],
+            "observation": "Empty or invalid entries are not silently converted to zero. Use zero or values with magnitude between 10⁻¹² and 10¹².",
+            "conclusion": "The original matrix remains unchanged. A zero determinant is a valid result and indicates a singular matrix."
+        },
+        "exampleCalculation": {
+            "title": "Example: Determinant of a 2×2 Matrix",
+            "scenario": "Consider matrix A with rows (4, 7) and (2, 6):",
+            "calculationStep": "Multiply the main diagonal entries and subtract the product of the other diagonal: <strong>4 × 6 − 7 × 2 = 10</strong>.",
+            "equations": ["\\det(A) = 4 \\times 6 - 7 \\times 2 = 10"],
+            "conclusion": "The determinant is 10, so this matrix has an inverse. The two-diagonal rule above applies only to 2×2 matrices."
+        },
+        "definitionSection": {
+            "title": "What Is a Matrix Determinant?",
+            "intro": "The determinant assigns a number to a square matrix. Among other properties, it indicates whether a linear transformation is invertible and its oriented area or volume scale factor.",
+            "existence": "The existence condition is having <strong>the same number of rows and columns</strong>. Rectangular matrices have no determinant under this definition.",
+            "proprieties": {
+                "title": "Determinant Properties",
+                "list": [
+                    "<strong>Identity:</strong> det(I) = 1.",
+                    "<strong>Row swap:</strong> swapping two rows changes the determinant's sign.",
+                    "<strong>Triangular matrix:</strong> the determinant is the product of the main diagonal entries.",
+                    "<strong>Product:</strong> det(AB) = det(A)det(B) for square matrices of the same order.",
+                    "<strong>Singularity:</strong> det(A) = 0 if and only if A has no inverse."
+                ]
+            },
+            "importance": "The determinant helps you study linear systems and transformations. When it is nonzero, you can also use the <linkInverse>matrix inverse calculator</linkInverse>."
+        },
+        "formularySection": {
+            "title": "Determinant Formulas and Method",
+            "intro": "For order 1, the determinant is the single entry. For order 2, use ad − bc. The calculator uses Gaussian elimination with partial pivoting for all supported orders.",
+            "equations": ["\\det([a]) = a", "\\det\\begin{pmatrix}a & b \\\\ c & d\\end{pmatrix} = ad - bc", "\\det(A) = (-1)^s \\prod_{i=1}^{n} u_{ii}"],
+            "symbols": {"n": "Order of the square matrix.", "s": "Number of row swaps during elimination.", "uᵢᵢ": "Diagonal entries of the triangular matrix obtained without normalizing rows."},
+            "observation": "The method works on a copy of A. Results are approximate: cancellation between very close numbers can reduce precision."
+        },
+        "faqSection": [
+            {"question": "01. Can I calculate the determinant of a rectangular matrix?", "answer": "No. This operation requires a square matrix, so the row and column fields are synchronized."},
+            {"question": "02. What does a zero determinant mean?", "answer": "In exact arithmetic, it means the matrix is singular and has no inverse. In approximate calculations, values very close to zero require careful interpretation."},
+            {"question": "03. Does the calculator accept fractions and 1×1 matrices?", "answer": "Yes. It accepts integers, decimals and fractions with a nonzero denominator. For a 1×1 matrix, the determinant is its only entry."},
+            {"question": "04. What are the numerical limits?", "answer": "The order ranges from 1 to 10. Each entry must be zero or have magnitude between 10⁻¹² and 10¹². The calculator uses floating-point numbers, not exact symbolic arithmetic."}
+        ]
+    },
+    "matrixInverse": {
+        "seoTitle": "Matrix Inverse Calculator",
+        "seoDescription": "Calculate inverses of square matrices of order 1 to 10. Use integers, decimals and fractions and learn about singular matrices and Gauss-Jordan.",
+        "mainTitle": "Matrix Inverse Calculator",
+        "usageTutorial": {
+            "title": "How to Use the Matrix Inverse Calculator",
+            "intro": "Fill a single matrix A to find its inverse:",
+            "steps": [
+                "Choose an order from 1 to 10 in <strong>Rows</strong> or <strong>Columns</strong>. Both fields stay synchronized.",
+                "Confirm the size with Enter or by leaving the field, then fill each cell with an integer, decimal or fraction, such as 3/4.",
+                "Read the updated inverse below the matrix or click <strong>Calculate inverse</strong> to confirm the entered size."
+            ],
+            "observation": "Empty or invalid entries are not silently converted to zero. Use zero or values with magnitude between 10⁻¹² and 10¹².",
+            "conclusion": "Matrix A is not replaced by its inverse. If A is singular or numerically unstable, a message explains why no reliable result is available."
+        },
+        "exampleCalculation": {
+            "title": "Example: Inverse of a 2×2 Matrix",
+            "scenario": "Consider matrix A with rows (4, 7) and (2, 6):",
+            "calculationStep": "First, <strong>det(A) = 4 × 6 − 7 × 2 = 10</strong>. Swap 4 and 6, change the signs of 7 and 2, and divide every entry by 10.",
+            "equations": ["A^{-1} = \\frac{1}{10}\\begin{pmatrix}6 & -7 \\\\ -2 & 4\\end{pmatrix}"],
+            "conclusion": "The result has rows (3/5, −7/10) and (−1/5, 2/5). Multiplying A by this inverse gives the 2×2 identity matrix. This direct formula applies only to order 2."
+        },
+        "definitionSection": {
+            "title": "What Is a Matrix Inverse?",
+            "intro": "The inverse of a matrix A is the matrix A⁻¹ that undoes its linear transformation. Its product with A, in either order, is the identity matrix.",
+            "existence": "The matrix must be <strong>square and nonsingular</strong>. In exact arithmetic, this is equivalent to det(A) ≠ 0.",
+            "proprieties": {
+                "title": "Matrix Inverse Properties",
+                "list": [
+                    "<strong>Identity:</strong> I⁻¹ = I.",
+                    "<strong>Uniqueness:</strong> when an inverse exists, it is unique.",
+                    "<strong>Product:</strong> (AB)⁻¹ = B⁻¹A⁻¹, if A and B are invertible and of the same order.",
+                    "<strong>Inverse of the inverse:</strong> (A⁻¹)⁻¹ = A.",
+                    "<strong>Determinant:</strong> det(A⁻¹) = 1/det(A)."
+                ]
+            },
+            "importance": "The inverse helps you study linear systems and reversible transformations. Consult the <linkDeterminant>determinant calculator</linkDeterminant> and check the product with the <linkMultiplication>matrix multiplication calculator</linkMultiplication>."
+        },
+        "formularySection": {
+            "title": "Matrix Inverse Formulas and Method",
+            "intro": "For order 1, take the reciprocal of the nonzero entry. For order 2, use the formula below. The calculator uses Gauss-Jordan with row swaps to obtain [I | A⁻¹] from [A | I].",
+            "equations": ["AA^{-1} = A^{-1}A = I", "[a]^{-1} = [1/a], \\quad a \\ne 0", "A^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix}d & -b \\\\ -c & a\\end{pmatrix}, \\quad ad-bc \\ne 0"],
+            "symbols": {"A⁻¹": "Inverse of matrix A.", "I": "Identity matrix of the same order as A.", "a, b, c, d": "Entries of a 2×2 matrix, read row by row."},
+            "observation": "Operations are performed on a copy. Both products, A × A⁻¹ and A⁻¹ × A, are checked before rounding, with a maximum absolute error of 10⁻⁸ per entry. Nearly singular matrices may be rejected due to numerical instability."
+        },
+        "faqSection": [
+            {"question": "01. Does every square matrix have an inverse?", "answer": "No. The matrix must be nonsingular. If its determinant is zero, no inverse exists."},
+            {"question": "02. Do the identity and a 1×1 matrix have inverses?", "answer": "The identity is its own inverse. A 1×1 matrix with a nonzero entry a has inverse [1/a]."},
+            {"question": "03. Does a zero on the diagonal prevent inversion?", "answer": "Not necessarily. The method can swap rows to find a nonzero pivot. For example, the matrix with rows (0, 1) and (1, 0) is its own inverse."},
+            {"question": "04. Why might a nearly singular matrix be rejected?", "answer": "Small floating-point errors can be amplified. The calculator checks pivots and the product with A and does not display an inverse when precision is insufficient."},
+            {"question": "05. Which inputs are accepted?", "answer": "Integers, decimals and fractions with a nonzero denominator, in matrices of order 1 to 10. Each value must be zero or have magnitude between 10⁻¹² and 10¹²."}
+        ]
+    },
     "matrixInput": {
         "title": "Matrix",
         "rowsLabel": "Rows",
@@ -853,7 +1023,8 @@
                 "Enter the desired values in Matrix B in the corresponding fields, which can be <strong>integers or decimals. (Fractions are also allowed, such as 3/4)</strong>"
             ],
             "observation": "Remember that the number of columns of Matrix A must be equal to the number of rows of Matrix B for multiplication to be possible.",
-            "conclusion": "The multiplier will provide the result of multiplying the matrices, allowing you to clearly visualize the product of the two matrices."
+            "conclusion": "The multiplier will provide the result of multiplying the matrices, allowing you to clearly visualize the product of the two matrices.",
+            "relatedOperation": "Need to add or subtract matrices with the same dimensions? Use the <linkBasicOperations>basic matrix operations calculator</linkBasicOperations>."
         },
 
         "exampleCalculation": {
@@ -930,7 +1101,8 @@
                 "Insert the size of the second matrix (Matrix B) in the <strong>Rows</strong> and <strong>Columns</strong> fields.",
                 "Insert the desired values in Matrix B in the corresponding fields. You can use <strong>integers or decimals (fractions are also allowed)</strong>"
             ],
-            "conclusion": "The calculator will display the result of the addition and subtraction of the matrices, allowing you to clearly visualize the result of both matrices."
+            "conclusion": "The calculator will display the result of the addition and subtraction of the matrices, allowing you to clearly visualize the result of both matrices.",
+            "relatedOperation": "To calculate the product of two matrices, use the <linkMultiplication>matrix multiplication calculator</linkMultiplication>."
         },
 
         "exampleCalculation": {

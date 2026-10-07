@@ -69,6 +69,22 @@ export default function AvaliableTools() {
             {t("avaliableTools.matrixBasicOperations.description")}
         </GridSection>  
 
+        <GridSection
+            title={t("avaliableTools.matrixDeterminant.title")}
+            route={`/matrix-determinant`}
+            clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
+        >
+            {t("avaliableTools.matrixDeterminant.description")}
+        </GridSection>
+
+        <GridSection
+            title={t("avaliableTools.matrixInverse.title")}
+            route={`/matrix-inverse`}
+            clickSubtitle={t("avaliableTools.acessCalculatorButtonLabel")}
+        >
+            {t("avaliableTools.matrixInverse.description")}
+        </GridSection>
+
         <GridSection 
             title={t("avaliableTools.bubbleSortSimulatorCard.title")} 
             route={`/bubble-sort`}

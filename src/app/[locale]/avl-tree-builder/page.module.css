@@ -1,3 +1,26 @@
+.bstInvitation {
+    box-sizing: border-box;
+    max-width: 1000px;
+    margin: 16px auto;
+    padding: 0 20px;
+    color: #F7F8F8;
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.bstLink {
+    color: #00b947;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.bstLink:focus-visible {
+    outline: 2px solid #F7F8F8;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
 /*Input section principal*/
 .inputFieldsContainer {
     align-items: center;

@@ -5,8 +5,14 @@
 
 html,
 body {
+  display: flow-root;
   max-width: 100vw;
-  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 110px;
+  }
 }
 
 body {

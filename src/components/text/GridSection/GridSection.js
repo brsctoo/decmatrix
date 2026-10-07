@@ -2,7 +2,8 @@
 
 import React, { createContext, useContext } from "react";
 import style from "./GridSection.module.css";
-import { useRouter, usePathname, useParams } from 'next/navigation';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 const GridContext = createContext({ clickable: false }); // Contexto para o estado de clique
 
@@ -20,25 +21,19 @@ function GridSections({title, subtitle, children, extraClassname="", clickable=f
 }
 
 function GridSection({title, children, route="", clickSubtitle=""}) {
-    const router = useRouter();
-    const pathname = usePathname(); // Retorna "/pt/alguma-coisa"
     const params = useParams();     
     const locale = params.locale;   // "pt" ou "en"
 
     const { clickable } = useContext(GridContext); // Pega o contexto do pai
     
-    const handleClick = () => {
-        if (clickable && route) {
-            router.push(`/${locale}${route}`);
-        }
-    };
-
     const isClickable = clickable && route !== ""; 
 
+    const Card = isClickable ? Link : "div";
+
     return (
-        <div 
+        <Card 
             className={isClickable ? `${style.gridSection} ${style.clickable}` : style.gridSection}
-            onClick={isClickable ? handleClick : undefined}
+            {...(isClickable ? { href: `/${locale}${route}` } : {})}
             style={{ cursor: isClickable ? "pointer" : "default" }}
         >
             <div className={isClickable ? `${style.gridSectionTextContainer}` : ""}>
@@ -46,7 +41,7 @@ function GridSection({title, children, route="", clickSubtitle=""}) {
                 <p>{children}</p>
                 {clickSubtitle && <span className={style.clickSubtitle}>{clickSubtitle}</span>}
             </div>
-        </div>
+        </Card>
     );
 }
 

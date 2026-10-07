@@ -167,6 +167,7 @@ export default function BaseConverter() {
                         {t('resultsSection.subtitle', { base: isBaseValid ? effectiveFromBase : '?' })}
                     </span>
                 </div>
+                <div className={styles.tableScroll} tabIndex={0}>
                 <table className={styles.styledTable}>
                     <thead>
                         <tr>
@@ -195,6 +196,7 @@ export default function BaseConverter() {
                         ))}
                     </tbody>
                 </table>
+                </div>
             </div>
 
             {/* ── Adicionar base ── */}
@@ -227,6 +229,7 @@ export default function BaseConverter() {
                         />
                     </div>
                 </div>
+                <div className={styles.tableScroll} tabIndex={0}>
                 <table className={styles.exportTable}>
                     <thead>
                         <tr>
@@ -245,6 +248,7 @@ export default function BaseConverter() {
                         ))}
                     </tbody>
                 </table>
+                </div>
             </div>
 
         </div>

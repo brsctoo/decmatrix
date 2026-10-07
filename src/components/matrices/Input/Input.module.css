@@ -174,3 +174,65 @@
     font-size: 1.5rem;
   }
 }
+
+/* Opt-in for the dedicated determinant/inverse tools; legacy grids stay unchanged. */
+.protectedInput > *,
+.protectedInput .inputFieldsContainer > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.protectedInput .inputFieldsContainer {
+  flex-wrap: wrap;
+}
+
+.protectedInput .matrixContainer {
+  min-width: 0;
+  overflow-x: auto;
+  justify-content: flex-start;
+}
+
+.protectedInput .matrixInner {
+  flex-shrink: 0;
+  margin-inline: auto;
+}
+
+.protectedInput .cellInput {
+  width: 12em;
+  height: 46px;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .wrapper,
+  .inputContainer > *,
+  .inputFieldsContainer > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .matrixContainer {
+    min-width: 0;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .matrixInner {
+    flex-shrink: 0;
+    margin-inline: auto;
+  }
+
+  .cellInput {
+    width: 7em;
+    height: 46px;
+    font-size: 16px;
+  }
+
+  .cellInput:hover {
+    transform: none;
+  }
+
+  .protectedInput .cellInput {
+    font-size: 16px;
+  }
+}

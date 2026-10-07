@@ -2,7 +2,7 @@
 import MathUtils from "../MathUtils";
 const { toNum, toFraction } = MathUtils;
 
-export default function determinant(matrix) {
+export default function determinant(matrix, { numeric = false } = {}) {
     let signal = 1; // para controlar o sinal do determinante, que muda quando trocamos linhas
     let det = 1; // o valor do determinante, que é o produto dos pivôs (diagonal da matriz triangular resultante)
 
@@ -24,26 +24,17 @@ export default function determinant(matrix) {
     // 2. Loop principal para cada coluna e linha (pivô)
     for (let i = 0; i < n; i++) {
 
-        // Encontrar o pivô (o elemento na diagonal)
-        let pivot = data[i][i];
-        
-        // Se o pivô for zero, procura uma linha abaixo para trocar (isso não altera o determinante, apenas muda o sinal)
-        if (Math.abs(pivot) < 0.0000000001) {
-            let found = false;  
-            for (let k = i + 1; k < n; k++) {
-                if (Math.abs(data[k][i]) > 0.0000000001) {
-                    // Troca as linhas i e k
-                    [data[i], data[k]] = [data[k], data[i]]; // troca de linha
-                    signal *= -1; // troca de linha muda o sinal do determinante
-                    pivot = data[i][i]; // atualiza o pivô após a troca
-                    found = true;
-                    break;
-                }
-            }
-
-            // Se não encontrou nenhum pivô não nulo, o determinante é zero
-            if (!found) return 0;
-        } 
+        // Pivoteamento parcial: não confundir valores pequenos com zero absoluto.
+        let pivotRow = i;
+        for (let k = i + 1; k < n; k++) {
+            if (Math.abs(data[k][i]) > Math.abs(data[pivotRow][i])) pivotRow = k;
+        }
+        if (data[pivotRow][i] === 0) return numeric ? 0 : '0';
+        if (pivotRow !== i) {
+            [data[i], data[pivotRow]] = [data[pivotRow], data[i]];
+            signal *= -1;
+        }
+        const pivot = data[i][i];
 
         // zerar os elementos abaixo do pivô, ou seja, k é a linha que queremos zerar, e i é a linha do pivô
         for (let k = i + 1; k < n; k++) {
@@ -62,5 +53,12 @@ export default function determinant(matrix) {
         det *= data[i][i]; 
     }
 
-    return toFraction(det * signal); 
+    const result = det * signal;
+    // Evita passar NaN/Infinity ao conversor de frações (que usa um loop).
+    if (!Number.isFinite(result)) {
+        if (numeric) throw new Error('numericLimit');
+        return NaN;
+    }
+    if (numeric) return result;
+    return result !== 0 && Math.abs(result) < 1e-10 ? String(result) : toFraction(result);
 }

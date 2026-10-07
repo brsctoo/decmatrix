@@ -26,3 +26,18 @@
     width: 90%;
   }
 }
+
+/* Applied only by the dedicated square-matrix calculators. */
+.protectedResult {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.protectedResult > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.protectedResult > h2 + p[role="alert"] {
+  margin-top: 12px;
+}

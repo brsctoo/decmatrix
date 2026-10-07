@@ -1,4 +1,5 @@
 {   
+    "LanguageSwitch": { "label": "Selecionar idioma" },
     "BaseBoard": {
         "decimatrix": "Decmatrix - Seu toolkit matemático open-source para cálculos, conversões e mais.",
         "termsOfUse": "Termos de Uso",
@@ -78,7 +79,9 @@
 
             "linear_algebra": {
                 "matrixMultiplication": "Multiplicação de Matrizes",
-                "matrixBasicOperations": "Operações básicas"
+                "matrixBasicOperations": "Operações básicas",
+                "matrixDeterminant": "Determinante de Matriz",
+                "matrixInverse": "Matriz Inversa"
             },
 
             "precalculus": {
@@ -218,6 +221,14 @@
                 "description": "Execute soma, subtração, transposição e inversão de matrizes."
             },
 
+            "matrixDeterminant": {
+                "title": "Calculadora de Determinante",
+                "description": "Calcule determinantes de matrizes quadradas e entenda suas propriedades."
+            },
+            "matrixInverse": {
+                "title": "Calculadora de Matriz Inversa",
+                "description": "Encontre a inversa de uma matriz quadrada e confira quando ela existe."
+            },
             "bubbleSortSimulatorCard": {
                 "title": "Simulador de Bubble Sort",
                 "description": "Visualize passo a passo o Bubble Sort com barras animadas."
@@ -274,6 +285,7 @@
         "seoDescription": "Aprenda estruturas de dados na prática com nosso Simulador de Árvore AVL. Insira valores, visualize o balanceamento e entenda as rotações passo a passo.",
         
         "mainTitle": "Construtor de árvore binária AVL",
+        "bstInvitation": "Experimente a mesma sequência no <linkBST>simulador de árvore binária de busca (BST)</linkBST> e compare a estrutura resultante com a AVL.",
 
         "definition": {
             "title": "Árvore AVL - Definição",
@@ -292,7 +304,7 @@
 
             "searchText": "A busca em uma árvore AVL é semelhante à busca em uma árvore binária de busca padrão, aproveitando a ordenação dos elementos para localizar rapidamente o valor desejado.",
 
-            "insertionText": "A inserção em uma árvore AVL começa como em uma árvore binária de busca, localizando a posição correta para o novo nó. Após a inserção, é necessário verificar o balanceamento da árvore e, se necessário, realizar rotações para restaurar o equilíbrio. Para entender as operações de inserção em árvores binárias de busca, você pode visitar o nosso <linkBTS>simulador de árvore binária de busca</linkBTS>.",
+            "insertionText": "A inserção em uma árvore AVL começa como em uma árvore binária de busca, localizando a posição correta para o novo nó. Após a inserção, é necessário verificar o balanceamento da árvore e, se necessário, realizar rotações para restaurar o equilíbrio.",
 
             "removalText": "A remoção em uma árvore AVL também segue o processo de uma árvore binária de busca, mas após a remoção, é necessário verificar e restaurar o balanceamento da árvore, se necessário, utilizando rotações apropriadas."
         },
@@ -805,6 +817,164 @@
         "moreInfoParagraph": "Esperamos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados caso interaja com alguma funcionalidade do nosso site."
     },
 
+    "matrixDeterminantComponent": {
+        "calculateButton": "Calcular determinante",
+        "squareNote": "Matriz quadrada de ordem 1 a 10. Linhas e colunas são sincronizadas. Use inteiros, decimais ou frações.",
+        "cellLabel": "Matriz A, linha {row}, coluna {column}",
+        "resultTitle": "Resultado do Determinante",
+        "resultLabel": "det(A) {relation} {value}",
+        "singularResult": "Determinante zero: a matriz é singular e não possui inversa.",
+        "precisionNote": "Aproximação em ponto flutuante (até 12 algarismos); cancelamentos podem reduzir a precisão.",
+        "exactNote": "Resultado exato em aritmética racional.",
+        "approximateZero": "O valor aproximado é zero; cancelamentos podem ocultar um determinante não nulo.",
+        "stepsTitle": "Passo a passo",
+        "stepsUnavailable": "O passo a passo está disponível apenas para ordens 1, 2 e 3.",
+        "methods": {
+            "order1": "Em uma matriz 1×1, o determinante é seu único elemento.",
+            "order2": "Para A com linhas (a, b) e (c, d), det(A) = ad − bc.",
+            "order3": "Regra de Sarrus: some três produtos e subtraia os outros três. Esta regra vale SOMENTE para matrizes 3×3."
+        },
+        "steps": {
+            "single": "Leia o único elemento.",
+            "twoProducts": "Calcule os produtos ad e bc.",
+            "positiveProducts": "Calcule os três produtos das diagonais somadas.",
+            "negativeProducts": "Calcule os três produtos das diagonais subtraídas.",
+            "sums": "Some cada grupo de três produtos.",
+            "difference": "Subtraia o segundo total do primeiro."
+        },
+        "errors": {
+            "invalidOrder": "Informe uma ordem inteira entre 1 e 10.",
+            "pendingOrder": "Confirme a nova ordem com Enter, saindo do campo ou clicando em calcular.",
+            "notSquare": "O determinante exige uma matriz quadrada: linhas e colunas devem ser iguais.",
+            "invalidValue": "Preencha todas as células com números válidos. Frações devem ter denominador diferente de zero.",
+            "numericLimit": "Use zero ou valores com módulo entre 10⁻¹² e 10¹². O cálculo deve permanecer finito.",
+            "singular": "A matriz é singular: seu determinante é zero.",
+            "unstable": "A matriz está próxima da singularidade; a precisão numérica não é suficiente para um resultado confiável."
+        }
+    },
+    "matrixInverseComponent": {
+        "calculateButton": "Calcular inversa",
+        "squareNote": "Matriz quadrada de ordem 1 a 10. Linhas e colunas são sincronizadas. Use inteiros, decimais ou frações.",
+        "cellLabel": "Matriz A, linha {row}, coluna {column}",
+        "resultTitle": "Resultado da Matriz Inversa",
+        "resultLabel": "Inversa de A",
+        "singularResult": "A matriz é singular e não possui inversa.",
+        "precisionNote": "Valores exibidos aproximados, com até 12 algarismos significativos. As verificações A × A⁻¹ ≈ I e A⁻¹ × A ≈ I usam os valores internos, antes do arredondamento, com erro máximo de 10⁻⁸ em cada produto.",
+        "errors": {
+            "invalidOrder": "Informe uma ordem inteira entre 1 e 10.",
+            "pendingOrder": "Confirme a nova ordem com Enter, saindo do campo ou clicando em calcular.",
+            "notSquare": "A inversa exige uma matriz quadrada: linhas e colunas devem ser iguais.",
+            "invalidValue": "Preencha todas as células com números válidos. Frações devem ter denominador diferente de zero.",
+            "numericLimit": "Use zero ou valores com módulo entre 10⁻¹² e 10¹². O cálculo deve permanecer finito.",
+            "singular": "A matriz é singular: o determinante é zero e a inversa não existe.",
+            "unstable": "A matriz está próxima da singularidade; a precisão numérica não é suficiente para uma inversa confiável."
+        }
+    },
+    "matrixDeterminant": {
+        "seoTitle": "Calculadora de Determinante de Matriz",
+        "seoDescription": "Calcule o determinante de matrizes quadradas de ordem 1 a 10 com inteiros, decimais e frações. Veja exemplos e propriedades.",
+        "mainTitle": "Calculadora de Determinante",
+        "usageTutorial": {
+            "title": "Como utilizar a Calculadora de Determinante",
+            "intro": "Preencha uma única matriz A para calcular seu determinante:",
+            "steps": [
+                "Escolha a ordem de 1 a 10 em <strong>Linhas</strong> ou <strong>Colunas</strong>. Os dois campos ficam sincronizados.",
+                "Confirme o tamanho com Enter ou saindo do campo e preencha cada célula com um inteiro, decimal ou fração, como 3/4.",
+                "Leia o resultado atualizado abaixo da matriz ou clique em <strong>Calcular determinante</strong> para confirmar o tamanho informado."
+            ],
+            "observation": "Entradas vazias ou inválidas não são convertidas silenciosamente em zero. Use zero ou valores com módulo entre 10⁻¹² e 10¹².",
+            "conclusion": "A matriz original permanece intacta. Um determinante zero é um resultado válido e indica uma matriz singular."
+        },
+        "exampleCalculation": {
+            "title": "Exemplo de Determinante de uma Matriz 2×2",
+            "scenario": "Considere a matriz A com linhas (4, 7) e (2, 6):",
+            "calculationStep": "Multiplique os elementos da diagonal principal e subtraia o produto da outra diagonal: <strong>4 × 6 − 7 × 2 = 10</strong>.",
+            "equations": ["\\det(A) = 4 \\times 6 - 7 \\times 2 = 10"],
+            "conclusion": "O determinante é 10, portanto esta matriz possui inversa. A regra das duas diagonais acima vale apenas para matrizes 2×2."
+        },
+        "definitionSection": {
+            "title": "O que é o determinante de uma matriz?",
+            "intro": "O determinante associa um número a uma matriz quadrada. Ele indica, entre outras propriedades, se a transformação linear é invertível e o fator de escala orientado de áreas ou volumes.",
+            "existence": "A condição de existência é ter <strong>o mesmo número de linhas e colunas</strong>. Matrizes retangulares não possuem determinante nesta definição.",
+            "proprieties": {
+                "title": "Propriedades do determinante",
+                "list": [
+                    "<strong>Identidade:</strong> det(I) = 1.",
+                    "<strong>Troca de linhas:</strong> trocar duas linhas muda o sinal do determinante.",
+                    "<strong>Matriz triangular:</strong> o determinante é o produto dos elementos da diagonal principal.",
+                    "<strong>Produto:</strong> det(AB) = det(A)det(B) para matrizes quadradas da mesma ordem.",
+                    "<strong>Singularidade:</strong> det(A) = 0 se, e somente se, A não possui inversa."
+                ]
+            },
+            "importance": "O determinante ajuda a estudar sistemas lineares e transformações. Quando ele é diferente de zero, você também pode usar a <linkInverse>calculadora de matriz inversa</linkInverse>."
+        },
+        "formularySection": {
+            "title": "Fórmulas e método do determinante",
+            "intro": "Para ordem 1, o determinante é o único elemento. Para ordem 2, vale ad − bc. A calculadora usa eliminação de Gauss com pivoteamento parcial para todas as ordens admitidas.",
+            "equations": ["\\det([a]) = a", "\\det\\begin{pmatrix}a & b \\\\ c & d\\end{pmatrix} = ad - bc", "\\det(A) = (-1)^s \\prod_{i=1}^{n} u_{ii}"],
+            "symbols": {"n": "Ordem da matriz quadrada.", "s": "Quantidade de trocas de linhas durante a eliminação.", "uᵢᵢ": "Elementos da diagonal da matriz triangular obtida sem normalizar as linhas."},
+            "observation": "O método trabalha sobre uma cópia de A. Os resultados são aproximados: cancelamentos entre números muito próximos podem reduzir a precisão."
+        },
+        "faqSection": [
+            {"question": "01. Posso calcular o determinante de uma matriz retangular?", "answer": "Não. Esta operação exige uma matriz quadrada; por isso os campos de linhas e colunas são sincronizados."},
+            {"question": "02. O que significa determinante zero?", "answer": "Em aritmética exata, significa que a matriz é singular e não tem inversa. Em cálculos aproximados, valores muito próximos de zero devem ser interpretados com cuidado."},
+            {"question": "03. A calculadora aceita frações e matrizes 1×1?", "answer": "Sim. Aceita inteiros, decimais e frações com denominador não nulo. Para uma matriz 1×1, o determinante é seu único elemento."},
+            {"question": "04. Quais são os limites numéricos?", "answer": "A ordem vai de 1 a 10. Cada entrada deve ser zero ou ter módulo entre 10⁻¹² e 10¹². A calculadora usa ponto flutuante, não aritmética simbólica exata."}
+        ]
+    },
+    "matrixInverse": {
+        "seoTitle": "Calculadora de Matriz Inversa",
+        "seoDescription": "Calcule a inversa de matrizes quadradas de ordem 1 a 10. Use inteiros, decimais e frações e entenda matrizes singulares e Gauss-Jordan.",
+        "mainTitle": "Calculadora de Matriz Inversa",
+        "usageTutorial": {
+            "title": "Como utilizar a Calculadora de Matriz Inversa",
+            "intro": "Preencha uma única matriz A para encontrar sua inversa:",
+            "steps": [
+                "Escolha a ordem de 1 a 10 em <strong>Linhas</strong> ou <strong>Colunas</strong>. Os dois campos ficam sincronizados.",
+                "Confirme o tamanho com Enter ou saindo do campo e preencha cada célula com um inteiro, decimal ou fração, como 3/4.",
+                "Leia a inversa atualizada abaixo da matriz ou clique em <strong>Calcular inversa</strong> para confirmar o tamanho informado."
+            ],
+            "observation": "Entradas vazias ou inválidas não são convertidas silenciosamente em zero. Use zero ou valores com módulo entre 10⁻¹² e 10¹².",
+            "conclusion": "A matriz A não é substituída pela inversa. Se A for singular ou numericamente instável, uma mensagem explica por que não há resultado confiável."
+        },
+        "exampleCalculation": {
+            "title": "Exemplo de Inversa de uma Matriz 2×2",
+            "scenario": "Considere a matriz A com linhas (4, 7) e (2, 6):",
+            "calculationStep": "Primeiro, <strong>det(A) = 4 × 6 − 7 × 2 = 10</strong>. Troque 4 e 6 de posição, mude os sinais de 7 e 2 e divida todos os elementos por 10.",
+            "equations": ["A^{-1} = \\frac{1}{10}\\begin{pmatrix}6 & -7 \\\\ -2 & 4\\end{pmatrix}"],
+            "conclusion": "O resultado tem linhas (3/5, −7/10) e (−1/5, 2/5). Multiplicando A por esta inversa, obtemos a identidade 2×2. Essa fórmula direta vale apenas para ordem 2."
+        },
+        "definitionSection": {
+            "title": "O que é uma matriz inversa?",
+            "intro": "A inversa de uma matriz A é a matriz A⁻¹ que desfaz sua transformação linear. Seu produto com A, em qualquer uma das duas ordens, é a matriz identidade.",
+            "existence": "A matriz deve ser <strong>quadrada e não singular</strong>. Em aritmética exata, isso equivale a det(A) ≠ 0.",
+            "proprieties": {
+                "title": "Propriedades da matriz inversa",
+                "list": [
+                    "<strong>Identidade:</strong> I⁻¹ = I.",
+                    "<strong>Unicidade:</strong> quando existe, a inversa é única.",
+                    "<strong>Produto:</strong> (AB)⁻¹ = B⁻¹A⁻¹, se A e B forem invertíveis e da mesma ordem.",
+                    "<strong>Inversa da inversa:</strong> (A⁻¹)⁻¹ = A.",
+                    "<strong>Determinante:</strong> det(A⁻¹) = 1/det(A)."
+                ]
+            },
+            "importance": "A inversa ajuda a estudar sistemas lineares e transformações reversíveis. Consulte a <linkDeterminant>calculadora de determinante</linkDeterminant> e confira o produto com a <linkMultiplication>calculadora de multiplicação de matrizes</linkMultiplication>."
+        },
+        "formularySection": {
+            "title": "Fórmulas e método da matriz inversa",
+            "intro": "Para ordem 1, inverta o único elemento não nulo. Para ordem 2, use a fórmula abaixo. A calculadora usa Gauss-Jordan com troca de linhas para obter [I | A⁻¹] a partir de [A | I].",
+            "equations": ["AA^{-1} = A^{-1}A = I", "[a]^{-1} = [1/a], \\quad a \\ne 0", "A^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix}d & -b \\\\ -c & a\\end{pmatrix}, \\quad ad-bc \\ne 0"],
+            "symbols": {"A⁻¹": "Inversa da matriz A.", "I": "Matriz identidade da mesma ordem de A.", "a, b, c, d": "Elementos de uma matriz 2×2, lidos por linhas."},
+            "observation": "As operações são realizadas sobre uma cópia. Ambos os produtos, A × A⁻¹ e A⁻¹ × A, são verificados antes do arredondamento, com erro absoluto máximo de 10⁻⁸ por elemento. Matrizes quase singulares podem ser rejeitadas por instabilidade numérica."
+        },
+        "faqSection": [
+            {"question": "01. Toda matriz quadrada possui inversa?", "answer": "Não. A matriz precisa ser não singular. Se seu determinante for zero, a inversa não existe."},
+            {"question": "02. A identidade e uma matriz 1×1 possuem inversa?", "answer": "A identidade é sua própria inversa. Uma matriz 1×1 com elemento a diferente de zero tem inversa [1/a]."},
+            {"question": "03. Um zero na diagonal impede a inversão?", "answer": "Não necessariamente. O método pode trocar linhas para encontrar um pivô não nulo. Por exemplo, a matriz com linhas (0, 1) e (1, 0) é sua própria inversa."},
+            {"question": "04. Por que uma matriz quase singular pode ser rejeitada?", "answer": "Pequenos erros de ponto flutuante podem ser amplificados. A calculadora verifica os pivôs e o produto com A e não exibe uma inversa quando a precisão é insuficiente."},
+            {"question": "05. Quais entradas são aceitas?", "answer": "Inteiros, decimais e frações com denominador não nulo, em matrizes de ordem 1 a 10. Cada valor deve ser zero ou ter módulo entre 10⁻¹² e 10¹²."}
+        ]
+    },
     "matrixInput": {
         "title": "Matriz",
         "rowsLabel": "Linhas",
@@ -849,7 +1019,8 @@
                 "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>"
             ],
             "observation": "Lembre-se de que o número de colunas da Matriz A deve ser igual ao número de linhas da Matriz B para que a multiplicação seja possível.",
-            "conclusion": "O multiplicador fornecerá o resultado da multiplicação das matrizes, permitindo visualizar claramente o produto das duas matrizes."
+            "conclusion": "O multiplicador fornecerá o resultado da multiplicação das matrizes, permitindo visualizar claramente o produto das duas matrizes.",
+            "relatedOperation": "Precisa somar ou subtrair matrizes da mesma dimensão? Use a <linkBasicOperations>calculadora de operações básicas com matrizes</linkBasicOperations>."
         },
 
         "exampleCalculation": {
@@ -926,7 +1097,8 @@
                 "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
                 "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados)</strong>"
             ],
-            "conclusion": "A calculadora irá exibir o resultado da soma e subtração das matrizes, permitindo visualizar claramente o resultado das duas matrizes."
+            "conclusion": "A calculadora irá exibir o resultado da soma e subtração das matrizes, permitindo visualizar claramente o resultado das duas matrizes.",
+            "relatedOperation": "Para calcular o produto de duas matrizes, use a <linkMultiplication>calculadora de multiplicação de matrizes</linkMultiplication>."
         },
 
         "exampleCalculation": {

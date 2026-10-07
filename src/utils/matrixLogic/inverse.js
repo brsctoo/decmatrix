@@ -9,7 +9,7 @@
 import { Matrix } from "./core";
 import MathUtils from "../MathUtils";
 
-export default function invertMatrix(matrix) {
+export default function invertMatrix(matrix, { numeric = false } = {}) {
     const { toNum, toFraction } = MathUtils;
     
     {/* Verifica se a matriz é quadrada, pois apenas matrizes quadradas podem ser invertidas. Se não for, lança um erro. */}
@@ -27,16 +27,25 @@ export default function invertMatrix(matrix) {
         return [...numericRow, ...identityRow]; // concatena 
     }) 
 
+    const scales = augmented.map(row => Math.max(...row.slice(0, n).map(Math.abs)));
+
     // 2. Loop principal para cada coluna e linha (pivô)
     for (let i = 0; i < n; i++) {
 
-        // Encontrar o pivô
-        let pivot = augmented[i][i];
-        
-        // Se o pivô for zero, a matriz não é invertível
-        if (Math.abs(pivot) < 0.0000000001) {
-            throw new Error("A matriz não é invertível.");
-        } 
+        let pivotRow = i;
+        for (let k = i + 1; k < n; k++) {
+            if (Math.abs(augmented[k][i]) > Math.abs(augmented[pivotRow][i])) pivotRow = k;
+        }
+        if (augmented[pivotRow][i] === 0) throw new Error('singular');
+        if (!Number.isFinite(augmented[pivotRow][i])) throw new Error('numericLimit');
+        if (Math.abs(augmented[pivotRow][i]) <= Number.EPSILON * n * scales[pivotRow] * 8) {
+            throw new Error('unstable');
+        }
+        if (pivotRow !== i) {
+            [augmented[i], augmented[pivotRow]] = [augmented[pivotRow], augmented[i]];
+            [scales[i], scales[pivotRow]] = [scales[pivotRow], scales[i]];
+        }
+        const pivot = augmented[i][i];
 
         for (let j = 0; j < 2 * n; j++) {
             augmented[i][j] /= pivot;
@@ -53,10 +62,13 @@ export default function invertMatrix(matrix) {
     }
 
     let result = augmented.map(row => row.slice(n));
+    if (result.some(row => row.some(value => !Number.isFinite(value)))) throw new Error('numericLimit');
+    if (numeric) return result;
     
     for (let i = 0; i < result.length; i++) {
         for (let j = 0; j < result[i].length; j++) {
-            result[i][j] = toFraction(result[i][j]); // converte para fração
+            const value = result[i][j];
+            result[i][j] = value !== 0 && Math.abs(value) < 1e-10 ? String(value) : toFraction(value);
         }
     }
 

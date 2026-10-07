@@ -1,0 +1,86 @@
+.content {
+    width: 100%;
+    min-width: 0;
+}
+
+.resultScroll {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 20px 0 12px;
+}
+
+.value {
+    width: max-content;
+    min-width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    color: #00b947;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 600;
+}
+
+.note {
+    margin: 12px 0 24px;
+    color: #a3a3a3;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.singular,
+.availability {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.steps {
+    min-width: 0;
+    border-top: 1px solid rgba(247, 248, 248, 0.08);
+    padding-top: 24px;
+    line-height: 1.6;
+}
+
+.steps h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.steps :global(ol),
+.steps :global(li) {
+    min-width: 0;
+}
+
+.steps :global(li) > div {
+    max-width: 100%;
+    min-width: 0;
+    margin-block: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+}
+
+.steps :global(li) > div > div {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.steps :global(.katex-display) {
+    width: max-content;
+    min-width: 100%;
+}
+
+/* Keep KaTeX's absolutely positioned accessible MathML inside its equation. */
+.steps :global(.katex) {
+    position: relative;
+}
+
+.resultScroll:focus-visible {
+    outline: 2px solid #00b947;
+    outline-offset: -2px;
+}
+
+@media (max-width: 768px) {
+    .steps :global(li) > div {
+        padding: 12px;
+    }
+}

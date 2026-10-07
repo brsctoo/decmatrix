@@ -1,7 +1,8 @@
 "use client"
 
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 {/* Ícone */}
 import { Languages } from 'lucide-react';
@@ -13,6 +14,8 @@ function LanguageSwitch() {
     const [switcherVisible, setSwitcherVisible] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
+    const t = useTranslations('LanguageSwitch');
+    const trigger = useRef(null);
 
     const LANGUAGES = [
         { code: 'en', label: 'English', flag: US },
@@ -25,15 +28,21 @@ function LanguageSwitch() {
     };
 
     return (
-        <div className={styles.languageSwitch} >
-            <div onClick={() => setSwitcherVisible(prev => !prev)} className={styles.languageIcon} > 
+        <div className={styles.languageSwitch} onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+                setSwitcherVisible(false);
+                trigger.current?.focus();
+            }
+        }}>
+            <button type="button" ref={trigger} aria-label={t('label')}
+                aria-expanded={switcherVisible} onClick={() => setSwitcherVisible(prev => !prev)} className={styles.languageIcon} >
                 <Languages size={24} />
-            </div>
+            </button>
 
             {switcherVisible && (
                 <div className={styles.languageOptions}>
                     {LANGUAGES.map(lang => (
-                        <div 
+                        <button type="button"
                             key={lang.code}
                             className={styles.languageIndividualOption}
                             onClick={() => {
@@ -51,7 +60,7 @@ function LanguageSwitch() {
                                 <lang.flag style={{ width: '20px', height: 'auto' }} />
                                 <span style={{ fontSize: '14px', fontWeight: '500' }}>{lang.label}</span>
                             </div>
-                        </div>
+                        </button>
                     ))}
                 </div>
             )}

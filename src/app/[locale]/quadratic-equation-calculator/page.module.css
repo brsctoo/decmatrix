@@ -294,6 +294,7 @@
 
     .chartSection {
         margin: 16px;
+        width: calc(100% - 32px);
         padding: 16px;
         border-radius: 16px;
         box-shadow: 0 14px 38px rgba(0, 0, 0, 0.75);
@@ -370,5 +371,28 @@
     .imageAttribution {
         margin: 16px auto;
         max-width: 100%;
+    }
+
+    .quadraticFraction,
+    .interativeFormulaCard,
+    .interativeFormulaCard > *,
+    .quadraticFormulaCard,
+    .quadraticFormulaCard > *,
+    .quadraticRowFormulaCard,
+    .quadraticResultsFormulaCard,
+    .quadraticVerticesFormulaCard,
+    .quadraticFactorizationFormulaCard {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .quadraticFraction {
+        width: 100%;
+    }
+
+    .quadraticResultsFormulaCard,
+    .quadraticRowFormulaCard {
+        width: 100%;
+        align-items: stretch;
     }
 }

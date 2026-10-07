@@ -45,6 +45,9 @@
 
 /* Categoria */
 .categoryHeader { 
+    border: 0;
+    font-family: inherit;
+    text-align: left;
     height: auto;
     width: 100%;
     background-color: #050505;
@@ -114,4 +117,45 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.categoryHeader:focus-visible,
+.toolLink:focus-visible {
+    outline: 2px solid #00b947;
+    outline-offset: -3px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        top: 95px;
+        width: min(270px, 100%);
+        height: calc(100dvh - 95px);
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+    }
+
+    .sidebarHeader {
+        flex-shrink: 0;
+    }
+
+    .categoryWrapper,
+    .categoryHeader,
+    .toolsList,
+    .toolLink {
+        white-space: normal;
+    }
+
+    .categoryHeader,
+    .toolLink {
+        min-height: 44px;
+        overflow-wrap: anywhere;
+    }
+
+    .categoryHeader > span {
+        min-width: 0;
+    }
+
+    .perfectCircle {
+        flex-shrink: 0;
+    }
 }

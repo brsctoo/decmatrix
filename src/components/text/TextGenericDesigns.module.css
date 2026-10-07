@@ -35,8 +35,10 @@
 }
 
 .inlineLink {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
   color: #00b947;
-  text-decoration: none;
   font-weight: 500;
   border-bottom: 1px solid transparent;
   transition: 
@@ -96,10 +98,28 @@
   .article {
     padding: 0.8rem;
     font-size: 1rem;
-    margin: 20px;
+    margin: 20px auto;
+    width: calc(100% - 32px);
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .article h3 {
     font-size: 1.3rem;
   }
+
+  .article img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .pagesMainTitle {
+    overflow-wrap: anywhere;
+  }
+}
+
+.inlineLink:focus-visible {
+  outline: 2px solid #00b947;
+  outline-offset: 3px;
 }

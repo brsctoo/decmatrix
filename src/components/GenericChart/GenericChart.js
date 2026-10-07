@@ -3,6 +3,7 @@ import React from "react";
 import style from "./GenericChart.module.css";
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
+import { useIsMobile } from '@/context/ViewportContext';
 
 import {
   XAxis,
@@ -53,6 +54,7 @@ function GenericChart({
   }) {
 
     const { locale } = useParams();
+    const isMobile = useIsMobile();
 
     const t = useTranslations('GenericChart');
     
@@ -110,7 +112,7 @@ function GenericChart({
     const tooltipFormatter = (value, name) => [formatValue(value, locale), legendFormatter(name)];
 
     return (
-        <div className={style.chartContainer}>
+        <div className={`${style.chartContainer}${isAreaChart || isLineChart ? ` ${style.wideChart}` : ''}`} tabIndex={0}>
             {isAreaChart && (
                 <ResponsiveContainer width="100%" height={360}>
                     <AreaChart width={600} height={360} data={data}>
@@ -122,6 +124,7 @@ function GenericChart({
                             tickLine={false}
                         />
                         <YAxis
+                            width={isMobile ? 120 : 60}
                             tick={{ fill: '#9ca3af', fontSize: 12 }}
                             axisLine={{ stroke: 'rgba(148,163,184,0.4)' }}
                             tickLine={false}

@@ -1,6 +1,7 @@
 "use client";
 
 import style from "./InputField.module.css";
+import { useId, useState } from 'react';
 import { useParams } from 'next/navigation'; 
 
 function InputField({
@@ -22,6 +23,8 @@ function InputField({
   }) {
 
   const { locale } = useParams();
+  const inputId = useId();
+  const [infoOpen, setInfoOpen] = useState(false);
 
   const hasSelect = selectOptions.length > 0;
 
@@ -37,12 +40,15 @@ function InputField({
   return (
     <div>
       <div className={style.labelRow}>
-        <label>{label}</label>
+        <label htmlFor={props.id || inputId}>{label}</label>
         
         {info && (
         <div className={style.tooltipWrapper}>
-          <span className={style.infoIcon}>i</span>
-          <div className={style.tooltip}>
+          <button type="button" className={style.infoIcon} aria-label={info}
+            aria-expanded={infoOpen} aria-controls={`${inputId}-info`}
+            onClick={() => setInfoOpen(open => !open)}
+            onKeyDown={(event) => { if (event.key === 'Escape') setInfoOpen(false); }}>i</button>
+          <div id={`${inputId}-info`} className={`${style.tooltip}${infoOpen ? ` ${style.tooltipOpen}` : ''}`}>
             {info}
           </div>
         </div>
@@ -52,6 +58,7 @@ function InputField({
       <div className={style.inputFieldContainer}>
         <input
           {...props} 
+          id={props.id || inputId}
           className={inputClassName}
           data-spin={hasSpinButtons}
           name={name}
@@ -67,6 +74,7 @@ function InputField({
           <>
             <select
               name={name + "_select"}
+              aria-label={label}
               className={style.selectInside} 
               value={selectValue}
               onChange={(e) => onSelectChange(e.target.value)}

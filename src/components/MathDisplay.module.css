@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  .equation {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .equation :global(.katex-display) {
+    width: max-content;
+    min-width: 100%;
+  }
+}
+
+.equation:focus-visible {
+  outline: 2px solid #00b947;
+  outline-offset: -2px;
+}

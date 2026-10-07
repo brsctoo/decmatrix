@@ -6,10 +6,10 @@ import { useIsMobile } from "@/context/ViewportContext"; // Importa o hook para 
 export default function CodeViewer({ code, language, activeLines=[1] }) {
     const isMobile = useIsMobile();
 
-    if (isMobile) return null; // Esconde o CodeViewer em telas mobile para evitar problemas de usabilidade
     return (
         <div className={style.codeViewerContainer}>
             <SyntaxHighlighter
+                tabIndex={0}
                 language={language}
                 style={vscDarkPlus}
                 showLineNumbers={true}
@@ -17,7 +17,7 @@ export default function CodeViewer({ code, language, activeLines=[1] }) {
                 customStyle={{
                     margin: 0,
                     padding: isMobile ? '1rem 0' : '2.5rem 0',
-                    fontSize: isMobile ? '0.2rem' : '1.15rem',
+                    fontSize: isMobile ? '0.95rem' : '1.15rem',
                     lineHeight: isMobile ? 1.4 : 1.7,
                     backgroundColor: 'transparent',
                     fontFamily: "'JetBrains Mono', 'Fira Code', Consolas, monospace",

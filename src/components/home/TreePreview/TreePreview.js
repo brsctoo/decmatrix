@@ -13,7 +13,7 @@ export default function TreePreview({ title, description }) {
     if (isMobile) return null;
 
     return ( 
-        <div>
+        <div className={style.desktopPreview}>
             <HighlightSection>
                 <div className={style.binaryTreePreviewSection}>
                     <div className={style.binaryTreePreviewText}>

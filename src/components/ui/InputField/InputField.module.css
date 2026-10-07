@@ -79,6 +79,7 @@
 }
 
 .infoIcon {
+    padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -94,6 +95,7 @@
 }
 
 .tooltip {
+    display: none;
     overflow: visible;
     visibility: hidden;
     width: 200px;
@@ -110,7 +112,9 @@
     transition: opacity 0.3s;
 }
 
-.tooltipWrapper:hover .tooltip {
+.tooltipWrapper:hover .tooltip,
+.tooltipOpen {
+    display: block;
     visibility: visible;
     opacity: 1;
 }
@@ -163,4 +167,56 @@
     box-shadow: 
         0 0 2px rgba(24, 201, 100, 0.9),
         0 0 12px rgba(24, 201, 100, 0.35);
+}
+
+.infoIcon:focus-visible {
+    outline: 2px solid #00b947;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .inputField {
+        min-width: 0;
+        height: 44px;
+        font-size: 16px;
+    }
+
+    .selectInside {
+        flex: 0 0 110px;
+        height: 44px;
+        font-size: 16px;
+        padding-inline: 8px;
+    }
+
+    .labelRow {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .tooltipWrapper {
+        position: static;
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+
+    .infoIcon {
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .tooltip {
+        top: 100%;
+        bottom: auto;
+        left: 0;
+        width: min(240px, 100%);
+        overflow-wrap: anywhere;
+        z-index: 20;
+    }
+
+    .tooltipWrapper:hover .tooltip:not(.tooltipOpen) {
+        display: none;
+    }
 }

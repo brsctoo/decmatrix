@@ -11,8 +11,9 @@ import { useUI } from '@/context/UIContext';
 import { useIsMobile } from '@/context/ViewportContext';
 
 export default function Topbord() {
-    const { toggleSidebar } = useUI();
+    const { isSidebarOpen, toggleSidebar } = useUI();
     const t = useTranslations('BaseBoard');
+    const nav = useTranslations('LateralBar');
     const { locale } = useParams();
     const pathname = usePathname();
     const isMobile = useIsMobile();
@@ -23,7 +24,7 @@ export default function Topbord() {
             if (isMobile) {
                 toggleSidebar(false);
             }        
-        }, [pathname]
+        }, [pathname, isMobile]
     );
 
     return (
@@ -37,13 +38,15 @@ export default function Topbord() {
                 </Link>
 
                 {/* Botão para abrir a lateral bar */}
-                <div onClick={() => toggleSidebar(true)}>
+                <button type="button" className={style.menuButton}
+                    aria-label={nav('title')} aria-expanded={isSidebarOpen}
+                    aria-controls="tools-navigation" onClick={() => toggleSidebar()}>
                     <div className={style.hamburger}>
                         <span className={style.bar}></span>
                         <span className={style.bar}></span>
                         <span className={style.bar}></span>
                     </div>
-                </div>
+                </button>
                 
                 <div className={style.LanguageSwitcher}>
                     <LanguageSwitch />

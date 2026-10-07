@@ -26,7 +26,7 @@ function IconSection({ icon: Icon }) {
 }
 
 export default function LateralBar() {
-    const { isSidebarOpen } = useUI();
+    const { isSidebarOpen, toggleSidebar } = useUI();
 
     {/* categoria ativada no momento -> muda com o handleCategory */}
     const [activeCategory, setActiveCategory] = React.useState(null);
@@ -92,6 +92,20 @@ export default function LateralBar() {
             labelKey: 'linear_algebra.matrixBasicOperations', // chave para tradução do título da seção
             path: `/${params.locale}/matrix-basic-operations`,
             category: 'linear_algebra' // categoria para agrupar seções relacionadas
+        },
+
+        'matrixDeterminant': {
+            id: 'matrixDeterminant',
+            labelKey: 'linear_algebra.matrixDeterminant',
+            path: `/${params.locale}/matrix-determinant`,
+            category: 'linear_algebra'
+        },
+
+        'matrixInverse': {
+            id: 'matrixInverse',
+            labelKey: 'linear_algebra.matrixInverse',
+            path: `/${params.locale}/matrix-inverse`,
+            category: 'linear_algebra'
         },
 
         'binarySearchTreeSimulator': {
@@ -161,8 +175,9 @@ export default function LateralBar() {
                 // Barra lateral total da categoria, incluindo o cabeçalho e os itens de navegação 
                 <div key={category.id} className={styles.categoryWrapper}>
                     {/* Cabeçalho da seção */}
-                    <div 
+                    <button type="button"
                         className={`${styles.categoryHeader} ${isActive ? styles.categoryHeaderActive : ""}`} 
+                        aria-expanded={isActive}
                         onClick={() => handleCategory(category.id)}
                     >
                         {/* Renderiza o elemento de ícone */}
@@ -173,7 +188,7 @@ export default function LateralBar() {
                         <div className={`${styles.chevronIcon} ${isActive ? styles.chevronActive : ""}`}>
                             <ChevronLeft size={16} />
                         </div>
-                    </div>
+                    </button>
 
                     {/* Itens de navegação da categoria, mostrados apenas se a categoria estiver ativa */}
                     <AnimatePresence>    
@@ -206,8 +221,17 @@ export default function LateralBar() {
     return (
         <div>
             <AnimatePresence>
-                {!isSidebarOpen && 
+                {isSidebarOpen && 
                 (<motion.nav 
+                    id="tools-navigation"
+                    aria-label={t('title')}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Escape') {
+                            event.preventDefault();
+                            toggleSidebar(false);
+                            document.querySelector('[aria-controls="tools-navigation"]')?.focus();
+                        }
+                    }}
                     initial={{ x: -250, opacity: 0 }} /// Começa fora da tela à esquerda e invisível
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -250, opacity: 0 }}

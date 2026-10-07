@@ -176,6 +176,136 @@ export const schemas = {
         }
     },
 
+    matrixDeterminant: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/matrix-determinant#software",
+                    "name": "Calculadora de Determinante — Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Calcule determinantes de matrizes quadradas de ordem 1 a 10 com inteiros, decimais e frações.",
+                    "url": "https://decmatrix.com/pt/matrix-determinant"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como calcular o determinante de uma matriz",
+                    "description": "Preencha uma matriz quadrada e veja seu determinante aproximado.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Dimensões", "text": "Escolha uma ordem inteira de 1 a 10. Linhas e colunas ficam sincronizadas." },
+                        { "@type": "HowToStep", "name": "Valores", "text": "Preencha todas as células com inteiros, decimais ou frações com denominador não nulo." },
+                        { "@type": "HowToStep", "name": "Resultado", "text": "Leia o determinante atualizado abaixo da matriz ou confirme a ordem com Calcular determinante." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/pt" },
+                        { "@type": "ListItem", "position": 2, "name": "Calculadora de Determinante", "item": "https://decmatrix.com/pt/matrix-determinant" }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/matrix-determinant#software",
+                    "name": "Matrix Determinant Calculator — Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Calculate determinants of square matrices of order 1 to 10 with integers, decimals and fractions.",
+                    "url": "https://decmatrix.com/en/matrix-determinant"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to calculate a matrix determinant",
+                    "description": "Fill a square matrix and view its approximate determinant.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Dimensions", "text": "Choose an integer order from 1 to 10. Rows and columns stay synchronized." },
+                        { "@type": "HowToStep", "name": "Values", "text": "Fill every cell with integers, decimals or fractions with a nonzero denominator." },
+                        { "@type": "HowToStep", "name": "Result", "text": "Read the updated determinant below the matrix or confirm the order with Calculate determinant." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/en" },
+                        { "@type": "ListItem", "position": 2, "name": "Matrix Determinant Calculator", "item": "https://decmatrix.com/en/matrix-determinant" }
+                    ]
+                }
+            ]
+        }
+    },
+
+    matrixInverse: {
+        pt: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/pt/matrix-inverse#software",
+                    "name": "Calculadora de Matriz Inversa — Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Encontre a inversa de uma matriz quadrada de ordem 1 a 10 e identifique matrizes singulares.",
+                    "url": "https://decmatrix.com/pt/matrix-inverse"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "Como calcular a matriz inversa",
+                    "description": "Use Gauss-Jordan para encontrar a inversa sem alterar a matriz original.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Dimensões", "text": "Escolha uma ordem inteira de 1 a 10. Linhas e colunas ficam sincronizadas." },
+                        { "@type": "HowToStep", "name": "Valores", "text": "Preencha todas as células com inteiros, decimais ou frações com denominador não nulo." },
+                        { "@type": "HowToStep", "name": "Resultado", "text": "Leia a inversa abaixo da matriz. Matrizes singulares ou numericamente instáveis exibem uma mensagem." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/pt" },
+                        { "@type": "ListItem", "position": 2, "name": "Calculadora de Matriz Inversa", "item": "https://decmatrix.com/pt/matrix-inverse" }
+                    ]
+                }
+            ]
+        },
+        en: {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://decmatrix.com/en/matrix-inverse#software",
+                    "name": "Matrix Inverse Calculator — Decmatrix",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "Web",
+                    "description": "Find inverses of square matrices of order 1 to 10 and identify singular matrices.",
+                    "url": "https://decmatrix.com/en/matrix-inverse"
+                },
+                {
+                    "@type": "HowTo",
+                    "name": "How to calculate a matrix inverse",
+                    "description": "Use Gauss-Jordan to find the inverse without changing the original matrix.",
+                    "step": [
+                        { "@type": "HowToStep", "name": "Dimensions", "text": "Choose an integer order from 1 to 10. Rows and columns stay synchronized." },
+                        { "@type": "HowToStep", "name": "Values", "text": "Fill every cell with integers, decimals or fractions with a nonzero denominator." },
+                        { "@type": "HowToStep", "name": "Result", "text": "Read the inverse below the matrix. Singular or numerically unstable matrices display a message." }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/en" },
+                        { "@type": "ListItem", "position": 2, "name": "Matrix Inverse Calculator", "item": "https://decmatrix.com/en/matrix-inverse" }
+                    ]
+                }
+            ]
+        }
+    },
+
     matrixBasicOperations: {
         pt: {
             "@context": "https://schema.org",

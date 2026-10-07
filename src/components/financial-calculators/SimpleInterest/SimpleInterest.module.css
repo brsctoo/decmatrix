@@ -228,7 +228,17 @@
 
     .resultsCard,
     .chartWrapper {
+        min-width: 0;
+        max-width: 100%;
         padding: 18px 14px;
         border-radius: 14px;
+    }
+
+    .resultRow,
+    .resultRowHighlight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        overflow-wrap: anywhere;
     }
 }

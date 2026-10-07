@@ -11,7 +11,8 @@ import MathUtils from "@/utils/MathUtils";
 import { useTranslations } from "next-intl";
 
 // matrixInstance é uma ref para o objeto Matrix da classe core.js
-export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChange, onUpdate }) {
+export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChange, onUpdate,
+    actions, inputNote, strictValues = false, cellLabel, protectOverflow = false }) {
     const t = useTranslations("matrixInput");
     const { transposeMatrix } = MatrixOps;
     const { toNum } = MathUtils;
@@ -22,7 +23,7 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
 
     return (
         <div className={style.wrapper}>
-            <div className={style.inputContainer}>
+            <div className={`${style.inputContainer}${protectOverflow ? ` ${style.protectedInput}` : ''}`}>
                 <div>
                     <h2 className={style.matrixTitle}>{t("title")} {matrixInstance.name}</h2>
                 </div>
@@ -30,6 +31,7 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                     <div>
                         <InputField
                             label={t("rowsLabel")}
+                            aria-label={t("rowsLabel")}
                             type="number"
                             hasSpinButtons={"true"}
                             min="1"
@@ -41,6 +43,7 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                         />
                         <InputField
                             label={t("columnsLabel")}
+                            aria-label={t("columnsLabel")}
                             type="number"
                             hasSpinButtons={"true"}
                             min="1"
@@ -50,7 +53,9 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                             onBlur={(e) => handleFinalize('cols', e.target.value)} // Aplica validação e sincronização no blur
                             onKeyDown={(e) => e.key === "Enter" && handleFinalize('cols', e.target.value)} // Aplica validação e sincronização no Enter
                         />
-                        {matrixInstance.rows !== matrixInstance.cols ? (
+                        {inputNote !== undefined ? (
+                            <p style={{ color: "#A3A3A3", marginTop: "20px" }}>{inputNote}</p>
+                        ) : matrixInstance.rows !== matrixInstance.cols ? (
                             <p style={{ color: "#A3A3A3", marginTop: "20px" }}>{t("notSquareMatrix")}</p>
                         ) : toNum(determinant(matrixInstance)) !== 0 ? (
                             <p style={{ marginTop: "20px" }}>
@@ -65,6 +70,7 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                         )} 
                     </div>
                     <div>
+                        {actions !== undefined ? actions : <>
                         <ReactiveButton 
                             label={t("invertButton")}
                             onClick={() => {
@@ -93,9 +99,11 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                             }} 
                             blocked={false}
                         />
+                        </>}
                     </div>
                 </div>
-            <div className={style.matrixContainer} style={{ "--grid-cols": matrixInstance.cols }}>
+            <div className={style.matrixContainer} style={{ "--grid-cols": matrixInstance.cols }}
+                tabIndex={0}>
                 <div className={style.matrixInner}>
                     <div className={style.bracketLeft}></div>
                     <div className={style.grid}>
@@ -104,9 +112,15 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                                 <input 
                                     key={`${r}-${c}`}
                                     type="text"
+                                    aria-label={cellLabel ? cellLabel(r + 1, c + 1) : `${t('title')} ${matrixInstance.name}, ${t('rowsLabel')} ${r + 1}, ${t('columnsLabel')} ${c + 1}`}
                                     value={val}
                                     onChange={(e) => {
                                         const rawValue = e.target.value;
+                                        if (strictValues) {
+                                            matrixInstance.changeCellValue(r, c, rawValue.replace(',', '.'));
+                                            onUpdate();
+                                            return;
+                                        }
 
                                         // 1. Bloqueia letras, mas permite caracteres de fração e sinais
                                         if (!/^-?[0-9.,/]*$/.test(rawValue)) return;
@@ -122,6 +136,7 @@ export default function Input({ matrixInstance, rowsValue, colsValue, onSizeChan
                                         onUpdate();
                                     }}
                                     onBlur={(e) => {
+                                        if (strictValues) return;
                                         const rawValue = e.target.value;
 
                                         if (rawValue.includes(',')) {

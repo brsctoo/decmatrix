@@ -35,6 +35,12 @@
       { url: `${baseUrl}/pt/matrix-multiplication`, lastModified: new Date() },
       { url: `${baseUrl}/en/matrix-multiplication`, lastModified: new Date() },
 
+      // --- DETERMINANTE E MATRIZ INVERSA ---
+      { url: `${baseUrl}/pt/matrix-determinant`, lastModified: new Date() },
+      { url: `${baseUrl}/en/matrix-determinant`, lastModified: new Date() },
+      { url: `${baseUrl}/pt/matrix-inverse`, lastModified: new Date() },
+      { url: `${baseUrl}/en/matrix-inverse`, lastModified: new Date() },
+
       // --- BUBBLE SORT ---
       { url: `${baseUrl}/pt/bubble-sort`, lastModified: new Date() },
       { url: `${baseUrl}/en/bubble-sort`, lastModified: new Date() },

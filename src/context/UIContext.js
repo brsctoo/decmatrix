@@ -6,10 +6,10 @@ export const UIContext = createContext();
 
 // A função do Provider
 export function UIProvider({ children }) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(isSidebarOpen === true ? false : true);
+    const toggleSidebar = (open) => {
+        setIsSidebarOpen(current => typeof open === 'boolean' ? open : !current);
     };
 
     return (

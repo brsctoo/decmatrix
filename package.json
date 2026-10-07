@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:matrices": "node --experimental-vm-modules --test tests/matrix-square.test.mjs",
+    "test:matrix-pages": "node tests/matrix-pages-smoke.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

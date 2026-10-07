@@ -3,11 +3,13 @@ import styles from "./Display.module.css";
 
 export default function Display({ 
   matrix,
-  otherClasses = "" // Permite passar outras classes para customização
+  otherClasses = "", // Permite passar outras classes para customização
+  protectOverflow = false
   }) {
   return (
-    <div>
-      <div className={`${styles.matrixContainerDisplay} ${otherClasses}`}>
+    <div className={`${styles.wrapper}${protectOverflow ? ` ${styles.protectedWrapper}` : ''}`}>
+      <div className={`${styles.matrixContainerDisplay} ${otherClasses}${protectOverflow ? ` ${styles.protectedDisplay}` : ''}`}
+        tabIndex={0}>
         <div className={styles.matrixInner}>
           <div className={styles.bracketLeft}></div>
           <div 

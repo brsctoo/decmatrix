@@ -208,9 +208,25 @@
 	}
 
 	.logicBtn {
-		height: 36px;
-		min-width: 40px;
+		height: 44px;
+		min-width: 44px;
 		padding: 0 12px;
 		font-size: 14px;
 	}
+
+	.generateButton {
+		min-height: 44px;
+		font-size: 16px !important;
+	}
+
+	.expressionBadge {
+		max-width: 100%;
+		overflow-wrap: anywhere;
+	}
+}
+
+.logicBtn:focus-visible,
+.tableScroll:focus-visible {
+	outline: 2px solid #00b947;
+	outline-offset: -2px;
 }
