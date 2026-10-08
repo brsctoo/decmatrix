@@ -1,5 +1,74 @@
 {   
     "LanguageSwitch": { "label": "Select language" },
+    "LinearFunctionCalculator": {
+        "seoTitle": "Linear Function Calculator: Roots and Graph",
+        "seoDescription": "Calculate f(x) = ax + b, its root, y-intercept and behavior with a line graph and exact step-by-step explanations.",
+        "mainTitle": "Linear Function Calculator",
+        "coefficient": "Coefficient {name}",
+        "coefficientInfo": "Enter coefficient {name}, including zero or a negative decimal.",
+        "equationBuilt": "Function assembled",
+        "calculate": "Calculate Function",
+        "inputNote": "Enter all coefficients. Decimals, signs and scientific notation are accepted; no fractions. Up to 40 characters, exponent magnitude ≤ 24; nonzero magnitudes from 10⁻¹² to 10¹².",
+        "errors": { "invalidValue": "Fill all fields with valid decimal numbers. Fractions and incomplete entries are not accepted.", "numericLimit": "Use zero or magnitudes from 10⁻¹² to 10¹², up to 40 characters and exponent magnitude ≤ 24.", "unstable": "The numeric substitution check failed. Review the coefficients." },
+        "resultTitle": "Function Result",
+        "classification": "Behavior",
+        "kinds": { "increasing": "Increasing", "decreasing": "Decreasing", "constant": "Constant", "null": "Zero function" },
+        "root": "Root",
+        "intercept": "Y-intercept",
+        "allRoots": "Every real number",
+        "noRoot": "No real root",
+        "degreeNote": "A first-degree function requires a ≠ 0. With a = 0, this calculator also handles constant and zero functions.",
+        "precisionNote": "Equalities and fractions use exact rational arithmetic for the entered decimals. Graph coordinates are approximate (≈).",
+        "graphTitle": "Function Graph",
+        "functionLabel": "f(x)",
+        "visibleLine": "line in the window",
+        "noVisibleLine": "no line in the window",
+        "graphNote": "Approximate coordinates (≈), with equal numeric x/y ranges. The red point marks the root when visible; the finite window is not the entire line.",
+        "graphLimited": "The root, intersection or an intercept may lie outside the graph window. For coordinates beyond 10⁶, only the window [−10, 10] is shown; the exact result remains valid.",
+        "stepsTitle": "Step by Step",
+        "steps": { "identify": "Identify the current function.", "intercept": "Set x = 0 to find the y-intercept.", "root": "Set f(x) = 0, move b and divide by nonzero a.", "constant": "With a = 0 and b ≠ 0, f(x) never equals zero.", "null": "With a = b = 0, every real x is a root.", "behavior": "Positive a means increasing; negative a means decreasing; zero a means constant.", "graph": "Plot the line and its notable points in the displayed window." },
+        "article": {
+            "definitionTitle": "What Is a Linear Function?", "definition": "An affine function has the form f(x) = ax + b and its graph is a straight line. Here, linear function is used in this common calculator sense; strictly linear maps have b = 0.", "symbols": "a is the slope, b is the y-intercept and x is the real independent variable. A first-degree function has a ≠ 0.",
+            "rootsTitle": "Roots and Constant Functions", "roots": "For a ≠ 0, the unique root is −b/a. If a = 0 and b ≠ 0, there are no roots. If both are zero, every real number is a root.",
+            "guideTitle": "How to Analyze the Function", "guide": ["Identify the slope a and intercept b.", "Compute f(0) = b.", "If a is nonzero, solve ax = −b; otherwise examine the constant.", "Use the sign of a to determine the behavior and draw the line."],
+            "usageTitle": "How to Use the Calculator", "usage": "Enter a and b, then calculate. Editing a field clears the old result so the steps never describe different coefficients.",
+            "exampleTitle": "Example: a Growing Linear Function", "example": "For f(x) = 2x − 4, the slope is positive. The line crosses the y-axis at (0, −4) and the x-axis at (2, 0).",
+            "graphTitle": "Understanding the Straight-Line Graph", "graph": "The slope measures the change in f(x) for a one-unit increase in x. A zero slope gives a horizontal line. Displayed coordinates are approximations, not exact geometric measurements.",
+            "applicationsTitle": "Applications and Related Tools", "applications": "Use affine functions for fixed fees plus unit costs, constant-speed motion and simple linear models. These models do not describe every real-world relationship."
+        },
+        "related": { "intro": "For a curved second-degree graph, use the", "quadratic": "quadratic equation calculator", "connector": "and for two constraints together, explore the", "other": "2×2 linear system calculator" },
+        "faq": [ { "question": "Can a be zero?", "answer": "Yes. The calculator handles constant functions, although a first-degree function requires a ≠ 0." }, { "question": "Why is there no root for f(x) = 5?", "answer": "The value is always 5, so the equation f(x) = 0 cannot hold." }, { "question": "Does a fraction result mean a rounded value?", "answer": "No. Fractions in the result are exact for the decimal inputs. Graph coordinates are approximate." }, { "question": "Why can a root be outside the graph?", "answer": "A finite readable window cannot show arbitrarily large coordinates. The calculator displays an explicit warning." } ]
+    },
+    "LinearSystemCalculator": {
+        "seoTitle": "2×2 Linear System Calculator: Solutions and Graph",
+        "seoDescription": "Solve two linear equations in x and y, including vertical lines and degenerate equations, with exact elimination steps and a graph.",
+        "mainTitle": "2×2 Linear System Calculator",
+        "coefficient": "Coefficient {name}", "coefficientInfo": "Enter coefficient {name} from its equation; zero and negative decimals are allowed.",
+        "equationBuilt": "Equations assembled", "calculate": "Solve System",
+        "inputNote": "Enter a1, b1, c1, a2, b2, c2 for ax + by = c. Decimals and scientific notation, no fractions. Up to 40 characters, exponent magnitude ≤ 24; nonzero magnitudes from 10⁻¹² to 10¹².",
+        "errors": { "invalidValue": "Fill all six fields with valid decimal numbers. Fractions and incomplete entries are not accepted.", "numericLimit": "Use zero or magnitudes from 10⁻¹² to 10¹², up to 40 characters and exponent magnitude ≤ 24.", "unstable": "The normalized substitution residual exceeds 10⁻¹⁰. Review the coefficients." },
+        "resultTitle": "System Result", "classification": "Classification",
+        "kinds": { "unique": "Unique solution", "line": "Infinitely many solutions on a line", "plane": "Every point in the real plane", "none": "No solution" },
+        "precisionNote": "Classification, equalities and fractions use exact rational arithmetic for the decimal inputs. Graph coordinates are approximate (≈).",
+        "residualNote": "Substitution in both original equations is exact. Maximum normalized floating residual ≈ {value} (limit 10⁻¹⁰).",
+        "graphTitle": "System Graph", "equationLabel": "Equation {number}", "visibleLine": "line in the window", "noVisibleLine": "no line in the window",
+        "graphNote": "Approximate coordinates (≈). Green is equation 1; dashed amber is equation 2. A red point is shown only for a visible unique solution. Vertical lines are drawn without dividing by their y coefficient.",
+        "graphLimited": "The root, intersection or an intercept may lie outside the graph window. For coordinates beyond 10⁶, only the window [−10, 10] is shown; the exact result remains valid.",
+        "graphCases": { "line": "The solution set is an entire line, not a marked intersection. An identity adds no line; coincident lines overlap.", "plane": "Both equations are identities. Every point satisfies the system; the empty grid represents a window into the whole plane, not an empty solution set.", "none": "There is no common solution. A contradiction 0 = c with c ≠ 0 defines no line, even if the other equation has one." },
+        "stepsTitle": "Elimination Step by Step",
+        "steps": { "identify": "Read both original equations.", "swap": "Swap equations to obtain a nonzero x pivot.", "eliminate": "Subtract the indicated multiple of the first equation from the second.", "solveY": "Solve the remaining equation for y.", "solveX": "Substitute y into the pivot equation to find x.", "verify": "Substitute the exact solution into both original equations.", "contradiction": "An equation 0 = c with nonzero c is a contradiction, so there is no solution.", "identities": "Both equations are 0 = 0 and impose no restrictions.", "identity": "Discard the identity 0 = 0. The other equation defines the entire solution line.", "coincident": "The coefficient rows and constants are proportional: both equations define the same line.", "parallel": "The coefficient rows are proportional but the constants are incompatible: the lines are parallel and distinct.", "set": "Write the full solution set; do not invent a single intersection." },
+        "article": {
+            "definitionTitle": "What Is a 2×2 Linear System?", "definition": "A system of two linear equations asks for pairs (x, y) satisfying both equations simultaneously. Each nondegenerate equation defines a line.", "symbols": "a1 and b1 are the first equation's coefficients and c1 its right-hand side; a2, b2 and c2 belong to the second equation. Zero coefficients are allowed.",
+            "rootsTitle": "One, Infinitely Many or No Solutions", "roots": "Intersecting lines have one solution, coincident lines have infinitely many and distinct parallel lines have none. Degenerate equations must be examined too: 0 = 0 adds no restriction, while 0 = c with c ≠ 0 is impossible.",
+            "guideTitle": "How Elimination Works", "guide": ["Check identities and contradictions before division.", "Choose a nonzero pivot, swapping equations if necessary.", "Subtract a multiple of one equation to eliminate a variable.", "Solve and substitute into both original equations; proportional equations instead require a compatibility check."],
+            "usageTitle": "How to Use the Calculator", "usage": "Enter all six coefficients in the order a1, b1, c1, a2, b2, c2 and solve. Use zero explicitly for absent terms. Editing any field clears the old solution and steps.",
+            "exampleTitle": "Example: Two Intersecting Lines", "example": "For x + y = 3 and x − y = 1, subtraction gives −2y = −2. Therefore y = 1 and x = 2; the solution is (2, 1).",
+            "graphTitle": "Lines, Verticals and Degenerate Equations", "graph": "An equation ax = c with nonzero a is vertical. Coincident lines overlap. An identity describes the entire plane, not a line; a contradiction has no geometric points. The chart shows the nondegenerate equations even when the system is incompatible.",
+            "applicationsTitle": "Applications and Related Tools", "applications": "Systems model two simultaneous constraints, such as two prices inferred from purchases or the meeting of two constant-speed trajectories."
+        },
+        "related": { "intro": "For second-degree equations, use the", "quadratic": "quadratic equation calculator", "connector": "and for a single affine line, use the", "other": "linear function calculator" },
+        "faq": [ { "question": "Does a zero determinant always mean no solution?", "answer": "No. Proportional equations can have infinitely many solutions. The right-hand sides and degenerate equations must also be checked." }, { "question": "Can the system contain a vertical line?", "answer": "Yes. When the y coefficient is zero and the x coefficient is nonzero, x = c/a defines a vertical line." }, { "question": "What if one equation is 0 = 0?", "answer": "It adds no restriction. If the other equation is a line, every point on that line is a solution. Two identities allow the whole plane." }, { "question": "What if an equation is 0 = 1?", "answer": "The system has no solution, regardless of the other equation." } ]
+    },
     "BaseBoard": {
         "decimatrix": "Decmatrix - Your open-source mathematical toolkit for calculations, conversions, and more.",
         "termsOfUse": "Terms of Use",
@@ -85,7 +154,9 @@
             },
 
             "precalculus": {
-                "quadraticEquation": "Quadratic Equation"
+                "quadraticEquation": "Quadratic Equation",
+                "linearFunction": "Linear Function",
+                "linearSystem": "2×2 Linear System"
             },
 
             "dataStructures": {
@@ -105,7 +176,9 @@
 
         "precalculus": {
             "title": "Precalculus",
-            "quadraticEquation": "Quadratic Equations"
+            "quadraticEquation": "Quadratic Equations",
+            "linearFunction": "Linear Function",
+            "linearSystem": "2×2 Linear System"
         },
 
         "financialCalculators": {
@@ -185,6 +258,10 @@
             "acessCalculatorButtonLabel": "Access Calculator",
             "acessSimulatorButtonLabel": "Access Simulator",
 
+            "baseConverter": { "title": "Base Converter", "description": "Convert numbers between bases, including custom bases, and export results." },
+            "truthTable": { "title": "Truth Table Generator", "description": "Build and compare truth tables for Boolean expressions." },
+            "linearFunction": { "title": "Linear Function Calculator", "description": "Analyze f(x) = ax + b, its root, intercept and straight-line graph." },
+            "linearSystem": { "title": "2×2 Linear System Calculator", "description": "Solve two equations with elimination steps, classification and a graph of their lines." },
             "secondGradeEquationCard": {
                 "title": "Quadratic Equation Calculator",
                 "description": "Solve quadratic equations quickly and easily, with step-by-step explanations."
@@ -612,6 +689,7 @@
     },
 
     "QuadraticEquationCalculator": {
+        "relatedLinear": "For a straight-line model, use the <linkFunction>linear function calculator</linkFunction>; for two simultaneous linear constraints, use the <linkSystem>2×2 linear system calculator</linkSystem>.",
         "seoTitle": "Quadratic Equation Calculator with Graphs",
         "seoDescription": "Solve quadratic equations step by step, view roots, delta, factorization, and interactive graphs for the parabola.",
 
@@ -1681,8 +1759,8 @@
     },
 
     "baseConverter": { 
-        "seoTitle": "Calculadora de Conversão de Bases",
-        "seoDescription": "Converta números entre diferentes bases numéricas com suporte a bases personalizadas. Exporte resultados em CSV.",
+        "seoTitle": "Number Base Converter",
+        "seoDescription": "Convert numbers between numeral bases, including custom bases, and export results as CSV.",
 
         "mainTitle": "Base Converter",
 

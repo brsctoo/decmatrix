@@ -1,0 +1,38 @@
+.scope { min-width: 0; }
+.scope :global(.katex) { position: relative; }
+.scroll { max-width: 100%; min-width: 0; overflow-x: auto; }
+.scroll :global(.katex-display) { width: max-content; min-width: 100%; }
+.scope .preview {
+    flex-basis: 100%;
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    text-align: center;
+}
+.previewEquations { display: grid; gap: 16px; min-width: 0; width: 100%; }
+/* Each equation owns its horizontal scroll; no scrollable outer wrapper,
+   fixed height or nested scrolling around the stacked expressions. */
+.previewEquations > div {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    overflow-x: auto;
+    /* Fractions extend below the inline baseline; reserve ink space rather
+       than clipping it or creating a vertical scrollbar. */
+    padding: 8px 0 12px;
+}
+.previewEquations :global(.katex-display) { width: max-content; min-width: 100%; }
+.preview :global(.katex-display) { margin: 0; color: #00b947; font-size: 1.2rem; }
+.note { color: #a3a3a3; line-height: 1.6; font-size: 0.9rem; margin: 12px 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; line-height: 1.6; }
+.legend span { overflow-wrap: anywhere; }
+.row { min-width: 0; flex-wrap: wrap; }
+.row > * { min-width: 0; max-width: 100%; }
+.row :global(.katex-display) { margin: 0.5em 0; }
+.scroll:focus-visible { outline: 2px solid #00b947; outline-offset: -2px; }
+.scope form > p { flex-basis: 100%; min-width: 0; }
+.related { line-height: 1.7; overflow-wrap: anywhere; }

@@ -1,4 +1,6 @@
 import style from "./page.module.css";
+import Link from 'next/link';
+import textStyles from '@/components/text/TextGenericDesigns.module.css';
 import tStyle from "@/components/GenericTextDesign.module.css";
 
 import QuadraticEquationCalculator from "@/components/pre-calculus/QuadraticEquation";
@@ -216,8 +218,12 @@ export default async function QuadraticEquationCalculatorPage({ params }) {
       <ArticleLayoutDefault title={t("realWorld.title")}>
         <ParagraphSection paragraphs={[
           t("realWorld.intro"),
-          t("realWorld.examples")
-        ]}/>
+            t("realWorld.examples")
+          ]}/>
+          <ParagraphSection paragraphs={[t.rich('relatedLinear', {
+            linkFunction: children => <Link className={textStyles.inlineLink} href={`/${locale}/linear-function-calculator`}>{children}</Link>,
+            linkSystem: children => <Link className={textStyles.inlineLink} href={`/${locale}/linear-system-calculator`}>{children}</Link>
+          })]}/>
       </ArticleLayoutDefault>
 
       <FAQ questions={t.raw("faqSection").map((_, index) => ({

@@ -51,6 +51,11 @@ function GenericChart({
     children,
     chartType = "area",
     data=[], 
+    xDomain,
+    yDomain,
+    numberFormatter,
+    referenceOnly = false,
+    clipDomain = false,
   }) {
 
     const { locale } = useParams();
@@ -211,10 +216,11 @@ function GenericChart({
                                 type="number" 
                                 
                                 // 2. Ajusta o zoom automático (do menor ao maior X)
-                                domain={['auto', 'auto']} 
+                                domain={xDomain || ['auto', 'auto']}
+                                allowDataOverflow={clipDomain}
                                 
                                 // 3. Formata para não aparecer números quebrados (ex: 3.000001)
-                                tickFormatter={(value) => value.toFixed(1)}
+                                tickFormatter={numberFormatter || ((value) => value.toFixed(1))}
 
                                 axisLine={{ stroke: 'rgba(148,163,184,0.4)' }} 
                                 tickLine={false} 
@@ -224,6 +230,9 @@ function GenericChart({
 
                             {/* 3. Eixo Y */}
                             <YAxis 
+                                domain={yDomain}
+                                allowDataOverflow={clipDomain}
+                                tickFormatter={numberFormatter}
                                 axisLine={{ stroke: 'rgba(148,163,184,0.4)' }}
                                 tickLine={false}
                                 tick={{ fill: '#9ca3af', fontSize: 12 }}
@@ -240,9 +249,9 @@ function GenericChart({
                                     boxShadow: '0 20px 45px rgba(0, 0, 0, 0.85)' 
                                 }}
                                 wrapperStyle={{ userSelect: 'none' }}
-                                formatter={(value) => [Number(value).toFixed(2), "Y"]}
+                                formatter={(value) => [numberFormatter ? numberFormatter(Number(value)) : Number(value).toFixed(2), "Y"]}
                                 cursor={{ stroke: '#00b947', strokeWidth: 1 }} // Linha guia verde
-                                labelFormatter={(value) => `X: ${Number(value).toFixed(2)}`} // Mostra o X formatado
+                                labelFormatter={(value) => `X: ${numberFormatter ? numberFormatter(Number(value)) : Number(value).toFixed(2)}`} // Mostra o X formatado
                             />
 
                             {children}
@@ -264,10 +273,13 @@ function GenericChart({
                                     type="monotone"  
                                     dataKey={key}
                                     name={legendFormatter(key)}
-                                    stroke={COLORS[index % COLORS.length]}
+                                    stroke={referenceOnly ? 'transparent' : COLORS[index % COLORS.length]}
                                     strokeWidth={2}      
                                     dot={false}         
-                                    activeDot={{ r: 8, strokeWidth: 0 }} // Bolinha só aparece quando passa o mouse
+                                    activeDot={referenceOnly ? false : { r: 8, strokeWidth: 0 }} // Bolinha só aparece quando passa o mouse
+                                    legendType={referenceOnly ? 'none' : undefined}
+                                    tooltipType={referenceOnly ? 'none' : undefined}
+                                    isAnimationActive={!referenceOnly}
                                     animationDuration={1500} // Animação mais lenta 
                                 />
                             ))}

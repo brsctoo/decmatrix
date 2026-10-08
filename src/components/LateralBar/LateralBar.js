@@ -80,6 +80,14 @@ export default function LateralBar() {
             category: 'precalculus' // categoria para agrupar seções relacionadas
         }, 
 
+        'linearFunction': {
+            id: 'linearFunction', labelKey: 'precalculus.linearFunction',
+            path: `/${params.locale}/linear-function-calculator`, category: 'precalculus'
+        },
+        'linearSystem': {
+            id: 'linearSystem', labelKey: 'precalculus.linearSystem',
+            path: `/${params.locale}/linear-system-calculator`, category: 'precalculus'
+        },
         'matrixMultiplication': {
             id: 'matrixMultiplication', // id para identificar a seção
             labelKey: 'linear_algebra.matrixMultiplication', // chave para tradução do título da seção

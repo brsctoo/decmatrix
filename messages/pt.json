@@ -1,5 +1,65 @@
 {   
     "LanguageSwitch": { "label": "Selecionar idioma" },
+    "LinearFunctionCalculator": {
+        "seoTitle": "Calculadora de Função Afim: Raiz e Gráfico",
+        "seoDescription": "Calcule f(x) = ax + b, raiz, intercepto e comportamento com gráfico da reta e explicações exatas passo a passo.",
+        "mainTitle": "Calculadora de Função Afim",
+        "coefficient": "Coeficiente {name}", "coefficientInfo": "Informe o coeficiente {name}, incluindo zero ou decimal negativo.",
+        "equationBuilt": "Função montada", "calculate": "Calcular Função",
+        "inputNote": "Preencha todos os coeficientes. Decimais, sinais e notação científica aceitos; sem frações. Até 40 caracteres, módulo do expoente ≤ 24; módulos não nulos entre 10⁻¹² e 10¹².",
+        "errors": { "invalidValue": "Preencha todos os campos com decimais válidos. Frações e entradas incompletas não são aceitas.", "numericLimit": "Use zero ou módulos entre 10⁻¹² e 10¹², até 40 caracteres e módulo do expoente ≤ 24.", "unstable": "A verificação numérica por substituição falhou. Confira os coeficientes." },
+        "resultTitle": "Resultado da Função", "classification": "Comportamento",
+        "kinds": { "increasing": "Crescente", "decreasing": "Decrescente", "constant": "Constante", "null": "Função nula" },
+        "root": "Raiz", "intercept": "Intercepto em y", "allRoots": "Todos os números reais", "noRoot": "Nenhuma raiz real",
+        "degreeNote": "Uma função do primeiro grau exige a ≠ 0. Com a = 0, esta calculadora também trata funções constantes e nulas.",
+        "precisionNote": "Igualdades e frações usam aritmética racional exata para os decimais informados. As coordenadas do gráfico são aproximadas (≈).",
+        "graphTitle": "Gráfico da Função", "functionLabel": "f(x)", "visibleLine": "reta na janela", "noVisibleLine": "sem reta na janela",
+        "graphNote": "Coordenadas aproximadas (≈), com intervalos numéricos iguais em x/y. O ponto vermelho marca a raiz quando visível; a janela finita não é a reta inteira.",
+        "graphLimited": "Raiz, interseção ou intercepto podem ficar fora da janela do gráfico. Para coordenadas acima de 10⁶, mostra-se apenas [−10, 10]; o resultado exato continua válido.",
+        "stepsTitle": "Passo a Passo",
+        "steps": { "identify": "Identifique a função atual.", "intercept": "Faça x = 0 para encontrar o intercepto em y.", "root": "Faça f(x) = 0, mova b e divida por a não nulo.", "constant": "Com a = 0 e b ≠ 0, f(x) nunca é zero.", "null": "Com a = b = 0, todo x real é raiz.", "behavior": "a positivo indica crescente; negativo, decrescente; zero, constante.", "graph": "Represente a reta e seus pontos notáveis na janela exibida." },
+        "article": {
+            "definitionTitle": "O que É uma Função Afim?", "definition": "Uma função afim tem a forma f(x) = ax + b e seu gráfico é uma reta. A função linear, em sentido estrito, é o caso particular b = 0.", "symbols": "a é o coeficiente angular, b é o intercepto em y e x é a variável real independente. Uma função do primeiro grau tem a ≠ 0.",
+            "rootsTitle": "Raízes e Funções Constantes", "roots": "Para a ≠ 0, a raiz única é −b/a. Se a = 0 e b ≠ 0, não há raízes. Se ambos são zero, todo número real é raiz.",
+            "guideTitle": "Como Analisar a Função", "guide": ["Identifique o coeficiente angular a e o intercepto b.", "Calcule f(0) = b.", "Se a não for zero, resolva ax = −b; caso contrário, examine a constante.", "Use o sinal de a para determinar o comportamento e desenhe a reta."],
+            "usageTitle": "Como Usar a Calculadora", "usage": "Informe a e b e calcule. Alterar um campo remove o resultado antigo para que os passos nunca descrevam outros coeficientes.",
+            "exampleTitle": "Exemplo: uma Função Afim Crescente", "example": "Em f(x) = 2x − 4, o coeficiente angular é positivo. A reta cruza o eixo y em (0, −4) e o eixo x em (2, 0).",
+            "graphTitle": "Entendendo o Gráfico da Reta", "graph": "O coeficiente angular mede a variação de f(x) quando x aumenta uma unidade. Coeficiente angular zero produz uma reta horizontal. As coordenadas exibidas são aproximações, não medidas geométricas exatas.",
+            "applicationsTitle": "Aplicações e Ferramentas Relacionadas", "applications": "Use funções afins para tarifas fixas mais custo por unidade, movimento com velocidade constante e modelos lineares simples. Esses modelos não descrevem toda relação real."
+        },
+        "related": { "intro": "Para um gráfico curvo de segundo grau, use a", "quadratic": "calculadora de equação quadrática", "connector": "e, para duas restrições simultâneas, explore a", "other": "calculadora de sistemas lineares 2×2" },
+        "faq": [ { "question": "a pode ser zero?", "answer": "Sim. A calculadora trata funções constantes, embora uma função do primeiro grau exija a ≠ 0." }, { "question": "Por que f(x) = 5 não tem raiz?", "answer": "O valor é sempre 5, portanto f(x) = 0 nunca pode ocorrer." }, { "question": "Um resultado em fração significa arredondamento?", "answer": "Não. As frações do resultado são exatas para os decimais informados. As coordenadas do gráfico são aproximadas." }, { "question": "Por que uma raiz pode ficar fora do gráfico?", "answer": "Uma janela finita e legível não pode mostrar coordenadas arbitrariamente grandes. A calculadora apresenta um aviso explícito." } ]
+    },
+    "LinearSystemCalculator": {
+        "seoTitle": "Calculadora de Sistemas Lineares 2×2: Solução e Gráfico",
+        "seoDescription": "Resolva duas equações em x e y, incluindo retas verticais e equações degeneradas, com eliminação exata passo a passo e gráfico.",
+        "mainTitle": "Calculadora de Sistemas Lineares 2×2",
+        "coefficient": "Coeficiente {name}", "coefficientInfo": "Informe o coeficiente {name} da sua equação; zero e decimais negativos são permitidos.",
+        "equationBuilt": "Equações montadas", "calculate": "Resolver Sistema",
+        "inputNote": "Informe a1, b1, c1, a2, b2, c2 para ax + by = c. Decimais e notação científica, sem frações. Até 40 caracteres, módulo do expoente ≤ 24; módulos não nulos entre 10⁻¹² e 10¹².",
+        "errors": { "invalidValue": "Preencha os seis campos com decimais válidos. Frações e entradas incompletas não são aceitas.", "numericLimit": "Use zero ou módulos entre 10⁻¹² e 10¹², até 40 caracteres e módulo do expoente ≤ 24.", "unstable": "O resíduo normalizado da substituição excede 10⁻¹⁰. Confira os coeficientes." },
+        "resultTitle": "Resultado do Sistema", "classification": "Classificação",
+        "kinds": { "unique": "Solução única", "line": "Infinitas soluções em uma reta", "plane": "Todos os pontos do plano real", "none": "Nenhuma solução" },
+        "precisionNote": "Classificação, igualdades e frações usam aritmética racional exata para os decimais informados. As coordenadas do gráfico são aproximadas (≈).",
+        "residualNote": "A substituição nas duas equações originais é exata. Maior resíduo normalizado em ponto flutuante ≈ {value} (limite 10⁻¹⁰).",
+        "graphTitle": "Gráfico do Sistema", "equationLabel": "Equação {number}", "visibleLine": "reta na janela", "noVisibleLine": "sem reta na janela",
+        "graphNote": "Coordenadas aproximadas (≈). Verde é a equação 1; âmbar tracejado é a equação 2. Um ponto vermelho aparece apenas para solução única visível. Retas verticais são desenhadas sem dividir pelo coeficiente de y.",
+        "graphLimited": "Raiz, interseção ou intercepto podem ficar fora da janela do gráfico. Para coordenadas acima de 10⁶, mostra-se apenas [−10, 10]; o resultado exato continua válido.",
+        "graphCases": { "line": "O conjunto solução é uma reta inteira, não uma interseção marcada. Identidades não acrescentam retas; retas coincidentes se sobrepõem.", "plane": "As duas equações são identidades. Todos os pontos satisfazem o sistema; a grade vazia representa uma janela do plano inteiro, não um conjunto solução vazio.", "none": "Não há solução comum. Uma contradição 0 = c com c ≠ 0 não define reta, mesmo que a outra equação defina uma." },
+        "stepsTitle": "Eliminação Passo a Passo",
+        "steps": { "identify": "Leia as duas equações originais.", "swap": "Troque as equações para obter pivô de x não nulo.", "eliminate": "Subtraia da segunda equação o múltiplo indicado da primeira.", "solveY": "Resolva a equação restante para y.", "solveX": "Substitua y na equação do pivô para encontrar x.", "verify": "Substitua a solução exata nas duas equações originais.", "contradiction": "Uma equação 0 = c com c não nulo é contraditória: não há solução.", "identities": "As duas equações são 0 = 0 e não impõem restrições.", "identity": "Descarte a identidade 0 = 0. A outra equação define toda a reta solução.", "coincident": "Os coeficientes e as constantes são proporcionais: as duas equações definem a mesma reta.", "parallel": "Os coeficientes são proporcionais, mas as constantes são incompatíveis: as retas são paralelas distintas.", "set": "Escreva o conjunto solução completo; não invente uma interseção única." },
+        "article": {
+            "definitionTitle": "O que É um Sistema Linear 2×2?", "definition": "Um sistema de duas equações lineares procura pares (x, y) que satisfaçam ambas simultaneamente. Cada equação não degenerada define uma reta.", "symbols": "a1 e b1 são os coeficientes da primeira equação e c1 seu termo à direita; a2, b2 e c2 pertencem à segunda. Coeficientes zero são permitidos.",
+            "rootsTitle": "Uma, Infinitas ou Nenhuma Solução", "roots": "Retas concorrentes têm uma solução, coincidentes têm infinitas e paralelas distintas não têm nenhuma. Examine também equações degeneradas: 0 = 0 não restringe, enquanto 0 = c com c ≠ 0 é impossível.",
+            "guideTitle": "Como Funciona a Eliminação", "guide": ["Verifique identidades e contradições antes de dividir.", "Escolha um pivô não nulo, trocando equações se necessário.", "Subtraia um múltiplo de uma equação para eliminar uma variável.", "Resolva e substitua nas duas equações originais; equações proporcionais exigem verificar compatibilidade."],
+            "usageTitle": "Como Usar a Calculadora", "usage": "Informe os seis coeficientes na ordem a1, b1, c1, a2, b2, c2 e resolva. Use zero explicitamente para termos ausentes. Alterar qualquer campo remove a solução e os passos antigos.",
+            "exampleTitle": "Exemplo: Duas Retas Concorrentes", "example": "Para x + y = 3 e x − y = 1, a subtração dá −2y = −2. Logo y = 1 e x = 2; a solução é (2, 1).",
+            "graphTitle": "Retas, Verticais e Equações Degeneradas", "graph": "Uma equação ax = c com a não nulo é vertical. Retas coincidentes se sobrepõem. Uma identidade descreve todo o plano, não uma reta; uma contradição não tem pontos geométricos. O gráfico mostra as equações não degeneradas mesmo quando o sistema é incompatível.",
+            "applicationsTitle": "Aplicações e Ferramentas Relacionadas", "applications": "Sistemas representam duas restrições simultâneas, como dois preços inferidos de compras ou o encontro de duas trajetórias com velocidade constante."
+        },
+        "related": { "intro": "Para equações do segundo grau, use a", "quadratic": "calculadora de equação quadrática", "connector": "e, para uma única reta afim, use a", "other": "calculadora de função afim" },
+        "faq": [ { "question": "Determinante zero sempre significa nenhuma solução?", "answer": "Não. Equações proporcionais podem ter infinitas soluções. É necessário verificar termos à direita e equações degeneradas." }, { "question": "O sistema pode conter uma reta vertical?", "answer": "Sim. Com coeficiente de y zero e de x não nulo, x = c/a define uma reta vertical." }, { "question": "E se uma equação for 0 = 0?", "answer": "Ela não restringe. Se a outra equação for uma reta, todos os seus pontos são soluções. Duas identidades permitem todo o plano." }, { "question": "E se uma equação for 0 = 1?", "answer": "O sistema não tem solução, independentemente da outra equação." } ]
+    },
     "BaseBoard": {
         "decimatrix": "Decmatrix - Seu toolkit matemático open-source para cálculos, conversões e mais.",
         "termsOfUse": "Termos de Uso",
@@ -85,7 +145,9 @@
             },
 
             "precalculus": {
-                "quadraticEquation": "Equação do segundo grau"
+                "quadraticEquation": "Equação do segundo grau",
+                "linearFunction": "Função Afim",
+                "linearSystem": "Sistema Linear 2×2"
             },
 
             "dataStructures": {
@@ -105,7 +167,9 @@
 
         "precalculus": {
             "title": "Pré-cálculo",
-            "quadraticEquation": "Equações do segundo grau"
+            "quadraticEquation": "Equações do segundo grau",
+            "linearFunction": "Função Afim",
+            "linearSystem": "Sistema Linear 2×2"
         },
 
         "financialCalculators": {
@@ -186,6 +250,10 @@
             "acessCalculatorButtonLabel": "Acessar calculadora",
             "acessSimulatorButtonLabel": "Acessar simulador",
 
+            "baseConverter": { "title": "Conversor de Bases", "description": "Converta números entre bases, incluindo bases personalizadas, e exporte resultados." },
+            "truthTable": { "title": "Gerador de Tabela Verdade", "description": "Monte e compare tabelas verdade de expressões booleanas." },
+            "linearFunction": { "title": "Calculadora de Função Afim", "description": "Analise f(x) = ax + b, sua raiz, intercepto e gráfico da reta." },
+            "linearSystem": { "title": "Calculadora de Sistemas Lineares 2×2", "description": "Resolva duas equações com eliminação passo a passo, classificação e gráfico das retas." },
             "secondGradeEquationCard": {
                 "title": "Calculadora de equações do 2º grau",
                 "description": "Resolva equações quadráticas instantaneamente com resultados claros e passo a passo."
@@ -607,6 +675,7 @@
     },
 
     "QuadraticEquationCalculator": {
+        "relatedLinear": "Para um modelo em reta, use a <linkFunction>calculadora de função afim</linkFunction>; para duas restrições lineares simultâneas, use a <linkSystem>calculadora de sistemas lineares 2×2</linkSystem>.",
         "seoTitle": "Calculadora de Equações do 2º Grau com Gráficos",
         "seoDescription": "Resolva equações do segundo grau passo a passo, veja raízes, delta, fatoração e gráficos interativos da parábola.",
 
