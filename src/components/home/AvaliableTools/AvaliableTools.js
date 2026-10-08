@@ -20,6 +20,12 @@ export default function AvaliableTools() {
         >
             {t("avaliableTools.secondGradeEquationCard.description")}
         </GridSection>
+        <GridSection title={t('avaliableTools.linearFunction.title')} route="/linear-function-calculator" clickSubtitle={t('avaliableTools.acessCalculatorButtonLabel')}>
+            {t('avaliableTools.linearFunction.description')}
+        </GridSection>
+        <GridSection title={t('avaliableTools.linearSystem.title')} route="/linear-system-calculator" clickSubtitle={t('avaliableTools.acessCalculatorButtonLabel')}>
+            {t('avaliableTools.linearSystem.description')}
+        </GridSection>
         
         <GridSection 
             title={t("avaliableTools.compoundInterestCalculatorCard.title")}
@@ -108,6 +114,12 @@ export default function AvaliableTools() {
         >
             {t("avaliableTools.selectionSortSimulatorCard.description")}
         </GridSection>  
+        <GridSection title={t('avaliableTools.baseConverter.title')} route="/base-converter" clickSubtitle={t('avaliableTools.acessCalculatorButtonLabel')}>
+            {t('avaliableTools.baseConverter.description')}
+        </GridSection>
+        <GridSection title={t('avaliableTools.truthTable.title')} route="/truth-table-generator" clickSubtitle={t('avaliableTools.acessCalculatorButtonLabel')}>
+            {t('avaliableTools.truthTable.description')}
+        </GridSection>
     </GridSections>
   );
 }

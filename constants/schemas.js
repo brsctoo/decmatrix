@@ -1,7 +1,33 @@
 {/* JSON-LD é basicamente como o bot vai interpretar os dados estruturados para SEO e indexação de páginas web, ou seja, é onde nos passamos as informações para melhorar como o bot enxerga as páginas, melhorando o SEO. */}
 
 
-export const schemas = {
+import { SITE_URL } from './site';
+
+const schemaDefinitions = {
+    linearFunctionCalculator: {
+        pt: { "@context": "https://schema.org", "@graph": [
+            { "@type": "SoftwareApplication", "@id": "https://decmatrix.com/pt/linear-function-calculator#software", "name": "Calculadora de Função Afim", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "url": "https://decmatrix.com/pt/linear-function-calculator", "description": "Raiz, intercepto, comportamento e gráfico de f(x) = ax + b." },
+            { "@type": "HowTo", "name": "Como analisar uma função afim", "step": [ { "@type": "HowToStep", "name": "Preencha", "text": "Informe a e b, incluindo zero quando necessário." }, { "@type": "HowToStep", "name": "Calcule", "text": "Calcule e examine raiz, intercepto, gráfico e passos." } ] },
+            { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/pt" }, { "@type": "ListItem", "position": 2, "name": "Função Afim", "item": "https://decmatrix.com/pt/linear-function-calculator" } ] }
+        ] },
+        en: { "@context": "https://schema.org", "@graph": [
+            { "@type": "SoftwareApplication", "@id": "https://decmatrix.com/en/linear-function-calculator#software", "name": "Linear Function Calculator", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "url": "https://decmatrix.com/en/linear-function-calculator", "description": "Root, intercept, behavior and graph of f(x) = ax + b." },
+            { "@type": "HowTo", "name": "How to analyze a linear function", "step": [ { "@type": "HowToStep", "name": "Enter", "text": "Enter a and b, including zero where needed." }, { "@type": "HowToStep", "name": "Calculate", "text": "Calculate and examine the root, intercept, graph and steps." } ] },
+            { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/en" }, { "@type": "ListItem", "position": 2, "name": "Linear Function", "item": "https://decmatrix.com/en/linear-function-calculator" } ] }
+        ] }
+    },
+    linearSystemCalculator: {
+        pt: { "@context": "https://schema.org", "@graph": [
+            { "@type": "SoftwareApplication", "@id": "https://decmatrix.com/pt/linear-system-calculator#software", "name": "Calculadora de Sistemas Lineares 2×2", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "url": "https://decmatrix.com/pt/linear-system-calculator", "description": "Duas equações em x e y, classificação, eliminação e gráfico." },
+            { "@type": "HowTo", "name": "Como resolver um sistema linear 2×2", "step": [ { "@type": "HowToStep", "name": "Preencha", "text": "Informe a1, b1, c1, a2, b2, c2 para ax + by = c." }, { "@type": "HowToStep", "name": "Resolva", "text": "Resolva e examine o conjunto solução, eliminação e gráfico." } ] },
+            { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/pt" }, { "@type": "ListItem", "position": 2, "name": "Sistema Linear 2×2", "item": "https://decmatrix.com/pt/linear-system-calculator" } ] }
+        ] },
+        en: { "@context": "https://schema.org", "@graph": [
+            { "@type": "SoftwareApplication", "@id": "https://decmatrix.com/en/linear-system-calculator#software", "name": "2×2 Linear System Calculator", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "url": "https://decmatrix.com/en/linear-system-calculator", "description": "Two equations in x and y, classification, elimination and graph." },
+            { "@type": "HowTo", "name": "How to solve a 2×2 linear system", "step": [ { "@type": "HowToStep", "name": "Enter", "text": "Enter a1, b1, c1, a2, b2, c2 for ax + by = c." }, { "@type": "HowToStep", "name": "Solve", "text": "Solve and examine the solution set, elimination and graph." } ] },
+            { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decmatrix.com/en" }, { "@type": "ListItem", "position": 2, "name": "2×2 Linear System", "item": "https://decmatrix.com/en/linear-system-calculator" } ] }
+        ] }
+    },
     baseConverter: {
         pt: {
             "@context": "https://schema.org",
@@ -1140,3 +1166,13 @@ export const schemas = {
         }
     }
 };
+
+// Keep the existing schema content; resolve its site URLs from the same origin
+// as canonical metadata. External vocabulary URLs (schema.org) stay unchanged.
+export const schemas = JSON.parse(JSON.stringify(schemaDefinitions), (key, value) => {
+    if (typeof value === 'string' && /^https:\/\/(www\.)?decmatrix\.com(?:\/|$)/.test(value)) {
+        const url = new URL(value);
+        return `${SITE_URL}${url.pathname}${url.search}${url.hash}`;
+    }
+    return value;
+});

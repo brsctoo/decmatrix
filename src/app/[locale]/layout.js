@@ -6,6 +6,7 @@ import Basebord from "../../components/Basebord/Basebord";
 import Topbord from "../../components/TopBoard/Topbord";
 import { notFound } from "next/navigation";
 import { languages } from "../../../constants/language";
+import { SITE_URL } from '../../../constants/site';
 
 import { Analytics } from "@vercel/analytics/next";
 
@@ -20,7 +21,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
 export const metadata = {
-    metadataBase: new URL('https://decmatrix.com'),
+    metadataBase: new URL(SITE_URL),
     title: {
         default: 'Decmatrix | Calculadoras Matemáticas e Algoritmos Interativos',
         template: '%s | Decmatrix', // O %s é onde o Next.js vai injetar o nome da página!
@@ -31,22 +32,9 @@ export const metadata = {
         siteName: 'Decmatrix',
         locale: 'pt_BR',
         alternateLocale: ['en_US'],
-        images: [
-            {
-                url: '/og-image.png',
-                width: 1200,
-                height: 630,
-                alt: 'Decmatrix — Calculadoras e Algoritmos Interativos',
-            },
-        ],
     },
     twitter: {
         card: 'summary_large_image',
-        images: ['/og-image.png'],
-    },
-    robots: {
-        index: true,
-        follow: true,
     },
 };
 

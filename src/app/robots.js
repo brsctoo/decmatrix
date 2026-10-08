@@ -5,6 +5,8 @@
   além de fornecer a localização do sitemap para facilitar a indexação.
 */
  
+import { SITE_URL } from '../../constants/site';
+
 export default function robots() {
   return {
     rules: {
@@ -12,7 +14,7 @@ export default function robots() {
       allow: '/',
       disallow: ['/api/'], // Deixe bloqueado apenas as rotas de API
     },
-    sitemap: 'https://decmatrix.com/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }
  

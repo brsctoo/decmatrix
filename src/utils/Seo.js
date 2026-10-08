@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import { SITE_URL } from '../../constants/site';
 
-const BASE_URL = 'https://decmatrix.com';
 
 export async function generateSeo(locale, namespace, slug = '') {
     const t = await getTranslations({ locale, namespace });
@@ -11,11 +11,11 @@ export async function generateSeo(locale, namespace, slug = '') {
         title: t('seoTitle'),
         description: t('seoDescription'),
         alternates: {
-            canonical: `${BASE_URL}/${locale}${path}`,
+            canonical: `${SITE_URL}/${locale}${path}`,
             languages: {
-                'pt-BR': `${BASE_URL}/pt${path}`,
-                'en-US': `${BASE_URL}/en${path}`,
-                'x-default': `${BASE_URL}/pt${path}`,
+                'pt-BR': `${SITE_URL}/pt${path}`,
+                'en-US': `${SITE_URL}/en${path}`,
+                'x-default': `${SITE_URL}/pt${path}`,
             },
         },
     };
