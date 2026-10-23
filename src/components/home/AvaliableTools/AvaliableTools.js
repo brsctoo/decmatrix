@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 export default function AvaliableTools() {
     const isMobile = useIsMobile();
     const t = useTranslations("Home");
+    const practice = useTranslations('AVLPractice');
 
     if (isMobile) return null;
 
@@ -57,6 +58,10 @@ export default function AvaliableTools() {
             clickSubtitle={t("avaliableTools.acessSimulatorButtonLabel")}
         >
             {t("avaliableTools.avlTreeSimulatorCard.description")}
+        </GridSection>
+
+        <GridSection title={practice('nav')} route="/avl-tree-exercises" clickSubtitle={t('avaliableTools.acessSimulatorButtonLabel')}>
+            {practice('card')}
         </GridSection>
 
         <GridSection 

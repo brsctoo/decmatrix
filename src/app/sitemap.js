@@ -24,6 +24,8 @@
       // --- ÁRVORE AVL ---
       { url: `${baseUrl}/pt/avl-tree-builder` },
       { url: `${baseUrl}/en/avl-tree-builder` },
+      { url: `${baseUrl}/pt/avl-tree-exercises` },
+      { url: `${baseUrl}/en/avl-tree-exercises` },
 
       // --- ÁRVORE BST ---
       { url: `${baseUrl}/pt/bst-tree-builder` },

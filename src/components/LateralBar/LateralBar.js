@@ -36,6 +36,8 @@ export default function LateralBar() {
     }
 
     const t = useTranslations('LateralBar');
+    const practice = useTranslations('AVLPractice');
+    const pathname = usePathname();
     const router = useRouter();
     const params = useParams();
 
@@ -130,6 +132,12 @@ export default function LateralBar() {
             category: 'data_structures'
         },
 
+        'avlExercises': {
+            id: 'avlExercises',
+            path: `/${params.locale}/avl-tree-exercises`,
+            category: 'data_structures'
+        },
+
         'bubbleSort': {
             id: 'bubbleSort',
             labelKey: 'dataStructures.bubbleSort',
@@ -212,9 +220,11 @@ export default function LateralBar() {
                                     {Object.values(NAV_ITENS)
                                         .filter(item => item.category === category.id) // Pega apenas os itens que pertencem à categoria atual
                                         .map(item => ( // Mapeia cada item para um link de navegação
-                                            <Link key={item.id} href={item.path} className={styles.toolLink}>
+                                            <Link key={item.id} href={item.path} className={styles.toolLink}
+                                                aria-current={pathname === item.path ? 'page' : undefined}
+                                                onClick={() => toggleSidebar(false)}>
                                                 <div className={styles.perfectCircle}></div>
-                                                {t(`tools.${item.labelKey}`)}
+                                                {item.id === 'avlExercises' ? practice('nav') : t(`tools.${item.labelKey}`)}
                                             </Link>
                                         ))
                                     }

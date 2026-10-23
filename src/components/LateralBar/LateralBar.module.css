@@ -106,6 +106,7 @@
 .toolLink:hover {
     color: #f9fafb;
 }
+.toolLink[aria-current="page"] { color: #f5f5f5; background: #12301d; font-weight: 600; }
 
 /* Circulo para tool */
 .perfectCircle {

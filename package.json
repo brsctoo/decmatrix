@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test:avl-exercises": "node --experimental-vm-modules --test tests/avl-exercises.test.mjs",
     "test:matrices": "node --experimental-vm-modules --test tests/matrix-square.test.mjs",
     "test:matrix-pages": "node tests/matrix-pages-smoke.mjs"
   },

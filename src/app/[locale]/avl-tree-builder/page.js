@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import styles from "./page.module.css";
 import BinaryTree from "@/components/data-structures/BinaryTree/BinaryTree";
+import QuickExercise from '@/components/data-structures/AVLExercises/QuickExercise';
+import practiceStyles from '@/components/data-structures/AVLExercises/Exercises.module.css';
 import { getTranslations } from "next-intl/server";
 
 
@@ -32,12 +34,19 @@ import ArticleLayoutDefault from "@/components/text/article-layouts/ArticleLayou
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
-  return await generateSeo(locale, "AVLTreeBuilder", 'avl-tree-builder');
+   const metadata = await generateSeo(locale, "AVLTreeBuilder", 'avl-tree-builder');
+   return { ...metadata, openGraph: {
+     title: metadata.title, description: metadata.description, url: metadata.alternates.canonical,
+     type: 'website', siteName: 'Decmatrix', locale: locale === 'pt' ? 'pt_BR' : 'en_US',
+     alternateLocale: [locale === 'pt' ? 'en_US' : 'pt_BR'],
+   } };
 }
 
 export default async function avl_tree_builder({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AVLTreeBuilder" });
+  const exercises = await getTranslations({ locale, namespace: 'AVLExercises' });
+  const practice = await getTranslations({ locale, namespace: 'AVLPractice' });
 
   return (
     <div>
@@ -56,8 +65,17 @@ export default async function avl_tree_builder({ params }) {
             ),
           })}
         </p>
+        <section className={practiceStyles.practiceSection}>
+          <h2>{practice('practiceTitle')}</h2>
+          <p>{practice('practiceIntro')}</p>
+          <p>{practice('practiceCta')}</p>
+          <Link href={`/${locale}/avl-tree-exercises`} className={practiceStyles.link}>{exercises('invitation')}</Link>
+          <h2>{practice('introTitle')}</h2>
+          <p>{practice('introExercise')}</p>
+          <QuickExercise introductory />
+        </section>
         
-        <ArticleLayoutDefault title={t("definition.title")}>
+        <ArticleLayoutDefault heading="h2" title={t("definition.title")}>
           <ParagraphSection paragraphs={[
             t("definition.intro"),
             t("definition.curiosity")
@@ -72,13 +90,13 @@ export default async function avl_tree_builder({ params }) {
           </HighlightSection>
         </ArticleLayoutDefault>
         
-        <ArticleLayoutDefault title={t("proprieties.title")}>
+        <ArticleLayoutDefault heading="h2" title={t("proprieties.title")}>
           <ParagraphSection paragraphs={[
             t("proprieties.intro"),
           ]}/>
         </ArticleLayoutDefault>
 
-        <ArticleLayoutDefault title={t("operations.title")}>
+        <ArticleLayoutDefault heading="h2" title={t("operations.title")}>
           <ParagraphSection paragraphs={[
             t("operations.searchText"),
 
@@ -88,7 +106,7 @@ export default async function avl_tree_builder({ params }) {
           ]}/>
         </ArticleLayoutDefault>
 
-        <ArticleLayoutDefault title={t("balanceAndRotations.title")}>
+        <ArticleLayoutDefault heading="h2" title={t("balanceAndRotations.title")}>
           <ParagraphSection paragraphs={[
             t("balanceAndRotations.intro"),
             t("balanceAndRotations.cases.intro")
