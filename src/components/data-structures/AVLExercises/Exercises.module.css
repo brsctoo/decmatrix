@@ -1,0 +1,93 @@
+.page, .practiceSection { width: min(1080px, calc(100% - 32px)); margin: 0 auto 48px; }
+.intro { text-align: center; line-height: 1.7; margin: 16px auto 24px; max-width: 760px; }
+.link { display: inline-block; color: #4ade80; text-decoration: underline; text-underline-offset: 4px; margin: 16px 0; line-height: 1.6; }
+.tool { border: 1px solid #294536; border-radius: 12px; background: #0d1110; padding: 24px; line-height: 1.6; min-width: 0; }
+.configuration { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; padding: 12px 0; border: 0; min-width: 0; }
+.configuration label, .nextChallenge label { display: grid; gap: 6px; }
+.configuration button { width: auto; flex: 1 1 150px; margin-top: 0; }
+.actions button { width: auto; flex: 1 1 180px; margin-top: 0; }
+.tool select, .tool button { font: inherit; }
+.tool select, .toolbar button, .panControls button, .help button { background: #111b16; color: #f5f5f5; border: 1px solid #547462; border-radius: 8px; min-height: 44px; padding: 8px 12px; }
+.tool button { min-height: 44px; cursor: pointer; }
+.tool button:disabled { opacity: .55; cursor: not-allowed; }
+.tool button:focus-visible, .tool select:focus-visible, .tool input:focus-visible, .tool summary:focus-visible, .viewport:focus-visible, .link:focus-visible { outline: 3px solid #fde047; outline-offset: 3px; }
+.note { font-size: .9rem; color: #bac8c0; margin: 10px 0; }
+.progress { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; font-size: .9rem; }
+.progress label { display: grid; gap: 4px; }
+.progress progress { width: 100%; height: 5px; accent-color: #00b947; }
+.settings summary, .help summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: #bac8c0; }
+.settings { border-bottom: 1px solid #294536; }
+.task { margin: 18px 0 8px; }
+.task h2, .task h3 { font-size: clamp(1.2rem, 3vw, 1.65rem); margin-bottom: 4px; color: #f5f5f5; }
+.feedback { border-left: 3px solid #4ade80; padding: 8px 12px; margin: 12px 0; }
+.error { border-color: #fca5a5; color: #fecaca; }
+.checkbox { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; }
+.checkbox input { width: 20px; height: 20px; accent-color: #00b947; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 0; font-size: .85rem; }
+.toolbar button { min-width: 44px; }
+.toolbar span { margin-right: auto; font-variant-numeric: tabular-nums; }
+.viewport { position: relative; width: 100%; height: 360px; overflow: clip; contain: paint; border-radius: 8px; background-color: #050505; background-image: radial-gradient(circle, #52655a 1px, transparent 1px); cursor: grab; }
+.panControls { display: none; gap: 8px; flex-wrap: wrap; margin: 0 0 10px; }
+.panControls button { min-width: 44px; }
+.panControls button[aria-pressed="true"] { border-color: #fde047; color: #fde047; }
+.touchOnly { display: none; }
+@media (any-pointer: coarse) {
+    .touchOnly { display: block; }
+    .panControls { display: flex; }
+}
+.viewportDragging { cursor: grabbing; user-select: none; }
+.compactViewport { height: 260px; }
+.world { position: absolute; inset: 0 auto auto 0; transform-origin: 0 0; }
+.edges { position: absolute; inset: 0; pointer-events: none; }
+.edges line { stroke: #00b947; stroke-width: 2; }
+.tool .node { position: absolute; transform: translate(-50%, -50%); width: 48px; height: 48px; padding: 0; border: 2px solid #00b947; border-radius: 50%; background: #050505; color: #7bed9f; font-weight: 700; }
+.tool .selected { border: 3px solid #fde047; outline: 2px solid #fde047; outline-offset: 4px; color: #fde047; }
+.factor { position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); background: #1a2a20; color: #fff; border: 1px solid #547462; border-radius: 6px; font-size: 12px; padding: 0 6px; }
+.empty { padding: 40px 20px; text-align: center; }
+.selection { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 12px; font-size: .9rem; }
+.selection select { flex: 1; min-width: 120px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.help ol { padding-left: 24px; }
+.help li { padding-top: 10px; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 16px; margin: 20px 0 0; padding-top: 16px; border-top: 1px solid #294536; }
+.stats dt { color: #bac8c0; font-size: .85rem; }
+.stats dd { font-size: 1.2rem; font-weight: 700; }
+.result { margin-top: 24px; padding-top: 20px; border-top: 1px solid #294536; }
+.result p { margin: 12px 0; overflow-wrap: anywhere; }
+.articleList { padding-left: 24px; line-height: 1.8; }
+.diagramSteps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 16px; margin: 24px 0; }
+.diagram { min-width: 0; padding: 16px 8px; background: #0d1110; border: 1px solid #294536; border-radius: 10px; text-align: center; }
+.diagram figcaption { min-height: 100px; line-height: 1.6; }
+.diagram figcaption p { font-size: 1rem; margin: 8px 0; }
+.diagram svg { display: block; width: 100%; max-width: 280px; height: auto; margin: auto; }
+.diagram line { stroke: #4ade80; stroke-width: 2; }
+.diagram circle { fill: #050505; stroke: #4ade80; stroke-width: 2; }
+.diagram text { fill: #f5f5f5; font-size: 19px; font-weight: 650; }
+.diagram .rotationTarget { fill: none; stroke: #fde047; stroke-width: 2; stroke-dasharray: 4 3; }
+.learning { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.85; }
+.learning > div { width: 100%; max-width: none; margin-inline: 0; padding-inline: 0; font-size: inherit; line-height: inherit; }
+.learning article { max-width: 78ch; margin-inline: auto; }
+.learning p { font-size: inherit; line-height: 1.85; margin-block: 14px; }
+.learning .diagram p { text-indent: 0; }
+.learning li { padding-bottom: 12px; }
+.practiceMode { margin: 28px 0; }
+.practiceMode > h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 8px; }
+.practiceMode > p { max-width: 72ch; line-height: 1.75; margin-bottom: 16px; }
+.example { padding: 16px 0; }
+.example h3 { margin-bottom: 12px; }
+.nextChallenge { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-top: 16px; }
+.nextChallenge button { width: auto; }
+.quick { margin-top: 16px; }
+.practiceSection > h2 { margin: 24px 0 12px; }
+.practiceSection > p { line-height: 1.8; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+    .page, .practiceSection { width: calc(100% - 20px); }
+    .tool { padding: 12px; }
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .configuration label { flex: 1 1 120px; }
+    .configuration button, .actions button { flex: 1 1 100%; white-space: normal; }
+    .viewport { height: 320px; }
+    .compactViewport { height: 240px; }
+    .nextChallenge > * { flex: 1 1 100%; }
+}
