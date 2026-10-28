@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import TreeRelatedLinks from '@/components/data-structures/TreeExercises/TreeRelatedLinks';
 import { getTranslations } from 'next-intl/server';
 import { generateSeo } from '@/utils/Seo';
 import AVLExercises from '@/components/data-structures/AVLExercises/AVLExercises';
@@ -36,7 +36,7 @@ export default async function Page({ params }) {
             <p>{p('quickIntro')}</p>
             <QuickExercise />
         </section>
-        <Link className={styles.link} href={`/${locale}/avl-tree-builder`}>{t('simulator')}</Link>
+        <TreeRelatedLinks locale={locale} current="avl-tree-exercises" />
         <div className={styles.learning}>
         <ArticleLayoutDefault heading="h2" title={t('article.howTitle')}><ParagraphSection paragraphs={p.raw('howSteps')} /></ArticleLayoutDefault>
         <ArticleLayoutDefault heading="h2" title={p('bstTitle')}><ParagraphSection paragraphs={[p('bst'), p('bstExample'), p('bstAction')]} /></ArticleLayoutDefault>

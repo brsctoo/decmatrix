@@ -125,6 +125,13 @@ export default function LateralBar() {
             category: 'data_structures'
         },
 
+        'bstExercises': {
+            id: 'bstExercises',
+            labelKey: 'dataStructures.bstExercises',
+            path: `/${params.locale}/bst-tree-exercises`,
+            category: 'data_structures'
+        },
+
         'avlTreeSimulator': {
             id: 'avlTreeSimulator',
             labelKey: 'dataStructures.AVLTreeSimulator',

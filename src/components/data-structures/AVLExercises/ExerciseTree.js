@@ -2,15 +2,14 @@
 
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { setNodesCoordinates } from '@/utils/AvlTree';
-import { cloneTree } from '@/utils/avlExercises/lesson';
+import { exerciseLayout } from '@/utils/avlExercises/layout';
 import { clampZoom, fitZoom, zoomTransform, gridSpacing, MIN_ZOOM, MAX_ZOOM } from '@/utils/avlExercises/viewport';
 import styles from './Exercises.module.css';
 
 // One viewport shared by the full exercise, quick practice and introduction.
 // The simulator's drag-scroll container cannot clip without remaining scrollable:
 // here the drawing is paint-contained and only its transform changes.
-export default function ExerciseTree({ tree, selected, showBalance, onSelect, resetKey = 0, compact = false }) {
+export default function ExerciseTree({ tree, selected, showBalance, onSelect, onInsert, onRotate, inserting = false, rotating = false, nextValue, resetKey = 0, compact = false }) {
     const t = useTranslations('AVLExercises');
     const p = useTranslations('AVLPractice');
     const viewport = useRef(null);
@@ -19,14 +18,9 @@ export default function ExerciseTree({ tree, selected, showBalance, onSelect, re
     const [view, setView] = useState({ fit: true, scale: 1, x: 0, y: 0 });
     const [touchPan, setTouchPan] = useState(false);
     const [dragging, setDragging] = useState(false);
-    const layout = useMemo(() => {
-        const copy = cloneTree(tree);
-        setNodesCoordinates(copy.root);
-        const minX = Math.min(0, ...copy.nodes.map(node => node.x));
-        copy.nodes.forEach(node => { node.x = (node.x - minX) * 1.65 + 48; node.y *= 1.7; });
-        return { tree: copy, width: Math.max(180, ...copy.nodes.map(node => node.x + 48)),
-            height: Math.max(160, ...copy.nodes.map(node => node.y + 48)) };
-    }, [tree]);
+    const layout = useMemo(() => exerciseLayout(tree), [tree]);
+    const ghosts = inserting ? layout.slots.filter(slot => slot.parentId === selected) : [];
+    const rotationNode = rotating ? layout.tree.nodes.find(node => node.id === selected) : null;
     const scale = view.fit ? fitZoom(layout.width, layout.height, size.width, size.height) : view.scale;
     const x = view.fit ? (size.width - layout.width * scale) / 2 : view.x;
     const y = view.fit ? (size.height - layout.height * scale) / 2 : view.y;
@@ -57,6 +51,29 @@ export default function ExerciseTree({ tree, selected, showBalance, onSelect, re
     }
     function center(node = layout.tree.nodes.find(item => item.id === selected) ?? layout.tree.root) {
         if (node) setView({ fit: false, scale, x: size.width / 2 - node.x * scale, y: size.height / 2 - node.y * scale });
+    }
+    function selectNode(node) {
+        onSelect(node.id);
+        if (rotating) {
+            const nextScale = Math.max(scale, .8);
+            const nx = x + node.x * scale, ny = y + node.y * scale;
+            if (scale < .8 || nx < 100 || nx > size.width - 100 || ny < 32 || ny > size.height - 32)
+                setView({ fit: false, scale: nextScale, x: size.width / 2 - node.x * nextScale,
+                    y: size.height / 2 - node.y * nextScale });
+            return;
+        }
+        const slots = inserting ? layout.slots.filter(slot => slot.parentId === node.id) : [];
+        if (!slots.length) return;
+        // Reveal the local decision at a readable scale, without relaying out or
+        // moving any graph nodes. Ghost hit targets remain 48 screen pixels.
+        const points = [node, ...slots.map(slot => slot.node)];
+        const cx = (Math.min(...points.map(n => n.x)) + Math.max(...points.map(n => n.x))) / 2;
+        const cy = (Math.min(...points.map(n => n.y)) + Math.max(...points.map(n => n.y))) / 2;
+        const nextScale = Math.max(scale, .8);
+        const visible = points.every(n => x + n.x * scale >= 32 && x + n.x * scale <= size.width - 32
+            && y + n.y * scale >= 32 && y + n.y * scale <= size.height - 32);
+        if (!visible || scale < .8) setView({ fit: false, scale: nextScale,
+            x: size.width / 2 - cx * nextScale, y: size.height / 2 - cy * nextScale });
     }
     function pointerDown(event) {
         if (event.button !== 0) return;
@@ -114,7 +131,11 @@ export default function ExerciseTree({ tree, selected, showBalance, onSelect, re
                 if (moves[event.key]) { event.preventDefault(); pan(...moves[event.key]); }
                 else if (event.key === 'Home') { event.preventDefault(); fit(); }
             }}>
-            {!tree.root ? <p className={styles.empty}>{t('empty')}</p> :
+            {inserting && nextValue !== undefined && <div className={styles.nextValueBadge} data-next-value={nextValue} aria-hidden="true">
+                {p('nextNode')} <strong>{nextValue}</strong>
+            </div>}
+            {!tree.root ? inserting ? <button type="button" data-ghost-side="root" className={styles.ghostRoot}
+                aria-label={t('root')} onClick={() => onInsert(null, 'root')}>+<span>{t('root')}</span></button> : <p className={styles.empty}>{t('empty')}</p> :
                 <div className={styles.world} data-tree-scale={scale} style={{ width: layout.width, height: layout.height,
                     transform: `translate(${x}px, ${y}px) scale(${scale})` }}>
                     <svg width={layout.width} height={layout.height} aria-hidden="true" className={styles.edges}>
@@ -128,11 +149,32 @@ export default function ExerciseTree({ tree, selected, showBalance, onSelect, re
                         onFocus={() => {
                             const nx = x + node.x * scale, ny = y + node.y * scale;
                             if (nx < 32 || nx > size.width - 32 || ny < 50 || ny > size.height - 32) center(node);
-                        }} onClick={() => onSelect(node.id)}>
+                        }} onClick={() => selectNode(node)}>
                         {node.value}
                         {showBalance && <span className={styles.factor} aria-hidden="true">{node.balanceFactor > 0 ? '+' : ''}{node.balanceFactor}</span>}
                     </button>)}
                 </div>}
+            {ghosts.length > 0 && <svg className={styles.ghostEdges} width={size.width} height={size.height} aria-hidden="true">
+                {ghosts.map(({ node, parentId, side }) => <line key={side}
+                    x1={x + node.parent.x * scale} y1={y + node.parent.y * scale}
+                    x2={x + node.x * scale} y2={y + node.y * scale} />)}
+            </svg>}
+            {rotationNode && ['left', 'right'].map(direction => <button type="button" key={direction}
+                data-rotation-direction={direction} data-rotation-node={rotationNode.id} className={styles.rotationOption}
+                style={{ left: x + rotationNode.x * scale + (direction === 'left' ? -64 : 64), top: y + rotationNode.y * scale }}
+                aria-label={p(direction === 'left' ? 'rotateNodeLeft' : 'rotateNodeRight', { value: rotationNode.value })}
+                onFocus={() => {
+                    const nx = x + rotationNode.x * scale;
+                    if (nx < 100 || nx > size.width - 100) center(rotationNode);
+                }} onClick={() => onRotate(direction)}>{direction === 'left' ? '↶' : '↷'}</button>)}
+            {ghosts.map(({ node, parentId, parentValue, side }) => <button type="button" key={`${parentId}-${side}`}
+                data-ghost-side={side} data-ghost-parent={parentId} className={styles.ghost}
+                style={{ left: x + node.x * scale, top: y + node.y * scale }}
+                aria-label={p(side === 'left' ? 'ghostLeft' : 'ghostRight', { value: parentValue })}
+                onFocus={() => {
+                    const nx = x + node.x * scale, ny = y + node.y * scale;
+                    if (nx < 28 || nx > size.width - 28 || ny < 28 || ny > size.height - 28) center(node);
+                }} onClick={() => onInsert(parentId, side)}>+</button>)}
         </div>
         <p className={styles.note}>{p('mouseHelp')}</p>
         <p className={`${styles.note} ${styles.touchOnly}`}>{p('gestureHelp')}</p>

@@ -34,9 +34,12 @@ export default function QuickExercise({ introductory = false }) {
             <p>{p(currentKind === 'single' ? 'singleLabel' : 'doubleLabel')}</p>
         </div>
         {state ? <>
+            <div className={styles.workspace}>
             <ExerciseTree tree={state.tree} selected={state.selected} showBalance={state.showBalance} compact resetKey={resetKey}
+                rotating={state.phase === 'REBALANCING'} onRotate={direction => dispatch({ type: 'rotate', direction })}
                 onSelect={id => dispatch({ type: 'select', id })} />
             <ExerciseControls state={state} dispatch={dispatch} quick introductory={introductory} />
+            </div>
             {state.phase === 'COMPLETED' && (introductory ?
                 <Link className={styles.link} href={`/${locale}/avl-tree-exercises`}>{p('continuePractice')}</Link> : <div className={styles.nextChallenge}>
                 <label>{p('nextKind')}<select value={kind} onChange={event => setKind(event.target.value)}>

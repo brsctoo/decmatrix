@@ -1,6 +1,74 @@
 {   
     "LanguageSwitch": { "label": "Selecionar idioma" },
+    "TreeRelatedLinks": {
+        "title": "Continue explorando árvores",
+        "avl": { "title": "Simulador de Árvore AVL", "description": "Visualize inserções e acompanhe o balanceamento automático de uma AVL." },
+        "avlExercises": { "title": "Exercícios de Árvore AVL", "description": "Pratique inserções e rotações manualmente, com dicas e feedback." },
+        "bst": { "title": "Simulador de Árvore Binária de Busca", "description": "Explore como os valores formam uma BST e acompanhe suas operações." },
+        "bstExercises": { "title": "Exercícios de Árvore Binária de Busca", "description": "Construa uma BST com 1 a 30 nós, escolhendo cada posição de inserção." }
+    },
+    "BSTExercises": {
+        "seoTitle": "Exercícios de Árvore Binária de Busca (BST)",
+        "seoDescription": "Pratique inserções em árvores binárias de busca com 1 a 30 nós. Posicione cada valor manualmente em uma BST interativa, com dicas e feedback educativo.",
+        "mainTitle": "Exercícios de Árvore Binária de Busca",
+        "invitation": "Quer praticar? Faça exercícios de BST.",
+        "simulator": "Quer explorar livremente? Abra o simulador BST.",
+        "openSimulator": "Abrir simulador BST",
+        "count": "Quantidade de nós",
+        "insertedNodes": "Nós inseridos: {count}",
+        "scoreRule": "Você começa com 100 pontos: −10 por tentativa incorreta e −2 por dica revelada, com mínimo de 0. Acertos contam apenas inserções corretas.",
+        "hintInsert1": "Compare {value} com a raiz {root}. Valores menores seguem à esquerda; maiores, à direita.",
+        "hintInsert2": "A partir da raiz {root}, siga à {rootSide}. Repita a comparação em cada nó até encontrar uma posição vazia.",
+        "hintInsert3": "O pai da posição correta é {node}; o lado é a {side}. Confira também os limites dos ancestrais.",
+        "hintInsert4": "Selecione {node} e use Inserir à {side}. Essa posição respeita todas as comparações desde a raiz.",
+        "feedback": {
+            "inserted": "Posição correta! A propriedade da BST foi preservada. Siga para o próximo valor.",
+            "completed": "Todos os valores foram inseridos corretamente. A BST está concluída; não é necessário balancear.",
+            "mustBeLess": "Nessa posição, {value} ficaria na subárvore esquerda de {ancestor}, mas não é menor que ele. Refaça as comparações desde a raiz; a árvore foi preservada.",
+            "mustBeGreater": "Nessa posição, {value} ficaria na subárvore direita de {ancestor}, mas não é maior que ele. Refaça as comparações desde a raiz; a árvore foi preservada."
+        },
+        "example": {
+            "title": "Um exemplo simples de construção de BST",
+            "sequence": "Sequência: 40 → 20 → 60 → 10 → 30",
+            "description": "BST com raiz 40. Filhos de 40: 20 à esquerda e 60 à direita. Filhos de 20: 10 à esquerda e 30 à direita. Os demais nós são folhas.",
+            "rule": "Valores menores seguem à esquerda; maiores, à direita. Repita a comparação a partir de cada nó até encontrar a posição vazia."
+        },
+        "article": {
+            "howTitle": "Como praticar inserções em BST",
+            "how": "Em Configurar ou reiniciar, escolha de 1 a 30 nós e comece o exercício. O valor atual, o nó selecionado e as ações ficam juntos. Selecione o pai na árvore ou na lista e escolha o lado. Ajuda e dicas revela pistas progressivas e registra cada dica usada. Ao concluir, confira acertos, erros e pontuação; tente a mesma sequência novamente ou gere outra. Alterar a quantidade configura apenas o próximo Novo exercício; a árvore atual não muda.",
+            "insertTitle": "Como encontrar a posição de um valor",
+            "steps": [
+                "Na árvore vazia, use Inserir na raiz. A raiz é o primeiro valor da sequência.",
+                "Compare o próximo valor com a raiz: se for menor, siga pela esquerda; se for maior, siga pela direita.",
+                "Repita a comparação no filho encontrado. Quando o lado correto estiver vazio, selecione esse pai e insira nesse lado.",
+                "Os limites dos ancestrais continuam valendo. Nenhuma inserção exige rotação: uma BST pode ser profunda ou assimétrica e continuar correta."
+            ],
+            "exampleTitle": "Exemplo resolvido: 40, 20, 60, 10, 30",
+            "example": "Insira 40 na raiz. Como 20 é menor que 40, fica à esquerda; 60 é maior, então fica à direita. Para 10, siga à esquerda de 40 e novamente à esquerda de 20. Para 30, siga à esquerda de 40 e à direita de 20: ele está no intervalo 20 < valor < 40. Já 50 não poderia ocupar essa posição, pois pertence à subárvore direita de 40.",
+            "errorsTitle": "Erros comuns ao construir uma BST",
+            "errors": [
+                "Comparar apenas com o pai: uma posição deve respeitar todos os ancestrais do caminho.",
+                "Escolher uma posição ocupada: continue a busca pelo filho existente até encontrar o lado vazio correto.",
+                "Tentar equilibrar a árvore: ao inserir 10, 20 e 30, mantenha a cadeia à direita. BST não tem as restrições de balanceamento da AVL.",
+                "Repetir valores: os exercícios usam valores distintos para que cada posição seja inequívoca. Uma tentativa incorreta não altera a árvore nem avança o valor."
+            ],
+            "faq": [
+                { "question": "Uma BST precisa estar balanceada?", "answer": "Não. A sequência 30, 20, 10 forma uma cadeia à esquerda válida; 10, 20, 30 forma uma cadeia à direita. Diferentemente da AVL, o exercício não realiza nem pede rotações." },
+                { "question": "Por que uma inserção que respeita o pai pode ser rejeitada?", "answer": "Toda a subárvore esquerda de um ancestral deve conter valores menores que ele, e toda a direita, maiores. Por exemplo, 50 é maior que 20, mas não pode ficar à direita de 20 dentro da subárvore esquerda de 40." },
+                { "question": "Como reiniciar ou mudar a quantidade de nós?", "answer": "Tentar novamente reinicia a mesma sequência e zera os contadores. Escolha de 1 a 30 nós em Configurar ou reiniciar e use Novo exercício para aplicar a quantidade. A árvore em andamento não é modificada ao alterar o seletor." }
+            ]
+        }
+    },
     "AVLPractice": {
+        "directRotate": "Selecione um nó e use a seta ao lado dele para rotacionar.",
+        "rotateNodeLeft": "Rotacionar o nó {value} à esquerda",
+        "rotateNodeRight": "Rotacionar o nó {value} à direita",
+        "nextNode": "Nó a inserir:",
+        "ghostLeft": "Inserir como filho esquerdo de {value}",
+        "ghostRight": "Inserir como filho direito de {value}",
+        "directInsert": "Selecione um nó e toque no (+) de uma posição vazia para inserir.",
+        "manualInsert": "Inserção por lista e botões (alternativa)",
+        "rotationControls": "Selecionar nó e rotacionar",
         "settings": "Configurar ou reiniciar", "stats": "Ver estatísticas", "help": "Ajuda e dicas",
         "insertTask": "Escolha o nó pai e o lado da inserção.", "rotateTask": "Selecione um nó e faça a próxima rotação.",
         "chooseNode": "Selecionar nó", "zoomIn": "Ampliar árvore", "zoomOut": "Reduzir árvore", "fit": "Ajustar à tela",
@@ -262,6 +330,7 @@
             "dataStructures": {
                 "title": "Estruturas de Dados",
                 "binarySearchTreeSimulator": "Árvore Binária de Busca",
+                "bstExercises": "Exercícios de BST",
                 "AVLTreeSimulator": "Árvore AVL",
                 "bubbleSort": "Bubble Sort",
                 "insertionSort": "Insertion Sort",

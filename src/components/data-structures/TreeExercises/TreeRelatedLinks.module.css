@@ -1,0 +1,14 @@
+.section { width: 100%; margin: 36px auto 48px; }
+.standalone { width: min(1080px, calc(100% - 32px)); }
+.section h2 { font-size: clamp(1.25rem, 2.5vw, 1.65rem); margin-bottom: 18px; }
+.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; list-style: none; padding: 0; }
+.links li { min-width: 0; }
+.card { display: flex; flex-direction: column; gap: 10px; height: 100%; padding: 20px; background: #0d1110; border: 1px solid #294536; border-radius: 10px; line-height: 1.6; }
+.card strong { color: #4ade80; font-size: 1rem; text-decoration: underline; text-underline-offset: 4px; }
+.card > span { color: #bac8c0; font-size: .95rem; }
+.card:hover { border-color: #4ade80; background: #111b16; }
+.card:focus-visible { outline: 3px solid #fde047; outline-offset: 3px; }
+@media (max-width: 600px) {
+    .standalone { width: calc(100% - 20px); }
+    .card { padding: 16px; }
+}

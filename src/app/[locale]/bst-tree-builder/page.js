@@ -1,5 +1,9 @@
 import JsonLd from "@/components/JsonLd";
 import React from "react";
+import Link from 'next/link';
+import BSTExample from '@/components/data-structures/TreeExercises/BSTExample';
+import TreeRelatedLinks from '@/components/data-structures/TreeExercises/TreeRelatedLinks';
+import practiceStyles from '@/components/data-structures/AVLExercises/Exercises.module.css';
 
 import { generateSeo } from "@/utils/Seo";
 
@@ -32,17 +36,25 @@ export async function generateMetadata({ params }) {
 export default async function bst_tree_builder({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BSTTreeBuilder" });
+  const exercises = await getTranslations({ locale, namespace: 'BSTExercises' });
   
   return (
     <div>
       <JsonLd dataName="bstTreeBuilder" locale={locale} />
-      <div className={TextGenericDesigns.pagesMainTitle}>{t("bstMainTitle")}</div>
+      <h1 className={TextGenericDesigns.pagesMainTitle}>{t("bstMainTitle")}</h1>
         <BinaryTree 
           inputFieldsContainerStyle={styles.inputFieldsContainer}
           treeType="BST"
         /> 
           
-        <ArticleLayoutDefault title={t("bstDefinitionTitle")}>
+        <section className={`${practiceStyles.practiceSection} ${practiceStyles.bstIntroduction}`}>
+          <h2>{exercises('example.title')}</h2>
+          <BSTExample t={exercises} />
+          <Link href={`/${locale}/bst-tree-exercises`} className={practiceStyles.link}>{exercises('invitation')}</Link>
+        </section>
+
+        <TreeRelatedLinks locale={locale} current="bst-tree-builder" standalone />
+        <ArticleLayoutDefault heading="h2" title={t("bstDefinitionTitle")}>
           <ParagraphSection
             paragraphs={[
               t("bstDefinitionText01"),
@@ -60,7 +72,7 @@ export default async function bst_tree_builder({ params }) {
           </HighlightSection>
         </ArticleLayoutDefault>
 
-        <ArticleLayoutDefault title={t("bstProprietiesTitle")}>
+        <ArticleLayoutDefault heading="h2" title={t("bstProprietiesTitle")}>
           <ParagraphSection
             paragraphs={[
               t("bstProprietiesText01"),
@@ -68,7 +80,7 @@ export default async function bst_tree_builder({ params }) {
           />
         </ArticleLayoutDefault>
 
-        <ArticleLayoutDefault title={t("bstSearchInsertionAndRemovalTitle")}>
+        <ArticleLayoutDefault heading="h2" title={t("bstSearchInsertionAndRemovalTitle")}>
           <ParagraphSection
             paragraphs={[
               t("bstSearchText"),

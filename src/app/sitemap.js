@@ -21,6 +21,8 @@
       { url: `${baseUrl}/en/linear-function-calculator` },
       { url: `${baseUrl}/pt/linear-system-calculator` },
       { url: `${baseUrl}/en/linear-system-calculator` },
+      { url: `${SITE_URL}/pt/bst-tree-exercises` },
+      { url: `${SITE_URL}/en/bst-tree-exercises` },
       // --- ÁRVORE AVL ---
       { url: `${baseUrl}/pt/avl-tree-builder` },
       { url: `${baseUrl}/en/avl-tree-builder` },

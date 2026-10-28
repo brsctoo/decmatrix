@@ -1,6 +1,74 @@
 {   
     "LanguageSwitch": { "label": "Select language" },
+    "TreeRelatedLinks": {
+        "title": "Keep exploring trees",
+        "avl": { "title": "AVL Tree Simulator", "description": "Visualize insertions and follow automatic AVL rebalancing." },
+        "avlExercises": { "title": "AVL Tree Exercises", "description": "Practice manual insertions and rotations with hints and feedback." },
+        "bst": { "title": "Binary Search Tree Simulator", "description": "Explore how values form a BST and follow its operations." },
+        "bstExercises": { "title": "Binary Search Tree Exercises", "description": "Build a BST with 1 to 30 nodes, choosing each insertion position." }
+    },
+    "BSTExercises": {
+        "seoTitle": "Binary Search Tree (BST) Exercises",
+        "seoDescription": "Practice binary search tree insertions with 1 to 30 nodes. Place each value manually in an interactive BST with hints and educational feedback.",
+        "mainTitle": "Binary Search Tree Exercises",
+        "invitation": "Ready to practice? Try the BST exercises.",
+        "simulator": "Want to explore freely? Open the BST simulator.",
+        "openSimulator": "Open BST simulator",
+        "count": "Number of nodes",
+        "insertedNodes": "Nodes inserted: {count}",
+        "scoreRule": "Start with 100 points: −10 per incorrect attempt and −2 per revealed hint, with a minimum of 0. Correct actions count only successful insertions.",
+        "hintInsert1": "Compare {value} with the root {root}. Smaller values go left; larger values go right.",
+        "hintInsert2": "From root {root}, go {rootSide}. Repeat the comparison at each node until you find an empty position.",
+        "hintInsert3": "The correct parent is {node}, on its {side}. Also check the bounds set by the ancestors.",
+        "hintInsert4": "Select {node} and use Insert on the {side}. This position satisfies every comparison from the root.",
+        "feedback": {
+            "inserted": "Correct position! The BST property is preserved. Continue with the next value.",
+            "completed": "Every value has been inserted correctly. The BST is complete; balancing is not required.",
+            "mustBeLess": "Here, {value} would belong to the left subtree of {ancestor}, but it is not smaller. Repeat the comparisons from the root; the tree has been preserved.",
+            "mustBeGreater": "Here, {value} would belong to the right subtree of {ancestor}, but it is not larger. Repeat the comparisons from the root; the tree has been preserved."
+        },
+        "example": {
+            "title": "A simple BST construction example",
+            "sequence": "Sequence: 40 → 20 → 60 → 10 → 30",
+            "description": "BST rooted at 40. Children of 40: 20 on the left and 60 on the right. Children of 20: 10 on the left and 30 on the right. All other nodes are leaves.",
+            "rule": "Smaller values go left; larger values go right. Repeat the comparison at each node until the correct position is empty."
+        },
+        "article": {
+            "howTitle": "How to practice BST insertions",
+            "how": "In Configure or restart, choose 1 to 30 nodes and start the exercise. The current value, selected node and actions are grouped together. Select the parent in the tree or list, then choose a side. Help and hints reveals progressive clues and counts each hint used. When finished, check correct actions, errors and score; retry the same sequence or generate another one. Changing the count configures only the next New exercise; it does not modify the current tree.",
+            "insertTitle": "How to find a value's position",
+            "steps": [
+                "In an empty tree, use Insert at root. The root is the first value in the sequence.",
+                "Compare the next value with the root: go left if it is smaller, or right if it is larger.",
+                "Repeat the comparison at the child you reached. When the correct side is empty, select that parent and insert on that side.",
+                "Ancestor bounds still apply. No insertion requires a rotation: a BST may be deep or asymmetric and still be correct."
+            ],
+            "exampleTitle": "Worked example: 40, 20, 60, 10, 30",
+            "example": "Insert 40 at the root. Since 20 is smaller than 40, it goes left; 60 is larger and goes right. For 10, go left from 40 and left again from 20. For 30, go left from 40, then right from 20: it lies in the interval 20 < value < 40. In contrast, 50 cannot occupy that position because it belongs to the right subtree of 40.",
+            "errorsTitle": "Common BST construction mistakes",
+            "errors": [
+                "Comparing only with the parent: a position must respect every ancestor on the path.",
+                "Choosing an occupied position: keep searching through the existing child until the correct side is empty.",
+                "Trying to balance the tree: inserting 10, 20 and 30 should leave a right-hand chain. BSTs do not have AVL balance constraints.",
+                "Repeating values: exercises use distinct values so that each position is unambiguous. Incorrect attempts neither change the tree nor advance the value."
+            ],
+            "faq": [
+                { "question": "Does a BST have to be balanced?", "answer": "No. The sequence 30, 20, 10 forms a valid left-hand chain; 10, 20, 30 forms a valid right-hand chain. Unlike AVL practice, this exercise neither performs nor requests rotations." },
+                { "question": "Why can an insertion that respects the parent be rejected?", "answer": "Every value in an ancestor's left subtree must be smaller than that ancestor; every value in its right subtree must be larger. For example, 50 is larger than 20 but cannot go right of 20 inside the left subtree of 40." },
+                { "question": "How can I restart or change the node count?", "answer": "Try again restarts the same sequence and resets the counters. Choose 1 to 30 nodes in Configure or restart and use New exercise to apply that count. Changing the selector does not modify the current tree." }
+            ]
+        }
+    },
     "AVLPractice": {
+        "directRotate": "Select a node and use an arrow beside it to rotate.",
+        "rotateNodeLeft": "Rotate node {value} to the left",
+        "rotateNodeRight": "Rotate node {value} to the right",
+        "nextNode": "Node to insert:",
+        "ghostLeft": "Insert as left child of {value}",
+        "ghostRight": "Insert as right child of {value}",
+        "directInsert": "Select a node, then use (+) at an empty position to insert.",
+        "manualInsert": "Insert using list and buttons (alternative)",
+        "rotationControls": "Select a node and rotate",
         "settings": "Configure or restart", "stats": "View statistics", "help": "Help and hints",
         "insertTask": "Choose the parent node and the insertion side.", "rotateTask": "Select a node and perform the next rotation.",
         "chooseNode": "Select node", "zoomIn": "Zoom in on tree", "zoomOut": "Zoom out of tree", "fit": "Fit to view",
@@ -271,6 +339,7 @@
             "dataStructures": {
                 "title": "Data Structures",
                 "binarySearchTreeSimulator": "Binary Search Tree",
+                "bstExercises": "BST Exercises",
                 "AVLTreeSimulator": "AVL Tree",
                 "bubbleSort": "Bubble Sort",
                 "insertionSort": "Insertion Sort",

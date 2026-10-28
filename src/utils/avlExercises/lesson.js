@@ -1,11 +1,13 @@
 import AvlTree, { Node } from '../AvlTree.js';
+import BinarySearchTree, { Node as BstNode } from '../BinarySearchTree.js';
 
 // Copy the graph, including parent links, without sharing mutable nodes.
 export function cloneTree(source) {
-    const tree = new AvlTree();
+    const bst = source instanceof BinarySearchTree;
+    const tree = bst ? new BinarySearchTree() : new AvlTree();
     function copy(node, parent = null) {
         if (!node) return null;
-        const result = Object.assign(new Node(node.value, node.id), node, { parent });
+        const result = Object.assign(bst ? new BstNode(node.value, node.id) : new Node(node.value, node.id), node, { parent });
         tree.nodes.push(result);
         result.left = copy(node.left, result);
         result.right = copy(node.right, result);
@@ -13,6 +15,7 @@ export function cloneTree(source) {
     }
     tree.root = copy(source.root);
     tree.nodeCount = source.nodeCount;
+    tree.depth = source.depth;
     return tree;
 }
 
@@ -65,8 +68,8 @@ export function validateTree(tree, expected, requireBalance = true) {
         const left = walk(node.left, node, low, node.value);
         const right = walk(node.right, node, node.value, high);
         const height = 1 + Math.max(left, right);
-        if (node.height !== height || node.leftHeight !== left + 1 || node.rightHeight !== right + 1
-            || node.balanceFactor !== left - right || (requireBalance && Math.abs(left - right) > 1)) valid = false;
+        if (tree instanceof AvlTree && (node.height !== height || node.leftHeight !== left + 1 || node.rightHeight !== right + 1
+            || node.balanceFactor !== left - right || (requireBalance && Math.abs(left - right) > 1))) valid = false;
         return height;
     }
     walk(tree.root, null, -Infinity, Infinity);
@@ -77,14 +80,15 @@ export function validateTree(tree, expected, requireBalance = true) {
         && values.every((value, i) => value === sorted[i]);
 }
 
-export function createExercise(sequence, mode = 'mixed') {
+export function createExercise(sequence, mode = 'mixed', variant = 'avl') {
     // Short sequences are also used by the quick rotation challenges.
-    if (sequence.length < 3 || sequence.length > 20 || !['mixed', 'LL', 'RR', 'LR', 'RL'].includes(mode)
+    const modes = variant === 'bst' ? ['bst'] : ['mixed', 'LL', 'RR', 'LR', 'RL'];
+    if (!['avl', 'bst'].includes(variant) || sequence.length < (variant === 'bst' ? 1 : 3) || sequence.length > (variant === 'bst' ? 30 : 20) || !modes.includes(mode)
         || sequence.some(value => !Number.isSafeInteger(value)) || new Set(sequence).size !== sequence.length) {
         throw new Error('Invalid exercise sequence');
     }
     return {
-        sequence: [...sequence], mode, index: 0, tree: new AvlTree(), phase: 'INSERTING',
+        sequence: [...sequence], mode, variant, nodeCount: sequence.length, index: 0, tree: variant === 'bst' ? new BinarySearchTree() : new AvlTree(), phase: 'INSERTING',
         selected: null, correct: 0, errors: 0, rotations: 0, hints: 0, hintLevel: 0,
         showBalance: false, pending: [], ancestorId: null, feedback: { key: 'ready' },
     };
@@ -95,7 +99,7 @@ function fail(state, key, values = {}) {
 }
 
 function advance(state, key) {
-    if (!validateTree(state.tree, state.sequence.slice(0, state.index + 1))) throw new Error('Invalid AVL checkpoint');
+    if (!validateTree(state.tree, state.sequence.slice(0, state.index + 1), state.variant !== 'bst')) throw new Error('Invalid tree checkpoint');
     const index = state.index + 1;
     return { ...state, index, selected: null, hintLevel: 0, pending: [], ancestorId: null,
         phase: index === state.sequence.length ? 'COMPLETED' : 'INSERTING',
@@ -103,6 +107,7 @@ function advance(state, key) {
 }
 
 export function insertAnswer(state, parentId, side) {
+    if (state.phase === 'COMPLETED') return state;
     if (state.phase !== 'INSERTING') return fail(state, 'finishBalance');
     const value = state.sequence[state.index];
     const parent = state.tree.nodes.find(node => node.id === parentId);
@@ -124,15 +129,15 @@ export function insertAnswer(state, parentId, side) {
         }
     }
     const tree = cloneTree(state.tree);
-    const node = new Node(value, ++tree.nodeCount);
+    const node = state.variant === 'bst' ? new BstNode(value, ++tree.nodeCount) : new Node(value, ++tree.nodeCount);
     tree.nodes.push(node);
     if (!tree.root) tree.root = node;
     else {
         node.parent = tree.nodes.find(item => item.id === parentId);
         node.parent[side] = node;
     }
-    tree.updateHeight(tree.root);
-    const plan = rotationPlan(tree, node.id);
+    if (state.variant !== 'bst') tree.updateHeight(tree.root);
+    const plan = state.variant === 'bst' ? { operations: [], ancestorId: null } : rotationPlan(tree, node.id);
     const next = { ...state, tree, correct: state.correct + 1, hintLevel: 0, selected: null,
         pending: plan.operations, ancestorId: plan.ancestorId };
     if (!validateTree(tree, state.sequence.slice(0, state.index + 1), false)) throw new Error('Invalid BST checkpoint');
@@ -140,6 +145,7 @@ export function insertAnswer(state, parentId, side) {
 }
 
 export function rotateAnswer(state, nodeId, direction) {
+    if (state.variant === 'bst') return state;
     if (state.phase !== 'REBALANCING') return fail(state, 'noRotation');
     const node = state.tree.nodes.find(item => item.id === nodeId);
     if (!node) return fail(state, 'selectNode');
@@ -179,10 +185,10 @@ export const score = state => Math.max(0, 100 - state.errors * 10 - state.hints 
 
 export function exerciseReducer(state, action) {
     switch (action.type) {
-        case 'start': return createExercise(action.sequence, action.mode);
-        case 'retry': return createExercise(state.sequence, state.mode);
+        case 'start': return createExercise(action.sequence, action.mode, action.variant);
+        case 'retry': return createExercise(state.sequence, state.mode, state.variant);
         case 'select': return { ...state, selected: action.id };
-        case 'balance': return { ...state, showBalance: action.value };
+        case 'balance': return state.variant === 'bst' ? state : { ...state, showBalance: action.value };
         case 'hint': return revealHint(state);
         case 'insert': return insertAnswer(state, action.parentId, action.side);
         case 'rotate': return rotateAnswer(state, state.selected, action.direction);

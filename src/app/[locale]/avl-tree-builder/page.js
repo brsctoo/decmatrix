@@ -7,6 +7,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import BinaryTree from "@/components/data-structures/BinaryTree/BinaryTree";
 import QuickExercise from '@/components/data-structures/AVLExercises/QuickExercise';
+import TreeRelatedLinks from '@/components/data-structures/TreeExercises/TreeRelatedLinks';
 import practiceStyles from '@/components/data-structures/AVLExercises/Exercises.module.css';
 import { getTranslations } from "next-intl/server";
 
@@ -75,6 +76,7 @@ export default async function avl_tree_builder({ params }) {
           <QuickExercise introductory />
         </section>
         
+        <TreeRelatedLinks locale={locale} current="avl-tree-builder" standalone />
         <ArticleLayoutDefault heading="h2" title={t("definition.title")}>
           <ParagraphSection paragraphs={[
             t("definition.intro"),

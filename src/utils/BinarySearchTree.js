@@ -1,6 +1,6 @@
 {/* Lógica e algoritmo de Reingold-Tilford implementados com base na matéria de estrutura de dados -> Comentários feitos a partir de anotações */}
 
-class Node {
+export class Node {
     constructor(value, id) {
         this.value = value;
         this.id = id;
