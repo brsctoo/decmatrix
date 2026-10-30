@@ -66,10 +66,14 @@
       // --- CONVERSOR DE BASE  ---
       { url: `${baseUrl}/pt/base-converter` },
       { url: `${baseUrl}/en/base-converter` },
+      { url: `${baseUrl}/pt/base-conversion-exercises` },
+      { url: `${baseUrl}/en/base-conversion-exercises` },
 
       // --- GERADOR DE TABELA VERDADE ---
       { url: `${baseUrl}/pt/truth-table-generator` },
       { url: `${baseUrl}/en/truth-table-generator` },
+      { url: `${baseUrl}/pt/truth-table-exercises` },
+      { url: `${baseUrl}/en/truth-table-exercises` },
 
       // --- POLÍTICA DE PRIVACIDADE ---
       { url: `${baseUrl}/pt/privacy-policy` },

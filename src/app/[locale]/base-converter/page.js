@@ -1,4 +1,5 @@
 import BaseConverter from "@/components/computational_math/BaseConverter";
+import Link from 'next/link';
 import JsonLd from "@/components/JsonLd";
 import styles from "./page.module.css";
 
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }) {
 export default async function BaseConverterPage({ params }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: "baseConverter" });
+    const practice = await getTranslations({ locale, namespace: 'ComputationalPractice' });
     const formula = "N = \\sum_{i=0}^{n} d_i \\cdot b^i";
 
     return (
@@ -37,6 +39,7 @@ export default async function BaseConverterPage({ params }) {
                 </>
             ) : <div className={`${TextGenericDesigns.pagesMainTitle} ${styles.mainTitle}`}>{t("mainTitle")}</div>}
             <BaseConverter />
+            <p><Link data-practice-invitation href={`/${locale}/base-conversion-exercises`} className={TextGenericDesigns.inlineLink}>{practice('baseInvitation')}</Link></p>
 
             <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("introSection.title")}>
                 <ParagraphSection

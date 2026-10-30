@@ -1,6 +1,6 @@
 .reactiveButton {
     text-align: left;
-    color: #F7F8F8;
+    color: var(--foreground);
     background-color: #a3a3a30a;
     margin-top: 10px;
     padding: 12px;
@@ -14,7 +14,7 @@
         border-color 0.2s ease;
 }
 
-.reactiveButton:hover {
+.reactiveButton:hover:not(:disabled) {
     background-color: #a3a3a325;
     cursor: pointer;
     transform: translateX(2px);
@@ -34,29 +34,25 @@
 }
 
 .active {
-    background-color: #efe9e3 !important;
+    background-color: var(--surface-raised);
+    border-color: var(--accent);
 }
 
-.blocked {
-    background-color: rgba(24, 24, 27, 0.85) !important;
-    color: rgba(156, 163, 175, 0.7) !important;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-    border-color: rgba(39, 39, 42, 0.9) !important;
-}
-
+.reactiveButton:disabled,
+.blocked,
 .blocked:hover {
-    background-color: rgba(24, 24, 27, 0.9) !important;
-    color: rgba(156, 163, 175, 0.7) !important;
+    background-color: var(--control-disabled-bg);
+    color: var(--control-disabled-text);
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
-    border-color: rgba(39, 39, 42, 1) !important;
+    border-color: var(--control-disabled-border);
+    opacity: 1;
+    transition: none;
 }
 
 .reactiveButton:focus-visible {
-    outline: 2px solid #00b947;
+    outline: 3px solid var(--focus-ring);
     outline-offset: 2px;
 }
 

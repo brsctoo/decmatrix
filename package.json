@@ -9,7 +9,8 @@
     "test:avl-exercises": "node --experimental-vm-modules --test tests/avl-exercises.test.mjs",
     "test:bst-exercises": "node --experimental-vm-modules --test tests/bst-exercises.test.mjs",
     "test:matrices": "node --experimental-vm-modules --test tests/matrix-square.test.mjs",
-    "test:matrix-pages": "node tests/matrix-pages-smoke.mjs"
+    "test:matrix-pages": "node tests/matrix-pages-smoke.mjs",
+    "test:computational-exercises": "node --experimental-vm-modules --test tests/computational-exercises.test.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

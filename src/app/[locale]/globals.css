@@ -1,6 +1,29 @@
 :root {
   --background: #08090a; /* Fundo sempre escuro */
   --foreground: #f5f5f5; /* Texto sempre claro (quase branco) */
+  /* Paleta compartilhada: superfícies e estados já usados pelos exercícios AVL/BST. */
+  --surface-panel: #0d1110;
+  --surface-raised: #111b16;
+  --surface-input: #080e0b;
+  --border-subtle: #294536;
+  --border-control: #547462;
+  --text-muted: #bac8c0;
+  --accent: #00b947;
+  --accent-text: #4ade80;
+  --focus-ring: #fde047;
+  --action-primary: #166534;
+  --action-primary-hover: #14532d;
+  --control-disabled-bg: #18221c;
+  --control-disabled-text: #bac8c0;
+  --control-disabled-border: #526258;
+  --status-success-bg: #10271b;
+  --status-success-text: #d0f7df;
+  --status-error-bg: #2b1518;
+  --status-error-border: #fca5a5;
+  --status-error-text: #fecaca;
+  --status-warning-bg: #282412;
+  --status-warning-text: #fef08a;
+  color-scheme: dark; /* O site tem tema escuro fixo, inclusive com preferência clara do SO. */
 }
 
 html,
@@ -34,10 +57,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

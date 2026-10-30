@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './LateralBar.module.css';
-import { usePathname, useRouter, useParams } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 
 {/* Contexto */}
 import { useUI } from '@/context/UIContext'; 
@@ -30,6 +30,7 @@ export default function LateralBar() {
 
     {/* categoria ativada no momento -> muda com o handleCategory */}
     const [activeCategory, setActiveCategory] = React.useState(null);
+    const [expandedExercises, setExpandedExercises] = React.useState({});
     
     function handleCategory(categoryName) {
         setActiveCategory(categoryName === activeCategory ? null : categoryName);
@@ -37,8 +38,8 @@ export default function LateralBar() {
 
     const t = useTranslations('LateralBar');
     const practice = useTranslations('AVLPractice');
+    const exercises = useTranslations('ComputationalPractice');
     const pathname = usePathname();
-    const router = useRouter();
     const params = useParams();
 
     // Ícones das categorias
@@ -129,7 +130,7 @@ export default function LateralBar() {
             id: 'bstExercises',
             labelKey: 'dataStructures.bstExercises',
             path: `/${params.locale}/bst-tree-exercises`,
-            category: 'data_structures'
+            category: 'data_structures', subgroup: 'exercises'
         },
 
         'avlTreeSimulator': {
@@ -142,7 +143,7 @@ export default function LateralBar() {
         'avlExercises': {
             id: 'avlExercises',
             path: `/${params.locale}/avl-tree-exercises`,
-            category: 'data_structures'
+            category: 'data_structures', subgroup: 'exercises'
         },
 
         'bubbleSort': {
@@ -173,12 +174,37 @@ export default function LateralBar() {
             category: 'computational_math'
         },
 
+        'baseConversionExercises': {
+            id: 'baseConversionExercises', exerciseLabel: 'base',
+            path: `/${params.locale}/base-conversion-exercises`, category: 'computational_math', subgroup: 'exercises'
+        },
+        'truthTableExercises': {
+            id: 'truthTableExercises', exerciseLabel: 'truth',
+            path: `/${params.locale}/truth-table-exercises`, category: 'computational_math', subgroup: 'exercises'
+        },
         'truthTable': {
             id: 'truthTable',
             labelKey: 'computationalMath.truthTable',
             path: `/${params.locale}/truth-table-generator`,
             category: 'computational_math'
         }
+    }
+
+    useEffect(() => {
+        const current = Object.values(NAV_ITENS).find(item => item.path === pathname);
+        if (current) {
+            setActiveCategory(current.category);
+            if (current.subgroup) setExpandedExercises(previous => ({ ...previous, [current.category]: true }));
+        }
+    }, [pathname, isSidebarOpen]);
+
+    function renderLink(item) {
+        return <Link key={item.id} href={item.path} className={styles.toolLink}
+            aria-current={pathname === item.path ? 'page' : undefined}
+            onClick={() => toggleSidebar(false)}>
+            <div className={styles.perfectCircle}></div>
+            {item.id === 'avlExercises' ? practice('nav') : item.exerciseLabel ? exercises(`nav.${item.exerciseLabel}`) : t(`tools.${item.labelKey}`)}
+        </Link>;
     }
 
     function buildCategorySections() {
@@ -190,6 +216,8 @@ export default function LateralBar() {
     
         return CATEGORIES.map(category => {
             const isActive = activeCategory === category.id;
+            const exerciseItems = Object.values(NAV_ITENS).filter(item => item.category === category.id && item.subgroup === 'exercises');
+            const exercisesOpen = Boolean(expandedExercises[category.id]);
 
             // Busca o ícone no seu ICONS_MAP usando o ID da categoria
             const IconElement = ICONS_MAP[category.id];
@@ -201,6 +229,7 @@ export default function LateralBar() {
                     <button type="button"
                         className={`${styles.categoryHeader} ${isActive ? styles.categoryHeaderActive : ""}`} 
                         aria-expanded={isActive}
+                        aria-controls={`tools-${category.id}`}
                         onClick={() => handleCategory(category.id)}
                     >
                         {/* Renderiza o elemento de ícone */}
@@ -217,6 +246,8 @@ export default function LateralBar() {
                     <AnimatePresence>    
                         {isActive && (
                             <motion.nav
+                                id={`tools-${category.id}`}
+                                aria-label={t(`categories.${category.id}`)}
                                 initial={{ height: 0, opacity: 1 }} // Começa colapsado (sem altura e invisível)
                                 animate={{ height: "auto", opacity: 1 }} // Anima para expandido (altura automática e visível)
                                 exit={{ height: 0, opacity: 1 }} // Sai colapsando
@@ -225,16 +256,22 @@ export default function LateralBar() {
                                 className={styles.toolsList}
                                 >
                                     {Object.values(NAV_ITENS)
-                                        .filter(item => item.category === category.id) // Pega apenas os itens que pertencem à categoria atual
-                                        .map(item => ( // Mapeia cada item para um link de navegação
-                                            <Link key={item.id} href={item.path} className={styles.toolLink}
-                                                aria-current={pathname === item.path ? 'page' : undefined}
-                                                onClick={() => toggleSidebar(false)}>
-                                                <div className={styles.perfectCircle}></div>
-                                                {item.id === 'avlExercises' ? practice('nav') : t(`tools.${item.labelKey}`)}
-                                            </Link>
-                                        ))
-                                    }
+                                        .filter(item => item.category === category.id && !item.subgroup)
+                                        .map(renderLink)
+                                     }
+                                    {exerciseItems.length > 0 && <div>
+                                        <button type="button" className={styles.exerciseToggle}
+                                            data-exercises-toggle={category.id}
+                                            aria-label={`${t(`categories.${category.id}`)}: ${exercises('nav.group')}`}
+                                            aria-expanded={exercisesOpen} aria-controls={`exercises-${category.id}`}
+                                            onClick={() => setExpandedExercises(previous => ({ ...previous, [category.id]: !previous[category.id] }))}>
+                                            <span>{exercises('nav.group')}</span>
+                                            <ChevronLeft size={16} aria-hidden="true" className={`${styles.chevronIcon} ${exercisesOpen ? styles.chevronActive : ''}`} />
+                                        </button>
+                                        <div id={`exercises-${category.id}`} className={styles.exerciseLinks} hidden={!exercisesOpen}>
+                                            {exerciseItems.map(renderLink)}
+                                        </div>
+                                    </div>}
                             </motion.nav>
                         )}
                     </AnimatePresence>

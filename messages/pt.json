@@ -1,5 +1,91 @@
 {   
     "LanguageSwitch": { "label": "Selecionar idioma" },
+    "ComputationalPractice": {
+        "nav": { "group": "Exercícios", "base": "Conversão de bases", "truth": "Tabela verdade" },
+        "start": "Começar exercício", "new": "Novo exercício", "check": "Verificar", "hint": "Ver dica",
+        "reveal": "Ver resolução", "repeat": "Repetir exercício", "next": "Próximo exercício", "solution": "Resolução",
+        "stats": { "correct": "Acertos sem ajuda:", "assisted": "Com ajuda:", "errors": "Erros:" },
+        "baseInvitation": "Quer praticar? Faça exercícios de conversão de bases.",
+        "truthInvitation": "Quer praticar? Preencha exercícios de tabela verdade."
+    },
+    "BaseConversionExercises": {
+        "seoTitle": "Exercícios de Conversão de Bases Numéricas",
+        "seoDescription": "Pratique conversões entre binário, octal, decimal e hexadecimal com exercícios aleatórios, dicas, verificação de respostas e resolução.",
+        "mainTitle": "Exercícios de Conversão de Bases",
+        "intro": "Converta inteiros de 0 a 255 entre quatro bases. Escolha um par ou misture as bases, verifique sua resposta e avance quando quiser.",
+        "practiceLabel": "Prática de conversão de bases", "mode": "Modo", "mixed": "Misturar as quatro bases", "pair": "Par específico",
+        "from": "Base de origem", "to": "Base de destino", "settingsNote": "A configuração vale para o próximo novo exercício. Repetir mantém o desafio atual.",
+        "bases": { "2": "Binário (2)", "8": "Octal (8)", "10": "Decimal (10)", "16": "Hexadecimal (16)" },
+        "task": "Converta {number} da base {from} para a base {to}.",
+        "answer": "Sua resposta na base {base}", "answerGuide": "Use apenas os dígitos da base, sem prefixos, sinais ou frações. Espaços externos e zeros à esquerda são aceitos; A–F e a–f são equivalentes.",
+        "ready": "Digite uma resposta e escolha Verificar. O exercício não avança automaticamente.",
+        "hintText": "Cada posição na origem tem peso de uma potência de {from}. Encontre o valor decimal; depois divida sucessivamente por {to} e leia os restos do último para o primeiro. Em hexadecimal, A=10, B=11, C=12, D=13, E=14 e F=15. Usar esta dica conta como ajuda.",
+        "result": "{number} (base {from}) = {value} (base 10) = {answer} (base {to}).",
+        "divisionStep": "{value} ÷ {base}: quociente {quotient}, resto {remainder} (na base {base}).",
+        "procedure": "Para escrever o valor decimal na base {to}, divida por essa base até o quociente ser zero e leia os restos em ordem inversa. O valor zero é representado por 0 em qualquer base. Nas potências acima, letras hexadecimais representam valores de 10 a 15.",
+        "feedback": {
+            "empty": "Digite uma resposta antes de verificar. Isso não conta como erro.",
+            "invalid": "Entrada inválida para um inteiro na base {base}. Confira os dígitos e não use prefixos, espaços internos ou parte fracionária.",
+            "wrong": "Os dígitos são válidos, mas o valor não corresponde ao número do enunciado. Confira os pesos das posições ou os restos das divisões e tente novamente.",
+            "correct": "Correto! Acerto sem ajuda. Observe a resolução antes de avançar.",
+            "assisted": "Correto, com ajuda da dica. Você pode observar a resolução ou praticar de novo.",
+            "revealed": "Resolução revelada: este exercício foi registrado como feito com ajuda, não como acerto sem ajuda."
+        },
+        "toolLink": "Explorar livremente no conversor de bases",
+        "article": {
+            "sections": [
+                { "title": "Como praticar", "paragraphs": ["Comece um exercício, leia a origem e o destino e digite a resposta. Use Verificar para testar seu raciocínio. Uma resposta incorreta mantém o número para uma nova tentativa; o próximo desafio só aparece por uma ação sua.", "Os contadores valem para esta sessão. Cada resposta errada diferente conta uma vez por desafio; clicar novamente sem mudar a resposta não aumenta os erros. Uma dica ou resolução distingue a prática com ajuda. Repetir começa uma nova tentativa do mesmo desafio."] },
+                { "title": "O que significa a base?", "paragraphs": ["A base determina os dígitos disponíveis e o peso de cada posição. Binário usa 0 e 1; octal, 0 a 7; decimal, 0 a 9; hexadecimal, 0 a 9 e A a F. Da direita para a esquerda, os pesos são base⁰, base¹, base² e assim por diante."] },
+                { "title": "Exemplos resolvidos independentes", "paragraphs": ["Decimal 10 = binário 1010, pois 10 = 1×2³ + 0×2² + 1×2¹ + 0×2⁰. No sentido inverso, binário 1010 = decimal 10.", "Hexadecimal FF = decimal 255, pois 15×16 + 15 = 255. Decimal 64 = octal 100, pois 1×8² = 64. Esses exemplos são didáticos, não uma resolução automática do desafio ativo."] },
+                { "title": "Erros comuns", "paragraphs": ["Não confunda 10 decimal com 10 binário. O dígito 2 não existe no binário, e 8 não existe no octal. Não use prefixos 0b/0x nem separadores dentro do número. Letras hexadecimais podem estar em maiúsculas ou minúsculas.", "Estes exercícios usam somente inteiros não negativos de 0 a 255, sem risco de perda de precisão nesse intervalo. A validação confere a resposta inteira: uma parte válida seguida de caracteres inválidos não é aceita."] }
+            ],
+            "faq": [
+                { "question": "Posso escrever zeros à esquerda?", "answer": "Sim. Por exemplo, 001010 e 1010 representam o mesmo valor binário. Espaços antes e depois também são ignorados." },
+                { "question": "A configuração muda o exercício que já comecei?", "answer": "Não. Ela vale quando você escolhe Novo exercício ou Próximo exercício. Repetir mantém o mesmo número e as mesmas bases." }
+            ]
+        }
+    },
+    "TruthTableExercises": {
+        "seoTitle": "Exercícios de Tabela Verdade",
+        "seoDescription": "Preencha tabelas verdade em oito exercícios fixos e progressivos de lógica proposicional, com colunas intermediárias, verificação e resolução.",
+        "mainTitle": "Exercícios de Tabela Verdade",
+        "intro": "Pratique oito desafios fixos, da negação às expressões com três proposições. Preencha as células de operações e confira sua tabela sem sorteios.",
+        "practiceLabel": "Prática de tabela verdade", "choose": "Escolha o exercício", "true": "V", "false": "F", "row": "Linha",
+        "variables": "Proposições: {variables}.", "instructions": "As entradas já estão preenchidas. Escolha V (verdadeiro) ou F (falso) em cada célula de operação; — significa não respondido.",
+        "tableRegion": "Tabela para preencher, com rolagem horizontal quando necessária", "caption": "Preencha a tabela de {expression}",
+        "solutionRegion": "Tabela correta", "solutionCaption": "Resolução de {expression}", "cell": "Linha {row}, expressão {expression}", "check": "Verificar tabela",
+        "marks": { "correct": "✓ Correta", "wrong": "✗ Incorreta", "empty": "— Em branco" },
+        "feedback": {
+            "ready": "Preencha a tabela e escolha Verificar tabela.",
+            "empty": "Ainda há células vazias. As respostas foram preservadas; confira também as marcações nas células preenchidas.",
+            "wrong": "Há respostas incorretas identificadas na tabela. Corrija-as e verifique novamente. Cada célula errada conta uma vez por tentativa, sem repetir a contagem ao clicar de novo.",
+            "correct": "Tabela correta! Acerto sem ajuda. Veja a resolução e avance quando quiser.",
+            "revealed": "Resolução revelada. Este exercício foi registrado como feito com ajuda; suas respostas foram preservadas."
+        },
+        "catalog": {
+            "not": { "title": "Negação", "task": "Complete a coluna ¬p invertendo o valor de p.", "explanation": "A negação ¬ inverte o valor: verdadeiro vira falso e falso vira verdadeiro." },
+            "and": { "title": "Conjunção", "task": "Complete p ∧ q usando as duas proposições de cada linha.", "explanation": "A conjunção ∧ só é verdadeira quando as duas proposições são verdadeiras." },
+            "or": { "title": "Disjunção inclusiva", "task": "Complete p ∨ q. Considere o ou inclusivo, não o ou exclusivo.", "explanation": "A disjunção ∨ é verdadeira quando pelo menos uma proposição é verdadeira, inclusive quando ambas são verdadeiras." },
+            "implies": { "title": "Condicional", "task": "Complete p → q, com p como antecedente e q como consequente.", "explanation": "A condicional → só é falsa quando o antecedente é verdadeiro e o consequente é falso." },
+            "iff": { "title": "Bicondicional", "task": "Complete p ↔ q comparando os valores de p e q.", "explanation": "A bicondicional ↔ é verdadeira quando as duas proposições têm o mesmo valor, tanto V/V quanto F/F." },
+            "notOr": { "title": "Negação e disjunção", "task": "Preencha primeiro ¬p e depois combine esse resultado com q usando ∨.", "explanation": "Inverta p na coluna intermediária. Na última coluna, aplique o ou inclusivo entre ¬p e q." },
+            "tautology": { "title": "Conjunção e condicional", "task": "Preencha p ∧ q e depois use essa coluna como antecedente de (p ∧ q) → p.", "explanation": "Calcule a conjunção antes da condicional. A seta só falha se seu antecedente for verdadeiro e seu consequente falso." },
+            "three": { "title": "Três proposições", "task": "Preencha p ∨ q e ¬r; depois combine essas duas colunas com ∧.", "explanation": "Resolva os parênteses e a negação antes da conjunção final. Ela exige que os dois resultados intermediários sejam verdadeiros." }
+        },
+        "toolLink": "Explorar expressões no gerador de tabela verdade",
+        "article": {
+            "sections": [
+                { "title": "Como preencher uma tabela verdade", "paragraphs": ["Leia as proposições de entrada em cada linha e resolva as operações, começando pelos parênteses e pelas colunas intermediárias. V significa verdadeiro; F significa falso. Uma célula em branco é diferente de uma resposta F.", "A ordem é a mesma do gerador: começa com todas as entradas falsas e a variável da direita alterna mais rápido. Duas proposições exigem 2² = 4 linhas; três exigem 2³ = 8. Uma proposição tem duas linhas."] },
+                { "title": "Significado dos conectivos", "paragraphs": ["¬ é negação; ∧ é e; ∨ é ou inclusivo; → é se… então; ↔ é se e somente se. A negação inverte, a conjunção exige ambos verdadeiros e a disjunção exige pelo menos um verdadeiro.", "A condicional é falsa apenas em V → F. A bicondicional é verdadeira quando os valores coincidem. O catálogo mostra p, q e r; internamente reutiliza o avaliador do gerador com P, Q e R."] },
+                { "title": "Exemplo resolvido independente: ¬(p ∧ q)", "paragraphs": ["Para as entradas (p,q) = (F,F), (F,V), (V,F), (V,V), a conjunção p ∧ q produz F, F, F, V. Negando essa coluna, ¬(p ∧ q) produz V, V, V, F. Este exemplo é separado dos desafios do painel."] },
+                { "title": "Correção e progresso", "paragraphs": ["Verificar tabela preserva todas as respostas e identifica células corretas, incorretas e vazias por texto, não só por cor. Corrija o que for necessário antes de avançar. Cada célula com resposta errada aumenta os erros uma única vez por tentativa; verificações idênticas não repetem a contagem.", "Revelar a resolução conta como ajuda, não como acerto sem ajuda. Repetir limpa a tentativa atual, mantendo o exercício. Próximo exercício segue a ordem fixa do catálogo. Os contadores são desta sessão, sem login ou armazenamento permanente."] }
+            ],
+            "faq": [
+                { "question": "Os desafios mudam ao atualizar a página?", "answer": "Não. O catálogo e a ordem são fixos. Atualizar reinicia a sessão, as respostas e os contadores, mas mantém os mesmos oito desafios." },
+                { "question": "Por que V ∨ V é verdadeiro?", "answer": "Porque ∨ representa o ou inclusivo: basta pelo menos uma proposição verdadeira. Ele também aceita que ambas sejam verdadeiras." }
+            ]
+        }
+    },
     "TreeRelatedLinks": {
         "title": "Continue explorando árvores",
         "avl": { "title": "Simulador de Árvore AVL", "description": "Visualize inserções e acompanhe o balanceamento automático de uma AVL." },

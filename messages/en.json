@@ -1,5 +1,91 @@
 {   
     "LanguageSwitch": { "label": "Select language" },
+    "ComputationalPractice": {
+        "nav": { "group": "Exercises", "base": "Base conversion", "truth": "Truth tables" },
+        "start": "Start exercise", "new": "New exercise", "check": "Check", "hint": "Show hint",
+        "reveal": "Show solution", "repeat": "Retry exercise", "next": "Next exercise", "solution": "Solution",
+        "stats": { "correct": "Unaided correct:", "assisted": "With help:", "errors": "Errors:" },
+        "baseInvitation": "Want to practise? Try base conversion exercises.",
+        "truthInvitation": "Want to practise? Complete truth table exercises."
+    },
+    "BaseConversionExercises": {
+        "seoTitle": "Number Base Conversion Exercises",
+        "seoDescription": "Practise binary, octal, decimal and hexadecimal conversions with random exercises, hints, answer checking and worked solutions.",
+        "mainTitle": "Base Conversion Exercises",
+        "intro": "Convert integers from 0 to 255 between four bases. Choose a pair or mix the bases, check your answer and move on when you are ready.",
+        "practiceLabel": "Base conversion practice", "mode": "Mode", "mixed": "Mix all four bases", "pair": "Specific pair",
+        "from": "Source base", "to": "Target base", "settingsNote": "Settings apply to the next new exercise. Retry keeps the current challenge.",
+        "bases": { "2": "Binary (2)", "8": "Octal (8)", "10": "Decimal (10)", "16": "Hexadecimal (16)" },
+        "task": "Convert {number} from base {from} to base {to}.",
+        "answer": "Your answer in base {base}", "answerGuide": "Use only digits from the target base, without prefixes, signs or fractions. Outer spaces and leading zeros are accepted; A–F and a–f are equivalent.",
+        "ready": "Enter an answer and choose Check. The exercise does not advance automatically.",
+        "hintText": "Each source position has the weight of a power of {from}. Find the decimal value; then divide repeatedly by {to} and read the remainders backwards. In hexadecimal, A=10, B=11, C=12, D=13, E=14 and F=15. Using this hint counts as help.",
+        "result": "{number} (base {from}) = {value} (base 10) = {answer} (base {to}).",
+        "divisionStep": "{value} ÷ {base}: quotient {quotient}, remainder {remainder} (in base {base}).",
+        "procedure": "To write the decimal value in base {to}, divide by that base until the quotient is zero and read the remainders in reverse order. Zero is written as 0 in every base. In the powers above, hexadecimal letters represent values from 10 to 15.",
+        "feedback": {
+            "empty": "Enter an answer before checking. This does not count as an error.",
+            "invalid": "Invalid input for an integer in base {base}. Check the digits and do not use prefixes, internal spaces or fractional parts.",
+            "wrong": "The digits are valid, but the value does not match the question. Check positional weights or division remainders and try again.",
+            "correct": "Correct! An unaided answer. Review the solution before moving on.",
+            "assisted": "Correct, with help from the hint. Review the solution or practise again.",
+            "revealed": "Solution revealed: this exercise was recorded as assisted, not as an unaided correct answer."
+        },
+        "toolLink": "Explore freely in the base converter",
+        "article": {
+            "sections": [
+                { "title": "How to practise", "paragraphs": ["Start an exercise, read the source and target bases and enter your answer. Choose Check to test your reasoning. A wrong answer keeps the question for another attempt; a new challenge only appears when you choose an action.", "Counters apply to this session. Each distinct wrong answer counts once per challenge; checking the same answer again does not add errors. Using a hint or revealing the solution marks the exercise as assisted. Retry starts a fresh attempt at the same challenge."] },
+                { "title": "What does the base mean?", "paragraphs": ["The base determines the available digits and the weight of each position. Binary uses 0 and 1; octal uses 0 to 7; decimal uses 0 to 9; hexadecimal uses 0 to 9 and A to F. From right to left, the weights are base⁰, base¹, base² and so on."] },
+                { "title": "Independent worked examples", "paragraphs": ["Decimal 10 = binary 1010, because 10 = 1×2³ + 0×2² + 1×2¹ + 0×2⁰. In reverse, binary 1010 = decimal 10.", "Hexadecimal FF = decimal 255, because 15×16 + 15 = 255. Decimal 64 = octal 100, because 1×8² = 64. These are separate teaching examples, not an automatic solution to the active challenge."] },
+                { "title": "Common mistakes", "paragraphs": ["Do not confuse decimal 10 with binary 10. The digit 2 is not binary, and 8 is not octal. Do not use 0b/0x prefixes or separators inside a number. Hexadecimal letters may be uppercase or lowercase.", "Exercises only use nonnegative integers from 0 to 255, without precision loss in this range. The whole answer is validated: a valid prefix followed by invalid characters is not accepted."] }
+            ],
+            "faq": [
+                { "question": "Can I include leading zeros?", "answer": "Yes. For example, 001010 and 1010 represent the same binary value. Spaces before and after the answer are also ignored." },
+                { "question": "Do settings change the exercise I already started?", "answer": "No. They apply when you choose New exercise or Next exercise. Retry keeps the same number and bases." }
+            ]
+        }
+    },
+    "TruthTableExercises": {
+        "seoTitle": "Truth Table Exercises",
+        "seoDescription": "Complete truth tables in eight fixed, progressive propositional logic exercises with intermediate columns, checking and worked solutions.",
+        "mainTitle": "Truth Table Exercises",
+        "intro": "Practise eight fixed challenges, from negation to expressions with three propositions. Fill in operation cells and check your table, with no random selection.",
+        "practiceLabel": "Truth table practice", "choose": "Choose an exercise", "true": "T", "false": "F", "row": "Row",
+        "variables": "Propositions: {variables}.", "instructions": "Inputs are already filled in. Choose T (true) or F (false) for each operation cell; — means unanswered.",
+        "tableRegion": "Answer table, with horizontal scrolling when needed", "caption": "Complete the table for {expression}",
+        "solutionRegion": "Correct table", "solutionCaption": "Solution for {expression}", "cell": "Row {row}, expression {expression}", "check": "Check table",
+        "marks": { "correct": "✓ Correct", "wrong": "✗ Incorrect", "empty": "— Unanswered" },
+        "feedback": {
+            "ready": "Complete the table and choose Check table.",
+            "empty": "Some cells are still unanswered. Your answers were preserved; also review the markers on filled cells.",
+            "wrong": "Incorrect answers are identified in the table. Correct them and check again. Each wrong cell counts once per attempt; checking again does not repeat the count.",
+            "correct": "Correct table! An unaided answer. Review the solution and move on when ready.",
+            "revealed": "Solution revealed. This exercise was recorded as assisted; your answers were preserved."
+        },
+        "catalog": {
+            "not": { "title": "Negation", "task": "Complete ¬p by reversing the value of p.", "explanation": "Negation ¬ reverses the value: true becomes false and false becomes true." },
+            "and": { "title": "Conjunction", "task": "Complete p ∧ q using the two propositions in each row.", "explanation": "Conjunction ∧ is true only when both propositions are true." },
+            "or": { "title": "Inclusive disjunction", "task": "Complete p ∨ q. Use inclusive or, not exclusive or.", "explanation": "Disjunction ∨ is true when at least one proposition is true, including when both are true." },
+            "implies": { "title": "Conditional", "task": "Complete p → q, with p as the antecedent and q as the consequent.", "explanation": "A conditional → is false only when its antecedent is true and its consequent is false." },
+            "iff": { "title": "Biconditional", "task": "Complete p ↔ q by comparing the values of p and q.", "explanation": "A biconditional ↔ is true when the two values match, both T/T and F/F." },
+            "notOr": { "title": "Negation and disjunction", "task": "First complete ¬p, then combine that result with q using ∨.", "explanation": "Reverse p in the intermediate column. In the final column, apply inclusive or to ¬p and q." },
+            "tautology": { "title": "Conjunction and conditional", "task": "Complete p ∧ q, then use that column as the antecedent of (p ∧ q) → p.", "explanation": "Evaluate the conjunction before the conditional. The arrow is false only if its antecedent is true and its consequent is false." },
+            "three": { "title": "Three propositions", "task": "Complete p ∨ q and ¬r, then combine those two columns using ∧.", "explanation": "Evaluate the parentheses and negation before the final conjunction. It requires both intermediate results to be true." }
+        },
+        "toolLink": "Explore expressions in the truth table generator",
+        "article": {
+            "sections": [
+                { "title": "How to complete a truth table", "paragraphs": ["Read the input propositions in each row and evaluate the operations, starting with parentheses and intermediate columns. T means true; F means false. An unanswered cell is different from an F answer.", "The order matches the generator: all inputs start false and the rightmost variable alternates fastest. Two propositions need 2² = 4 rows; three need 2³ = 8. One proposition has two rows."] },
+                { "title": "Logical connectives", "paragraphs": ["¬ means not; ∧ means and; ∨ means inclusive or; → means if… then; ↔ means if and only if. Negation reverses the value, conjunction requires both to be true, and disjunction requires at least one to be true.", "A conditional is false only for T → F. A biconditional is true when the values match. The catalogue displays p, q and r; internally it reuses the generator's evaluator with P, Q and R."] },
+                { "title": "Independent worked example: ¬(p ∧ q)", "paragraphs": ["For inputs (p,q) = (F,F), (F,T), (T,F), (T,T), conjunction p ∧ q gives F, F, F, T. Negating that column, ¬(p ∧ q) gives T, T, T, F. This example is separate from the challenges in the practice board."] },
+                { "title": "Checking and progress", "paragraphs": ["Check table preserves all answers and identifies correct, incorrect and unanswered cells with text, not just colour. Correct any mistakes before moving on. Each incorrectly answered cell adds one error per attempt; identical checks do not count it again.", "Revealing the solution counts as help, not as an unaided correct answer. Retry clears the current attempt while keeping the exercise. Next exercise follows the fixed catalogue order. Counters apply to this session, with no account or permanent storage."] }
+            ],
+            "faq": [
+                { "question": "Do challenges change when I refresh?", "answer": "No. The catalogue and order are fixed. Refreshing resets the session, answers and counters, but keeps the same eight challenges." },
+                { "question": "Why is T ∨ T true?", "answer": "Because ∨ is inclusive or: at least one true proposition is sufficient. Both propositions may be true." }
+            ]
+        }
+    },
     "TreeRelatedLinks": {
         "title": "Keep exploring trees",
         "avl": { "title": "AVL Tree Simulator", "description": "Visualize insertions and follow automatic AVL rebalancing." },

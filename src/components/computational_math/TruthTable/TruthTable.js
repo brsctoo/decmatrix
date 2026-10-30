@@ -1,6 +1,7 @@
 "use client";
 
 import { booleanExpressionSolver } from "@/utils/computationalMath/BooleanOperationsLogic";
+import { createTruthTableLogic } from "@/utils/computationalMath/truthTable";
 import styles from "./TruthTable.module.css";
 import InputField from "@/components/ui/InputField";
 import ReactiveButton from "@/components/ui/ReactiveButton";
@@ -42,22 +43,6 @@ function extractVariables(expressions) {
         }
     }
     return [...vars].sort();
-}
-
-function createTruthTableLogic(variables) {
-    const numRows = Math.pow(2, variables.length);
-    const table = [[...variables]];
-
-    for (let i = 0; i < numRows; i++) {
-        const row = [];
-        for (let j = 0; j < variables.length; j++) {
-            const blockSize = Math.pow(2, variables.length - 1 - j);
-            row.push(Math.floor(i / blockSize) % 2 === 0 ? 'F' : 'T');
-        }
-        table.push(row);
-    }
-
-    return table;
 }
 
 function TruthTableView({ table, variables, expressions, expressionResults }) {

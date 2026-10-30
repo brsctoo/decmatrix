@@ -1,4 +1,5 @@
 import TruthTable from "@/components/computational_math/TruthTable";
+import Link from 'next/link';
 import JsonLd from "@/components/JsonLd";
 import styles from "./page.module.css";
 
@@ -24,6 +25,7 @@ export async function generateMetadata({ params }) {
 export default async function TruthTablePage({ params }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: "truthTable" });
+    const practice = await getTranslations({ locale, namespace: 'ComputationalPractice' });
     const formula = "L = 2^n";
 
     return (
@@ -41,6 +43,8 @@ export default async function TruthTablePage({ params }) {
                     insertButtonAriaLabel: t("ui.insertButtonAriaLabel"),
                 }}
             />
+
+            <p><Link data-practice-invitation href={`/${locale}/truth-table-exercises`} className={TextGenericDesigns.inlineLink}>{practice('truthInvitation')}</Link></p>
 
             <ArticleLayoutDefault title={t("introSection.title")}>
                 <ParagraphSection
