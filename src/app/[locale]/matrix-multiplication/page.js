@@ -42,9 +42,10 @@ export default async function MatrixMultiplicationPage({ params }) {
         <div>
             <JsonLd dataName="matrixMultiplication" locale={locale} />
             <h1 className={TextGenericDesigns.pagesMainTitle}>{t("mainTitle")}</h1>
+            {locale === "pt" && <p className={style.pageIntro}>{t("pageIntro")}</p>}
             <MatrixMultiplication />
 
-            <ArticleLayoutDefault title={t("usageTutorial.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("usageTutorial.title")}>
                 <ParagraphSection
                     paragraphs={[
                         t("usageTutorial.intro"),
@@ -72,6 +73,17 @@ export default async function MatrixMultiplicationPage({ params }) {
                 />
             </ArticleLayoutDefault>
 
+            {locale === "pt" ? (
+                <ArticleLayoutDefault heading="h2" title={t("workedExample.title")}>
+                    <ParagraphSection paragraphs={[t("workedExample.intro")]} />
+                    <FormulaCard equations={[
+                        'A = \\begin{pmatrix}1 & 2 \\\\ 3 & 4\\end{pmatrix}, \\quad B = \\begin{pmatrix}5 & 6 \\\\ 7 & 8\\end{pmatrix}',
+                    ]} />
+                    <StepsList steps={t.raw("workedExample.steps").map(content => ({ content }))} />
+                    <FormulaCard equations={['AB = \\begin{pmatrix}19 & 22 \\\\ 43 & 50\\end{pmatrix}']} />
+                    <ParagraphSection paragraphs={[t("workedExample.result"), t("workedExample.order")]} />
+                </ArticleLayoutDefault>
+            ) : (
             <ArticleLayoutDefault title={t("exampleCalculation.title")}>
                 <ParagraphSection
                     paragraphs={[
@@ -110,8 +122,9 @@ export default async function MatrixMultiplicationPage({ params }) {
                     ]}
                 />
             </ArticleLayoutDefault>
+            )}
 
-            <ArticleLayoutDefault title={t("definitionSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("definitionSection.title")}>
                 <ParagraphSection
                     paragraphs={[
                         t("definitionSection.intro"),
@@ -128,7 +141,9 @@ export default async function MatrixMultiplicationPage({ params }) {
                     />
                 </HighlightSection>
 
-                <h2 className={TextGenericDesigns.pagesSubTitle}>{t("definitionSection.proprieties.title")}</h2>
+                {locale === "pt"
+                    ? <h3 className={TextGenericDesigns.pagesSubTitle}>{t("definitionSection.proprieties.title")}</h3>
+                    : <h2 className={TextGenericDesigns.pagesSubTitle}>{t("definitionSection.proprieties.title")}</h2>}
 
                 <ProprietiesList
                     proprieties={t.raw("definitionSection.proprieties.list").map((_, index) => ({
@@ -143,9 +158,16 @@ export default async function MatrixMultiplicationPage({ params }) {
                         t("definitionSection.importance"),
                     ]}
                 />
+                {locale === "pt" && <ParagraphSection paragraphs={[
+                    t("elementwise"),
+                    t.rich("relatedSquare", {
+                        linkDeterminant: children => <Link href="/pt/matrix-determinant" className={TextGenericDesigns.inlineLink}>{children}</Link>,
+                        linkInverse: children => <Link href="/pt/matrix-inverse" className={TextGenericDesigns.inlineLink}>{children}</Link>,
+                    }),
+                ]} />}
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("formularySection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("formularySection.title")}>
                 <ParagraphSection
                     paragraphs={[
                         t("formularySection.intro"),

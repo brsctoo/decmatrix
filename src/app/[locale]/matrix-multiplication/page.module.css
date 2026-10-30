@@ -1,4 +1,10 @@
 /* No seu arquivo de estilo */
+.pageIntro {
+    max-width: 75ch;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+}
+
 .formulaEquation {
     color: #2c2c2c;
     background: #efe9e3;

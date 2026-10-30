@@ -9,6 +9,7 @@ import { useEffect, useState, useRef } from 'react';
 import SortSelection from '../SortSelection/SortSelection';
 
 import { bubbleSort, bubbleSortOtimized, insertionSort, selectionSort } from '@/utils/sortAlgorithms'; 
+import { getNumbersFromInput } from '@/utils/sortInput';
 
 import style from './SortAlgorithms.module.css';
 import { motion } from 'framer-motion';
@@ -20,15 +21,6 @@ import ParagraphSection from '../../../text/ParagraphSection/ParagraphSection';
 
 // Context
 import { useIsMobile } from "@/context/ViewportContext";
-
-// Transforma a string de entrada em um array de objetos com IDs únicos
-function getNumbersFromInput(input) {
-    return input
-        .split(',')
-        .map(num => parseInt(num.trim()))
-        .filter(num => !isNaN(num))
-        .map(num => ({ id: crypto.randomUUID(), value: num })); 
-}
 
 const DEFAULT_INPUT = "5, -3, 8, 2, -2, 2"; 
 const DEFAULT_ARRAY = getNumbersFromInput(DEFAULT_INPUT);

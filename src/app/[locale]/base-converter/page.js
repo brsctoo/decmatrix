@@ -30,10 +30,15 @@ export default async function BaseConverterPage({ params }) {
     return (
         <div className={styles.page}>
             <JsonLd dataName="baseConverter" locale={locale} />
-            <div className={`${TextGenericDesigns.pagesMainTitle} ${styles.mainTitle}`}>{t("mainTitle")}</div>
+            {locale === "pt" ? (
+                <>
+                    <h1 className={`${TextGenericDesigns.pagesMainTitle} ${styles.mainTitle}`}>{t("mainTitle")}</h1>
+                    <p className={styles.pageIntro}>{t("pageIntro")}</p>
+                </>
+            ) : <div className={`${TextGenericDesigns.pagesMainTitle} ${styles.mainTitle}`}>{t("mainTitle")}</div>}
             <BaseConverter />
 
-            <ArticleLayoutDefault title={t("introSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("introSection.title")}>
                 <ParagraphSection
                     paragraphs={[
                         t("introSection.paragraph01"),
@@ -50,7 +55,7 @@ export default async function BaseConverterPage({ params }) {
                 </HighlightSection>
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("definitionSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("definitionSection.title")}>
                 <ParagraphSection paragraphs={[t("definitionSection.content")]}/>
 
                 <HighlightSection>
@@ -58,7 +63,7 @@ export default async function BaseConverterPage({ params }) {
                 </HighlightSection>
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("howItWorksSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("howItWorksSection.title")}>
                 <ParagraphSection paragraphs={[t("howItWorksSection.intro")]}/>
 
                 <HighlightSection>
@@ -72,7 +77,13 @@ export default async function BaseConverterPage({ params }) {
                 <ParagraphSection paragraphs={[t("howItWorksSection.conclusion")]}/>
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("formularySection.title")}>
+            {locale === "pt" && (
+                <ArticleLayoutDefault heading="h2" title={t("inputGuide.title")}>
+                    <ParagraphSection paragraphs={t.raw("inputGuide.paragraphs")} />
+                </ArticleLayoutDefault>
+            )}
+
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("formularySection.title")}>
                 <ParagraphSection paragraphs={[t("formularySection.intro")]}/>
 
                 <FormulaCard equations={[formula]} />
@@ -87,7 +98,7 @@ export default async function BaseConverterPage({ params }) {
                 <ParagraphSection paragraphs={[t("formularySection.explanation")]}/>
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("positionExampleSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("positionExampleSection.title")}>
                 <ParagraphSection
                     paragraphs={[
                         t("positionExampleSection.intro"),
@@ -106,7 +117,7 @@ export default async function BaseConverterPage({ params }) {
                 <ParagraphSection paragraphs={[t("positionExampleSection.conclusion")]} />
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("practicalExamplesSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("practicalExamplesSection.title")}>
                 <ParagraphSection paragraphs={[t("practicalExamplesSection.intro")]}/>
 
                 <HighlightSection>
@@ -116,7 +127,7 @@ export default async function BaseConverterPage({ params }) {
                 <ParagraphSection paragraphs={[t("practicalExamplesSection.conclusion")]}/>
             </ArticleLayoutDefault>
 
-            <ArticleLayoutDefault title={t("whyItMattersSection.title")}>
+            <ArticleLayoutDefault heading={locale === "pt" ? "h2" : "h3"} title={t("whyItMattersSection.title")}>
                 <ParagraphSection paragraphs={[t("whyItMattersSection.intro")]}/>
 
                 <HighlightSection>

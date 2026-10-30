@@ -1252,21 +1252,36 @@
     
     "matrixMultiplication": {
         "seoTitle": "Calculadora de Multiplicação de Matrizes",
-        "seoDescription": "Multiplique matrizes de diferentes dimensões com suporte a frações e exemplos detalhados. Entenda a multiplicação de matrizes passo a passo.",
+        "seoDescription": "Multiplique matrizes quadradas ou retangulares com inteiros, decimais e frações. Veja o produto AB e confira a regra linha por coluna em um exemplo resolvido.",
 
-        "mainTitle": "Multiplicador de Matrizes",
+        "mainTitle": "Calculadora de Multiplicação de Matrizes",
+        "pageIntro": "Informe as dimensões e os valores de A e B para calcular AB automaticamente. Abaixo da calculadora, confira a regra linha por coluna e um exemplo resolvido.",
+        "workedExample": {
+            "title": "Exemplo resolvido: multiplicação de matrizes 2 × 2",
+            "intro": "Considere A = [[1, 2], [3, 4]] e B = [[5, 6], [7, 8]]. As duas matrizes são 2 × 2, então o produto AB também terá duas linhas e duas colunas.",
+            "steps": [
+                "Primeira linha de A com primeira coluna de B: 1 × 5 + 2 × 7 = 19.",
+                "Primeira linha de A com segunda coluna de B: 1 × 6 + 2 × 8 = 22.",
+                "Segunda linha de A com primeira coluna de B: 3 × 5 + 4 × 7 = 43.",
+                "Segunda linha de A com segunda coluna de B: 3 × 6 + 4 × 8 = 50."
+            ],
+            "result": "O resultado é AB = [[19, 22], [43, 50]]. Cada entrada vem da soma de dois produtos, e não da multiplicação de apenas dois elementos na mesma posição.",
+            "order": "Invertendo a ordem, BA = [[23, 34], [31, 46]], diferente de AB. Em matrizes retangulares, pode até acontecer de AB existir e BA não existir: A de tamanho 2 × 3 e B de tamanho 3 × 4 produzem AB de tamanho 2 × 4, mas BA exigiria 4 = 2."
+        },
+        "elementwise": "No produto matricial AB, cada elemento combina uma linha inteira de A e uma coluna de B. A multiplicação elemento a elemento, também chamada produto de Hadamard, multiplica entradas de mesma posição e exige matrizes de mesmo tamanho. São operações diferentes; esta calculadora calcula AB.",
+        "relatedSquare": "Para estudar matrizes quadradas, veja também a <linkDeterminant>calculadora de determinante</linkDeterminant> e a <linkInverse>calculadora de matriz inversa</linkInverse>.",
 
         "usageTutorial": {
-            "title": "Como utilizar o Multiplicador de Matrizes",
-            "intro": "Para utilizar o Multiplicador de Matrizes, siga os passos abaixo:",
+            "title": "Como usar a calculadora de multiplicação de matrizes",
+            "intro": "Defina as dimensões de A e B e preencha as células. O produto é atualizado enquanto você edita, sem precisar clicar em Calcular:",
             "steps": [
                 "Insira o tamanho da primeira matriz (Matriz A) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
-                "Insira os valores desejados na Matriz A nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>",
+                "Preencha A com <strong>inteiros, negativos, decimais ou frações</strong>, como -2, 1,5 e 3/4. Para frações, use denominador diferente de zero.",
                 "Insira o tamanho da segunda matriz (Matriz B) nos campos <strong>Linhas</strong> e <strong>Colunas</strong>.",
-                "Insira os valores desejados na Matriz B nos campos correspondentes, pode ser números <strong>inteiros ou decimais. (Pode ser fracionados, como 3/4)</strong>"
+                "Preencha B e leia o <strong>Resultado da Multiplicação</strong> abaixo das duas matrizes. Para substituir uma entrada, selecione a célula e digite o novo valor."
             ],
-            "observation": "Lembre-se de que o número de colunas da Matriz A deve ser igual ao número de linhas da Matriz B para que a multiplicação seja possível.",
-            "conclusion": "O multiplicador fornecerá o resultado da multiplicação das matrizes, permitindo visualizar claramente o produto das duas matrizes.",
+            "observation": "As colunas de A precisam corresponder às linhas de B porque cada par linha-coluna deve ter a mesma quantidade de termos para multiplicar e somar. Se A tem m × n elementos e B tem n × p, AB tem m linhas e p colunas. As dimensões aceitas vão de 1 a 10: confirme com Enter ou saindo do campo. As colunas de A e as linhas de B ficam sincronizadas automaticamente.",
+            "conclusion": "A calculadora mostra o produto final, não uma lista de passos para cada entrada. O exemplo resolvido abaixo explica esse procedimento. Valores podem aparecer como frações; isso não significa precisão ilimitada, pois o cálculo usa números de ponto flutuante.",
             "relatedOperation": "Precisa somar ou subtrair matrizes da mesma dimensão? Use a <linkBasicOperations>calculadora de operações básicas com matrizes</linkBasicOperations>."
         },
 
@@ -1289,7 +1304,7 @@
                 "list": [
                     "<strong>Associativa:</strong> (AB)C = A(BC) para quaisquer matrizes A, B e C, desde que as dimensões sejam compatíveis para a multiplicação.",
                     "<strong>Distributiva:</strong> A(B + C) = AB + AC e (A + B)C = AC + BC para quaisquer matrizes A, B e C, desde que as dimensões sejam compatíveis para a multiplicação.",
-                    "<strong>Não comutativa:</strong> AB ≠ BA para quaisquer matrizes A e B. Isso significa que a ordem das matrizes na multiplicação é importante e pode afetar o resultado.",
+                    "<strong>Em geral, não comutativa:</strong> AB e BA podem ser diferentes, e a existência de AB não garante a de BA. Há casos em que os produtos coincidem, como na multiplicação de matrizes quadradas pela identidade.",
                     "<strong>Propriedade do elemento neutro da multiplicação:</strong> Existe um elemento neutro na multiplicação de matrizes, que é a matriz identidade. Multiplicar qualquer matriz pela matriz identidade não altera a matriz original. Ou seja, para qualquer matriz A, temos AI = IA = A, onde I é a matriz identidade de dimensão compatível com A.",
                     "<strong>Propriedade do elemento nulo da multiplicação:</strong> Existe um elemento nulo na multiplicação de matrizes, que é a matriz nula. Multiplicar qualquer matriz pela matriz nula resulta na matriz nula. Ou seja, para qualquer matriz A, temos A0 = 0A = 0, onde 0 é a matriz nula de dimensão compatível com A.",
                     "<strong>Propriedade das dimensões:</strong> A multiplicação de matrizes respeita as dimensões das matrizes envolvidas. Ou seja, se A é uma matriz m × n e B é uma matriz n × p, então o produto AB será uma matriz m × p."
@@ -1805,15 +1820,25 @@
     },
 
     "baseConverter": { 
-        "seoTitle": "Calculadora de Conversão de Bases",
-        "seoDescription": "Converta números entre diferentes bases numéricas com suporte a bases personalizadas. Exporte resultados em CSV.",
+        "seoTitle": "Conversor de Bases Numéricas: Binário, Decimal e Hexadecimal",
+        "seoDescription": "Converta números inteiros entre binário, decimal, octal, hexadecimal e bases de 2 a 36. Compare os resultados na tabela e exporte em CSV.",
 
-        "mainTitle": "Calculadora de Conversão de Bases",
+        "mainTitle": "Conversor de Bases Numéricas",
+        "pageIntro": "Escolha a base de origem, digite um número inteiro e compare sua representação em binário, decimal, octal e hexadecimal na tabela. Você também pode adicionar bases de 2 a 36 e exportar os resultados em CSV.",
+        "inputGuide": {
+            "title": "Dígitos permitidos, resultados e limites",
+            "paragraphs": [
+                "Em binário (base 2), use apenas 0 e 1. Em octal (base 8), use de 0 a 7; em decimal (base 10), de 0 a 9. Em hexadecimal (base 16), use também A a F, em maiúsculas ou minúsculas: A vale 10 e F vale 15. Não inclua prefixos como 0b ou 0x, espaços entre dígitos nem separadores de milhares.",
+                "O campo impede dígitos que não pertencem à base selecionada. Por exemplo, 2 não é um dígito binário e 8 não é um dígito octal. Se uma entrada não aparecer, confira a base de origem antes de tentar novamente.",
+                "Cada linha da tabela identifica a base de destino. O resultado representa o mesmo valor da entrada, escrito com outros dígitos; letras no resultado hexadecimal podem aparecer em minúsculas. Para outro destino, adicione uma base inteira de 2 a 36. Para recuperar uma linha removida, adicione novamente sua base.",
+                "Use esta ferramenta para números inteiros, sem parte fracionária: a conversão atual descarta o que vem após um ponto, mesmo que o campo aceite a entrada. A calculadora usa Number do JavaScript; valores cujo equivalente decimal tenha módulo maior que 9.007.199.254.740.991 podem perder precisão. A exportação CSV preserva o resultado exibido, não corrige essa limitação."
+            ]
+        },
 
         "introSection": {
             "title": "Converta bases sem complicação",
             "paragraph01": "A conversão de bases é uma ideia central da computação e da matemática discreta. Ela mostra que um mesmo valor pode assumir representações diferentes, dependendo do sistema numérico utilizado. Em vez de pensar apenas em decimal, passamos a entender como o número existe em binário, octal, hexadecimal e outras bases.",
-            "paragraph02": "Nesta calculadora, você digita um número, escolhe a base de origem e vê a conversão acontecer na hora. Além disso, é possível adicionar bases personalizadas, ocultar linhas que não interessam naquele momento e exportar tudo em CSV para reutilizar os dados em estudo, aula ou documentação.",
+            "paragraph02": "Escolha a base de origem antes de digitar. As bases de destino aparecem juntas na tabela: não é preciso selecionar apenas uma. Ao trocar entre as bases de origem padrão com um número preenchido, a ferramenta também reescreve esse número na nova base, preservando seu valor dentro dos limites de precisão descritos abaixo.",
             "highlights": [
                 "Suporte às bases binária, octal, decimal e hexadecimal, com leitura direta dos resultados.",
                 "Aceita bases personalizadas de 2 até 36, cobrindo praticamente qualquer sistema posicional comum.",
@@ -1828,13 +1853,13 @@
         },
 
         "howItWorksSection": {
-            "title": "Como a conversão funciona",
+            "title": "Como usar o conversor de bases",
             "intro": "O processo é direto: primeiro você informa a base em que o número foi escrito e depois a calculadora interpreta cada dígito conforme essa base. A partir daí, o sistema converte o valor para todas as bases exibidas na tabela, sem que você precise fazer as contas manualmente.",
             "steps": [
-                "Selecione a base de origem ou use a opção de base personalizada caso o número não esteja em uma base padrão.",
-                "Digite o número que deseja converter, respeitando os dígitos permitidos por essa base.",
-                "Veja o resultado nas bases padrão e nas bases extras que você adicionou à tabela.",
-                "Exporte a tabela quando quiser reutilizar os valores em outro lugar ou montar um material de estudo."
+                "No seletor junto ao campo Número, escolha Binário, Decimal, Octal ou Hexadecimal. Em Base Personalizada, informe uma base inteira de 2 a 36; essa mudança limpa a entrada.",
+                "Digite o número inteiro usando apenas dígitos válidos para a origem escolhida. Os resultados são atualizados automaticamente.",
+                "Leia a linha da base de destino na tabela Resultados. Para outro destino, preencha Adicionar base à tabela e confirme em ADICIONAR ou com Enter.",
+                "Use REMOVER para ocultar uma linha e EXPORTAR CSV para salvar a tabela atual. Para converter outro número, apague o conteúdo do campo Número e digite a nova entrada."
             ],
             "conclusion": "Esse fluxo deixa a conversão mais visual, reduz a chance de erro e ajuda a entender como o mesmo valor se comporta em sistemas diferentes."
         },
@@ -1865,10 +1890,10 @@
         },
 
         "practicalExamplesSection": {
-            "title": "Exemplo prático",
-            "intro": "Se você digitar 1010 na base 2, a calculadora lê o valor como um número binário e mostra a equivalência nas outras bases. Isso é útil para perceber que o número não muda, apenas muda a forma de escrevê-lo.",
-            "example": "Por exemplo, 1010₂ = 10₁₀ = A₁₆. Em outras palavras, a calculadora mostra a mesma quantidade usando representações diferentes.",
-            "conclusion": "Esse tipo de comparação é útil para estudar computação, programação de baixo nível, eletrônica digital e representação interna dos dados em memória."
+            "title": "Exemplos de conversão entre bases",
+            "intro": "Em cada exemplo, selecione a origem indicada, digite a entrada e leia a linha do destino. O nome da base faz parte da interpretação do número:",
+            "example": "Decimal 10 → binário 1010; binário 1010 → decimal 10; hexadecimal FF → decimal 255; decimal 64 → octal 100.",
+            "conclusion": "Por que 10 decimal vira 1010 binário? Porque 10 = 8 + 2 = 1 × 2³ + 0 × 2² + 1 × 2¹ + 0 × 2⁰. Da mesma forma, FF hexadecimal vale 15 × 16 + 15 = 255 decimal, e 100 octal vale 1 × 8² = 64 decimal."
         },
 
         "whyItMattersSection": {

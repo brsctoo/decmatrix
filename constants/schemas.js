@@ -38,7 +38,7 @@ const schemaDefinitions = {
                     "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
-                    "description": "Ferramenta online para converter números entre bases diferentes, com suporte a bases personalizadas e exportação CSV.",
+                    "description": "Conversor de números inteiros entre binário, decimal, octal, hexadecimal e bases de 2 a 36, com tabela de resultados e exportação CSV.",
                     "url": "https://decmatrix.com/pt/base-converter"
                 },
                 {
@@ -47,7 +47,7 @@ const schemaDefinitions = {
                     "description": "Aprenda a converter números entre diferentes bases numéricas.",
                     "step": [
                         { "@type": "HowToStep", "name": "Escolha a base de origem", "text": "Selecione a base em que o número foi escrito ou informe uma base personalizada." },
-                        { "@type": "HowToStep", "name": "Digite o número", "text": "Informe o número que deseja converter." },
+                        { "@type": "HowToStep", "name": "Digite o número", "text": "Informe um número inteiro usando apenas dígitos permitidos na base de origem." },
                         { "@type": "HowToStep", "name": "Visualize e exporte", "text": "Veja os resultados nas outras bases, adicione bases extras e exporte a tabela em CSV." }
                     ],
                     "totalTime": "PT1M"
@@ -426,7 +426,7 @@ const schemaDefinitions = {
                     "name": "Decmatrix",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web",
-                    "description": "Ferramenta para multiplicação de matrizes com suporte a frações e explicação passo a passo.",
+                    "description": "Calculadora de multiplicação de matrizes quadradas ou retangulares com inteiros, decimais e frações. Mostra o produto AB; o artigo explica a regra linha por coluna com um exemplo resolvido.",
                     "url": "https://decmatrix.com/pt/matrix-multiplication"
                 },
                 {
